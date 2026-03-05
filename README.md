@@ -9,7 +9,7 @@
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
 | `amazon-analyse` | 单个Listing | `/amazon-analyse {ASIN} {SITE}` | 竞品Listing全维度穿透分析 |
-| `category-selection` | 整个品类 | `/category-select "{品类}" {SITE}` | 品类自动化选品分析 |
+| `category-selectionion` | 整个品类 | `/category-selection "{品类}" {SITE}` | 品类自动化选品分析 |
 
 ### 核心功能
 
@@ -19,7 +19,7 @@
 - **评论情感分析**: 优势聚类、痛点识别、改进建议
 - **跨平台分析**: TikTok带货视频、达人分析、1688采购成本
 
-#### 品类级别分析 (category-selection)
+#### 品类级别分析 (category-selectionion)
 - **市场大盘分析**: Top100产品数据 + 统计指标
 - **五维评分模型**: 市场规模、增长潜力、竞争烈度、进入壁垒、利润空间
 - **可视化报告**: Markdown + Excel + HTML 三种格式
@@ -68,13 +68,13 @@
 
 ```bash
 # 分析美国站沙发品类
-/category-select "Sofas & Couches" US
+/category-selection "Sofas & Couches" US
 
 # 分析美国站无线耳机品类
-/category-select "Wireless Earbuds" US
+/category-selection "Wireless Earbuds" US
 
 # 指定Top20产品分析
-/category-select "Kids' Drawing Kits" US --limit 20
+/category-selection "Kids' Drawing Kits" US --limit 20
 ```
 
 **报告保存**: `category-reports/{品类名称}_{站点}_{日期}/`
@@ -174,7 +174,7 @@ amazon-mcp/
 │       ├── amazon-analyse/      # 竞品Listing分析技能
 │       │   ├── SKILL.md
 │       │   └── references/
-│       ├── category-selection/  # 品类选品分析技能
+│       ├── category-selectionion/  # 品类选品分析技能
 │       │   ├── SKILL.md
 │       │   ├── scripts/         # 数据处理脚本
 │       │   │   ├── data_utils.py
@@ -249,7 +249,7 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 - **修复**: Excel 报告生成兼容性问题
 
 ### v2.2 (2026-03-03)
-- **新增**: category-selection 品类选品分析技能
+- **新增**: category-selectionion 品类选品分析技能
 - **新增**: 五维评分模型
 - **新增**: Excel + HTML 双报告格式
 

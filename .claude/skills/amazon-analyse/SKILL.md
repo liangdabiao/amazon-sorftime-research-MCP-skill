@@ -305,219 +305,34 @@ Write $FILENAME
 - [建议]
 ```
 
-## Sorftime MCP 工具参考 (curl 调用格式)
-
-**注意**：Sorftime MCP 使用 SSE 协议，所有工具调用格式如下：
-
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":N,"method":"tools/call","params":{"name":"TOOL_NAME","arguments":{"amzSite":"US","asin":"ASIN"}}}'
-```
-
-### 1. 产品详情 (product_detail)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"product_detail","arguments":{"amzSite":"US","asin":"B07PQFT83F"}}}'
-```
-
-### 2. 产品搜索 (product_search) - 用于验证ASIN
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"product_search","arguments":{"amzSite":"US","keyword":"PRODUCT_NAME","page":1}}}'
-```
-
-### 3. 用户评论 (product_reviews)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"product_reviews","arguments":{"amzSite":"US","asin":"ASIN","reviewType":"Both"}}}'
-```
-- reviewType: "Positive" (4-5星), "Negative" (1-3星), "Both" (全部)
-
-### 4. 流量关键词 (product_traffic_terms)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"product_traffic_terms","arguments":{"amzSite":"US","asin":"ASIN"}}}'
-```
-
-### 5. 竞品关键词布局 (competitor_product_keywords)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"competitor_product_keywords","arguments":{"amzSite":"US","asin":"ASIN"}}}'
-```
-
-### 6. 产品趋势 (product_trend)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":6,"method":"tools/call","params":{"name":"product_trend","arguments":{"amzSite":"US","asin":"ASIN","productTrendType":"SalesVolume"}}}'
-```
-- productTrendType: "SalesVolume" (销量), "SalesAmount" (销售额), "Price" (价格), "Rank" (排名)
-
-### 7. 关键词详情 (keyword_detail)
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":7,"method":"tools/call","params":{"name":"keyword_detail","arguments":{"amzSite":"US","keyword":"KEYWORD"}}}'
-```
-
-## 并发请求最佳实践
-
-为了提高效率，可以同时发起多个请求：
-
-```bash
-# 并发获取所有数据（使用不同的 id）
-curl ... '{"id":1,...}' &
-curl ... '{"id":2,...}' &
-curl ... '{"id":3,...}' &
-curl ... '{"id":4,...}' &
-curl ... '{"id":5,...}' &
-curl ... '{"id":6,...}' &
-wait
-```
-
-或在同一行使用 `&&` 连接（顺序执行）：
-```bash
-(curl ... '{"id":1,...}' && curl ... '{"id":2,...}' && ...)
-```
-
-## 支持的亚马逊站点
-US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
-
-## 故障排查
-
-### 问题1：ASIN 未找到
-
-**现象**：返回 "未查询到对应产品，请检查传入产品ASIN"
-
-**解决方案**：
-1. 使用 product_search 工具验证：
-```bash
-curl -s -X POST "https://mcp.sorftime.com?key=YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"product_search","arguments":{"amzSite":"US","keyword":"ASIN_OR_KEYWORD","page":1}}}'
-```
-
-2. 检查 ASIN 格式是否正确（10位字母数字）
-3. 确认产品是否在该站点上架
-4. 尝试其他站点
-
-### 问题2：数据保存到临时文件
-
-**现象**：返回 "Output too large... Full output saved to: ..."
-
-**解决方案**：
-```bash
-# 使用 Read 工具读取临时文件
-Read <file_path>
-```
-
-### 问题3：Unicode 转义字符
-
-**现象**：中文显示为 `\u4EA7\u54C1ASIN\u7801`
-
-**解决方案**：
-- 大多数现代工具会自动解码
-- 如果需要手动解码，使用 Python：
-```python
-import json
-print(json.loads('"\\u4EA7\\u54C1ASIN\\u7801"'))
-```
-
-### 问题4：MCP 工具不响应
-
-**现象**：curl 请求超时或无响应
-
-**解决方案**：
-1. 检查网络连接
-2. 验证 API Key 是否有效
-3. 检查 Sorftime 服务状态：`curl -I https://mcp.sorftime.com`
-4. 增加超时时间：`curl --max-time 30`
-
-### 问题5：部分数据缺失
-
-**现象**：评论、趋势数据返回 "没有相关数据"
-
-**解决方案**：
-- 新产品可能没有历史趋势数据
-- 部分产品可能没有评论数据
-- 继续使用可用数据进行分析，标注缺失部分
-
-## 注意事项
-1. **ASIN格式**：确保ASIN格式正确，通常为10位字母数字组合
-2. **站点选择**：默认使用US站点，如需分析其他站点请明确指定
-3. **评论数据**：最多返回100条评论
-4. **趋势数据**：历史趋势数据可能有一定延迟
-5. **数据验证**：提取的数据需验证完整性，如有缺失需标记说明
-6. **建议部分需结合用户自身产品优势**，具有可操作性
-7. **保持专业、客观的分析视角**
-8. **预检查ASIN**：在分析前先验证ASIN是否存在
-9. **并发请求**：可以同时发起多个请求提高效率
-10. **API Key安全**：不要在代码中硬编码API Key
-
 ---
 
-## 报告管理
+## 参考文档
 
-### 目录结构
+- [API 工具参考](references/api-tools-reference.md) - 完整的 curl 调用格式和故障排查
+- [报告管理](references/report-management.md) - 报告生命周期管理和归档策略
+- [Sorftime MCP API](references/sorftime-mcp-api.md) - 完整 API 接口文档
 
-```
-项目目录/
-├── reports/
-│   ├── analysis_B07PQFT83F_US_20260302.md
-│   ├── analysis_B08N5WRWNW_US_20260302.md
-│   └── archive/
-│       ├── 2025/
-│       │   ├── analysis_xxx_US_20251215.md
-│       │   └── ...
-│       └── 2024/
-│           └── ...
-└── .claude/
-    └── skills/
-        └── amazon-analyse/
-```
+### 快速工具参考
 
-### 报告生命周期
+| 工具 | 用途 | 调用消耗 |
+|------|------|----------|
+| `product_detail` | 产品详情 | 1 |
+| `product_reviews` | 用户评论(最多100条) | 1 |
+| `product_traffic_terms` | 流量关键词反查 | 1 |
+| `competitor_product_keywords` | 竞品关键词布局 | 1 |
+| `product_trend` | 历史趋势 | 1 |
+| `keyword_detail` | 关键词详情 | 1 |
 
-| 阶段 | 时间范围 | 处理方式 |
-|------|----------|----------|
-| **活跃期** | 最近30天 | 保持在 `reports/` 根目录 |
-| **参考期** | 1-6个月 | 移至 `reports/archive/YYYY/` |
-| **归档期** | 6个月以上 | 可压缩归档或删除 |
+### 支持的站点
+US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 
-### 报告对比分析
-
-**纵向对比**：同一ASIN不同时期的报告
-```bash
-# 对比同一产品在不同时间的数据变化
-diff reports/analysis_xxx_US_20260101.md \
-     reports/analysis_xxx_US_20260301.md
-```
-
-**横向对比**：不同ASIN在同一时期的报告
-```bash
-# 对比竞品之间的数据差异
-ls -la reports/analysis_*_US_20260302.md
-```
-
-### 报告应用场景
-
-1. **竞品追踪**：定期分析同一竞品，监控其策略变化
-2. **市场研究**：积累多个产品报告，发现行业趋势
-3. **团队分享**：将报告发送给运营、产品团队
-4. **决策支持**：基于历史数据制定定价、选品策略
-
-### 报告导出格式
-
-报告默认保存为 Markdown 格式，可转换为：
-- PDF（用于打印/分享）
-- HTML（用于网页展示）
-- Excel（用于数据提取）
+### 注意事项
+1. **ASIN格式**：确保ASIN格式正确，通常为10位字母数字组合
+2. **站点选择**：默认使用US站点
+3. **评论数据**：最多返回100条评论
+4. **并发请求**：可以同时发起多个请求提高效率
+5. **API Key安全**：不要在代码中硬编码API Key
 
 ---
 

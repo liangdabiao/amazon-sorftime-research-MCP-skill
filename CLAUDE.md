@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Amazon competitive intelligence and category selection analysis workspace using Sorftime MCP (Model Context Protocol) data service. Two core skills:
-- **amazon-analyse**: Single listing competitor analysis
-- **category-selection**: Category-level product selection analysis with five-dimensional scoring model
+Amazon competitive intelligence and category selection analysis workspace using Sorftime MCP (Model Context Protocol) data service. Three core skills:
+- **amazon-analyse**: Single listing competitor analysis (`/amazon-analyse {ASIN} {SITE}`)
+- **category-selection**: Category-level product selection analysis with five-dimensional scoring model (`/category-select "{Category}" {SITE}`)
+- **skill-creator**: Meta-skill for creating new Claude skills
 
 ## Sorftime MCP Integration
 
@@ -38,6 +39,20 @@ Skills located in `.claude/skills/skill-name/`:
 - `scripts/` - Executable Python utilities
 - `references/` - API docs, patterns loaded on-demand
 - `assets/` - Templates for output files (HTML, Excel templates)
+
+### category-selection Skill Updates (v6.0 - 2026-03-04)
+
+**Recent Improvements**:
+- ✅ **自动编码修复**: 集成 Mojibake (UTF-8/Latin-1 双重编码) 自动检测和修复
+- ✅ **错误容错机制**: 趋势 API 失败时不影响整体流程
+- ✅ **Markdown 报告**: 新增自动生成 Markdown 分析报告
+- ✅ **执行状态跟踪**: 显示每步执行状态和最终总结
+- ✅ **关键词解析增强**: 3 种解析策略支持更多数据格式
+- ✅ **独立编码修复工具**: `fix_encoding.py` 可修复现有 JSON 文件
+
+**故障排查**:
+- 如遇乱码: 运行 `python .claude/skills/category-selection/scripts/fix_encoding.py <json_file>`
+- 如遇解析失败: 查看 `.claude/skills/category-selection/SKILL.md` 中的故障排查章节
 
 ### amazon-analyse (`/amazon-analyse {ASIN} {SITE}`)
 **Trigger**: User provides ASIN for competitor listing analysis
@@ -131,6 +146,8 @@ Sorftime returns `\u4ea7\u54c1` format. Solution:
 ```python
 import codecs
 decoded_text = codecs.decode(encoded_text, 'unicode-escape')
+# Or for mojibake (UTF-8 decoded as Latin-1):
+fixed_text = bad_text.encode('latin-1').decode('utf-8')
 ```
 
 ### Large responses saved to temp files
@@ -154,6 +171,35 @@ Always validate ASIN first with `product_detail`. If "未查询到对应产品":
 **Amazon**: US, GB, DE, FR, IN, CA, JP, ES, IT, MX, AE, AU, BR, SA
 **TikTok**: US, GB, MY, PH, VN, ID
 **1688**: China wholesale platform
+
+## Python Dependencies
+
+Scripts in this project require:
+- `xlsxwriter` - Excel report generation
+- Standard library: `json`, `codecs`, `re`, `datetime`, `sys`
+
+Install with: `pip install xlsxwriter`
+
+## Creating New Skills
+
+The `skill-creator` skill provides tooling for creating new skills:
+
+```bash
+# Initialize a new skill
+.claude/skills/skill-creator/scripts/init_skill.py <skill-name> --path .claude/skills
+
+# Package a skill into .skill file
+.claude/skills/skill-creator/scripts/package_skill.py <skill-folder>
+```
+
+Skill structure:
+```
+skill-name/
+├── SKILL.md         # YAML frontmatter + instructions
+├── scripts/         # Executable Python utilities
+├── references/      # API docs, patterns loaded on-demand
+└── assets/          # Templates for output files
+```
 
 ## Report Naming Conventions
 

@@ -26,7 +26,7 @@ class CategoryAnalyzer:
         self.request_id = 0
         self.category_name = None
         self.site = "US"
-        self.limit = 20
+        self.limit = 100
 
     def _load_api_key(self) -> str:
         """从配置文件加载 API Key"""
@@ -401,7 +401,7 @@ class CategoryAnalyzer:
         name = name.replace(' ', '_')
         return name[:50]
 
-    def analyze(self, category_name: str, site: str = "US", limit: int = 20) -> bool:
+    def analyze(self, category_name: str, site: str = "US", limit: int = 100) -> bool:
         """
         执行完整的品类分析
 
@@ -469,12 +469,12 @@ def main():
         print("\n参数:")
         print("  品类名称  - 必填，要分析的品类名称")
         print("  站点       - 可选，默认 US")
-        print("  分析数量   - 可选，默认 20")
+        print("  分析数量   - 可选，默认 100")
         sys.exit(1)
 
     category_name = sys.argv[1]
     site = sys.argv[2] if len(sys.argv) > 2 else "US"
-    limit = int(sys.argv[3]) if len(sys.argv) > 3 else 20
+    limit = int(sys.argv[3]) if len(sys.argv) > 3 else 100
 
     # 执行分析
     analyzer = CategoryAnalyzer()

@@ -88,7 +88,7 @@ class CategoryReportParser:
                     pass
         return decoded
 
-    def extract_products(self, limit: int = 20) -> List[Dict]:
+    def extract_products(self, limit: int = 100) -> List[Dict]:
         """提取 Top N 产品"""
         if not self.content:
             return []
@@ -226,7 +226,7 @@ class CategoryReportParser:
         self.scores = scores
         return scores
 
-    def parse(self, limit: int = 20) -> Dict:
+    def parse(self, limit: int = 100) -> Dict:
         """完整解析"""
         if not self.load():
             return {'error': '无法加载文件'}
@@ -280,14 +280,14 @@ def main():
     if len(sys.argv) < 2:
         print("用法: python parse_category_report.py <响应文件路径> [产品数量]")
         print("\n示例:")
-        print("  python parse_category_report.py temp_response.txt 20")
+        print("  python parse_category_report.py temp_response.txt 100")
         print("\n选项:")
         print("  --json    输出 JSON 格式")
         print("  --save    保存为 JSON 文件")
         sys.exit(1)
 
     file_path = sys.argv[1]
-    limit = 20
+    limit = 100
 
     # 解析参数
     for arg in sys.argv[2:]:

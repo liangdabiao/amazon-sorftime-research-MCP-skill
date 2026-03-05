@@ -44,7 +44,7 @@ def fix_chinese_keys(obj):
         return obj
 
 
-def parse_sorftime_sse(file_path: str, limit: int = 20):
+def parse_sorftime_sse(file_path: str, limit: int = 100):
     """
     完整解析 Sorftime SSE 响应文件
 
@@ -366,12 +366,12 @@ def main():
     if len(sys.argv) < 2:
         print("用法: python parse_sorftime_sse.py <响应文件路径> [产品数量] [--生成报告]")
         print("\n示例:")
-        print("  python parse_sorftime_sse.py temp_response.txt 20")
-        print("  python parse_sorftime_sse.py temp_response.txt 20 --生成报告")
+        print("  python parse_sorftime_sse.py temp_response.txt 100")
+        print("  python parse_sorftime_sse.py temp_response.txt 100 --生成报告")
         sys.exit(1)
 
     file_path = sys.argv[1]
-    limit = 20
+    limit = 100
     generate_reports_flag = False
 
     for arg in sys.argv[2:]:

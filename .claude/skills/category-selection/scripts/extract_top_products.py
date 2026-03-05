@@ -11,7 +11,7 @@ import json
 from typing import List, Dict, Optional
 
 
-def extract_top_products(file_path: str, limit: int = 20) -> List[Dict]:
+def extract_top_products(file_path: str, limit: int = 100) -> List[Dict]:
     """
     从 Sorftime 响应文件中提取 Top N 产品
 
@@ -148,14 +148,14 @@ def main():
     if len(sys.argv) < 2:
         print("用法: python extract_top_products.py <响应文件路径> [数量]")
         print("\n示例:")
-        print("  python extract_top_products.py temp_response.txt 20")
+        print("  python extract_top_products.py temp_response.txt 100")
         print("\n选项:")
         print("  --json    输出 JSON 格式")
         print("  --analyze 分析产品数据")
         sys.exit(1)
 
     file_path = sys.argv[1]
-    limit = 20
+    limit = 100
 
     # 解析参数
     for arg in sys.argv[2:]:

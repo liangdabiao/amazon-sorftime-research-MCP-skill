@@ -289,7 +289,14 @@ class DataProcessor:
     @staticmethod
     def calculate_five_dimension_score(data: Dict) -> Dict[str, float]:
         """
-        计算五维评分
+        计算五维评分 (标准版本 - 与需求文档一致)
+
+        评分标准:
+        - 市场规模 (20分): >10M=20, >5M=17, >1M=14, 其他=10
+        - 增长潜力 (25分): 低评论占比>40%=22, >20%=18, 其他=14
+        - 竞争烈度 (20分): Top3<30%=18, <50%=14, 其他=8
+        - 进入壁垒 (20分): Amazon占比+新品机会组合评分
+        - 利润空间 (15分): 均价>$300=12, >$150=10, >$50=7, 其他=4
 
         Args:
             data: 包含所有市场数据的字典
@@ -299,84 +306,68 @@ class DataProcessor:
         """
         scores = {}
 
-        # 1. 市场规模 (20分)
-        total_sales = data.get("total_monthly_sales", 0)
-        if total_sales > 10_000_000:
-            scores["market_size"] = 18
-        elif total_sales > 5_000_000:
-            scores["market_size"] = 15
-        elif total_sales > 1_000_000:
-            scores["market_size"] = 12
-        elif total_sales > 500_000:
-            scores["market_size"] = 8
+        # 1. 市场规模 (20分) - 标准版本
+        total_revenue = data.get("total_monthly_revenue", 0)
+        if total_revenue > 10_000_000:
+            scores["market_size"] = 20
+        elif total_revenue > 5_000_000:
+            scores["market_size"] = 17
+        elif total_revenue > 1_000_000:
+            scores["market_size"] = 14
         else:
-            scores["market_size"] = 4
+            scores["market_size"] = 10
 
-        # 2. 增长潜力 (25分) - 基于同比增长率
-        growth_rate = data.get("yoy_growth_rate", 0)
-        if growth_rate > 50:
+        # 2. 增长潜力 (25分) - 基于低评论产品占比
+        low_review_share = data.get("low_reviews_sales_volume_share", 0)
+        if low_review_share > 40:
             scores["growth_potential"] = 22
-        elif growth_rate > 30:
+        elif low_review_share > 20:
             scores["growth_potential"] = 18
-        elif growth_rate > 10:
+        else:
             scores["growth_potential"] = 14
-        elif growth_rate > 0:
-            scores["growth_potential"] = 8
-        else:
-            scores["growth_potential"] = 3
 
-        # 3. 竞争烈度 (20分) - HHI 和 CR3 综合评估
-        hhi = data.get("hhi", 0)
-        cr3 = data.get("cr3", 0)
-
-        if hhi < 1000 and cr3 < 30:
+        # 3. 竞争烈度 (20分) - 基于 Top3 品牌占比
+        top3_share = data.get("top3_brands_sales_volume_share", 0)
+        if top3_share < 30:
             scores["competition"] = 18
-        elif hhi < 1800 and cr3 < 50:
-            scores["competition"] = 13
+        elif top3_share < 50:
+            scores["competition"] = 14
         else:
-            scores["competition"] = 6
+            scores["competition"] = 8
 
-        # 4. 进入壁垒 (20分)
-        avg_reviews = data.get("avg_review_count", 0)
-        amazon_own_share = data.get("amazon_own_share", 0)
-        new_product_share = data.get("new_product_share", 0)
+        # 4. 进入壁垒 (20分) - Amazon 占比 + 新品机会
+        amazon_share = data.get("amazonOwned_sales_volume_share", 0)
+        low_review_share = data.get("low_reviews_sales_volume_share", 0)
 
-        entry_score = 20  # 起始分
-
-        # 评论数壁垒 (0-7分扣分)
-        if avg_reviews > 1000:
-            entry_score -= 7
-        elif avg_reviews > 500:
-            entry_score -= 4
-        elif avg_reviews < 500:
-            entry_score -= 0
-
-        # 亚马逊自营挤压 (0-7分扣分)
-        if amazon_own_share > 40:
-            entry_score -= 7
-        elif amazon_own_share > 20:
-            entry_score -= 4
-
-        # 新品空间 (反向扣分)
-        if new_product_share > 15:
-            entry_score -= 0  # 低壁垒
-        elif new_product_share > 5:
-            entry_score -= 3
+        barrier_score = 0
+        # Amazon 占比越低，壁垒越小 (0-10分)
+        if amazon_share < 20:
+            barrier_score += 10
+        elif amazon_share < 40:
+            barrier_score += 6
         else:
-            entry_score -= 7
+            barrier_score += 3
 
-        scores["entry_barrier"] = max(0, entry_score)
+        # 新品机会越大，壁垒越小 (0-10分)
+        if low_review_share > 40:
+            barrier_score += 10
+        elif low_review_share > 20:
+            barrier_score += 6
+        else:
+            barrier_score += 3
 
-        # 5. 利润空间 (15分)
-        margin = data.get("estimated_margin", 0)
-        if margin > 40:
-            scores["profit_margin"] = 13
-        elif margin > 30:
+        scores["entry_barrier"] = barrier_score
+
+        # 5. 利润空间 (15分) - 基于平均价格
+        avg_price = data.get("average_price", 0)
+        if avg_price > 300:
+            scores["profit_margin"] = 12
+        elif avg_price > 150:
             scores["profit_margin"] = 10
-        elif margin > 20:
-            scores["profit_margin"] = 6
+        elif avg_price > 50:
+            scores["profit_margin"] = 7
         else:
-            scores["profit_margin"] = 3
+            scores["profit_margin"] = 4
 
         # 计算总分
         scores["total"] = (
@@ -386,6 +377,16 @@ class DataProcessor:
             scores["entry_barrier"] +
             scores["profit_margin"]
         )
+
+        # 评级
+        if scores["total"] >= 80:
+            scores["rating"] = "优秀"
+        elif scores["total"] >= 70:
+            scores["rating"] = "良好"
+        elif scores["total"] >= 50:
+            scores["rating"] = "一般"
+        else:
+            scores["rating"] = "较差"
 
         return scores
 
