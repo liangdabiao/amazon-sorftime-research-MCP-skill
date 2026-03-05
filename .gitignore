@@ -41,7 +41,6 @@ Thumbs.db
 *.log
 
 # Local reports (generated)
-category-reports/
 *.xlsx
 *.csv
 
