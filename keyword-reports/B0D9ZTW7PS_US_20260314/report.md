@@ -7,7 +7,7 @@
 | **ASIN** | [B0D9ZTW7PS](https://www.amazon.com/dp/B0D9ZTW7PS) |
 | **产品名称** | Needoh |
 | **亚马逊站点** | US |
-| **分析时间** | 2026-03-14 11:58:26 |
+| **分析时间** | 2026-03-14 23:24:31 |
 | **词库规模** | 1,142 个关键词（原始：1,550个） |
 | **总搜索量** | 19,282,354 |
 | **平均 CPC** | $0.52 |
@@ -36,26 +36,26 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `needoh` | 1,830,189 | $0.00 |
-| 2 | `nee doh` | 971,754 | $0.00 |
-| 3 | `needoh nice cube` | 754,077 | $0.00 |
-| 4 | `fidget toys` | 476,667 | $0.00 |
-| 5 | `toys` | 372,722 | $0.00 |
-| 6 | `needohs` | 330,218 | $0.00 |
-| 7 | `needoh dream drop` | 194,818 | $0.00 |
-| 8 | `baby toys` | 181,901 | $0.00 |
-| 9 | `needoh gumdrop` | 172,967 | $0.00 |
-| 10 | `needoh ice cube` | 171,261 | $0.00 |
-| 11 | `squishy toys` | 166,952 | $0.00 |
-| 12 | `squeeze toys` | 153,515 | $0.00 |
-| 13 | `stress balls` | 151,173 | $0.00 |
-| 14 | `needoh ice cream` | 150,779 | $0.00 |
-| 15 | `needoh fuzz ball` | 143,673 | $0.00 |
-| 16 | `needo` | 142,131 | $0.00 |
-| 17 | `needoh cube` | 141,729 | $0.00 |
-| 18 | `sensory toys` | 134,584 | $0.00 |
-| 19 | `needoh jellyfish` | 119,290 | $0.00 |
-| 20 | `ice cream needoh` | 114,921 | $0.00 |
+| 1 | `needoh` | 1,830,189 | $0.61 |
+| 2 | `nee doh` | 971,754 | $0.62 |
+| 3 | `needoh nice cube` | 754,077 | $0.38 |
+| 4 | `fidget toys` | 476,667 | $0.55 |
+| 5 | `toys` | 372,722 | $0.89 |
+| 6 | `needohs` | 330,218 | $0.61 |
+| 7 | `needoh dream drop` | 194,818 | $0.71 |
+| 8 | `baby toys` | 181,901 | $1.34 |
+| 9 | `needoh gumdrop` | 172,967 | $0.41 |
+| 10 | `needoh ice cube` | 171,261 | $0.37 |
+| 11 | `squishy toys` | 166,952 | $0.54 |
+| 12 | `squeeze toys` | 153,515 | $0.55 |
+| 13 | `stress balls` | 151,173 | $0.93 |
+| 14 | `needoh ice cream` | 150,779 | $0.55 |
+| 15 | `needoh fuzz ball` | 143,673 | $0.37 |
+| 16 | `needo` | 142,131 | $0.44 |
+| 17 | `needoh cube` | 141,729 | $0.37 |
+| 18 | `sensory toys` | 134,584 | $0.87 |
+| 19 | `needoh jellyfish` | 119,290 | $0.39 |
+| 20 | `ice cream needoh` | 114,921 | $0.40 |
 
 
 **应用建议**: 这些是产品的核心大词，流量大但竞争激烈。建议用于广泛匹配占领坑位，配合高预算和强Listing实力。
@@ -66,36 +66,36 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `digital calendar` | 168,614 | $0.00 |
-| 2 | `water gun` | 114,109 | $0.00 |
-| 3 | `barbie doll` | 60,064 | $0.00 |
-| 4 | `adopt me` | 57,842 | $0.00 |
-| 5 | `jelly cats` | 55,076 | $0.00 |
-| 6 | `laser tag` | 44,857 | $0.00 |
-| 7 | `party` | 28,392 | $0.00 |
-| 8 | `bulk toys` | 24,782 | $0.00 |
-| 9 | `toys under 5 dollars` | 19,183 | $0.00 |
-| 10 | `toys under 10 dollars` | 13,986 | $0.00 |
-| 11 | `novelty toys & amusements` | 12,277 | $0.00 |
-| 12 | `anxiety toys` | 10,300 | $0.00 |
-| 13 | `slime supplies` | 6,879 | $0.00 |
-| 14 | `juguetes para apretar` | 6,749 | $0.00 |
-| 15 | `boho comforter set` | 6,702 | $0.00 |
+| 1 | `digital calendar` | 168,614 | $3.72 |
+| 2 | `water gun` | 114,109 | $1.06 |
+| 3 | `barbie doll` | 60,064 | $0.80 |
+| 4 | `adopt me` | 57,842 | $5.59 |
+| 5 | `jelly cats` | 55,076 | $0.43 |
+| 6 | `laser tag` | 44,857 | $1.20 |
+| 7 | `party` | 28,392 | $1.60 |
+| 8 | `bulk toys` | 24,782 | $1.00 |
+| 9 | `toys under 5 dollars` | 19,183 | $0.45 |
+| 10 | `toys under 10 dollars` | 13,986 | $0.93 |
+| 11 | `novelty toys & amusements` | 12,277 | $1.07 |
+| 12 | `anxiety toys` | 10,300 | $0.68 |
+| 13 | `slime supplies` | 6,879 | $0.58 |
+| 14 | `juguetes para apretar` | 6,749 | $0.35 |
+| 15 | `boho comforter set` | 6,702 | $0.44 |
 | 16 | `dachshund needoh` | 6,658 | $0.00 |
-| 17 | `cool fidget toys` | 5,098 | $0.00 |
-| 18 | `baby gadgets` | 4,568 | $0.00 |
-| 19 | `kneadough cube` | 4,510 | $0.00 |
-| 20 | `toy sink` | 4,275 | $0.00 |
-| 21 | `clay squishy` | 3,542 | $0.00 |
-| 22 | `figit toys` | 3,066 | $0.00 |
-| 23 | `stretchy fidget toy` | 2,860 | $0.00 |
-| 24 | `pop it ball` | 1,926 | $0.00 |
-| 25 | `silly putty bulk` | 1,190 | $0.00 |
+| 17 | `cool fidget toys` | 5,098 | $0.60 |
+| 18 | `baby gadgets` | 4,568 | $0.90 |
+| 19 | `kneadough cube` | 4,510 | $0.60 |
+| 20 | `toy sink` | 4,275 | $1.01 |
+| 21 | `clay squishy` | 3,542 | $0.45 |
+| 22 | `figit toys` | 3,066 | $0.75 |
+| 23 | `stretchy fidget toy` | 2,860 | $0.88 |
+| 24 | `pop it ball` | 1,926 | $0.51 |
+| 25 | `silly putty bulk` | 1,190 | $0.73 |
 | 26 | `toys under $5` | 1,108 | $0.00 |
-| 27 | `tiny gifts` | 614 | $0.00 |
-| 28 | `nice ice baby needoh` | 515 | $0.00 |
+| 27 | `tiny gifts` | 614 | $1.03 |
+| 28 | `nice ice baby needoh` | 515 | $0.54 |
 | 29 | `fodgets` | 513 | $0.00 |
-| 30 | `slime under 5 dollars` | 474 | $0.00 |
+| 30 | `slime under 5 dollars` | 474 | $0.69 |
 
 
 **应用建议**: 以上 69 个词与产品不相关，请直接添加为否定关键词（词组否定），避免浪费广告费。
@@ -106,19 +106,19 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `schylling needoh` | 52,106 | $0.00 |
-| 2 | `schylling` | 33,545 | $0.00 |
-| 3 | `schylling needoh nice cube` | 18,308 | $0.00 |
-| 4 | `schylling needoh dream drop` | 7,381 | $0.00 |
-| 5 | `schylling needoh nice ice baby` | 1,564 | $0.00 |
-| 6 | `schylling needoh gumdrop` | 1,555 | $0.00 |
+| 1 | `schylling needoh` | 52,106 | $0.60 |
+| 2 | `schylling` | 33,545 | $0.46 |
+| 3 | `schylling needoh nice cube` | 18,308 | $0.49 |
+| 4 | `schylling needoh dream drop` | 7,381 | $0.44 |
+| 5 | `schylling needoh nice ice baby` | 1,564 | $0.60 |
+| 6 | `schylling needoh gumdrop` | 1,555 | $0.52 |
 | 7 | `schylling needoh nice cube -sensory squeeze toy with super solid squish - 2.25 cube` | 1,540 | $0.00 |
 | 8 | `schylling needoh nice ice baby - sensory squeeze toy - super solid squish - 1.25 wide - color may va` | 1,105 | $0.00 |
-| 9 | `schylling needoh gummy bear` | 678 | $0.00 |
+| 9 | `schylling needoh gummy bear` | 678 | $0.61 |
 | 10 | `shylling` | 166 | $0.00 |
 | 11 | `schylling needoh nice cube -sensory squeeze toy with super solid squish - 2.25 cube - pink` | 122 | $0.00 |
 | 12 | `schylling needoh nice berg - giant needoh nice cube - sensory squeeze toy with a super solid squish` | 104 | $0.00 |
-| 13 | `schylling needoh dig pig assorted` | 76 | $0.00 |
+| 13 | `schylling needoh dig pig assorted` | 76 | $0.37 |
 
 
 **应用建议**: 竞品品牌词。如果做竞品狙击，可以单独创建广告组；否则直接添加为否定词。
@@ -129,20 +129,20 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `fuzzy needoh` | 24,454 | $0.00 |
-| 2 | `glitter needoh` | 7,860 | $0.00 |
-| 3 | `fuzzy needoh ball` | 7,246 | $0.00 |
-| 4 | `foam squishy` | 6,804 | $0.00 |
-| 5 | `hard squishy` | 5,478 | $0.00 |
-| 6 | `soft squishy` | 832 | $0.00 |
-| 7 | `sparkly needoh` | 636 | $0.00 |
-| 8 | `soft needoh cube` | 548 | $0.00 |
-| 9 | `soft needoh` | 472 | $0.00 |
-| 10 | `hard needoh` | 344 | $0.00 |
+| 1 | `fuzzy needoh` | 24,454 | $0.60 |
+| 2 | `glitter needoh` | 7,860 | $0.44 |
+| 3 | `fuzzy needoh ball` | 7,246 | $0.59 |
+| 4 | `foam squishy` | 6,804 | $0.50 |
+| 5 | `hard squishy` | 5,478 | $0.44 |
+| 6 | `soft squishy` | 832 | $0.45 |
+| 7 | `sparkly needoh` | 636 | $0.35 |
+| 8 | `soft needoh cube` | 548 | $0.38 |
+| 9 | `soft needoh` | 472 | $0.60 |
+| 10 | `hard needoh` | 344 | $0.54 |
 | 11 | `clear needoh` | 234 | $0.00 |
 | 12 | `crystal needoh` | 224 | $0.00 |
-| 13 | `velvet needoh` | 211 | $0.00 |
-| 14 | `glitter needoh cube` | 195 | $0.00 |
+| 13 | `velvet needoh` | 211 | $0.46 |
+| 14 | `glitter needoh cube` | 195 | $0.54 |
 | 15 | `velvet` | 0 | $0.00 |
 | 16 | `velvet needoh squeeze` | 0 | $0.00 |
 | 17 | `glitter` | 0 | $0.00 |
@@ -159,31 +159,31 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `baby toys` | 181,901 | $0.00 |
-| 2 | `fidget toys adults` | 169,174 | $0.00 |
-| 3 | `sensory toys` | 134,584 | $0.00 |
-| 4 | `stress balls for adults` | 111,903 | $0.00 |
-| 5 | `stress balls for kids` | 60,957 | $0.00 |
-| 6 | `adult fidget toys` | 57,250 | $0.00 |
-| 7 | `stress relief` | 53,277 | $0.00 |
-| 8 | `fidgets for adults` | 51,599 | $0.00 |
-| 9 | `baby toy` | 49,245 | $0.00 |
-| 10 | `sensory` | 28,942 | $0.00 |
-| 11 | `sensory fidget toys` | 20,685 | $0.00 |
-| 12 | `adult fidget` | 17,117 | $0.00 |
-| 13 | `adhd toys` | 16,976 | $0.00 |
-| 14 | `stress relief toy` | 16,698 | $0.00 |
-| 15 | `baby sensory toys` | 16,334 | $0.00 |
-| 16 | `sensory balls` | 13,413 | $0.00 |
-| 17 | `adult fidgets` | 12,232 | $0.00 |
-| 18 | `sensory squishy toys` | 12,035 | $0.00 |
-| 19 | `sensory squishy toys` | 12,035 | $0.00 |
-| 20 | `stress balls needoh` | 11,988 | $0.00 |
-| 21 | `sensory toy` | 10,954 | $0.00 |
-| 22 | `stress toys adults` | 10,472 | $0.00 |
-| 23 | `anxiety toys` | 10,300 | $0.00 |
-| 24 | `stress relief toys adults` | 9,176 | $0.00 |
-| 25 | `sensory fidgets` | 9,034 | $0.00 |
+| 1 | `baby toys` | 181,901 | $1.34 |
+| 2 | `fidget toys adults` | 169,174 | $0.49 |
+| 3 | `sensory toys` | 134,584 | $0.87 |
+| 4 | `stress balls for adults` | 111,903 | $1.12 |
+| 5 | `stress balls for kids` | 60,957 | $0.62 |
+| 6 | `adult fidget toys` | 57,250 | $0.71 |
+| 7 | `stress relief` | 53,277 | $2.27 |
+| 8 | `fidgets for adults` | 51,599 | $0.52 |
+| 9 | `baby toy` | 49,245 | $1.34 |
+| 10 | `sensory` | 28,942 | $1.02 |
+| 11 | `sensory fidget toys` | 20,685 | $0.54 |
+| 12 | `adult fidget` | 17,117 | $0.67 |
+| 13 | `adhd toys` | 16,976 | $0.59 |
+| 14 | `stress relief toy` | 16,698 | $0.50 |
+| 15 | `baby sensory toys` | 16,334 | $0.93 |
+| 16 | `sensory balls` | 13,413 | $0.69 |
+| 17 | `adult fidgets` | 12,232 | $0.67 |
+| 18 | `sensory squishy toys` | 12,035 | $1.00 |
+| 19 | `sensory squishy toys` | 12,035 | $1.00 |
+| 20 | `stress balls needoh` | 11,988 | $0.67 |
+| 21 | `sensory toy` | 10,954 | $0.53 |
+| 22 | `stress toys adults` | 10,472 | $0.47 |
+| 23 | `anxiety toys` | 10,300 | $0.68 |
+| 24 | `stress relief toys adults` | 9,176 | $0.79 |
+| 25 | `sensory fidgets` | 9,034 | $0.99 |
 
 
 **应用建议**: 按场景拆分广告组（如：entryway 组、bathroom 组），提高广告相关性。
@@ -194,31 +194,31 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `mini needoh` | 93,803 | $0.00 |
-| 2 | `needoh pack` | 62,915 | $0.00 |
-| 3 | `pink needoh` | 51,382 | $0.00 |
-| 4 | `needoh easter` | 43,920 | $0.00 |
-| 5 | `giant needoh` | 43,396 | $0.00 |
-| 6 | `big needoh` | 38,751 | $0.00 |
-| 7 | `needoh easter bundle` | 36,825 | $0.00 |
-| 8 | `big squishy` | 32,513 | $0.00 |
-| 9 | `giant squishy` | 32,182 | $0.00 |
-| 10 | `needoh valentines day` | 31,405 | $0.00 |
-| 11 | `needoh swirl` | 30,213 | $0.00 |
-| 12 | `heart needoh` | 28,655 | $0.00 |
-| 13 | `bulk toys` | 24,782 | $0.00 |
-| 14 | `mini toys` | 24,021 | $0.00 |
-| 15 | `valentines needoh` | 23,575 | $0.00 |
-| 16 | `mini ice cube needoh` | 21,643 | $0.00 |
-| 17 | `nee doh easter` | 20,716 | $0.00 |
-| 18 | `nice ice baby nee doh` | 20,362 | $0.00 |
-| 19 | `squishy pack` | 20,117 | $0.00 |
-| 20 | `mini needoh ice cube` | 19,677 | $0.00 |
-| 21 | `mini squishies` | 19,435 | $0.00 |
-| 22 | `needoh golden egg hunt` | 19,309 | $0.00 |
-| 23 | `small needoh` | 19,114 | $0.00 |
-| 24 | `needoh packs` | 19,081 | $0.00 |
-| 25 | `nee doh pack` | 17,891 | $0.00 |
+| 1 | `mini needoh` | 93,803 | $0.35 |
+| 2 | `needoh pack` | 62,915 | $0.60 |
+| 3 | `pink needoh` | 51,382 | $0.35 |
+| 4 | `needoh easter` | 43,920 | $0.37 |
+| 5 | `giant needoh` | 43,396 | $0.59 |
+| 6 | `big needoh` | 38,751 | $0.51 |
+| 7 | `needoh easter bundle` | 36,825 | $0.64 |
+| 8 | `big squishy` | 32,513 | $0.45 |
+| 9 | `giant squishy` | 32,182 | $0.44 |
+| 10 | `needoh valentines day` | 31,405 | $0.41 |
+| 11 | `needoh swirl` | 30,213 | $0.51 |
+| 12 | `heart needoh` | 28,655 | $0.40 |
+| 13 | `bulk toys` | 24,782 | $1.00 |
+| 14 | `mini toys` | 24,021 | $0.74 |
+| 15 | `valentines needoh` | 23,575 | $0.63 |
+| 16 | `mini ice cube needoh` | 21,643 | $0.46 |
+| 17 | `nee doh easter` | 20,716 | $0.92 |
+| 18 | `nice ice baby nee doh` | 20,362 | $0.97 |
+| 19 | `squishy pack` | 20,117 | $0.50 |
+| 20 | `mini needoh ice cube` | 19,677 | $0.41 |
+| 21 | `mini squishies` | 19,435 | $0.59 |
+| 22 | `needoh golden egg hunt` | 19,309 | $0.46 |
+| 23 | `small needoh` | 19,114 | $0.60 |
+| 24 | `needoh packs` | 19,081 | $0.39 |
+| 25 | `nee doh pack` | 17,891 | $0.92 |
 
 
 **应用建议**: 长尾精准词，竞争小转化率高。建议用于精确匹配或词组匹配。
@@ -229,26 +229,26 @@
 
 | 排名 | 关键词 | 搜索量 | CPC |
 |------|--------|--------|-----|
-| 1 | `fidget toys` | 476,667 | $0.00 |
-| 2 | `squishy` | 459,895 | $0.00 |
-| 3 | `fidgets` | 210,985 | $0.00 |
-| 4 | `fidget toys adults` | 169,174 | $0.00 |
-| 5 | `squishy toys` | 166,952 | $0.00 |
-| 6 | `squeeze toys` | 153,515 | $0.00 |
-| 7 | `stress balls` | 151,173 | $0.00 |
-| 8 | `sensory toys` | 134,584 | $0.00 |
-| 9 | `squishies` | 132,500 | $0.00 |
-| 10 | `fidget` | 129,092 | $0.00 |
-| 11 | `squishy fidget toys` | 114,646 | $0.00 |
-| 12 | `squishys` | 100,258 | $0.00 |
-| 13 | `stress ball` | 78,960 | $0.00 |
-| 14 | `stress toys` | 73,113 | $0.00 |
-| 15 | `fidget toy` | 60,480 | $0.00 |
-| 16 | `squishy cube` | 55,407 | $0.00 |
-| 17 | `stress relief` | 53,277 | $0.00 |
-| 18 | `fidgets for adults` | 51,599 | $0.00 |
-| 19 | `squishy ball` | 47,590 | $0.00 |
-| 20 | `squishes` | 46,977 | $0.00 |
+| 1 | `fidget toys` | 476,667 | $0.55 |
+| 2 | `squishy` | 459,895 | $0.51 |
+| 3 | `fidgets` | 210,985 | $0.82 |
+| 4 | `fidget toys adults` | 169,174 | $0.49 |
+| 5 | `squishy toys` | 166,952 | $0.54 |
+| 6 | `squeeze toys` | 153,515 | $0.55 |
+| 7 | `stress balls` | 151,173 | $0.93 |
+| 8 | `sensory toys` | 134,584 | $0.87 |
+| 9 | `squishies` | 132,500 | $0.35 |
+| 10 | `fidget` | 129,092 | $0.82 |
+| 11 | `squishy fidget toys` | 114,646 | $0.63 |
+| 12 | `squishys` | 100,258 | $0.51 |
+| 13 | `stress ball` | 78,960 | $0.61 |
+| 14 | `stress toys` | 73,113 | $0.36 |
+| 15 | `fidget toy` | 60,480 | $0.55 |
+| 16 | `squishy cube` | 55,407 | $0.47 |
+| 17 | `stress relief` | 53,277 | $2.27 |
+| 18 | `fidgets for adults` | 51,599 | $0.52 |
+| 19 | `squishy ball` | 47,590 | $0.81 |
+| 20 | `squishes` | 46,977 | $0.51 |
 
 
 **应用建议**: 功能相关词，用于广泛匹配扩流，但需注意过滤不相关的词。
@@ -339,4 +339,4 @@
 
 ---
 
-*本报告由 Claude Code 自动生成 | 分析时间: 2026-03-14 11:58:26*
+*本报告由 Claude Code 自动生成 | 分析时间: 2026-03-14 23:24:31*

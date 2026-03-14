@@ -300,9 +300,11 @@ def generate_top_keywords_table(keywords: list, all_keywords: list, limit: int =
     if not keywords:
         return "*暂无数据*"
 
-    # 构建搜索量映射
+    # 构建搜索量和 CPC 映射
     search_map = {kw['keyword'].lower(): kw.get('search_volume', 0)
                  for kw in all_keywords}
+    cpc_map = {kw['keyword'].lower(): kw.get('cpc', 0)
+               for kw in all_keywords}
 
     # 排序
     sorted_kws = sorted(keywords,
@@ -315,7 +317,7 @@ def generate_top_keywords_table(keywords: list, all_keywords: list, limit: int =
         if isinstance(kw, str):
             keyword = kw
             search_vol = search_map.get(kw.lower(), 0)
-            cpc = 0
+            cpc = cpc_map.get(kw.lower(), 0)
         else:
             keyword = kw.get('keyword', '')
             search_vol = kw.get('search_volume', 0)
