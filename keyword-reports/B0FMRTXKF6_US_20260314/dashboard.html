@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键词调研分析 - B0FMRTXKF6 (US)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 { margin-bottom: 10px; }
+        .header .meta { opacity: 0.9; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-card .label { color: #6c757d; font-size: 14px; margin-bottom: 5px; }
+        .stat-card .value { font-size: 32px; font-weight: bold; color: #2c3e50; }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chart-card h3 { margin-bottom: 15px; color: #2c3e50; }
+        .table-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .table-card h3 { margin-bottom: 15px; color: #2c3e50; }
+
+        /* 筛选控件样式 */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 14px;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            background: #f8f9fa;
+        }
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .filter-btn.all {
+            background: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+        .filter-btn.all.active {
+            background: #495057;
+        }
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            font-size: 14px;
+            width: 250px;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .result-count {
+            color: #6c757d;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .table-container {
+            max-height: 800px;
+            overflow-y: auto;
+        }
+        .volume-cell {
+            font-variant-numeric: tabular-nums;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; position: sticky; top: 0; }
+        tbody tr { transition: background 0.2s; }
+        tbody tr:hover { background: #f8f9fa; }
+        tbody tr.hidden { display: none; }
+        .badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .badge-negative { background: #fee; color: #c33; }
+        .badge-brand { background: #eef; color: #36c; }
+        .badge-material { background: #efe; color: #3c3; }
+        .badge-scenario { background: #ffe; color: #c90; }
+        .badge-attribute { background: #fef; color: #90c; }
+        .badge-function { background: #eff; color: #09c; }
+        .badge-core { background: #ecf; color: #90f; }
+        .badge-character { background: #fec; color: #f60; }
+        .badge-other { background: #eee; color: #666; }
+        
+        /* 简单的条形图样式 */
+        .simple-bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .bar-label {
+            min-width: 100px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .bar-container {
+            flex: 1;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: #3498db;
+            transition: width 0.3s;
+        }
+        .bar-value {
+            min-width: 50px;
+            text-align: right;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* 简单的饼图样式 */
+        .simple-pie-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .pie-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>关键词调研分析仪表板</h1>
+            <div class="meta">
+                ASIN: <a href="https://www.amazon.com/dp/B0FMRTXKF6" target="_blank" style="color: white;">B0FMRTXKF6</a> |
+                产品: Lego Horse Knight Castle |
+                站点: US |
+                生成时间: 2026-03-14 11:37:43
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">总关键词数</div>
+                <div class="value">46</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">总搜索量</div>
+                <div class="value">103,254</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">平均 CPC</div>
+                <div class="value">$0.54</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>分类分布</h3>
+                <div id="categoryChartContainer"></div>
+            </div>
+            <div class="chart-card">
+                <h3>搜索量分布</h3>
+                <div id="searchVolumeChartContainer" class="simple-bar-chart"></div>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <h3>所有关键词列表</h3>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <span class="filter-label">分类筛选:</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn all active" data-category="all">全部</button>
+                        <button class="filter-btn" data-category="NEGATIVE">否定词</button>
+                        <button class="filter-btn" data-category="BRAND">品牌词</button>
+                        <button class="filter-btn" data-category="SCENARIO">场景词</button>
+                        <button class="filter-btn" data-category="CORE">核心词</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">搜索:</span>
+                    <input type="text" class="search-box" id="searchInput" placeholder="输入关键词筛选...">
+                </div>
+                <div class="result-count">
+                    显示 <span id="visibleCount">0</span> / 共 <span id="totalCount">0</span> 个关键词
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>关键词</th>
+                            <th>分类</th>
+                            <th>搜索量</th>
+                            <th>CPC</th>
+                            <th>应用建议</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keywordTableBody">
+                        <tr data-category="BRAND" data-search="lego castle"><td>lego castle</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="41667">41.7K</td><td>$0.57</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego medieval"><td>lego medieval</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="11126">11.1K</td><td>$0.39</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego knights"><td>lego knights</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="10167">10.2K</td><td>$0.35</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lion guard toys"><td>lion guard toys</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="7789">7.8K</td><td>$0.77</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lego castle sets"><td>lego castle sets</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="7767">7.8K</td><td>$0.66</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego lotr"><td>lego lotr</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="7325">7.3K</td><td>$0.35</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="zelda lego set"><td>zelda lego set</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="3500">3.5K</td><td>$0.37</td><td>直接否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lion king lego"><td>lion king lego</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="2447">2.4K</td><td>$0.59</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lego neuschwanstein castle"><td>lego neuschwanstein castle</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="1746">1.7K</td><td>$1.19</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="medieval lego"><td>medieval lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="1373">1.4K</td><td>$0.37</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego viking village"><td>lego viking village</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="1012">1.0K</td><td>$0.60</td><td>竞品/否定</td></tr>
+<tr data-category="SCENARIO" data-search="create a castle"><td>create a castle</td><td><span class="badge badge-scenario">场景词</span></td><td data-volume="883">883</td><td>$0.40</td><td>场景分组</td></tr>
+<tr data-category="BRAND" data-search="lego knight"><td>lego knight</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="676">676</td><td>$0.45</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lego nexo knights"><td>lego nexo knights</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="627">627</td><td>$0.41</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lego viking"><td>lego viking</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="609">609</td><td>$0.41</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego lion knights castle"><td>lego lion knights castle</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="583">583</td><td>$0.53</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="castle lego"><td>castle lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="454">454</td><td>$0.50</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lion knights castle lego"><td>lion knights castle lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="389">389</td><td>$0.58</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="medieval lego sets"><td>medieval lego sets</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="363">363</td><td>$0.59</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="himeji castle lego"><td>himeji castle lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="360">360</td><td>$0.85</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="castle lego sets"><td>castle lego sets</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="350">350</td><td>$0.38</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego lion"><td>lego lion</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="312">312</td><td>$0.53</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego lion king"><td>lego lion king</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="242">242</td><td>$0.51</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego medieval town square"><td>lego medieval town square</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="237">237</td><td>$0.71</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego medieval castle"><td>lego medieval castle</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="221">221</td><td>$0.59</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="nexo knights lego sets"><td>nexo knights lego sets</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="212">212</td><td>$0.61</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="howls moving castle lego set"><td>howls moving castle lego set</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="198">198</td><td>$0.35</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego castles"><td>lego castles</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="184">184</td><td>$0.48</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lego moon knight"><td>lego moon knight</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="116">116</td><td>$0.35</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="viking lego"><td>viking lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="63">63</td><td>$0.61</td><td>竞品/否定</td></tr>
+<tr data-category="CORE" data-search="lego horse knight castle"><td>lego horse knight castle</td><td><span class="badge badge-core">核心词</span></td><td data-volume="63">63</td><td>$0.67</td><td>大词投放</td></tr>
+<tr data-category="BRAND" data-search="lion lego"><td>lion lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="33">33</td><td>$0.60</td><td>竞品/否定</td></tr>
+<tr data-category="CORE" data-search="viking village lego set"><td>viking village lego set</td><td><span class="badge badge-core">核心词</span></td><td data-volume="32">32</td><td>$0.46</td><td>大词投放</td></tr>
+<tr data-category="BRAND" data-search="lego medieval sets"><td>lego medieval sets</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="28">28</td><td>$0.35</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lion king lego set"><td>lion king lego set</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="17">17</td><td>$0.35</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lego knights castle"><td>lego knights castle</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="13">13</td><td>$0.45</td><td>竞品/否定</td></tr>
+<tr data-category="BRAND" data-search="lego medieval blacksmith"><td>lego medieval blacksmith</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="11">11</td><td>$0.51</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lego burrow"><td>lego burrow</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="11">11</td><td>$0.64</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lego vikings"><td>lego vikings</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="10">10</td><td>$0.41</td><td>竞品/否定</td></tr>
+<tr data-category="CORE" data-search="medieval horse knight castle lego"><td>medieval horse knight castle lego</td><td><span class="badge badge-core">核心词</span></td><td data-volume="10">10</td><td>$0.36</td><td>大词投放</td></tr>
+<tr data-category="BRAND" data-search="knight lego"><td>knight lego</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="8">8</td><td>$0.44</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="moon knight lego"><td>moon knight lego</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="6">6</td><td>$0.38</td><td>直接否定</td></tr>
+<tr data-category="BRAND" data-search="lion lego set"><td>lion lego set</td><td><span class="badge badge-brand">品牌词</span></td><td data-volume="5">5</td><td>$0.59</td><td>竞品/否定</td></tr>
+<tr data-category="NEGATIVE" data-search="lego nexo knights sets"><td>lego nexo knights sets</td><td><span class="badge badge-negative">否定词</span></td><td data-volume="4">4</td><td>$0.35</td><td>直接否定</td></tr>
+<tr data-category="CORE" data-search="lego 31168 medieval horse knight castle"><td>lego 31168 medieval horse knight castle</td><td><span class="badge badge-core">核心词</span></td><td data-volume="3">3</td><td>$0.78</td><td>大词投放</td></tr>
+<tr data-category="CORE" data-search="31168 medieval horse knight castle"><td>31168 medieval horse knight castle</td><td><span class="badge badge-core">核心词</span></td><td data-volume="2">2</td><td>$1.50</td><td>大词投放</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 等待 DOM 加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 渲染搜索量分布图 - 纯 HTML 版本
+            const searchVolumeData = {"labels": ["高 (>10K)", "中 (1K-10K)", "低 (<1K)"], "data": [3, 8, 35]};
+            const searchVolumeContainer = document.getElementById('searchVolumeChartContainer');
+            if (searchVolumeContainer && searchVolumeData) {
+                const maxValue = Math.max(...searchVolumeData.data);
+                const colors = ['#e74c3c', '#f39c12', '#3498db'];
+                let html = '';
+                for (let i = 0; i < searchVolumeData.labels.length; i++) {
+                    const percent = maxValue > 0 ? (searchVolumeData.data[i] / maxValue * 100) : 0;
+                    html += `<div class="bar-item">
+                        <div class="bar-label">${searchVolumeData.labels[i]}</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: ${percent}%; background: ${colors[i]}"></div>
+                        </div>
+                        <div class="bar-value">${searchVolumeData.data[i]}</div>
+                    </div>`;
+                }
+                searchVolumeContainer.innerHTML = html;
+            }
+
+            // 渲染分类分布图 - 简单的图例版本
+            const categoryData = {"labels": ["否定词", "品牌词", "材质词", "场景词", "属性词", "功能词", "核心词", "其他"], "data": [10, 30, 0, 1, 0, 0, 5, 0]};
+            const categoryContainer = document.getElementById('categoryChartContainer');
+            if (categoryContainer && categoryData) {
+                const total = categoryData.data.reduce((a, b) => a + b, 0);
+                const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#9b59b6', '#95a5a6'];
+                let legendHtml = '<div class="pie-legend">';
+                for (let i = 0; i < categoryData.labels.length; i++) {
+                    const percent = total > 0 ? (categoryData.data[i] / total * 100).toFixed(1) : 0;
+                    legendHtml += `<div class="legend-item">
+                        <div class="legend-color" style="background: ${colors[i % colors.length]}"></div>
+                        <span>${categoryData.labels[i]}: ${categoryData.data[i]} (${percent}%)</span>
+                    </div>`;
+                }
+                legendHtml += '</div>';
+                categoryContainer.innerHTML = legendHtml;
+            }
+
+            // 筛选功能 - 简化版本
+            const tableBody = document.getElementById('keywordTableBody');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            const visibleCountSpan = document.getElementById('visibleCount');
+            const totalCountSpan = document.getElementById('totalCount');
+
+            // 初始化总数
+            const allRows = tableBody.querySelectorAll('tr');
+            totalCountSpan.textContent = allRows.length;
+            visibleCountSpan.textContent = allRows.length;
+
+            // 分类筛选
+            filterButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    filterRows(btn.dataset.category);
+                });
+            });
+
+            // 搜索筛选
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    filterRows(document.querySelector('.filter-btn.active').dataset.category);
+                });
+            }
+
+            function filterRows(category) {
+                const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                let visibleCount = 0;
+
+                allRows.forEach(function(row) {
+                    const rowCategory = row.dataset.category;
+                    const keyword = row.cells[0].textContent.toLowerCase();
+                    const categoryMatch = category === 'all' || rowCategory === category;
+                    const searchMatch = !searchTerm || keyword.includes(searchTerm);
+
+                    if (categoryMatch && searchMatch) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                visibleCountSpan.textContent = visibleCount;
+            }
+        });
+    </script>
+</body>
+</html>

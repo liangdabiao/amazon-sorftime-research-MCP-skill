@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键词调研分析 - {{ASIN}} ({{SITE}})</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 { margin-bottom: 10px; }
+        .header .meta { opacity: 0.9; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-card .label { color: #6c757d; font-size: 14px; margin-bottom: 5px; }
+        .stat-card .value { font-size: 32px; font-weight: bold; color: #2c3e50; }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chart-card h3 { margin-bottom: 15px; color: #2c3e50; }
+        .table-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .table-card h3 { margin-bottom: 15px; color: #2c3e50; }
+
+        /* 筛选控件样式 */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 14px;
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            background: #f8f9fa;
+        }
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .filter-btn.all {
+            background: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+        .filter-btn.all.active {
+            background: #495057;
+        }
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            font-size: 14px;
+            width: 250px;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .result-count {
+            color: #6c757d;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .table-container {
+            max-height: 800px;
+            overflow-y: auto;
+        }
+        .volume-cell {
+            font-variant-numeric: tabular-nums;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; position: sticky; top: 0; }
+        tbody tr { transition: background 0.2s; }
+        tbody tr:hover { background: #f8f9fa; }
+        tbody tr.hidden { display: none; }
+        .badge {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .badge-negative { background: #fee; color: #c33; }
+        .badge-brand { background: #eef; color: #36c; }
+        .badge-material { background: #efe; color: #3c3; }
+        .badge-scenario { background: #ffe; color: #c90; }
+        .badge-attribute { background: #fef; color: #90c; }
+        .badge-function { background: #eff; color: #09c; }
+        .badge-core { background: #ecf; color: #90f; }
+        .badge-character { background: #fec; color: #f60; }
+        .badge-other { background: #eee; color: #666; }
+        
+        /* 简单的条形图样式 */
+        .simple-bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .bar-label {
+            min-width: 100px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .bar-container {
+            flex: 1;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: #3498db;
+            transition: width 0.3s;
+        }
+        .bar-value {
+            min-width: 50px;
+            text-align: right;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        /* 简单的饼图样式 */
+        .simple-pie-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .pie-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>关键词调研分析仪表板</h1>
+            <div class="meta">
+                ASIN: <a href="https://www.amazon.com/dp/{{ASIN}}" target="_blank" style="color: white;">{{ASIN}}</a> |
+                产品: {{PRODUCT_NAME}} |
+                站点: {{SITE}} |
+                生成时间: {{DATE}}
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">总关键词数</div>
+                <div class="value">{{TOTAL_KEYWORDS}}</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">总搜索量</div>
+                <div class="value">{{TOTAL_SEARCH_VOLUME}}</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">平均 CPC</div>
+                <div class="value">{{AVG_CPC}}</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>分类分布</h3>
+                <div id="categoryChartContainer"></div>
+            </div>
+            <div class="chart-card">
+                <h3>搜索量分布</h3>
+                <div id="searchVolumeChartContainer" class="simple-bar-chart"></div>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <h3>所有关键词列表</h3>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <span class="filter-label">分类筛选:</span>
+                    <div class="filter-buttons">
+                        {{FILTER_BUTTONS}}
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">搜索:</span>
+                    <input type="text" class="search-box" id="searchInput" placeholder="输入关键词筛选...">
+                </div>
+                <div class="result-count">
+                    显示 <span id="visibleCount">0</span> / 共 <span id="totalCount">0</span> 个关键词
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>关键词</th>
+                            <th>分类</th>
+                            <th>搜索量</th>
+                            <th>CPC</th>
+                            <th>应用建议</th>
+                        </tr>
+                    </thead>
+                    <tbody id="keywordTableBody">
+                        {{KEYWORD_TABLE_ROWS}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 等待 DOM 加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 渲染搜索量分布图 - 纯 HTML 版本
+            const searchVolumeData = {{SEARCH_VOLUME_DATA}};
+            const searchVolumeContainer = document.getElementById('searchVolumeChartContainer');
+            if (searchVolumeContainer && searchVolumeData) {
+                const maxValue = Math.max(...searchVolumeData.data);
+                const colors = ['#e74c3c', '#f39c12', '#3498db'];
+                let html = '';
+                for (let i = 0; i < searchVolumeData.labels.length; i++) {
+                    const percent = maxValue > 0 ? (searchVolumeData.data[i] / maxValue * 100) : 0;
+                    html += `<div class="bar-item">
+                        <div class="bar-label">${searchVolumeData.labels[i]}</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: ${percent}%; background: ${colors[i]}"></div>
+                        </div>
+                        <div class="bar-value">${searchVolumeData.data[i]}</div>
+                    </div>`;
+                }
+                searchVolumeContainer.innerHTML = html;
+            }
+
+            // 渲染分类分布图 - 简单的图例版本
+            const categoryData = {{CATEGORY_DATA}};
+            const categoryContainer = document.getElementById('categoryChartContainer');
+            if (categoryContainer && categoryData) {
+                const total = categoryData.data.reduce((a, b) => a + b, 0);
+                const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#9b59b6', '#95a5a6'];
+                let legendHtml = '<div class="pie-legend">';
+                for (let i = 0; i < categoryData.labels.length; i++) {
+                    const percent = total > 0 ? (categoryData.data[i] / total * 100).toFixed(1) : 0;
+                    legendHtml += `<div class="legend-item">
+                        <div class="legend-color" style="background: ${colors[i % colors.length]}"></div>
+                        <span>${categoryData.labels[i]}: ${categoryData.data[i]} (${percent}%)</span>
+                    </div>`;
+                }
+                legendHtml += '</div>';
+                categoryContainer.innerHTML = legendHtml;
+            }
+
+            // 筛选功能 - 简化版本
+            const tableBody = document.getElementById('keywordTableBody');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+            const visibleCountSpan = document.getElementById('visibleCount');
+            const totalCountSpan = document.getElementById('totalCount');
+
+            // 初始化总数
+            const allRows = tableBody.querySelectorAll('tr');
+            totalCountSpan.textContent = allRows.length;
+            visibleCountSpan.textContent = allRows.length;
+
+            // 分类筛选
+            filterButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    filterRows(btn.dataset.category);
+                });
+            });
+
+            // 搜索筛选
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    filterRows(document.querySelector('.filter-btn.active').dataset.category);
+                });
+            }
+
+            function filterRows(category) {
+                const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                let visibleCount = 0;
+
+                allRows.forEach(function(row) {
+                    const rowCategory = row.dataset.category;
+                    const keyword = row.cells[0].textContent.toLowerCase();
+                    const categoryMatch = category === 'all' || rowCategory === category;
+                    const searchMatch = !searchTerm || keyword.includes(searchTerm);
+
+                    if (categoryMatch && searchMatch) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                visibleCountSpan.textContent = visibleCount;
+            }
+        });
+    </script>
+</body>
+</html>

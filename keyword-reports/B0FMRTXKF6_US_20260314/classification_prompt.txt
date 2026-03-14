@@ -1,0 +1,61 @@
+你是一位亚马逊关键词分类专家。请根据以下产品信息，将关键词列表按 8 个维度分类。
+
+【产品信息】
+product_name: Wyiauy Medieval Lion Knight Castle Building Set,Viking Architecture Castle Modular Buildings, Ideals Christmas Birthday Gift for History Enthusiasts, Creative Gift for Adults and Teen(2554PCS)
+brand: Wyiauy
+materials: 
+features: Interactive
+use_cases: Kitchen, Birthday, Christmas, Gift
+negative_features: 
+description: Medieval Architecture Experience: Featuring three layers of spatial nesting and a modular building design, the medieval knight‘s castle can be folded and unfolded to reveal a three-dimensional battlefield, standing out among architecture sets.<br>Immersive Play with High-Quality Printing: No stickers, just 26 fully printed pieces! The printing technique highlights the medieval aesthetic. This adult building block set features interactive elements such as a tilting stone door, rotating wells, and a gear-driven chain gate, reminiscent of lion knights castle.<br>Detailed Medieval Adventure Scenes: From the magician‘s library to the alchemist‘s kitchen to the war strategy spell, discover multiple scenes such as the watchtower, tower defense, mechanism gate, and more!<br>Large-Scale Building: When fully assembled, an impressive brick building sets for adults with 2,568 pieces.Search for the prisoner‘s treasure chest, find the magic wand, and explore the dungeons, weapon forge. As if you were in a brick castle adventure. Can be combined with viking village series building blocks.<br>For Adults & Medieval Enthusiasts: Ideal as a gift for adults and collectors of medieval sets. This adult building brick set is suitable as a collectible, home accessory, and as an architectural testament to the Middle Ages.<br>
+category: TOY BUILDING BLOCK
+
+【分类维度说明】
+1. **NEGATIVE (否定/敏感词)**: 与产品不相关、描述不符的词，需直接否定
+   - 例：freestanding（落地式）vs wall mount（壁挂式）
+   - 例：over door（门后）vs wall（墙面）
+
+2. **BRAND (品牌词)**: 竞品品牌名称
+   - 例：umbra, simplehuman, mDesign, household essentials
+
+3. **MATERIAL (材质词)**: 描述产品材质的词
+   - 例：wooden, metal, aluminum, bamboo, plastic
+
+4. **SCENARIO (使用场景词)**: 产品使用的位置/场景
+   - 例：entryway, bathroom, mudroom, garage, bedroom
+
+5. **ATTRIBUTE (属性修饰词)**: 描述产品属性/特性的词
+   - 例：wall mount, heavy duty, rustic, vintage, expandable
+
+6. **FUNCTION (功能词)**: 描述产品功能的词
+   - 例：hanging, storage, organizer, display
+
+7. **CORE (核心产品词)**: 产品核心名称
+   - 例：coat rack, hook, hanger, hat rack, towel rack
+
+8. **OTHER (其他)**: 未分类、拼写错误、其他语言等
+   - 例：coatrac（拼写错误）, perchero（西语）
+
+【待分类关键词】（共 46 个，前500个示例）
+["lego castle", "lego medieval", "lego castle sets", "lion king lego", "medieval lego", "lego knights", "lego lion knights castle", "lion knights castle lego", "medieval lego sets", "lego viking village", "castle lego sets", "lego castles", "lego viking", "castle lego", "lego lion", "lego nexo knights", "lego lion king", "lego knight", "lego medieval castle", "lion king lego set", "lion lego", "lion guard toys", "nexo knights lego sets", "lego lotr", "create a castle", "zelda lego set", "lego moon knight", "himeji castle lego", "viking lego", "lego medieval town square", "howls moving castle lego set", "lego neuschwanstein castle", "lego medieval blacksmith", "lego nexo knights sets", "moon knight lego", "viking village lego set", "lego medieval sets", "lego burrow", "lego knights castle", "knight lego", "lego vikings", "lion lego set", "lego horse knight castle", "medieval horse knight castle lego", "31168 medieval horse knight castle", "lego 31168 medieval horse knight castle"]
+
+【输出格式】
+请严格按照以下 JSON 格式输出，不要包含任何其他内容：
+```json
+{
+  "NEGATIVE": ["keyword1", "keyword2", ...],
+  "BRAND": ["keyword1", "keyword2", ...],
+  "MATERIAL": ["keyword1", "keyword2", ...],
+  "SCENARIO": ["keyword1", "keyword2", ...],
+  "ATTRIBUTE": ["keyword1", "keyword2", ...],
+  "FUNCTION": ["keyword1", "keyword2", ...],
+  "CORE": ["keyword1", "keyword2", ...],
+  "OTHER": ["keyword1", "keyword2", ...]
+}
+```
+
+注意：每个关键词只能属于一个分类，请根据最相关的特征进行分类。如果关键词超过500个，请按相同规则处理剩余关键词。
+
+【产品信息参考】
+ASIN: B0FMRTXKF6
+站点: US

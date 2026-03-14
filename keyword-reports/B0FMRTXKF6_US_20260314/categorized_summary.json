@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-03-14T11:37:43.137077",
+  "total_keywords": 46,
+  "categories": {
+    "NEGATIVE": {
+      "count": 10,
+      "percentage": 21.7,
+      "total_search_volume": 14729,
+      "avg_search_volume": 1473.0
+    },
+    "BRAND": {
+      "count": 30,
+      "percentage": 65.2,
+      "total_search_volume": 87532,
+      "avg_search_volume": 2918.0
+    },
+    "MATERIAL": {
+      "count": 0,
+      "percentage": 0.0,
+      "total_search_volume": 0,
+      "avg_search_volume": 0
+    },
+    "SCENARIO": {
+      "count": 1,
+      "percentage": 2.2,
+      "total_search_volume": 883,
+      "avg_search_volume": 883.0
+    },
+    "ATTRIBUTE": {
+      "count": 0,
+      "percentage": 0.0,
+      "total_search_volume": 0,
+      "avg_search_volume": 0
+    },
+    "FUNCTION": {
+      "count": 0,
+      "percentage": 0.0,
+      "total_search_volume": 0,
+      "avg_search_volume": 0
+    },
+    "CORE": {
+      "count": 5,
+      "percentage": 10.9,
+      "total_search_volume": 110,
+      "avg_search_volume": 22.0
+    },
+    "OTHER": {
+      "count": 0,
+      "percentage": 0.0,
+      "total_search_volume": 0,
+      "avg_search_volume": 0
+    }
+  }
+}

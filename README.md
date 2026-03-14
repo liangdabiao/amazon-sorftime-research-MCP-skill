@@ -4,12 +4,13 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了两个核心技能：
+本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了三个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
 | `amazon-analyse` | 单个Listing | `/amazon-analyse {ASIN} {SITE}` | 竞品Listing全维度穿透分析 |
-| `category-selectionion` | 整个品类 | `/category-selection "{品类}" {SITE}` | 品类自动化选品分析 |
+| `category-selection` | 整个品类 | `/category-select "{品类}" {SITE}` | 品类自动化选品分析 |
+| `keyword-research` | 关键词词库 | `/keyword-research {ASIN} {SITE}` | 关键词深度调研与8维智能分类 |
 
 ### 核心功能
 
@@ -19,10 +20,16 @@
 - **评论情感分析**: 优势聚类、痛点识别、改进建议
 - **跨平台分析**: TikTok带货视频、达人分析、1688采购成本
 
-#### 品类级别分析 (category-selectionion)
+#### 品类级别分析 (category-selection)
 - **市场大盘分析**: Top100产品数据 + 统计指标
 - **五维评分模型**: 市场规模、增长潜力、竞争烈度、进入壁垒、利润空间
 - **可视化报告**: Markdown + Excel + HTML 三种格式
+
+#### 关键词深度调研 (keyword-research)
+- **海量词库采集**: 通过 Sorftime API 采集 1500+ 关键词
+- **8维智能分类**: 否定词、品牌词、材质词、场景词、属性词、功能词、核心词、其他
+- **广告策略指导**: 否定词清单、精准匹配组、场景广告组、广泛匹配组
+- **多格式输出**: Markdown 报告、CSV 词库、HTML 仪表板
 
 ---
 
@@ -84,6 +91,33 @@
 - `category_report_*.xlsx` - Excel数据表（含图表）
 - `data.json` - 原始数据JSON
 
+#### 3. 关键词深度调研
+
+```bash
+# 调研产品关键词词库
+/keyword-research B0D9ZTW7PS US
+```
+
+**报告保存**: `keyword-reports/{ASIN}_{站点}_{日期}/`
+- `report.md` - 完整Markdown分析报告
+- `dashboard.html` - 交互式可视化仪表板
+- `keywords.csv` - 完整词库（含分类、搜索量、CPC）
+- `negative_words.txt` - 否定词清单（直接复制到广告后台）
+- `keywords_*.csv` - 各分类专用词库文件
+- `categorized_summary.json` - 分类统计数据
+
+**8维智能分类**:
+| 维度 | 说明 | 应用策略 |
+|------|------|----------|
+| NEGATIVE | 否定/敏感词 | 直接否定 |
+| BRAND | 品牌词 | 竞品打法或否定 |
+| MATERIAL | 材质词 | 精准匹配 |
+| SCENARIO | 场景词 | 按场景拆分广告组 |
+| ATTRIBUTE | 属性修饰词 | 长尾精准匹配 |
+| FUNCTION | 功能词 | 广泛匹配扩流 |
+| CORE | 核心产品词 | 大词投放占领坑位 |
+| OTHER | 其他 | 补充埋词 |
+
 ---
 
 ## 支持的站点
@@ -122,6 +156,14 @@ US, GB, MY, PH, VN, ID
 | `product_traffic_terms` | 流量关键词 |
 | `competitor_product_keywords` | 竞品关键词布局 |
 | `product_search` | 产品搜索筛选 |
+
+### 关键词相关
+
+| 接口 | 功能 |
+|------|------|
+| `keyword_related_words` | 关键词长尾词扩展 |
+| `keyword_detail` | 关键词详情数据 |
+| `category_keywords` | 类目核心关键词 |
 
 ### 亚马逊类目相关
 
@@ -174,7 +216,7 @@ amazon-mcp/
 │       ├── amazon-analyse/      # 竞品Listing分析技能
 │       │   ├── SKILL.md
 │       │   └── references/
-│       ├── category-selectionion/  # 品类选品分析技能
+│       ├── category-selection/  # 品类选品分析技能
 │       │   ├── SKILL.md
 │       │   ├── scripts/         # 数据处理脚本
 │       │   │   ├── data_utils.py
@@ -182,6 +224,12 @@ amazon-mcp/
 │       │   │   └── generate_reports.py
 │       │   ├── assets/          # 模板文件
 │       │   │   └── dashboard_template.html
+│       │   └── references/
+│       ├── keyword-research/    # 关键词调研分析技能
+│       │   ├── SKILL.md
+│       │   ├── scripts/         # 数据处理脚本
+│       │   │   ├── workflow.py
+│       │   │   └── regenerate_reports.py
 │       │   └── references/
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
@@ -193,6 +241,13 @@ amazon-mcp/
 │       ├── report.md            # Markdown报告
 │       ├── category_report_*.xlsx
 │       └── data.json
+├── keyword-reports/             # 关键词调研报告
+│   └── {ASIN}_{站点}_{日期}/
+│       ├── report.md            # Markdown报告
+│       ├── dashboard.html       # 可视化仪表板
+│       ├── keywords.csv         # 完整词库
+│       ├── negative_words.txt   # 否定词清单
+│       └── keywords_*.csv       # 各分类词库
 └── README.md
 ```
 
@@ -241,6 +296,12 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 
 ## 更新日志
 
+### v2.4 (2026-03-14)
+- **新增**: keyword-research 关键词调研分析技能
+- **新增**: 8维智能分类模型（否定词、品牌词、材质词、场景词、属性词、功能词、核心词、其他）
+- **新增**: LLM 自动分类支持
+- **新增**: 广告策略指导（否定词清单、精准匹配组、场景广告组、广泛匹配组）
+
 ### v2.3 (2026-03-03)
 - **优化**: 统一报告输出格式（Markdown + Excel + HTML Dashboard）
 - **新增**: index.html 导航页，集成所有报告格式
@@ -280,4 +341,4 @@ MIT License
 
 ---
 
-*最后更新: 2026-03-03*
+*最后更新: 2026-03-14*
