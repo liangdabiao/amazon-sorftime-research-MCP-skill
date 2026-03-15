@@ -276,7 +276,7 @@ mv reports/analysis_*_2025*.md reports/archive/2025/
 - [Sorftime官网](https://www.sorftime.com)
 - [Amazon MWS文档](https://developer.amazonservices.com/)
 - [Claude Code文档](https://claude.com/claude-code)
-
+- [参考公众号](https://mp.weixin.qq.com/s/agrml8THPvCmMxOMMmxKzA)
 ---
 
 ## 许可证

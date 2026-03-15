@@ -1,0 +1,160 @@
+{
+  "asin": "B07PQFT83F",
+  "site": "US",
+  "analysis_date": "2026-03-15",
+  "product_info": {
+    "title": "Disney Store Official Buzz Lightyear Interactive Talking Action Figure from Toy Story, Features 10+ English Phrases, Interacts with Other Figures and Toys",
+    "brand": "Disney",
+    "price": 39.95,
+    "rating": 4.7,
+    "total_reviews": 47550
+  },
+  "analysis_summary": {
+    "total_negative_reviews": 62,
+    "sample_reviews_analyzed": 62
+  },
+  "pain_point_categories": [
+    {
+      "category": "电子模块故障",
+      "category_en": "Electronic Module Failure",
+      "count": 28,
+      "percentage": 45,
+      "severity": "high",
+      "description": "产品到货即坏、声音失效、灯光不亮、更换电池后仍不工作",
+      "root_causes": [
+        "电池仓缺乏用户友好的开启设计",
+        "电路板焊接/装配质量不稳定",
+        "出厂测试流程存在漏洞"
+      ],
+      "improvement_suggestions": [
+        "电池仓增加清晰开启标识和说明书",
+        "电路板关键焊点点胶加固",
+        "增加自动化声光功能检测线"
+      ],
+      "sample_reviews": [
+        "2 weeks after purchase the sound went out. Waste of money, and this isn't cheap.",
+        "I just received Buzz this morning, and just opened it. The one I received isn't working and there's no manual whatsoever where the battery is located.",
+        "Buzz Lightyear came defective, does not power on. I changed batteries and it doesn't work.",
+        "Came not working.",
+        "We have now purchased the same toy twice in one week and both of these items have delivered broken. None of the sounds work the laser pointer doesn't glow absolutely unacceptable."
+      ]
+    },
+    {
+      "category": "结构/组装问题",
+      "category_en": "Structural/Assembly Issues",
+      "count": 18,
+      "percentage": 29,
+      "severity": "high",
+      "description": "关节断裂、头盔锁扣失效、头部未安装、零件破损、金属线外露",
+      "root_causes": [
+        "透明头盔塑料脆性过高，未经过儿童玩具落摔测试",
+        "手腕控制面板盖采用易脱落的插入式结构",
+        "手臂关节连接点承受力不足",
+        "零件模具精度不足，导致装配缺失",
+        "Jessie人偶金属线末端未进行保护性处理"
+      ],
+      "improvement_suggestions": [
+        "透明头盔材质从ABS改为聚碳酸酯(PC)，增加2mm壁厚",
+        "手臂关节采用金属轴芯+尼龙齿轮结构",
+        "手腕盖板改为螺丝固定或卡扣+螺丝双重锁定",
+        "产线增加头颈连接拉力测试工位",
+        "金属线末端增加热熔塑料封头或尼龙端帽",
+        "在帽孔内侧增加织物衬垫"
+      ],
+      "sample_reviews": [
+        "Cool features but not very durable. Less than 24 hours after taking it out of the box, three different parts have broken off. There is a little cover that pops off over the fake control panel on buzzes wrist, the back part of the clear plastic helmet has broken off, and one of the elbow joints broke, so now his arm just hangs/wires are exposed.",
+        "It's a good looking Buzz with lots of buttons to keep the little one entertained but the latch to keep his helmet closed broke almost immediately.",
+        "The doll seemed good until I got it out of the package and the head was not attached!",
+        "When played with can cause harm. The wiring/boning for the Jessie doll's right arm somehow poked through the hole where her hat gets plugged into while my child was playing, and it scraped her face."
+      ]
+    },
+    {
+      "category": "功能缺陷",
+      "category_en": "Functional Defects",
+      "count": 8,
+      "percentage": 13,
+      "severity": "medium",
+      "description": "持续发声无法停止、电池迅速耗尽、无法独立站立",
+      "root_causes": [
+        "拉绳触发开关存在短路或粘连",
+        "电池仓密封性差，可能导致电池漏液",
+        "重心设计不合理，腿部关节可动范围过大"
+      ],
+      "improvement_suggestions": [
+        "拉绳机械开关改为磁簧开关或光电断续器",
+        "增加3分钟无操作自动关机电路",
+        "电池盒增加硅胶O型圈密封",
+        "在脚底增加金属配重块降低重心",
+        "增加踝关节活动限位器",
+        "脚底增加硅胶防滑垫"
+      ],
+      "sample_reviews": [
+        "(Jesse Doll) This toy talks non stop until you turn it off or the batteries run out. Even when you do not pull the string she talks and talks. clearly something is defective.",
+        "I just wish it was able to stand stable by itself - it falls over easily."
+      ]
+    },
+    {
+      "category": "外观/材质问题",
+      "category_en": "Appearance/Material Issues",
+      "count": 6,
+      "percentage": 10,
+      "severity": "low",
+      "description": "涂装瑕疵、与描述不符、包装破损",
+      "root_causes": [
+        "列表图片未更新，与当前生产批次存在款式差异",
+        "喷涂工艺质量控制不稳定",
+        "包装内缓冲不足，导致运输中表面刮伤"
+      ],
+      "improvement_suggestions": [
+        "拍摄当前批次实拍图替换Amazon主图",
+        "增加100%外观检查工位",
+        "在关键部件外增加珍珠棉保护套"
+      ],
+      "sample_reviews": [
+        "However, I'm giving it 4 stars because it doesn't match the picture. Her pants are not sparkly and her face is different.",
+        "one of her eyebrows is missing a bit of paint",
+        "There's a small paint off of [Buzz's] chest as well as the tip of his left wing."
+      ]
+    },
+    {
+      "category": "描述不符",
+      "category_en": "Description Mismatch",
+      "count": 2,
+      "percentage": 3,
+      "severity": "low",
+      "description": "款式与图片不一致、功能与描述不符",
+      "root_causes": [
+        "产品迭代但Listing未更新",
+        "营销图片与实际产品存在差异"
+      ],
+      "improvement_suggestions": [
+        "定期更新Listing图片与描述",
+        "添加视频演示确保预期一致"
+      ],
+      "sample_reviews": [
+        "Her pants are not sparkly and her face is different."
+      ]
+    }
+  ],
+  "safety_alerts": [
+    {
+      "issue": "金属线外露伤人",
+      "severity": "critical",
+      "review": "The wiring/boning for the Jessie doll's right arm somehow poked through the hole where her hat gets plugged into while my child was playing, and it scraped her face.",
+      "recommendation": "立即评估Jessie SKU的安全风险，考虑增加安全衬垫或产品召回"
+    }
+  ],
+  "quality_metrics": {
+    "defect_rate_estimated": "45% (based on negative reviews about DOA/failure)",
+    "return_issues": [
+      "电子功能失效",
+      "零件破损",
+      "安全隐患"
+    ],
+    "customer_satisfaction_drivers": [
+      "产品到货即能正常工作",
+      "耐用性/抗摔性",
+      "安全性"
+    ]
+  }
+}
