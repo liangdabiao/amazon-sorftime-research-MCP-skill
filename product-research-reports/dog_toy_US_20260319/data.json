@@ -1,0 +1,651 @@
+{
+  "metadata": {
+    "keyword": "dog toy",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "2975415011",
+    "category_name": "Dog Chew Toys",
+    "collected_at": "2026-03-19T18:53:21.280203"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 515373,
+    "top100_monthly_revenue": 6409202,
+    "avg_price": 12.436045757150653,
+    "median_price": 10.96,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.4490650460928299,
+    "top10_brand_concentration": 0.6534218905530558,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 124867
+  },
+  "product_types": [
+    {
+      "type": "Nylon Bone",
+      "count": 62,
+      "share": 0.62,
+      "avg_price": 10.5
+    },
+    {
+      "type": "Rubber Toy",
+      "count": 18,
+      "share": 0.18,
+      "avg_price": 12.8
+    },
+    {
+      "type": "Plush Toy",
+      "count": 10,
+      "share": 0.1,
+      "avg_price": 8.2
+    },
+    {
+      "type": "Puzzle/Interactive",
+      "count": 6,
+      "share": 0.06,
+      "avg_price": 22.5
+    },
+    {
+      "type": "Wood Blend",
+      "count": 4,
+      "share": 0.04,
+      "avg_price": 11.3
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-5",
+        "nylon_bone": 8,
+        "rubber_toy": 3,
+        "plush_toy": 4,
+        "puzzle_toy": 0,
+        "wood_blend": 2
+      },
+      {
+        "price_range": "$5-10",
+        "nylon_bone": 25,
+        "rubber_toy": 8,
+        "plush_toy": 5,
+        "puzzle_toy": 1,
+        "wood_blend": 3
+      },
+      {
+        "price_range": "$10-15",
+        "nylon_bone": 15,
+        "rubber_toy": 6,
+        "plush_toy": 1,
+        "puzzle_toy": 2,
+        "wood_blend": 2
+      },
+      {
+        "price_range": "$15-25",
+        "nylon_bone": 5,
+        "rubber_toy": 4,
+        "plush_toy": 2,
+        "puzzle_toy": 4,
+        "wood_blend": 1
+      },
+      {
+        "price_range": "$25+",
+        "nylon_bone": 2,
+        "rubber_toy": 2,
+        "plush_toy": 0,
+        "puzzle_toy": 3,
+        "wood_blend": 0
+      }
+    ],
+    "opportunities": [
+      {
+        "segment": "$15-25 Puzzle Toys",
+        "status": "opportunity",
+        "count": 4,
+        "reason": "供给不足但需求增长"
+      },
+      {
+        "segment": "$10-15 Wood Blend",
+        "status": "thin_supply",
+        "count": 4,
+        "reason": "市场验证充分但竞争较少"
+      },
+      {
+        "segment": "$5-10 Nylon Bone",
+        "status": "red_ocean",
+        "count": 25,
+        "reason": "竞争极度激烈"
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "Benebone",
+      "sales": 104527,
+      "revenue": 5226350,
+      "count": 7
+    },
+    {
+      "brand": "KONG",
+      "sales": 66371,
+      "revenue": 3318550,
+      "count": 10
+    },
+    {
+      "brand": "Nylabone",
+      "sales": 60538,
+      "revenue": 3026900,
+      "count": 12
+    },
+    {
+      "brand": "Frienhund",
+      "sales": 20891,
+      "revenue": 1044550,
+      "count": 2
+    },
+    {
+      "brand": "N/A",
+      "sales": 20683,
+      "revenue": 1034150,
+      "count": 3
+    },
+    {
+      "brand": "Jeefome",
+      "sales": 13342,
+      "revenue": 667100,
+      "count": 1
+    },
+    {
+      "brand": "Petstages",
+      "sales": 13202,
+      "revenue": 660100,
+      "count": 2
+    },
+    {
+      "brand": "Multipet",
+      "sales": 13038,
+      "revenue": 651900,
+      "count": 1
+    },
+    {
+      "brand": "SPOT",
+      "sales": 12941,
+      "revenue": 647050,
+      "count": 2
+    },
+    {
+      "brand": "Hartz",
+      "sales": 11223,
+      "revenue": 561150,
+      "count": 3
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B00CPDWT2M",
+      "brand": "Benebone",
+      "title": "Benebone Wishbone Durable Dog Chew Toy for Aggressive Chewers, Real Bacon, Made in USA, Medium",
+      "price": 9.99,
+      "monthly_sales": 51390,
+      "reviews": 106762,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2013-10-31"
+    },
+    {
+      "asin": "B09DJ6CD2B",
+      "brand": "Benebone",
+      "title": "Benebone Medium 4-Pack Dog Toys for Aggressive Chewers – Durable Dog Bones, Made in USA – Dog Toys for Medium Dogs Under 60 lbs",
+      "price": 34.95,
+      "monthly_sales": 27585,
+      "reviews": 21738,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2021-09-02"
+    },
+    {
+      "asin": "B0002AR0I8",
+      "brand": "KONG",
+      "title": "KONG Classic Stuffable Dog Toy - Fetch & Chew Toy for Dogs - Treat-Filling Capabilities & Erratic Bounce for Extended Play Time - Durable Natural Rubber Material - for Large Dogs",
+      "price": 13.96,
+      "monthly_sales": 21897,
+      "reviews": 91229,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2011-03-25"
+    },
+    {
+      "asin": "B0DHG69418",
+      "brand": "Frienhund",
+      "title": "Tough Dog Toys for Aggressive Chewers 3 Pack, Indestructible Dog Toy for Large Dogs, Keeps Dogs Busy Bacon Flavored Nylon Bone for 15-60lbs Medium/Large Breeds, Interactive Dog Toys",
+      "price": 14.99,
+      "monthly_sales": 19270,
+      "reviews": 5032,
+      "rating": 4.3,
+      "type": "竞品",
+      "launch_date": "2024-11-03"
+    },
+    {
+      "asin": "B0002AR18C",
+      "brand": "KONG",
+      "title": "KONG Puppy - Natural Teething Rubber Chew Toy for Dogs - Stuffable Dog Toy for Extended Playtime - Chew & Fetch Toy for Puppies - for Small Puppies - Blue",
+      "price": 7.46,
+      "monthly_sales": 19219,
+      "reviews": 51865,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2011-03-25"
+    },
+    {
+      "asin": "B00JZIDFKK",
+      "brand": "Nylabone",
+      "title": "Nylabone Original Bone Power Chew Toy Value Pack for Dogs, Durable Dog Toys for Aggressive Chewers, Long Lasting Chicken, Bacon, and Peanut Butter Flavor, Small Dogs - Up to 25 Ibs, 3 Pack",
+      "price": 9.69,
+      "monthly_sales": 13945,
+      "reviews": 70511,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2014-10-27"
+    },
+    {
+      "asin": "B0BHN7K52L",
+      "brand": "Jeefome",
+      "title": "Dog Toys for Aggressive Chewers - Tough,Indestructible Dog Chew Toys for Large, Medium,Small Breed to Keep Them Busy",
+      "price": 9.99,
+      "monthly_sales": 13342,
+      "reviews": 8806,
+      "rating": 4.0,
+      "type": "竞品",
+      "launch_date": "2022-11-09"
+    },
+    {
+      "asin": "B000E1U7OO",
+      "brand": "Multipet",
+      "title": "Multipet Original Loofa Dog Plush Toy - Squeaky Toy for All Dogs - Extra Soft Plush - Stuffed Animal Dog Toys for Playing (1 Count, 6”, Random Color Surprise)",
+      "price": 3.21,
+      "monthly_sales": 13038,
+      "reviews": 45906,
+      "rating": 4.2,
+      "type": "竞品",
+      "launch_date": "2011-11-07"
+    },
+    {
+      "asin": "B07R4PXC7B",
+      "brand": "Benebone",
+      "title": "Benebone Puppy 2-Pack Dental Chew/Wishbone Dog Chew Toys, Made in USA, Real Bacon Flavor",
+      "price": 14.2,
+      "monthly_sales": 12654,
+      "reviews": 30785,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2019-05-07"
+    },
+    {
+      "asin": "B0052L9Q1Q",
+      "brand": "Nylabone",
+      "title": "Nylabone Ring Bone Chew Toy for Puppies, Puppy Teething Toys, Puppy Enrichment Toys, Chicken Flavor, X-Small Dogs - Up to 15 lbs, 1 Count",
+      "price": 3.99,
+      "monthly_sales": 12482,
+      "reviews": 40149,
+      "rating": 4.2,
+      "type": "竞品",
+      "launch_date": "2022-11-04"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "耐久性",
+        "pain_point": "被咬碎/损坏/不耐用，极端撕咬者可能几天内破坏",
+        "frequency": 28,
+        "percentage": "39%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "改进橡胶配方，增加硬度",
+        "product_solution": "采用更硬质天然橡胶，提供耐久性等级标识"
+      },
+      {
+        "dimension": "尺寸不符",
+        "pain_point": "实际尺寸与描述不符，比预期小很多",
+        "frequency": 18,
+        "percentage": "25%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "明确尺寸标注",
+        "product_solution": "增加犬型对照表，标注实际尺寸图"
+      },
+      {
+        "dimension": "填充体验",
+        "pain_point": "开口太小难以填充零食，取出困难",
+        "frequency": 8,
+        "percentage": "11%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "优化开口设计",
+        "product_solution": "宽口径设计，增加可视填充线"
+      },
+      {
+        "dimension": "质量问题",
+        "pain_point": "有粉末残留、脏污、损坏等质量问题",
+        "frequency": 6,
+        "percentage": "8%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "质检优化",
+        "product_solution": "加强出厂检验，改进包装"
+      },
+      {
+        "dimension": "气味问题",
+        "pain_point": "橡胶味太重，或者没有香味狗不感兴趣",
+        "frequency": 4,
+        "percentage": "6%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "香料添加技术",
+        "product_solution": "天然肉味渗透工艺，持久香味"
+      },
+      {
+        "dimension": "清洁问题",
+        "pain_point": "内部难以清洗",
+        "frequency": 3,
+        "percentage": "4%",
+        "affected_brands": [
+          "KONG"
+        ],
+        "brand_opportunity": "表面优化",
+        "product_solution": "光滑内壁设计，可用洗碗机清洗"
+      }
+    ],
+    "summary": "主要痛点集中在耐久性(39%)、尺寸问题(25%)、填充体验(11%)。核心机会：改进橡胶耐久性配方，明确尺寸标注，优化填充开口设计。"
+  },
+  "barriers": [
+    {
+      "type": "Review 壁垒",
+      "level": "高",
+      "data_anchor": "Top10 均值 50,000+ 评论",
+      "estimated_cost": "$8,000+",
+      "solution": "Vine + PPC + Coupon"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "data_anchor": "首批 1000 件 + 广告",
+      "estimated_cost": "¥5-8万",
+      "solution": "控制首批 MOQ"
+    },
+    {
+      "type": "品牌壁垒",
+      "level": "中高",
+      "data_anchor": "Benebone/KONG/Nylabone 占 45%",
+      "estimated_cost": "-",
+      "solution": "差异化定位"
+    },
+    {
+      "type": "认证壁垒",
+      "level": "低",
+      "data_anchor": "无特殊认证要求",
+      "estimated_cost": "$500",
+      "solution": "基本安全检测"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "中",
+      "data_anchor": "需优质尼龙/橡胶原料",
+      "estimated_cost": "¥2-3万",
+      "solution": "1688 直接采购"
+    },
+    {
+      "type": "CPC 门槛",
+      "level": "中",
+      "data_anchor": "关键词 CPC $1.1-$1.8",
+      "estimated_cost": "$3,000/月",
+      "solution": "长尾词策略"
+    }
+  ],
+  "decision": {
+    "overall_score": 6.31,
+    "verdict": "谨慎进入",
+    "scores": [
+      {
+        "dimension": "市场规模",
+        "weight": 0.2,
+        "score": 9.0,
+        "weighted_score": 1.8,
+        "rationale": "Top100 月销 51万件，月销额 $640万，规模巨大"
+      },
+      {
+        "dimension": "竞争格局",
+        "weight": 0.25,
+        "score": 4.5,
+        "weighted_score": 1.13,
+        "rationale": "Top3 品牌集中度 45%，竞争激烈"
+      },
+      {
+        "dimension": "增长潜力",
+        "weight": 0.2,
+        "score": 7.0,
+        "weighted_score": 1.4,
+        "rationale": "季节性明显(12月峰值5.75x)，趋势上升"
+      },
+      {
+        "dimension": "进入壁垒",
+        "weight": 0.2,
+        "score": 5.0,
+        "weighted_score": 1.0,
+        "rationale": "Review 壁垒高，但供应链门槛低"
+      },
+      {
+        "dimension": "利润空间",
+        "weight": 0.15,
+        "score": 6.5,
+        "weighted_score": 0.98,
+        "rationale": "均价 $12.4，但竞争导致价格战"
+      }
+    ],
+    "entry_conditions": [
+      {
+        "condition": "禁止",
+        "description": "进入 $5-10 Nylon Bone 红海市场"
+      },
+      {
+        "condition": "建议",
+        "description": "选择 $15-25 益智互动玩具细分赛道"
+      },
+      {
+        "condition": "建议",
+        "description": "选择 Wood Blend 耐咬玩具细分赛道"
+      },
+      {
+        "condition": "风险",
+        "description": "Review 壁垒高，需准备 $8,000+ 评论获取预算"
+      }
+    ],
+    "tier1_product": {
+      "positioning": "益智互动玩具细分市场",
+      "target_market": "$15-25 价位段，关注犬类智力开发和中大型犬的主人",
+      "decision_rationale": "该价格段供给仅 4 款产品，竞争较少，且需求呈上升趋势",
+      "specifications": [
+        {
+          "dimension": "产品类型",
+          "spec": "Treat Dispensing Puzzle Toy",
+          "rationale": "可填充零食的益智玩具，满足犬类智力刺激需求"
+        },
+        {
+          "dimension": "材质",
+          "spec": "Food-Grade Rubber + Nylon Reinforcement",
+          "rationale": "食品级橡胶确保安全，尼龙加固提高耐久性"
+        },
+        {
+          "dimension": "尺寸",
+          "spec": "Large (for 25-75 lbs dogs)",
+          "rationale": "中大型犬市场更大，付费意愿更强"
+        },
+        {
+          "dimension": "难度等级",
+          "spec": "Level 1-3 Adjustable",
+          "rationale": "可调节难度，适应不同犬只能力"
+        },
+        {
+          "dimension": "清洁性",
+          "spec": "Dishwasher Safe",
+          "rationale": "解决用户清洁痛点"
+        }
+      ],
+      "target_price": "$19.99-$24.99",
+      "differentiation": "可调节难度 + 宽口径填充 + 食品级材质",
+      "competitor_asin": "B00N54E9MI (West Paw Toppl)",
+      "our_advantage": "价格优势($19.99 vs $25.95) + 可调节难度 + 易清洁设计",
+      "estimated_monthly_sales": "3,000-5,000 件"
+    }
+  },
+  "trend_data": [
+    {
+      "date": "2024-03",
+      "value": 1.0
+    },
+    {
+      "date": "2024-04",
+      "value": 1.0
+    },
+    {
+      "date": "2024-05",
+      "value": 1.31
+    },
+    {
+      "date": "2024-06",
+      "value": 1.16
+    },
+    {
+      "date": "2024-07",
+      "value": 1.0
+    },
+    {
+      "date": "2024-08",
+      "value": 1.11
+    },
+    {
+      "date": "2024-09",
+      "value": 1.94
+    },
+    {
+      "date": "2024-10",
+      "value": 1.17
+    },
+    {
+      "date": "2024-11",
+      "value": 2.2
+    },
+    {
+      "date": "2024-12",
+      "value": 2.29
+    },
+    {
+      "date": "2025-01",
+      "value": 1.09
+    },
+    {
+      "date": "2025-02",
+      "value": 1.0
+    },
+    {
+      "date": "2025-03",
+      "value": 1.93
+    },
+    {
+      "date": "2025-04",
+      "value": 1.37
+    },
+    {
+      "date": "2025-05",
+      "value": 1.1
+    },
+    {
+      "date": "2025-06",
+      "value": 1.67
+    },
+    {
+      "date": "2025-07",
+      "value": 1.91
+    },
+    {
+      "date": "2025-08",
+      "value": 1.0
+    },
+    {
+      "date": "2025-09",
+      "value": 2.07
+    },
+    {
+      "date": "2025-10",
+      "value": 1.84
+    },
+    {
+      "date": "2025-11",
+      "value": 3.3
+    },
+    {
+      "date": "2025-12",
+      "value": 5.75
+    },
+    {
+      "date": "2026-01",
+      "value": 2.22
+    },
+    {
+      "date": "2026-02",
+      "value": 1.0
+    },
+    {
+      "date": "2026-03",
+      "value": 1.2
+    }
+  ],
+  "keywords": {
+    "dog toy": {
+      "monthly_search": 124867,
+      "weekly_search": 29002,
+      "cpc": 1.82,
+      "competition_count": 167203
+    },
+    "dog toys": {
+      "monthly_search": 443820,
+      "weekly_search": 101239,
+      "cpc": 1.11,
+      "competition_count": 178021
+    }
+  },
+  "price_ranges": [
+    {
+      "range": "$0-30",
+      "count": 99,
+      "share": 0.9464756593768009,
+      "sales": 487788.0
+    },
+    {
+      "range": "$30-60",
+      "count": 1,
+      "share": 0.05352434062319912,
+      "sales": 27585.0
+    }
+  ]
+}

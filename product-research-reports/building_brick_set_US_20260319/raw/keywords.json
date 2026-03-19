@@ -1,0 +1,110 @@
+{
+  "building brick sets": {
+    "关键词": "building brick sets",
+    "周搜索量": "18",
+    "周搜索排名": "1609188",
+    "月搜索量": "95",
+    "推荐cpc竞价": "1.52",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "37658",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比60.42%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为100.00%/100.00%/100.00%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为100.00%/100.00%/100.00%,\r\n                    平均星级为1,\r\n                    平均评价数为4.51,\r\n                    做coupon促销产品数量/占比分别为1个 /2.27% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B0DJ1B2RW6",
+          "price": 15.97,
+          "title": "LEGO Creator 3 in 1 Cute Bunny Toy - Building Toy for Girls and Boys, Ages 8+ - Gift for Easter Basket - W/ 3 Build Options, Bunny, Seal, or Llama - 31162",
+          "monthly_sales": "本产品月销量：36277（占比：21.20%）",
+          "brand": "LEGO",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0DJ1B2RW6?psc=1"
+        },
+        {
+          "asin": "B0FMYST4JS",
+          "price": 12.99,
+          "title": "LEGO Easter Bunny and Chick Egg Hunt Building Toy for Girls & Boys - Springtime Playset for Kids, Ages 8+ - Basket Stuffer or Gift Idea for Easter - 40808",
+          "monthly_sales": "本产品月销量：23855（占比：13.94%）",
+          "brand": "LEGO",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0FMYST4JS?psc=1"
+        },
+        {
+          "asin": "B0DRW6C2RF",
+          "price": 19.99,
+          "title": "LEGO Botanicals Happy Plants Building Toy for Kids, Girls, and Boys 9+ - Playroom Decor for Desk or Shelf - Birthday Gift Idea for Young Gardeners - Artificial Indoor Plant for Play & Display - 10349",
+          "monthly_sales": "本产品月销量：18713（占比：10.94%）",
+          "brand": "LEGO",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0DRW6C2RF?psc=1"
+        },
+        {
+          "asin": "B0FMS84RFJ",
+          "price": 27.49,
+          "title": "LEGO Speed Champions Time Machine from Back to The Future Building Toy for Kids - Pretend Play & Display Car Toy W/2 Build Modes for Boys & Girls, Ages 9+ - Gift Ideas for Birthdays & Fans - 77256",
+          "monthly_sales": "本产品月销量：15921（占比：9.31%）",
+          "brand": "LEGO",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0FMS84RFJ?psc=1"
+        },
+        {
+          "asin": "B0DJ19VGDD",
+          "price": 23.99,
+          "title": "LEGO Botanicals Mini Orchid Building Set - Artificial, Fake Orchid for Home Decor, Adults Ages 18+ - Gift for Birthdays - Indoor Plant Decorations for Table, Desk, Office - 10343",
+          "monthly_sales": "本产品月销量：11450（占比：6.69%）",
+          "brand": "LEGO",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0DJ19VGDD?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "LEGO",
+          "product_count": "在统计样本中，产品数量:46",
+          "monthly_sales": "统计样本中本品牌月销量和：267728（占比：156.49%）"
+        },
+        {
+          "brand": "iATOM",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：3298（占比：1.93%）"
+        },
+        {
+          "brand": "HUIZDQ",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：2239（占比：1.31%）"
+        },
+        {
+          "brand": "Yushinv",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：1470（占比：0.86%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:43",
+          "monthly_sales": "统计样本中本品牌月销量和：259983（占比：151.96%）"
+        },
+        {
+          "seller": "N/A",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：4084（占比：2.39%）"
+        },
+        {
+          "seller": "chenyaxue1232024",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：3298（占比：1.93%）"
+        },
+        {
+          "seller": "Always in Stock 24/7",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：2295（占比：1.34%）"
+        },
+        {
+          "seller": "Huizhuan",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：2239（占比：1.31%）"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canned Cat Food - US 选品分析看板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e1e8ef;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        /* KPI 卡片网格 */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .kpi-card .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .kpi-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .kpi-card .note {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Go/No-Go 评分卡 */
+        .gogono-card {
+            background: linear-gradient(135deg, #f59e0b, #d97706 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .gogono-card .score {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .gogono-card .verdict {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gogono-card .verdict-detail {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* 标签 */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag-green { background: #dcfce7; color: #166534; }
+        .tag-yellow { background: #fef9c3; color: #854d0e; }
+        .tag-red { background: #fee2e2; color: #991b1b; }
+        .tag-blue { background: #dbeafe; color: #1e40af; }
+        .tag-gray { background: #f1f5f9; color: #475569; }
+
+        /* 机会卡片 */
+        .opportunity-card {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .opportunity-card .rank {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #e1e8ef;
+            margin-top: 40px;
+        }
+
+        /* 维度分布表格 */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Canned Cat Food 选品分析看板</h1>
+            <div class="subtitle">
+                站点: US | 分析日期: 20260319
+            </div>
+        </div>
+
+        <!-- Go/No-Go 评分 -->
+        <div class="section">
+            <div class="section-title">选品决策评估</div>
+            <div class="gogono-card" style="background: linear-gradient(135deg, #f59e0b, #d97706 100%);">
+                <div class="verdict">谨慎进入</div>
+                <div class="score">6.8 / 10</div>
+                <div class="verdict-detail">谨慎进入</div>
+            </div>
+        </div>
+
+        <!-- 市场概况 KPI -->
+        <div class="section">
+            <div class="section-title">市场概况</div>
+            <div class="kpi-grid">
+                
+                <div class="kpi-card">
+                    <div class="label">Top100 月销量</div>
+                    <div class="value">2,063,133</div>
+                    <div class="note">件</div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top100 月销额</div>
+                    <div class="value">$42,459,896</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">平均价格</div>
+                    <div class="value">$20.58</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top3 品牌集中度</div>
+                    <div class="value">40.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">亚马逊自营份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">中国卖家份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- 维度分布 -->
+        <div class="section">
+            <div class="section-title">产品维度分布</div>
+            <div class="dimension-grid">
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>价格区间</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$0-30</td><td>37</td><td><span class="tag tag-blue">79%</span></td></tr><tr><td>$30-60</td><td>13</td><td><span class="tag tag-green">21%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>产品类型</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>湿粮罐头</td><td>18</td><td><span class="tag tag-blue">36%</span></td></tr><tr><td>干粮</td><td>14</td><td><span class="tag tag-green">28%</span></td></tr><tr><td>零食/猫条</td><td>10</td><td><span class="tag tag-green">20%</span></td></tr><tr><td>猫砂</td><td>4</td><td><span class="tag tag-gray">8%</span></td></tr><tr><td>营养补充剂</td><td>2</td><td><span class="tag tag-gray">4%</span></td></tr><tr><td>其他</td><td>2</td><td><span class="tag tag-gray">4%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交叉分析 -->
+        
+        <div class="section">
+            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>价格区间 \ 产品类型</th>
+                        <th>干粮</th><th>湿粮</th><th>零食</th>
+                        <th>合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>$0-30</strong></td><td>9</td><td>18 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>10</td><td><strong>37</strong></td></tr><tr><td><strong>$30-60</strong></td><td>5</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>5</strong></td></tr>
+                    <tr style="background: #f8fafc; font-weight: 600;">
+                        <td><strong>合计</strong></td>
+                        <td><strong>14</strong></td><td><strong>18</strong></td><td><strong>10</strong></td>
+                        <td><strong>42</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>机会:</strong> 天然/无谷 + 中价位 (空白) | <strong>机会:</strong> 干粮 + $0-30 (薄供给)</div>
+        </div>
+        
+
+        <!-- VOC 分析 -->
+        
+        <div class="section">
+            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>痛点</th>
+                        <th>频次/占比</th>
+                        <th>涉及品牌</th>
+                        <th>品牌机会</th>
+                        <th>产品方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>适口性</strong></td>
+                    <td>猫咪不喜欢吃，拒食</td>
+                    <td>18<br><small>28%</small></td>
+                    <td>Meow Mix</td>
+                    <td>使用真肉成分、天然肉味增强剂</td>
+                    <td>添加天然肝脏粉、鱼油增强适口性</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>包装问题</strong></td>
+                    <td>包装破损、未密封、洒漏</td>
+                    <td>14<br><small>22%</small></td>
+                    <td>Meow Mix</td>
+                    <td>加强包装质量控制</td>
+                    <td>双层包装、真空密封</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>品质/安全性</strong></td>
+                    <td>导致猫咪呕吐、过敏、健康问题</td>
+                    <td>12<br><small>19%</small></td>
+                    <td>Meow Mix</td>
+                    <td>严格品控，第三方检测</td>
+                    <td>无添加配方、可追溯原料</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>配方变化</strong></td>
+                    <td>配方改变导致猫咪不吃</td>
+                    <td>6<br><small>9%</small></td>
+                    <td>Meow Mix</td>
+                    <td>保持配方稳定</td>
+                    <td>配方升级前公告</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>保质期/新鲜度</strong></td>
+                    <td>产品陈旧、变质</td>
+                    <td>8<br><small>13%</small></td>
+                    <td>Meow Mix</td>
+                    <td>缩短保质期管理</td>
+                    <td>生产日期标注</td>
+                </tr>
+            
+                </tbody>
+            </table>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在适口性(28%)、包装问题(22%)、品质安全性(19%)和新鲜度(13%)。</div>
+        </div>
+        
+
+        <!-- 竞品格局 -->
+        
+        <div class="section">
+            <div class="section-title">竞品格局 (Top8)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品牌/型号</th>
+                        <th>价格</th>
+                        <th>月销量</th>
+                        <th>类型</th>
+                        <th>定位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>INABA<br><small></small></td>
+                    <td>$12.79</td>
+                    <td>120,231</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Sheba<br><small></small></td>
+                    <td>$23.38</td>
+                    <td>90,061</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Meow Mix<br><small></small></td>
+                    <td>$8.99</td>
+                    <td>80,841</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Temptations<br><small></small></td>
+                    <td>$15.48</td>
+                    <td>75,474</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Fancy Feast<br><small></small></td>
+                    <td>$22.86</td>
+                    <td>70,504</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Fancy Feast<br><small></small></td>
+                    <td>$22.86</td>
+                    <td>70,263</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Fancy Feast<br><small></small></td>
+                    <td>$28.06</td>
+                    <td>65,398</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Sheba<br><small></small></td>
+                    <td>$23.38</td>
+                    <td>60,269</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 进入壁垒 -->
+        
+        <div class="section">
+            <div class="section-title">进入壁垒评估</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>壁垒类型</th>
+                        <th>等级</th>
+                        <th>预估成本</th>
+                        <th>数据锚点</th>
+                        <th>缓解方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>Review壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$50,000-$100,000</td>
+                    <td><small>Top10均值20,000+评论</small></td>
+                    <td>Vine Program + PPC</td>
+                </tr>
+            
+                <tr>
+                    <td>品牌壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$200,000+</td>
+                    <td><small>Top10品牌集中度84.6%</small></td>
+                    <td>差异化定位</td>
+                </tr>
+            
+                <tr>
+                    <td>资金壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>$50,000-$100,000</td>
+                    <td><small></small></td>
+                    <td>分阶段投入</td>
+                </tr>
+            
+                <tr>
+                    <td>合规壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>N/A</td>
+                    <td><small></small></td>
+                    <td>符合AAFCO标准</td>
+                </tr>
+            
+                <tr>
+                    <td>供应链壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>N/A</td>
+                    <td><small></small></td>
+                    <td>多供应商策略</td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 18:51</p>
+            <p>完整报告请查看 Markdown 文件</p>
+        </div>
+    </div>
+
+    <script>
+        // 页面交互脚本
+        console.log('Dashboard loaded successfully');
+    </script>
+</body>
+</html>

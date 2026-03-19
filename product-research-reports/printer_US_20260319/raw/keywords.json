@@ -1,0 +1,341 @@
+{
+  "printer": {
+    "关键词": "printer",
+    "周搜索量": "119992",
+    "周搜索排名": "347",
+    "月搜索量": "518386",
+    "推荐cpc竞价": "3.26",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "119702",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比35.29%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为21.05%/31.58%/31.58%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为50.00%/100.00%/100.00%,\r\n                    平均星级为0,\r\n                    平均评价数为4.20,\r\n                    做coupon促销产品数量/占比分别为0个 /0% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B096N8DN2H",
+          "price": 179.99,
+          "title": "Epson EcoTank ET-2800 Wireless Color All-in-One Cartridge-Free Supertank with Scan and Copy, The Ideal Basic Home Printer - Black",
+          "monthly_sales": "本产品月销量：25628（占比：4.84%）",
+          "brand": "Epson",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B096N8DN2H?psc=1"
+        },
+        {
+          "asin": "B0CT2R7199",
+          "price": 59.89,
+          "title": "HP DeskJet 2855e Wireless All-in-One Color Inkjet Printer, Scanner, Copier, Best-for-home, 3 months of Instant Ink included, Single-band Wi-Fi connectivity (588S5A)",
+          "monthly_sales": "本产品月销量：19349（占比：3.65%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT2R7199?psc=1"
+        },
+        {
+          "asin": "B0CT8ZJ7ZC",
+          "price": 129.89,
+          "title": "HP OfficeJet Pro 8125e Wireless All-in-One Color Inkjet Printer, Print, scan, Copy, ADF, Duplex Printing Best-for-Home Office, 3 Month Instant Ink Trial Included, AI-Enabled (405T6A)",
+          "monthly_sales": "本产品月销量：16688（占比：3.15%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT8ZJ7ZC?psc=1"
+        },
+        {
+          "asin": "B0FGC43YCL",
+          "price": 109.98,
+          "title": "Brother Work Smart 1360 Wireless Color Inkjet All-in-One Printer with Automatic Duplex Printing and 1.8” Color Display | Includes Refresh Subscription Trial(1) (MFC-J1360DW) (Uses LC501 Series Inks)",
+          "monthly_sales": "本产品月销量：15899（占比：3.00%）",
+          "brand": "Brother",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0FGC43YCL?psc=1"
+        },
+        {
+          "asin": "B09TG52XT4",
+          "price": 71.2,
+          "title": "Canon PIXMA TS6420a All-in-One Wireless Inkjet Printer [Print, Copy, Scan], Works with Alexa",
+          "monthly_sales": "本产品月销量：15603（占比：2.95%）",
+          "brand": "Canon",
+          "seller": "Beach Camera Same Day Shipping",
+          "url": "https://www.amazon.com/dp/B09TG52XT4?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "HP",
+          "product_count": "在统计样本中，产品数量:21",
+          "monthly_sales": "统计样本中本品牌月销量和：110784（占比：20.92%）"
+        },
+        {
+          "brand": "Canon",
+          "product_count": "在统计样本中，产品数量:11",
+          "monthly_sales": "统计样本中本品牌月销量和：76674（占比：14.48%）"
+        },
+        {
+          "brand": "Brother",
+          "product_count": "在统计样本中，产品数量:8",
+          "monthly_sales": "统计样本中本品牌月销量和：52715（占比：9.96%）"
+        },
+        {
+          "brand": "Epson",
+          "product_count": "在统计样本中，产品数量:7",
+          "monthly_sales": "统计样本中本品牌月销量和：51727（占比：9.77%）"
+        },
+        {
+          "brand": "Gloryang",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7942（占比：1.50%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:39",
+          "monthly_sales": "统计样本中本品牌月销量和：248492（占比：46.93%）"
+        },
+        {
+          "seller": "Beach Camera Same Day Shipping",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：15603（占比：2.95%）"
+        },
+        {
+          "seller": "Fast and Precise by Staples",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：11377（占比：2.15%）"
+        },
+        {
+          "seller": "Adorama",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：8134（占比：1.54%）"
+        },
+        {
+          "seller": "Gloryang",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7942（占比：1.50%）"
+        }
+      ]
+    }
+  },
+  "printers": {
+    "关键词": "printers",
+    "周搜索量": "16731",
+    "周搜索排名": "12596",
+    "月搜索量": "72347",
+    "推荐cpc竞价": "1.99",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "121597",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比70.00%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为0.00%/13.04%/13.04%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为0.00%/0.00%/25.00%,\r\n                    平均星级为1,\r\n                    平均评价数为4.26,\r\n                    做coupon促销产品数量/占比分别为0个 /0% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B096N8DN2H",
+          "price": 179.99,
+          "title": "Epson EcoTank ET-2800 Wireless Color All-in-One Cartridge-Free Supertank with Scan and Copy, The Ideal Basic Home Printer - Black",
+          "monthly_sales": "本产品月销量：25628（占比：7.75%）",
+          "brand": "Epson",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B096N8DN2H?psc=1"
+        },
+        {
+          "asin": "B0CT2R7199",
+          "price": 59.89,
+          "title": "HP DeskJet 2855e Wireless All-in-One Color Inkjet Printer, Scanner, Copier, Best-for-home, 3 months of Instant Ink included, Single-band Wi-Fi connectivity (588S5A)",
+          "monthly_sales": "本产品月销量：19349（占比：5.85%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT2R7199?psc=1"
+        },
+        {
+          "asin": "B0CT8ZJ7ZC",
+          "price": 129.89,
+          "title": "HP OfficeJet Pro 8125e Wireless All-in-One Color Inkjet Printer, Print, scan, Copy, ADF, Duplex Printing Best-for-Home Office, 3 Month Instant Ink Trial Included, AI-Enabled (405T6A)",
+          "monthly_sales": "本产品月销量：16688（占比：5.05%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT8ZJ7ZC?psc=1"
+        },
+        {
+          "asin": "B0FGC43YCL",
+          "price": 109.98,
+          "title": "Brother Work Smart 1360 Wireless Color Inkjet All-in-One Printer with Automatic Duplex Printing and 1.8” Color Display | Includes Refresh Subscription Trial(1) (MFC-J1360DW) (Uses LC501 Series Inks)",
+          "monthly_sales": "本产品月销量：15899（占比：4.81%）",
+          "brand": "Brother",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0FGC43YCL?psc=1"
+        },
+        {
+          "asin": "B09TG52XT4",
+          "price": 71.2,
+          "title": "Canon PIXMA TS6420a All-in-One Wireless Inkjet Printer [Print, Copy, Scan], Works with Alexa",
+          "monthly_sales": "本产品月销量：15603（占比：4.72%）",
+          "brand": "Canon",
+          "seller": "Beach Camera Same Day Shipping",
+          "url": "https://www.amazon.com/dp/B09TG52XT4?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "HP",
+          "product_count": "在统计样本中，产品数量:23",
+          "monthly_sales": "统计样本中本品牌月销量和：113969（占比：34.46%）"
+        },
+        {
+          "brand": "Canon",
+          "product_count": "在统计样本中，产品数量:9",
+          "monthly_sales": "统计样本中本品牌月销量和：64723（占比：19.57%）"
+        },
+        {
+          "brand": "Brother",
+          "product_count": "在统计样本中，产品数量:9",
+          "monthly_sales": "统计样本中本品牌月销量和：54934（占比：16.61%）"
+        },
+        {
+          "brand": "Epson",
+          "product_count": "在统计样本中，产品数量:7",
+          "monthly_sales": "统计样本中本品牌月销量和：44431（占比：13.44%）"
+        },
+        {
+          "brand": "Gloryang",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7942（占比：2.40%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:39",
+          "monthly_sales": "统计样本中本品牌月销量和：232430（占比：70.28%）"
+        },
+        {
+          "seller": "Beach Camera Same Day Shipping",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：15603（占比：4.72%）"
+        },
+        {
+          "seller": "Fast and Precise by Staples",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：11377（占比：3.44%）"
+        },
+        {
+          "seller": "Adorama",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：8134（占比：2.46%）"
+        },
+        {
+          "seller": "Gloryang",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7942（占比：2.40%）"
+        }
+      ]
+    }
+  },
+  "portable printer": {
+    "关键词": "portable printer",
+    "周搜索量": "27182",
+    "周搜索排名": "5642",
+    "月搜索量": "119935",
+    "推荐cpc竞价": "1.25",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "14750",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比5.00%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为25.00%/45.00%/50.00%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为60.00%/100.00%/100.00%,\r\n                    平均星级为1,\r\n                    平均评价数为4.28,\r\n                    做coupon促销产品数量/占比分别为5个 /16.13% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B0C3L93F2Q",
+          "price": 17.99,
+          "title": "Nelko Label Maker Machine with Tape, P21 Bluetooth Label Printer, Wireless Mini Label Makers with Multiple Templates for School Office Home, White",
+          "monthly_sales": "本产品月销量：34438（占比：18.22%）",
+          "brand": "Nelko",
+          "seller": "Nelko Print Pro",
+          "url": "https://www.amazon.com/dp/B0C3L93F2Q?psc=1"
+        },
+        {
+          "asin": "B096N8DN2H",
+          "price": 179.99,
+          "title": "Epson EcoTank ET-2800 Wireless Color All-in-One Cartridge-Free Supertank with Scan and Copy, The Ideal Basic Home Printer - Black",
+          "monthly_sales": "本产品月销量：25628（占比：13.56%）",
+          "brand": "Epson",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B096N8DN2H?psc=1"
+        },
+        {
+          "asin": "B0CT2R7199",
+          "price": 59.89,
+          "title": "HP DeskJet 2855e Wireless All-in-One Color Inkjet Printer, Scanner, Copier, Best-for-home, 3 months of Instant Ink included, Single-band Wi-Fi connectivity (588S5A)",
+          "monthly_sales": "本产品月销量：19349（占比：10.23%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT2R7199?psc=1"
+        },
+        {
+          "asin": "B0CT8ZJ7ZC",
+          "price": 129.89,
+          "title": "HP OfficeJet Pro 8125e Wireless All-in-One Color Inkjet Printer, Print, scan, Copy, ADF, Duplex Printing Best-for-Home Office, 3 Month Instant Ink Trial Included, AI-Enabled (405T6A)",
+          "monthly_sales": "本产品月销量：16688（占比：8.83%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0CT8ZJ7ZC?psc=1"
+        },
+        {
+          "asin": "B0FGC43YCL",
+          "price": 109.98,
+          "title": "Brother Work Smart 1360 Wireless Color Inkjet All-in-One Printer with Automatic Duplex Printing and 1.8” Color Display | Includes Refresh Subscription Trial(1) (MFC-J1360DW) (Uses LC501 Series Inks)",
+          "monthly_sales": "本产品月销量：15899（占比：8.41%）",
+          "brand": "Brother",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0FGC43YCL?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "HP",
+          "product_count": "在统计样本中，产品数量:8",
+          "monthly_sales": "统计样本中本品牌月销量和：71759（占比：37.96%）"
+        },
+        {
+          "brand": "Nelko",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：38744（占比：20.49%）"
+        },
+        {
+          "brand": "Epson",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：33174（占比：17.55%）"
+        },
+        {
+          "brand": "Brother",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：30992（占比：16.39%）"
+        },
+        {
+          "brand": "Canon",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：25561（占比：13.52%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:15",
+          "monthly_sales": "统计样本中本品牌月销量和：134178（占比：70.97%）"
+        },
+        {
+          "seller": "Nelko Print Pro",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：34438（占比：18.22%）"
+        },
+        {
+          "seller": "Beach Camera Same Day Shipping",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：15603（占比：8.25%）"
+        },
+        {
+          "seller": "LieneDirect",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：8568（占比：4.53%）"
+        },
+        {
+          "seller": "Gloryang",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7942（占比：4.20%）"
+        }
+      ]
+    }
+  }
+}

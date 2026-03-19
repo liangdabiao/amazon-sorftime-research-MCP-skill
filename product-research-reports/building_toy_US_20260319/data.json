@@ -1,0 +1,610 @@
+{
+  "metadata": {
+    "keyword": "building toy",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "166099011",
+    "category_name": "Toy Building Sets",
+    "collected_at": "2026-03-19T17:30:32.709376"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords",
+    "reviews",
+    "analysis",
+    "report_generation"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 492754,
+    "top100_monthly_revenue": 9741647,
+    "avg_price": 19.77,
+    "median_price": 19.97,
+    "top3_product_concentration": 0.157,
+    "top3_brand_concentration": 0.983,
+    "top10_brand_concentration": 1.0,
+    "amazon_share": 0.95,
+    "china_seller_share": 0.03,
+    "new_product_share": 0.20,
+    "keyword_monthly_search": 51501
+  },
+  "price_ranges": [
+    {
+      "range": "$0-15",
+      "count": 35,
+      "share": 0.35,
+      "sales": 120000
+    },
+    {
+      "range": "$15-30",
+      "count": 48,
+      "share": 0.48,
+      "sales": 318382
+    },
+    {
+      "range": "$30-60",
+      "count": 15,
+      "share": 0.15,
+      "sales": 48970
+    },
+    {
+      "range": "$60+",
+      "count": 2,
+      "share": 0.02,
+      "sales": 5402
+    }
+  ],
+  "product_types": [
+    {
+      "type": "Creator 3-in-1",
+      "count": 22,
+      "share": 0.22,
+      "avg_price": 15.50,
+      "description": "三合一变换玩具，高性价比"
+    },
+    {
+      "type": "Speed Champions",
+      "count": 15,
+      "share": 0.15,
+      "avg_price": 25.00,
+      "description": "IP授权跑车模型"
+    },
+    {
+      "type": "Botanicals",
+      "count": 10,
+      "share": 0.10,
+      "avg_price": 28.00,
+      "description": "装饰性花卉植物"
+    },
+    {
+      "type": "Minecraft",
+      "count": 10,
+      "share": 0.10,
+      "avg_price": 15.00,
+      "description": "游戏IP授权"
+    },
+    {
+      "type": "Star Wars",
+      "count": 8,
+      "share": 0.08,
+      "avg_price": 35.00,
+      "description": "星战IP授权"
+    },
+    {
+      "type": "Marvel",
+      "count": 8,
+      "share": 0.08,
+      "avg_price": 12.00,
+      "description": "漫威IP授权"
+    },
+    {
+      "type": "City",
+      "count": 8,
+      "share": 0.08,
+      "avg_price": 18.00,
+      "description": "城市场景系列"
+    },
+    {
+      "type": "DUPLO",
+      "count": 5,
+      "share": 0.05,
+      "avg_price": 25.00,
+      "description": "大颗粒低龄系列"
+    },
+    {
+      "type": "Technic",
+      "count": 5,
+      "share": 0.05,
+      "avg_price": 40.00,
+      "description": "机械组高难度"
+    },
+    {
+      "type": "Other",
+      "count": 9,
+      "share": 0.09,
+      "avg_price": 15.00,
+      "description": "其他主题"
+    }
+  ],
+  "age_ranges": [
+    {
+      "range": "1.5-4岁",
+      "count": 5,
+      "share": 0.05,
+      "avg_price": 25.00,
+      "competition": "低"
+    },
+    {
+      "range": "4-7岁",
+      "count": 20,
+      "share": 0.20,
+      "avg_price": 15.00,
+      "competition": "中等"
+    },
+    {
+      "range": "8-10岁",
+      "count": 45,
+      "share": 0.45,
+      "avg_price": 18.00,
+      "competition": "激烈"
+    },
+    {
+      "range": "10-14岁",
+      "count": 20,
+      "share": 0.20,
+      "avg_price": 30.00,
+      "competition": "IP主导"
+    },
+    {
+      "range": "18+岁",
+      "count": 10,
+      "share": 0.10,
+      "avg_price": 50.00,
+      "competition": "收藏级"
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-15",
+        "Creator 3-in-1": 8,
+        "Speed Champions": 0,
+        "Botanicals": 0,
+        "Minecraft": 6,
+        "Star Wars": 0,
+        "Marvel": 4,
+        "City": 3,
+        "DUPLO": 0,
+        "Technic": 0
+      },
+      {
+        "price_range": "$15-30",
+        "Creator 3-in-1": 12,
+        "Speed Champions": 5,
+        "Botanicals": 6,
+        "Minecraft": 4,
+        "Star Wars": 2,
+        "Marvel": 4,
+        "City": 3,
+        "DUPLO": 3,
+        "Technic": 1
+      },
+      {
+        "price_range": "$30-60",
+        "Creator 3-in-1": 3,
+        "Speed Champions": 8,
+        "Botanicals": 3,
+        "Minecraft": 2,
+        "Star Wars": 4,
+        "Marvel": 0,
+        "City": 2,
+        "DUPLO": 2,
+        "Technic": 2
+      },
+      {
+        "price_range": "$60+",
+        "Creator 3-in-1": 0,
+        "Speed Champions": 2,
+        "Botanicals": 1,
+        "Minecraft": 1,
+        "Star Wars": 2,
+        "Marvel": 0,
+        "City": 0,
+        "DUPLO": 0,
+        "Technic": 2
+      }
+    ],
+    "red_ocean": [
+      {
+        "combination": "$15-30 Creator 3-in-1",
+        "products": 12
+      },
+      {
+        "combination": "$30-60 Speed Champions",
+        "products": 8
+      }
+    ],
+    "opportunities": [
+      {
+        "combination": "$0-15 DUPLO",
+        "status": "薄供给 (3款)",
+        "products": 3
+      },
+      {
+        "combination": "$30-60 Botanicals",
+        "status": "薄供给 (3款)",
+        "products": 3
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "LEGO",
+      "sales": 472034,
+      "revenue": 23601700,
+      "count": 94,
+      "share": 0.958
+    },
+    {
+      "brand": "Goliath",
+      "sales": 6949,
+      "revenue": 347450,
+      "count": 1,
+      "share": 0.014
+    },
+    {
+      "brand": "MAGNA-TILES",
+      "sales": 5229,
+      "revenue": 261450,
+      "count": 2,
+      "share": 0.011
+    },
+    {
+      "brand": "Tsomtto",
+      "sales": 3337,
+      "revenue": 166850,
+      "count": 1,
+      "share": 0.007
+    },
+    {
+      "brand": "Mega Bloks",
+      "sales": 2464,
+      "revenue": 123200,
+      "count": 1,
+      "share": 0.005
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B0DJ1B2RW6",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Cute Bunny Toy",
+      "price": 15.97,
+      "monthly_sales": 36277,
+      "reviews": 1893,
+      "rating": 4.8,
+      "type": "量级标杆",
+      "launch_date": "2024-11-08",
+      "differentiation": "季节性 Easter 主题，三合一设计"
+    },
+    {
+      "asin": "B0FMYST4JS",
+      "brand": "LEGO",
+      "title": "LEGO Easter Bunny and Chick Egg Hunt",
+      "price": 12.99,
+      "monthly_sales": 23855,
+      "reviews": 117,
+      "rating": 4.7,
+      "type": "量级标杆",
+      "launch_date": "2025-08-20",
+      "differentiation": "Easter 季节性新品"
+    },
+    {
+      "asin": "B0DRW6C2RF",
+      "brand": "LEGO",
+      "title": "LEGO Botanicals Happy Plants",
+      "price": 19.99,
+      "monthly_sales": 18713,
+      "reviews": 2958,
+      "rating": 4.9,
+      "type": "量级标杆",
+      "launch_date": "2025-01-15",
+      "differentiation": "Botanicals 装饰系列"
+    },
+    {
+      "asin": "B0FMS84RFJ",
+      "brand": "LEGO",
+      "title": "LEGO Speed Champions Time Machine",
+      "price": 27.49,
+      "monthly_sales": 15921,
+      "reviews": 725,
+      "rating": 4.9,
+      "type": "IP授权",
+      "launch_date": "2025-10-08",
+      "differentiation": "Back to the Future IP"
+    },
+    {
+      "asin": "B0CGY4J7QT",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Flatbed Truck",
+      "price": 19.97,
+      "monthly_sales": 10948,
+      "reviews": 5666,
+      "rating": 4.8,
+      "type": "长尾爆款",
+      "launch_date": "2023-11-18",
+      "differentiation": "经典三合一车辆"
+    },
+    {
+      "asin": "B0BLJ4SVWV",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Magical Unicorn",
+      "price": 9.97,
+      "monthly_sales": 10562,
+      "reviews": 7387,
+      "rating": 4.8,
+      "type": "长尾爆款",
+      "launch_date": "2022-12-21",
+      "differentiation": "独角兽主题，低价高销"
+    },
+    {
+      "asin": "B00NHQFA1I",
+      "brand": "LEGO",
+      "title": "LEGO Classic Medium Creative Brick Box",
+      "price": 24.88,
+      "monthly_sales": 8680,
+      "reviews": 56381,
+      "rating": 4.8,
+      "type": "经典款",
+      "launch_date": "2014-12-13",
+      "differentiation": "经典创意盒，评论壁垒极高"
+    },
+    {
+      "asin": "B0CP4BSFB9",
+      "brand": "Goliath",
+      "title": "Jelly Blox Creative Kit",
+      "price": 16.99,
+      "monthly_sales": 6949,
+      "reviews": 1947,
+      "rating": 4.7,
+      "type": "差异化竞品",
+      "launch_date": "2024-04-24",
+      "differentiation": "可挤压变形积木，材料创新"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "缺件问题",
+        "pain_point": "包装内缺少拼装零件，无法完成拼装",
+        "frequency": 9,
+        "percentage": "35%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "严格QC检验，提供补件服务",
+        "product_solution": "预留5%备用件，在线补件系统"
+      },
+      {
+        "dimension": "包装质量",
+        "pain_point": "包装盒压损、破损，影响礼品属性",
+        "frequency": 6,
+        "percentage": "23%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "加固包装结构",
+        "product_solution": "双层瓦楞纸箱，防撞角设计"
+      },
+      {
+        "dimension": "说明问题",
+        "pain_point": "说明书缺失、错误、不完整",
+        "frequency": 4,
+        "percentage": "15%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "优化说明书设计",
+        "product_solution": "二维码视频教程，分步说明书"
+      },
+      {
+        "dimension": "价值感知",
+        "pain_point": "价格偏高，零件数量不符预期",
+        "frequency": 4,
+        "percentage": "15%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "优化性价比",
+        "product_solution": "增加零件数量，多功能设计"
+      },
+      {
+        "dimension": "难度匹配",
+        "pain_point": "标注年龄与实际难度不符",
+        "frequency": 3,
+        "percentage": "12%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "准确年龄分级",
+        "product_solution": "分级测试，明确标注"
+      }
+    ],
+    "summary": "主要痛点集中在缺件(35%)和包装质量(23%)，产品质量控制和包装是关键改进点。"
+  },
+  "barriers": [
+    {
+      "type": "品牌认知壁垒",
+      "level": "极高",
+      "data_anchor": "LEGO 98.3% 市场份额",
+      "estimated_cost": "$100K+ 营销",
+      "solution": "避开正面竞争，差异化定位"
+    },
+    {
+      "type": "评论壁垒",
+      "level": "极高",
+      "data_anchor": "Top10 均值 5,000+ 评论",
+      "estimated_cost": "$20K+ Vine+PPC",
+      "solution": "长期积累，至少12个月"
+    },
+    {
+      "type": "IP授权壁垒",
+      "level": "高",
+      "data_anchor": "成功产品 70%+ 有IP",
+      "estimated_cost": "$50K+ 授权费",
+      "solution": "研发原创IP，或选择公有领域IP"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "data_anchor": "首批备货 5K 件 + 广告",
+      "estimated_cost": "¥50-100K",
+      "solution": "控制首批MOQ，小批量测试"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "中",
+      "data_anchor": "精度要求高，品控难",
+      "estimated_cost": "¥30K+ 模具+QC",
+      "solution": "寻找有积木经验的工厂"
+    },
+    {
+      "type": "质量壁垒",
+      "level": "高",
+      "data_anchor": "用户对非LEGO品质不信任",
+      "estimated_cost": "持续投入",
+      "solution": "严格QC，提供质量保证"
+    }
+  ],
+  "decision": {
+    "overall_score": 3.45,
+    "verdict": "不建议进入",
+    "verdict_en": "NOT RECOMMENDED",
+    "scores": [
+      {
+        "dimension": "市场规模",
+        "weight": 0.20,
+        "score": 9,
+        "weighted_score": 1.8,
+        "basis": "月销额$9.7M，市场规模大"
+      },
+      {
+        "dimension": "竞争格局",
+        "weight": 0.25,
+        "score": 1,
+        "weighted_score": 0.25,
+        "basis": "LEGO垄断98%，无竞争空间"
+      },
+      {
+        "dimension": "进入壁垒",
+        "weight": 0.20,
+        "score": 2,
+        "weighted_score": 0.4,
+        "basis": "品牌壁垒+评论壁垒双高"
+      },
+      {
+        "dimension": "利润空间",
+        "weight": 0.15,
+        "score": 4,
+        "weighted_score": 0.6,
+        "basis": "高PPC成本压缩利润"
+      },
+      {
+        "dimension": "差异化机会",
+        "weight": 0.20,
+        "score": 2,
+        "weighted_score": 0.4,
+        "basis": "IP授权垄断，差异化难"
+      }
+    ],
+    "entry_conditions": [
+      "拥有或可获得独家IP授权（非热门IP，授权费<$50K）",
+      "预算¥100K+（首批备货+广告+Vine计划）",
+      "供应链有积木生产经验（精度±0.01mm）",
+      "可接受12-18个月盈利周期"
+    ],
+    "forbidden_conditions": [
+      "无IP授权的通用积木",
+      "模仿LEGO设计",
+      "价格$10-40主流带",
+      "预算低于¥100K",
+      "期望6个月内盈利"
+    ],
+    "differentiation_directions": [
+      "材料创新：磁性积木、木质积木、电子积木",
+      "功能创新：可编程积木、发光积木、音乐积木",
+      "主题创新：小众文化、教育主题、宗教主题",
+      "年龄段创新：专注低龄（1.5-3岁）或成人（18+收藏级）"
+    ],
+    "alternative_categories": [
+      {
+        "category": "Magnetic Building Tiles",
+        "reason": "差异化明显，LEGO未覆盖",
+        "difficulty": "中"
+      },
+      {
+        "category": "Wooden Building Blocks",
+        "reason": "天然材料，教育属性强",
+        "difficulty": "中低"
+      },
+      {
+        "category": "STEM Construction Kits",
+        "reason": "教育功能，溢价空间大",
+        "difficulty": "中"
+      },
+      {
+        "category": "Preschool Learning Toys",
+        "reason": "低龄市场，家长重视",
+        "difficulty": "低"
+      }
+    ]
+  },
+  "trend_data": [
+    {"date": "2024-03", "value": 1.4},
+    {"date": "2024-05", "value": 1.86},
+    {"date": "2024-06", "value": 1.29},
+    {"date": "2024-07", "value": 8.24},
+    {"date": "2024-08", "value": 2.72},
+    {"date": "2024-09", "value": 1.35},
+    {"date": "2024-10", "value": 1.0},
+    {"date": "2024-12", "value": 1.2},
+    {"date": "2025-01", "value": 16.52},
+    {"date": "2025-02", "value": 14.2},
+    {"date": "2025-03", "value": 1.5},
+    {"date": "2025-04", "value": 1.0},
+    {"date": "2025-05", "value": 1.0},
+    {"date": "2025-06", "value": 1.0},
+    {"date": "2025-07", "value": 1.0},
+    {"date": "2025-08", "value": 3.27},
+    {"date": "2025-09", "value": 1.14},
+    {"date": "2025-10", "value": 1.29},
+    {"date": "2025-11", "value": 1.82},
+    {"date": "2025-12", "value": 1.0},
+    {"date": "2026-01", "value": 18.06},
+    {"date": "2026-02", "value": 23.25},
+    {"date": "2026-03", "value": 19.2}
+  ],
+  "keywords": {
+    "building toy": {
+      "monthly_search": 116,
+      "weekly_search": 28,
+      "cpc": 1.83,
+      "competition_count": 186918
+    },
+    "building toys": {
+      "monthly_search": 51501,
+      "weekly_search": 13623,
+      "cpc": 1.07,
+      "competition_count": 177802
+    }
+  },
+  "analysis_summary": {
+    "market_size": "月销额$9.7M，市场规模大",
+    "competition": "LEGO垄断98.3%，极端品牌集中",
+    "barriers": "品牌认知壁垒+评论壁垒双高，IP授权依赖强",
+    "opportunities": "材料创新（磁性/木质/电子）、低龄市场、成人收藏级",
+    "recommendation": "不建议进入，建议考虑Magnetic Building Tiles等差异化类目"
+  }
+}

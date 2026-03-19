@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了四个核心技能：
+本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了五个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
@@ -12,6 +12,7 @@
 | `category-selection` | 整个品类 | `/category-select "{品类}" {SITE}` | 品类自动化选品分析 |
 | `keyword-research` | 关键词词库 | `/keyword-research {ASIN} {SITE}` | 关键词深度调研与8维智能分类 |
 | `review-analysis` | 用户评论 | `/review-analysis {ASIN} {SITE}` | 评论深度分析与痛点挖掘 |
+| `product-research` | 选品深度调研 | `/product-research "{产品关键词}" {SITE}` | LLM驱动的选品深度调研与决策 |
 
 ### 核心功能
 
@@ -38,6 +39,14 @@
 - **双轨解决方案**: 产品改进建议 + 客服话术/Listing优化
 - **风险预警**: 二手/瑕疵品阈值警告（>5%危险）、服务问题自动预警
 - **原始数据保存**: SSE 响应、解析数据、结构化分析 JSON
+
+#### 选品深度调研 (product-research)
+- **LLM 驱动**: 分析、洞察、决策全部由 LLM 完成
+- **交互式执行**: 逐步推进，用户可中途干预
+- **轻量脚本**: 仅用于 API 调用和 Dashboard 渲染
+- **简化数据**: 不用复杂的 unified payload 结构
+- **完整流程**: 信息收集 → 数据采集 → 属性标注 → 交叉分析 → 竞品与 VOC → 评估决策 → 报告输出
+- **多格式输出**: Markdown 完整报告、结构化数据、可视化看板
 
 ---
 
@@ -139,6 +148,21 @@
   - `raw_product_sse.txt` - 原始产品详情SSE响应
   - `raw_reviews_sse.txt` - 原始评论SSE响应
   - `negative_reviews_analysis.json` - 差评分析结构化数据
+
+#### 5. 选品深度调研
+
+```bash
+# 分析蓝牙音箱选品
+/product-research "bluetooth speaker" US
+
+# 分析笔记本电脑背包选品
+/product-research "laptop backpack" GB
+```
+
+**报告保存**: `product-research-reports/{关键词}_{站点}_{日期}/`
+- `report.md` - Markdown 完整报告（LLM 直接撰写）
+- `data.json` - 结构化数据（供 Dashboard 使用）
+- `dashboard.html` - 可视化看板（脚本渲染）
 
 **6维痛点分析框架**:
 | 维度 | 识别内容 | 严重程度评估 |
@@ -274,6 +298,15 @@ amazon-mcp/
 │       ├── review-analysis/     # 评论深度分析技能
 │       │   ├── SKILL.md
 │       │   └── references/
+│       ├── product-research/    # 选品深度调研技能
+│       │   ├── SKILL.md
+│       │   ├── README.md
+│       │   ├── scripts/         # 数据处理脚本
+│       │   │   ├── api_client.py
+│       │   │   ├── collect_data.py
+│       │   │   ├── render_dashboard.py
+│       │   │   └── run_analysis.py
+│       │   └── references/
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
 │   └── analysis_{ASIN}_{站点}_{日期}.md
@@ -298,6 +331,11 @@ amazon-mcp/
 │           ├── raw_product_sse.txt
 │           ├── raw_reviews_sse.txt
 │           └── negative_reviews_analysis.json
+├── product-research-reports/    # 选品深度调研报告
+│   └── {关键词}_{站点}_{日期}/
+│       ├── report.md            # Markdown完整报告
+│       ├── data.json            # 结构化数据
+│       └── dashboard.html       # 可视化看板
 └── README.md
 ```
 
@@ -345,6 +383,14 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 ---
 
 ## 更新日志
+
+### v2.6 (2026-03-19)
+- **新增**: product-research 选品深度调研技能
+- **新增**: LLM 驱动的选品深度调研与决策流程
+- **新增**: 交互式执行模式，用户可中途干预
+- **新增**: 轻量脚本架构，仅用于 API 调用和 Dashboard 渲染
+- **新增**: 完整流程：信息收集 → 数据采集 → 属性标注 → 交叉分析 → 竞品与 VOC → 评估决策 → 报告输出
+- **新增**: 多格式输出：Markdown 完整报告、结构化数据、可视化看板
 
 ### v2.5 (2026-03-15)
 - **新增**: review-analysis 评论深度分析技能
@@ -399,4 +445,4 @@ MIT License
 
 ---
 
-*最后更新: 2026-03-15*
+*最后更新: 2026-03-19*

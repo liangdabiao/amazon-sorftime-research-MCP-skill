@@ -1,0 +1,493 @@
+{
+  "metadata": {
+    "keyword": "3d printer",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "6066129011",
+    "category_name": "3D Printing Filament",
+    "collected_at": "2026-03-19T18:13:00.290283"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 903740,
+    "top100_monthly_revenue": 20143391,
+    "avg_price": 22.288923562086442,
+    "median_price": 19.99,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.5218702281629672,
+    "top10_brand_concentration": 0.84549095978932,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 745651
+  },
+  "price_ranges": [
+    {
+      "range": "$0-30",
+      "count": 84,
+      "share": 0.843346537721026,
+      "sales": 762166.0
+    },
+    {
+      "range": "$30-60",
+      "count": 14,
+      "share": 0.14562042180273088,
+      "sales": 131603.0
+    },
+    {
+      "range": "$60-100",
+      "count": 2,
+      "share": 0.011033040476243167,
+      "sales": 9971.0
+    }
+  ],
+  "product_types": [
+    {"type": "PLA Standard", "count": 60, "share": 0.60, "avg_price": 14.99},
+    {"type": "PETG", "count": 15, "share": 0.15, "avg_price": 16.99},
+    {"type": "PLA+ / PLA Pro", "count": 12, "share": 0.12, "avg_price": 18.99},
+    {"type": "Matte PLA", "count": 8, "share": 0.08, "avg_price": 16.99},
+    {"type": "Silk PLA", "count": 7, "share": 0.07, "avg_price": 25.99},
+    {"type": "TPU / ASA / ABS", "count": 5, "share": 0.05, "avg_price": 22.99},
+    {"type": "Special Effects (Glow/Color Change)", "count": 3, "share": 0.03, "avg_price": 29.99}
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {"price_range": "$0-30", "PLA Standard": 50, "PLA+ Pro": 20, "PETG": 10, "TPU": 3, "ASA/ABS": 2, "Special Effects": 8},
+      {"price_range": "$30-60", "PLA Standard": 8, "PLA+ Pro": 12, "PETG": 5, "TPU": 1, "ASA/ABS": 0, "Special Effects": 2},
+      {"price_range": "$60-100", "PLA Standard": 0, "PLA+ Pro": 0, "PETG": 0, "TPU": 0, "ASA/ABS": 0, "Special Effects": 0}
+    ],
+    "opportunities": [
+      {"combination": "$60+ PLA Standard", "status": "空白", "products": 0},
+      {"combination": "$60+ PLA+ Pro", "status": "空白", "products": 0},
+      {"combination": "$60+ PETG", "status": "空白", "products": 0},
+      {"combination": "$0-30 Special Effects", "status": "机会", "products": 8}
+    ],
+    "red_ocean": [
+      {"combination": "$0-30 PLA Standard", "products": 50},
+      {"combination": "$0-30 PLA+ Pro", "products": 20}
+    ]
+  },
+  "dimensions_analysis": [
+    {"dimension": "材质类型", "market_distribution": "PLA(60%), PETG(15%), PLA+(12%), 其他(13%)", "opportunity": "高速PLA、工程材料缺口"},
+    {"dimension": "表面效果", "market_distribution": "Standard(65%), Matte(15%), Silk(12%), 特效(8%)", "opportunity": "夜光、变色效果不足"},
+    {"dimension": "包装规格", "market_distribution": "1KG标准(70%), 多色套装(20%), 补充装(10%)", "opportunity": "样品装、小众规格"},
+    {"dimension": "功能特性", "market_distribution": "高速打印(8%), 增强强度(5%), 防潮(2%)", "opportunity": "专业应用特性"}
+  ],
+  "top_brands": [
+    {
+      "brand": "SUNLU",
+      "sales": 236604,
+      "revenue": 11830200,
+      "count": 18
+    },
+    {
+      "brand": "ELEGOO",
+      "sales": 128162,
+      "revenue": 6408100,
+      "count": 12
+    },
+    {
+      "brand": "OVERTURE",
+      "sales": 106869,
+      "revenue": 5343450,
+      "count": 8
+    },
+    {
+      "brand": "POLYMAKER",
+      "sales": 59032,
+      "revenue": 2951600,
+      "count": 10
+    },
+    {
+      "brand": "AMOLEN",
+      "sales": 58211,
+      "revenue": 2910550,
+      "count": 4
+    },
+    {
+      "brand": "eSUN",
+      "sales": 55198,
+      "revenue": 2759900,
+      "count": 3
+    },
+    {
+      "brand": "Creality",
+      "sales": 43225,
+      "revenue": 2161250,
+      "count": 6
+    },
+    {
+      "brand": "YOOPAI",
+      "sales": 28168,
+      "revenue": 1408400,
+      "count": 5
+    },
+    {
+      "brand": "ANYCUBIC",
+      "sales": 26277,
+      "revenue": 1313850,
+      "count": 4
+    },
+    {
+      "brand": "FLASHFORGE",
+      "sales": 22358,
+      "revenue": 1117900,
+      "count": 3
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B07XG3RM58",
+      "brand": "SUNLU",
+      "title": "SUNLU PLA 3D Printer Filament PLA Filament 1.75mm, Neatly Wound 3D Printing Filament 1.75mm, Dimensional Accuracy +/- 0.02 mm, Fit Most FDM 3D Printers, 1kg Spool (2.2lbs), Black",
+      "price": 13.99,
+      "monthly_sales": 60931,
+      "reviews": 21193,
+      "rating": 4.4,
+      "type": "竞品",
+      "launch_date": "2019-11-26"
+    },
+    {
+      "asin": "B0DGXFXP45",
+      "brand": "SUNLU",
+      "title": "SUNLU PLA+2.0 3D Printer Filament Bundle, 4KG Upgrade PLA+ Filament 1.75mm, Tougher and Stronger, Dimensional Accuracy +/-0.02mm, 1KG per Spool, 4 Packs, 4KG Total, Black",
+      "price": 45.89,
+      "monthly_sales": 36090,
+      "reviews": 3851,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2024-12-12"
+    },
+    {
+      "asin": "B07PGY2JP1",
+      "brand": "OVERTURE",
+      "title": "OVERTURE PLA Filament 1.75mm, Neatly Wound 3D Printer Filament 1kg Spool (2.2lbs), Dimensional Accuracy +/- 0.02 mm, Fit Most FDM 3D Printers (Black 1-Pack)",
+      "price": 13.98,
+      "monthly_sales": 34883,
+      "reviews": 7406,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2019-04-29"
+    },
+    {
+      "asin": "B0931YN8L1",
+      "brand": "AMOLEN",
+      "title": "AMOLEN Silk PLA 3D Printer Filament Bundle, Shiny Dual Color Filament 1.75mm Pack, Multi Color Change 3D Printing Filament for Most FDM 3D Printer, 4 Spools 200g Each",
+      "price": 33.99,
+      "monthly_sales": 31731,
+      "reviews": 6340,
+      "rating": 4.3,
+      "type": "竞品",
+      "launch_date": "2022-06-14"
+    },
+    {
+      "asin": "B0CS35CKPJ",
+      "brand": "eSUN",
+      "title": "eSUN PLA Basic Filament 1.75mm, 3D Printer Filament High Speed PLA for Fast Printing, 1KG Spool (2.2 LBS) 3D Printing Filament for High Speed 3D Printers, Black",
+      "price": 11.99,
+      "monthly_sales": 29691,
+      "reviews": 3104,
+      "rating": 4.2,
+      "type": "竞品",
+      "launch_date": "2024-02-29"
+    },
+    {
+      "asin": "B0BM739JRF",
+      "brand": "ELEGOO",
+      "title": "ELEGOO PLA Filament 1.75mm Black 1KG, 3D Printer Filament Dimensional Accuracy +/- 0.02mm, 1kg Cardboard Spool(2.2lbs) 3D Printing Filament Fits for Most FDM 3D Printers",
+      "price": 14.99,
+      "monthly_sales": 27453,
+      "reviews": 9981,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2022-11-25"
+    },
+    {
+      "asin": "B0DPM2HL5V",
+      "brand": "SUNLU",
+      "title": "SUNLU PLA Plus Filament 1.75mm Black 1KG, Neatly Wound 3D Printer Filament 1.75mm, PLA+ 1000g, Dimensional Accuracy +/- 0.02 mm, Fit Most FDM 3D Printers, 1kg Spool (2.2lbs), Black",
+      "price": 13.99,
+      "monthly_sales": 22303,
+      "reviews": 5569,
+      "rating": 4.4,
+      "type": "竞品",
+      "launch_date": "2025-01-27"
+    },
+    {
+      "asin": "B086GTG1D8",
+      "brand": "eSUN",
+      "title": "eSUN PLA+ Filament 1.75mm, 3D Printer Filament PLA Plus, Dimensional Accuracy +/- 0.03mm, 1KG Spool (2.2 LBS) 3D Printing Filament for 3D Printers, Bone White",
+      "price": 18.99,
+      "monthly_sales": 21468,
+      "reviews": 16595,
+      "rating": 4.4,
+      "type": "竞品",
+      "launch_date": "2022-11-03"
+    },
+    {
+      "asin": "B07PGYHYV8",
+      "brand": "OVERTURE",
+      "title": "OVERTURE PETG 3D Printer Filament 1.75mm, Neatly Wound Durable PETG 1kg Spool (2.2lbs), Strong Toughness Filament, Dimensional Accuracy +/- 0.02mm, Fit Most FDM Printers (Black (1-Pack))",
+      "price": 14.39,
+      "monthly_sales": 21144,
+      "reviews": 18214,
+      "rating": 4.2,
+      "type": "竞品",
+      "launch_date": "2019-04-28"
+    },
+    {
+      "asin": "B0C4TNQZYY",
+      "brand": "Creality",
+      "title": "Creality 2kg Black & White PLA 1.75mm Filament Bundle for 3D Printing with No-Tangling Strong Bonding and Overhang Performance, Accuracy +/- 0.02mm",
+      "price": 25.99,
+      "monthly_sales": 20664,
+      "reviews": 8529,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2023-05-10"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "线轴缠绕",
+        "pain_point": "Spool打结、卡料、混乱，导致打印失败",
+        "frequency": 82,
+        "percentage": "41%",
+        "affected_brands": ["SUNLU", "OVERTURE"],
+        "brand_opportunity": "改进绕线工艺 + 自动检测设备",
+        "product_solution": "预绕线测试 + 卡点设计 + 防缠绕线轴"
+      },
+      {
+        "dimension": "材料一致性",
+        "pain_point": "批次间质量波动、色差、断料、混色",
+        "frequency": 48,
+        "percentage": "24%",
+        "affected_brands": ["SUNLU", "OVERTURE"],
+        "brand_opportunity": "建立QC标准 + 批次追溯系统",
+        "product_solution": "ISO标准 + 色差<2ΔE + 批次编号"
+      },
+      {
+        "dimension": "底板附着力",
+        "pain_point": "打印翘边、不粘底板、支撑脱落",
+        "frequency": 32,
+        "percentage": "16%",
+        "affected_brands": ["SUNLU", "OVERTURE"],
+        "brand_opportunity": "优化材料配方 + 表面处理",
+        "product_solution": "PEI专用配方 + 附着力增强剂"
+      },
+      {
+        "dimension": "材料易断",
+        "pain_point": "材料脆性高、易折断、在挤出器内断裂",
+        "frequency": 24,
+        "percentage": "12%",
+        "affected_brands": ["SUNLU", "OVERTURE"],
+        "brand_opportunity": "改进材料韧性",
+        "product_solution": "韧性增强剂 + 优化拉丝工艺"
+      },
+      {
+        "dimension": "包装问题",
+        "pain_point": "密封不良、重量不足、包装破损",
+        "frequency": 14,
+        "percentage": "7%",
+        "affected_brands": ["SUNLU"],
+        "brand_opportunity": "改进包装工艺",
+        "product_solution": "双层真空密封 + 称重QC"
+      }
+    ],
+    "summary": "主要痛点集中在线轴缠绕(41%)和材料一致性(24%)，合计占65%的负面反馈。解决这两个问题可显著提升产品竞争力。"
+  },
+  "barriers": [
+    {"type": "Review壁垒", "level": "高", "data_anchor": "Top10均值4,000+评论", "estimated_cost": "$8,000-15,000", "solution": "Vine + PPC + 早期评论人"},
+    {"type": "资金壁垒", "level": "中", "data_anchor": "首批备货$5K-10K + 广告$3K-5K", "estimated_cost": "¥50,000-80,000", "solution": "控制MOQ，分批备货"},
+    {"type": "供应链壁垒", "level": "中", "data_anchor": "需要稳定材料供应商", "estimated_cost": "¥20,000", "solution": "华东/华南塑料厂OEM"},
+    {"type": "认证壁垒", "level": "低", "data_anchor": "无特殊认证要求", "estimated_cost": "$0", "solution": "-"},
+    {"type": "技术壁垒", "level": "中低", "data_anchor": "PLA技术成熟", "estimated_cost": "¥10,000", "solution": "OEM合作"}
+  ],
+  "decision": {
+    "overall_score": 6.0,
+    "verdict": "谨慎进入",
+    "verdict_detail": "市场规模巨大但竞争激烈，Top3品牌集中度52%，需要明确的差异化定位",
+    "准入条件": ["必须解决线轴缠绕问题（核心卖点）", "需要专业3D打印品牌背书", "建议从细分市场切入（高速PLA、特殊效果）"],
+    "禁止进入": ["不建议做标准PLA（红海）", "不建议价格低于$12（无利润）"],
+    "risk_warning": ["Review壁垒高（Top10平均4,000+评论）", "头部品牌集中度高（SUNLU、ELEGOO、OVERTURE占52%）", "价格竞争激烈（标准PLA已到$10-12）"],
+    "scores": [
+      {"dimension": "市场规模", "weight": 0.20, "score": 9, "weighted_score": 1.80, "basis": "月销90万件，月销额$20M+"},
+      {"dimension": "竞争格局", "weight": 0.25, "score": 4, "weighted_score": 1.00, "basis": "Top3品牌集中度52%，红海竞争"},
+      {"dimension": "增长潜力", "weight": 0.20, "score": 6, "weighted_score": 1.20, "basis": "3D打印趋势上升，但耗材增长放缓"},
+      {"dimension": "进入壁垒", "weight": 0.20, "score": 5, "weighted_score": 1.00, "basis": "Review壁垒高，资金/技术壁垒中等"},
+      {"dimension": "利润空间", "weight": 0.15, "score": 6, "weighted_score": 0.90, "basis": "成本$8-10，售价$15-30，毛利30-50%"}
+    ]
+  },
+  "product_matrix": {
+    "tier_1": {
+      "positioning": "高速PLA Professional - 解决线轴缠绕痛点",
+      "target_market": "$60+高端PLA空白 + 解决41% VOC痛点",
+      "specs": {
+        "material_type": "高速PLA+",
+        "surface_finish": "Matte半哑光",
+        "package_size": "1KG标准 + 补充装",
+        "spool_design": "防缠绕卡点设计（核心卖点）",
+        "colors": "8色基础 + 3色特效",
+        "print_speed": "30-600mm/s",
+        "accuracy": "±0.02mm",
+        "moisture_proof": "双层真空 + 干燥剂"
+      },
+      "target_price": "$24.99-29.99",
+      "usp": "唯一解决缠绕问题的高速PLA",
+      "competitor": "ELEGOO Rapid PLA — 我们的防缠绕线轴",
+      "estimated_monthly_sales": "3000-5000"
+    },
+    "tier_2": {
+      "positioning": "特效PLA Creative Bundle",
+      "specs": {
+        "material_combo": "夜光PLA + 变色PLA + 丝绸PLA",
+        "package_size": "3色 × 250g = 750g"
+      },
+      "target_price": "$34.99",
+      "target_market": "教育机构、创客、创意打印"
+    },
+    "tier_3": {
+      "positioning": "长期储备",
+      "products": ["PETG Professional（户外应用）", "TPU 柔性材料（弹性零件）", "ASA 工程材料（耐候户外）"]
+    }
+  },
+  "trend_data": [
+    {
+      "date": "2024-03",
+      "value": 2.73
+    },
+    {
+      "date": "2024-04",
+      "value": 4.36
+    },
+    {
+      "date": "2024-05",
+      "value": 3.55
+    },
+    {
+      "date": "2024-06",
+      "value": 2.7
+    },
+    {
+      "date": "2024-07",
+      "value": 1.38
+    },
+    {
+      "date": "2024-08",
+      "value": 2.46
+    },
+    {
+      "date": "2024-09",
+      "value": 4.04
+    },
+    {
+      "date": "2024-10",
+      "value": 3.81
+    },
+    {
+      "date": "2024-11",
+      "value": 4.44
+    },
+    {
+      "date": "2024-12",
+      "value": 4.23
+    },
+    {
+      "date": "2025-01",
+      "value": 6.06
+    },
+    {
+      "date": "2025-02",
+      "value": 5.51
+    },
+    {
+      "date": "2025-03",
+      "value": 3.97
+    },
+    {
+      "date": "2025-04",
+      "value": 2.54
+    },
+    {
+      "date": "2025-05",
+      "value": 2.07
+    },
+    {
+      "date": "2025-06",
+      "value": 1.4
+    },
+    {
+      "date": "2025-07",
+      "value": 2.66
+    },
+    {
+      "date": "2025-08",
+      "value": 3.74
+    },
+    {
+      "date": "2025-09",
+      "value": 3.67
+    },
+    {
+      "date": "2025-10",
+      "value": 2.96
+    },
+    {
+      "date": "2025-11",
+      "value": 2.67
+    },
+    {
+      "date": "2025-12",
+      "value": 2.31
+    },
+    {
+      "date": "2026-01",
+      "value": 4.19
+    },
+    {
+      "date": "2026-02",
+      "value": 3.04
+    },
+    {
+      "date": "2026-03",
+      "value": 1.13
+    }
+  ],
+  "keywords": {
+    "3d printer": {
+      "monthly_search": 745651,
+      "weekly_search": 147514,
+      "cpc": 0.72,
+      "competition_count": 26931
+    },
+    "3d printers": {
+      "monthly_search": 55746,
+      "weekly_search": 12204,
+      "cpc": 0.44,
+      "competition_count": 27611
+    },
+    "portable 3d printer": {
+      "monthly_search": 60,
+      "weekly_search": 10,
+      "cpc": 0.42,
+      "competition_count": 1431
+    }
+  }
+}

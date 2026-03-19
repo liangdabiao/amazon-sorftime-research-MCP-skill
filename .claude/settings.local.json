@@ -9,7 +9,11 @@
       "Bash(rm:*)",
       "Bash(python3:*)",
       "Bash(cat:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(for dir:*)",
+      "Bash(do echo:*)",
+      "Read(//d/amazon-mcp/**)",
+      "Bash(done)"
     ]
   },
   "enableAllProjectMcpServers": true,

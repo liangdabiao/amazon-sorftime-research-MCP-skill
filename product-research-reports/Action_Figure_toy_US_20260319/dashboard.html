@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Figures - US 选品分析看板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e1e8ef;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        /* KPI 卡片网格 */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .kpi-card .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .kpi-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .kpi-card .note {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Go/No-Go 评分卡 */
+        .gogono-card {
+            background: linear-gradient(135deg, #f59e0b, #d97706 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .gogono-card .score {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .gogono-card .verdict {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gogono-card .verdict-detail {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* 标签 */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag-green { background: #dcfce7; color: #166534; }
+        .tag-yellow { background: #fef9c3; color: #854d0e; }
+        .tag-red { background: #fee2e2; color: #991b1b; }
+        .tag-blue { background: #dbeafe; color: #1e40af; }
+        .tag-gray { background: #f1f5f9; color: #475569; }
+
+        /* 机会卡片 */
+        .opportunity-card {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .opportunity-card .rank {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #e1e8ef;
+            margin-top: 40px;
+        }
+
+        /* 维度分布表格 */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Action Figures 选品分析看板</h1>
+            <div class="subtitle">
+                站点: US | 分析日期: 20260319
+            </div>
+        </div>
+
+        <!-- Go/No-Go 评分 -->
+        <div class="section">
+            <div class="section-title">选品决策评估</div>
+            <div class="gogono-card" style="background: linear-gradient(135deg, #f59e0b, #d97706 100%);">
+                <div class="verdict">谨慎进入</div>
+                <div class="score">6.2 / 10</div>
+                <div class="verdict-detail">谨慎进入</div>
+            </div>
+        </div>
+
+        <!-- 市场概况 KPI -->
+        <div class="section">
+            <div class="section-title">市场概况</div>
+            <div class="kpi-grid">
+                
+                <div class="kpi-card">
+                    <div class="label">Top100 月销量</div>
+                    <div class="value">199,981</div>
+                    <div class="note">件</div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top100 月销额</div>
+                    <div class="value">$4,954,638</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">平均价格</div>
+                    <div class="value">$24.78</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top3 品牌集中度</div>
+                    <div class="value">25.3%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">亚马逊自营份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">中国卖家份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- 维度分布 -->
+        <div class="section">
+            <div class="section-title">产品维度分布</div>
+            <div class="dimension-grid">
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>价格区间</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$0-30</td><td>83</td><td><span class="tag tag-blue">71%</span></td></tr><tr><td>$30-60</td><td>14</td><td><span class="tag tag-green">28%</span></td></tr><tr><td>$60-100</td><td>2</td><td><span class="tag tag-gray">1%</span></td></tr><tr><td>$100+</td><td>1</td><td><span class="tag tag-gray">1%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交叉分析 -->
+        
+        <div class="section">
+            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>价格区间 \ 产品类型</th>
+                        <th>anime_ip</th><th>movie_ip</th><th>original</th>
+                        <th>合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>$0-20</strong></td><td>18 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>15 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>25 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td><strong>58</strong></td></tr><tr><td><strong>$20-40</strong></td><td>12</td><td>8</td><td>8</td><td><strong>28</strong></td></tr><tr><td><strong>$40-60</strong></td><td>3</td><td>2</td><td>1</td><td><strong>6</strong></td></tr><tr><td><strong>$60+</strong></td><td>2</td><td>1</td><td><span class="tag tag-gray">0</span></td><td><strong>3</strong></td></tr>
+                    <tr style="background: #f8fafc; font-weight: 600;">
+                        <td><strong>合计</strong></td>
+                        <td><strong>35</strong></td><td><strong>26</strong></td><td><strong>34</strong></td>
+                        <td><strong>95</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+
+        <!-- VOC 分析 -->
+        
+        <div class="section">
+            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>痛点</th>
+                        <th>频次/占比</th>
+                        <th>涉及品牌</th>
+                        <th>品牌机会</th>
+                        <th>产品方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>质量缺陷</strong></td>
+                    <td>零件缺失、破损、做工差、数量不足</td>
+                    <td>60<br><small>40%</small></td>
+                    <td>Disney, AKFAHOIF, MRBEAST LAB, Paw Patrol</td>
+                    <td>供应链QC体系成熟，可建立全检流程</td>
+                    <td>100%出厂全检 + 过程QC + 自动计数设备</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>电动功能</strong></td>
+                    <td>电池故障、声音失效、电路不工作</td>
+                    <td>45<br><small>30%</small></td>
+                    <td>Disney, Paw Patrol</td>
+                    <td>电子方案设计能力，电池测试设备</td>
+                    <td>双重测试（产线+出货前）+ 电路保护设计</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>价值感知</strong></td>
+                    <td>价格虚高、内容不足、玩偶太小</td>
+                    <td>23<br><small>15%</small></td>
+                    <td>MRBEAST LAB, Paw Patrol</td>
+                    <td>成本控制 + 产品设计能力</td>
+                    <td>实物比例图 + 多配件配置 + 明确规格</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>结构耐用性</strong></td>
+                    <td>连接不牢、易断裂、头手脚脱落</td>
+                    <td>21<br><small>14%</small></td>
+                    <td>MRBEAST LAB, AKFAHOIF</td>
+                    <td>结构设计能力，材料选择</td>
+                    <td>增强卡扣 + 材料升级（ABS→POM）+ 公差优化</td>
+                </tr>
+            
+                </tbody>
+            </table>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>核心痛点：'买了就坏'（质量 + 功能故障占比 70%）。改进方向：优先解决质量缺陷和电动功能问题。</div>
+        </div>
+        
+
+        <!-- 竞品格局 -->
+        
+        <div class="section">
+            <div class="section-title">竞品格局 (Top8)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品牌/型号</th>
+                        <th>价格</th>
+                        <th>月销量</th>
+                        <th>类型</th>
+                        <th>定位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>Disney<br><small></small></td>
+                    <td>$39.95</td>
+                    <td>26,127</td>
+                    <td>量级标杆</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>AKFAHOIF<br><small></small></td>
+                    <td>$5.98</td>
+                    <td>9,166</td>
+                    <td>低价切入</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>MRBEAST LAB<br><small></small></td>
+                    <td>$34.88</td>
+                    <td>6,980</td>
+                    <td>网红IP</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Transformers<br><small></small></td>
+                    <td>$26.00</td>
+                    <td>5,694</td>
+                    <td>经典IP</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>MerryXD<br><small></small></td>
+                    <td>$30.99</td>
+                    <td>6,228</td>
+                    <td>3D打印</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>ANIME HEROES<br><small></small></td>
+                    <td>$21.97</td>
+                    <td>5,091</td>
+                    <td>动漫IP</td>
+                    <td><small></small></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 进入壁垒 -->
+        
+        <div class="section">
+            <div class="section-title">进入壁垒评估</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>壁垒类型</th>
+                        <th>等级</th>
+                        <th>预估成本</th>
+                        <th>数据锚点</th>
+                        <th>缓解方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>IP壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$10,000-50,000/年</td>
+                    <td><small>头部品牌均为知名IP（Disney, Marvel, Transformers）</small></td>
+                    <td>自创IP、合作授权或公共领域IP</td>
+                </tr>
+            
+                <tr>
+                    <td>Review壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$15,000-30,000</td>
+                    <td><small>Top10均值8,000+评论</small></td>
+                    <td>Vine计划 + 早期评论获取</td>
+                </tr>
+            
+                <tr>
+                    <td>资金壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>$50,000-100,000</td>
+                    <td><small>首批备货 + 广告 + IP授权</small></td>
+                    <td>控制首批MOQ，小批量试销</td>
+                </tr>
+            
+                <tr>
+                    <td>质量壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>$5,000-10,000</td>
+                    <td><small>40%差评与质量相关</small></td>
+                    <td>QC流程 + 供应商筛选 + 出厂全检</td>
+                </tr>
+            
+                <tr>
+                    <td>渠道壁垒</td>
+                    <td><span class="tag tag-green">低</span></td>
+                    <td>$2,000-5,000</td>
+                    <td><small>亚马逊自营51%份额</small></td>
+                    <td>FBA + 多渠道布局</td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 17:18</p>
+            <p>完整报告请查看 Markdown 文件</p>
+        </div>
+    </div>
+
+    <script>
+        // 页面交互脚本
+        console.log('Dashboard loaded successfully');
+    </script>
+</body>
+</html>

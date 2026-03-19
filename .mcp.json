@@ -3,7 +3,7 @@
      
     "sorftime": {
       "type": "streamableHttp",
-      "url": "https://mcp.sorftime.com?key=vte0nhg2sexwc9",
+      "url": "https://mcp.sorftime.com?key=vte0nhg2sexwc",
       "name": "Sorftime MCP",
       "description": "Sorftime 跨境电商平台数据服务。已支持亚马逊14大站点、Tiktok 6大站点、以1688供应链平台。"
     }
