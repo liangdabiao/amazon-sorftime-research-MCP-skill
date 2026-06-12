@@ -6,6 +6,13 @@
       "url": "https://mcp.sorftime.com?key=vte0nhg2sexwc",
       "name": "Sorftime MCP",
       "description": "Sorftime 跨境电商平台数据服务。已支持亚马逊14大站点、Tiktok 6大站点、以1688供应链平台。"
+    },
+    "sif-mcp": {
+      "type": "http",
+      "url": "https://mcp.sif.com/mcp",
+      "headers": {
+        "secret-key": "sifmcp260611p9fapnf"
+      }
     }
   }
 }

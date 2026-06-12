@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了五个核心技能：
+本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了六个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
@@ -13,6 +13,7 @@
 | `keyword-research` | 关键词词库 | `/keyword-research {ASIN} {SITE}` | 关键词深度调研与8维智能分类 |
 | `review-analysis` | 用户评论 | `/review-analysis {ASIN} {SITE}` | 评论深度分析与痛点挖掘 |
 | `product-research` | 选品深度调研 | `/product-research "{产品关键词}" {SITE}` | LLM驱动的选品深度调研与决策 |
+| `sif-amazon-research` | 综合电商研究 | `/sif-amazon-research` | 基于Sif MCP的亚马逊市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化 |
 
 ### 核心功能
 
@@ -47,6 +48,22 @@
 - **简化数据**: 不用复杂的 unified payload 结构
 - **完整流程**: 信息收集 → 数据采集 → 属性标注 → 交叉分析 → 竞品与 VOC → 评估决策 → 报告输出
 - **多格式输出**: Markdown 完整报告、结构化数据、可视化看板
+
+#### Sif亚马逊研究 (sif-amazon-research)
+- **市场机会研究**: 关键词或类目方向分析
+- **市场验证**: 关键词 + 候选ASIN可行性评估
+- **竞品分析**: 竞品ASIN增长路径与流量来源
+- **关键词布局**: 主词、长尾词、词根结构、缺失词分析
+- **发布评估**: 产品是否值得推广决策
+- **发布后反馈**: 持续优化或停止建议
+- **增长优化**: 扩展已验证的流量和关键词
+- **流量/广告诊断**: 流量或广告表现变化的根因分析
+
+**核心工作流程**:
+1. 定义决策类型：进入/不进入、发布/不发布、扩量/优化/停止、根因诊断
+2. 收集Sif证据：市场需求、竞争格局、流量结构、销售趋势、广告表现
+3. 交叉验证证据，区分已确认发现与假设
+4. 输出商业决策：包含置信度、证据链、风险、缺失数据和后续验证行动
 
 ---
 
@@ -307,6 +324,12 @@ amazon-mcp/
 │       │   │   ├── render_dashboard.py
 │       │   │   └── run_analysis.py
 │       │   └── references/
+│       ├── sif-amazon-research/ # Sif亚马逊研究技能
+│       │   ├── SKILL.md
+│       │   └── references/
+│       │       ├── field-notes.md
+│       │       ├── research-playbooks.md
+│       │       └── sif-tool-map.md
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
 │   └── analysis_{ASIN}_{站点}_{日期}.md
@@ -384,6 +407,12 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 
 ## 更新日志
 
+### v2.7 (2026-06-12)
+- **新增**: sif-amazon-research Sif亚马逊研究技能
+- **新增**: 基于Sif MCP的市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化
+- **新增**: 完整的研究工作流程：定义决策 → 收集证据 → 交叉验证 → 输出商业决策
+- **新增**: 结构化输出格式：决策结论、问题层级、证据链、业务影响、优先级行动、缺失数据、7天验证计划
+
 ### v2.6 (2026-03-19)
 - **新增**: product-research 选品深度调研技能
 - **新增**: LLM 驱动的选品深度调研与决策流程
@@ -438,11 +467,12 @@ MIT License
 
 ---
 
-## 联系方式
+## 感谢支持
 
 - Sorftime 官网: https://www.sorftime.com
 - Claude Code 文档: https://claude.ai/code
+- Linux.do佬友支持: https://linux.do/
 
 ---
 
-*最后更新: 2026-03-19*
+*最后更新: 2026-06-12*
