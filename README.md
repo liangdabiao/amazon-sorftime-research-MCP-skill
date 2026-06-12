@@ -470,6 +470,7 @@ MIT License
 ## 感谢支持
 
 - Sorftime 官网: https://www.sorftime.com
+- sif 官网: https://www.sif.com/
 - Claude Code 文档: https://claude.ai/code
 - Linux.do佬友支持: https://linux.do/
 
