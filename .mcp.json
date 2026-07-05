@@ -13,6 +13,15 @@
       "headers": {
         "secret-key": "sifmcp260611p9fapnf"
       }
+    },
+    "xydc-mcp": {
+      "type": "http",
+      "url": "https://mcp.xydc.com/mcp",
+      "headers": {
+        "Authorization": "Bearer mcp_80c05d7a5b0c"
+      },
+      "name": "西柚洞察MCP",
+      "description": "西柚洞察跨境电商数据服务，提供ASIN流量分析、关键词竞争、广告策略等功能。"
     }
   }
 }

@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime 跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了六个核心技能：
+本项目配置了 Sorftime、Sif、西柚洞察等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了七个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
@@ -14,6 +14,7 @@
 | `review-analysis` | 用户评论 | `/review-analysis {ASIN} {SITE}` | 评论深度分析与痛点挖掘 |
 | `product-research` | 选品深度调研 | `/product-research "{产品关键词}" {SITE}` | LLM驱动的选品深度调研与决策 |
 | `sif-amazon-research` | 综合电商研究 | `/sif-amazon-research` | 基于Sif MCP的亚马逊市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化 |
+| `xiyou-insight` | 竞品流量与广告 | `/xiyou-insight` | 基于西柚MCP的7大场景分析：广告监控、流量缺口、竞品拆解、新品推广、广告预算、关键词库 |
 
 ### 核心功能
 
@@ -64,6 +65,39 @@
 2. 收集Sif证据：市场需求、竞争格局、流量结构、销售趋势、广告表现
 3. 交叉验证证据，区分已确认发现与假设
 4. 输出商业决策：包含置信度、证据链、风险、缺失数据和后续验证行动
+
+#### 西柚洞察分析 (xiyou-insight)
+- **实时广告监控**: 小时级排名监控、广告投放效果分析
+- **流量缺口发现**: 多ASIN对比、高性价比关键词挖掘
+- **竞品打法拆解**: 关键词布局、流量结构、广告策略分析
+- **新品推广优化**: 流量阶段判断（稀疏期→震荡期→稳定期）、异动关键词监控
+- **广告预算透视**: 广告类型分布、核心关键词识别、预算推断
+- **关键词库搭建**: 反查竞品流量词、以词找词、智能分类
+- **7大场景工作流**: 每个场景都有完整的MCP工具组合和分析流程
+
+**7大工作场景**:
+
+| 场景 | 功能 | 参数 |
+|------|------|------|
+| 广告监控 | 小时级排名监控、广告投放效果 | `--scenario ad_monitoring --asin --site --keyword` |
+| 流量缺口 | 找到竞品有排名但自身没有的关键词 | `--scenario traffic_gap --own_asin --competitor_asins --site` |
+| 竞品分析 | 精准拆解竞品流量及广告策略 | `--scenario competitor_analysis --asin --site` |
+| 新品推广 | 分析流量阶段，把握异动关键词 | `--scenario new_product --asin --site` |
+| 广告预算 | 透视竞品广告策略和预算 | `--scenario ad_budget --asin --site` |
+| 关键词库 | 高效搭建关键词库 | `--scenario keyword_database --site --competitor_asins --core_keywords` |
+
+**西柚MCP工具集**（17个API）:
+- **ASIN基础**: `get_asin_info`, `get_asin_variations`, `get_asin_info_trends`
+- **ASIN关键词**: `get_asin_keywords`, `get_asin_keywords_monthly`, `get_asin_keyword_rank_trends`, `get_asin_keyword_rank_hourly`, `get_asin_keyword_traffic_trends`
+- **ASIN流量**: `get_asin_traffic`, `get_asin_traffic_trends`, `get_asin_order_trends`, `get_asin_bsr_trends`
+- **ASIN广告**: `get_asin_ad_change_trends`
+- **关键词分析**: `get_keyword_info`, `get_keyword_aba_trends`, `get_keyword_asin_analysis`, `get_keyword_analysis_monthly`
+
+**报告输出**: `xiyou-insight-reports/{场景}_{ASIN}_{站点}_{日期}/`
+- `report.md` - Markdown分析报告
+- `data.json` - 结构化数据
+- `dashboard.html` - ECharts可视化看板
+- `raw/` - 原始MCP响应数据
 
 ---
 
@@ -330,6 +364,21 @@ amazon-mcp/
 │       │       ├── field-notes.md
 │       │       ├── research-playbooks.md
 │       │       └── sif-tool-map.md
+│       ├── xiyou-insight/       # 西柚洞察分析技能
+│       │   ├── SKILL.md
+│       │   └── scripts/
+│       │       ├── workflow.py            # 通用工作流引擎
+│       │       ├── scenarios/             # 场景配置
+│       │       │   ├── base.py            # 场景基类
+│       │       │   ├── ad_monitoring.py   # 广告监控
+│       │       │   ├── traffic_gap.py     # 流量缺口
+│       │       │   ├── competitor_analysis.py # 竞品分析
+│       │       │   ├── new_product.py     # 新品推广
+│       │       │   ├── ad_budget.py       # 广告预算
+│       │       │   └── keyword_database.py # 关键词库
+│       │       ├── data_aggregator.py     # 数据聚合器
+│       │       ├── report_generator.py    # 报告生成器
+│       │       └── dashboard_generator.py # Dashboard生成器
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
 │   └── analysis_{ASIN}_{站点}_{日期}.md
@@ -407,6 +456,15 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 
 ## 更新日志
 
+### v2.8 (2026-07-04)
+- **新增**: xiyou-insight 西柚洞察分析技能
+- **新增**: 基于西柚MCP的7大场景工作流：广告监控、流量缺口、竞品分析、新品推广、广告预算、关键词库
+- **新增**: 通用工作流引擎架构（workflow.py + scenarios/配置模式）
+- **新增**: 6个场景配置模块：ad_monitoring、traffic_gap、competitor_analysis、new_product、ad_budget、keyword_database
+- **新增**: 数据聚合器、报告生成器、Dashboard生成器三个核心工具脚本
+- **新增**: 支持17个西柚MCP API工具
+- **新增**: Markdown报告 + ECharts可视化看板输出
+
 ### v2.7 (2026-06-12)
 - **新增**: sif-amazon-research Sif亚马逊研究技能
 - **新增**: 基于Sif MCP的市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化
@@ -471,9 +529,10 @@ MIT License
 
 - Sorftime 官网: https://www.sorftime.com
 - sif 官网: https://www.sif.com/
+- 西柚洞察: https://www.xydc.com
 - Claude Code 文档: https://claude.ai/code
 - Linux.do佬友支持: https://linux.do/
 
 ---
 
-*最后更新: 2026-06-12*
+*最后更新: 2026-07-04*
