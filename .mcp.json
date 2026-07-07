@@ -22,6 +22,13 @@
       },
       "name": "西柚洞察MCP",
       "description": "西柚洞察跨境电商数据服务，提供ASIN流量分析、关键词竞争、广告策略等功能。"
+    },
+    "sellersprite": {
+      "url": "https://mcp.sellersprite.com/mcp",
+      "headers": {
+        "secret-key": "eaf4c0d6e8284d12"
+      },
+      "name": "卖家精灵MCP"
     }
   }
 }

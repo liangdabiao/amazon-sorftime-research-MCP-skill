@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJI vs Insta360 — Amazon 竞争对比报告</title>
+<style>
+  :root {
+    --bg: #0f1118;
+    --card: #1a1d2e;
+    --card2: #232739;
+    --accent-dji: #00a1ff;
+    --accent-insta: #ff6b35;
+    --accent-gopro: #8b5cf6;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #eab308;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 0; }
+  .header { background: linear-gradient(135deg, #00a1ff22, #ff6b3522); padding: 48px 24px; text-align: center; border-bottom: 1px solid #ffffff15; }
+  .header h1 { font-size: 2.2em; margin-bottom: 8px; }
+  .header .subtitle { color: var(--text2); font-size: 1.1em; }
+  .header .date { color: var(--text2); font-size: 0.85em; margin-top: 8px; }
+  .vs-badge { display: inline-flex; align-items: center; gap: 16px; margin: 24px 0; }
+  .vs-badge .dji { color: var(--accent-dji); font-weight: 700; font-size: 1.4em; }
+  .vs-badge .insta { color: var(--accent-insta); font-weight: 700; font-size: 1.4em; }
+  .vs-badge .vs { color: var(--text2); font-size: 0.8em; padding: 4px 12px; border: 1px solid #ffffff20; border-radius: 20px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .kpi-card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid #ffffff08; }
+  .kpi-card .label { color: var(--text2); font-size: 0.85em; }
+  .kpi-card .value { font-size: 1.6em; font-weight: 700; margin-top: 4px; }
+  .kpi-card .sub { font-size: 0.8em; color: var(--text2); margin-top: 4px; }
+  .dual-card { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  @media (max-width: 768px) { .dual-card { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border-radius: 12px; padding: 24px; border: 1px solid #ffffff08; margin-bottom: 24px; }
+  .card h2 { font-size: 1.3em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #ffffff10; }
+  .card h3 { font-size: 1.1em; margin: 16px 0 8px; color: var(--accent-dji); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ffffff10; }
+  th { background: var(--card2); color: var(--text2); font-weight: 600; font-size: 0.85em; }
+  tr:hover { background: #ffffff05; }
+  .chart-container { position: relative; height: 300px; margin: 16px 0; }
+  .bar-group { display: flex; align-items: flex-end; height: 240px; gap: 8px; padding: 0 8px; }
+  .bar-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .bar { width: 100%; max-width: 60px; border-radius: 4px 4px 0 0; position: relative; min-height: 2px; transition: height 0.5s; }
+  .bar .val { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 0.7em; color: var(--text); white-space: nowrap; }
+  .bar-label { margin-top: 8px; font-size: 0.75em; color: var(--text2); text-align: center; }
+  .bar-dji { background: linear-gradient(to top, var(--accent-dji), #00a1ff88); }
+  .bar-insta { background: linear-gradient(to top, var(--accent-insta), #ff6b3588); }
+  .bar-gopro { background: linear-gradient(to top, var(--accent-gopro), #8b5cf688); }
+  .progress-bar { height: 8px; border-radius: 4px; margin-top: 4px; }
+  .progress-dji { background: var(--accent-dji); }
+  .progress-insta { background: var(--accent-insta); }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600; }
+  .tag-dji { background: #00a1ff22; color: var(--accent-dji); }
+  .tag-insta { background: #ff6b3522; color: var(--accent-insta); }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 768px) { .swot-grid { grid-template-columns: 1fr; } }
+  .swot-card { padding: 16px; border-radius: 8px; border: 1px solid #ffffff10; }
+  .swot-s { background: #22c55e11; border-color: #22c55e33; }
+  .swot-w { background: #ef444411; border-color: #ef444433; }
+  .swot-o { background: #00a1ff11; border-color: #00a1ff33; }
+  .swot-t { background: #eab30811; border-color: #eab30833; }
+  .swot-card h4 { margin-bottom: 8px; font-size: 0.95em; }
+  .swot-card ul { list-style: none; font-size: 0.85em; color: var(--text2); }
+  .swot-card li { padding: 4px 0; }
+  .swot-card li::before { content: '• '; }
+  .rating { display: flex; align-items: center; gap: 8px; }
+  .stars { color: var(--yellow); }
+  .conclusion-box { background: linear-gradient(135deg, #00a1ff11, #ff6b3511); border: 1px solid #ffffff15; border-radius: 12px; padding: 24px; margin: 24px 0; }
+  .conclusion-box h3 { margin-bottom: 12px; }
+  .conclusion-box ul { list-style: none; }
+  .conclusion-box li { padding: 6px 0; color: var(--text2); }
+  .conclusion-box li::before { content: '✅ '; }
+  .inline-chart { display: flex; align-items: center; gap: 12px; margin: 4px 0; }
+  .inline-chart .lbl { width: 120px; font-size: 0.85em; color: var(--text2); }
+  .inline-chart .bar-line { flex: 1; height: 20px; background: var(--card2); border-radius: 4px; overflow: hidden; }
+  .inline-chart .bar-fill { height: 100%; border-radius: 4px; }
+  .inline-chart .pct { width: 50px; text-align: right; font-size: 0.85em; font-weight: 600; }
+  .timeline-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DJI 🆚 Insta360</h1>
+  <p class="subtitle">Amazon 全品类竞争对比 · 数据驱动深度分析</p>
+  <div class="vs-badge">
+    <span class="dji">DJI 大疆</span>
+    <span class="vs">VS</span>
+    <span class="insta">Insta360 影石</span>
+  </div>
+  <p class="date">分析日期: 2026-07-07 | 数据源: 卖家精灵 MCP | US 站点 2026年5月数据</p>
+</div>
+
+<div class="container">
+
+<!-- KPI Row -->
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="label">DJI 月销（头部）</div>
+    <div class="value" style="color:var(--accent-dji)">19,200</div>
+    <div class="sub">Mini 4K Fly More Drone</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Insta360 月销（头部）</div>
+    <div class="value" style="color:var(--accent-insta)">6,842</div>
+    <div class="sub">X5 360° 相机（含变体）</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">DJI 品牌搜索 / 月</div>
+    <div class="value" style="color:var(--accent-dji)">196K</div>
+    <div class="sub">+10% YoY</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Insta360 品牌搜索 / 月</div>
+    <div class="value" style="color:var(--accent-insta)">241K</div>
+    <div class="sub">+18% YoY</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">DJI 估算年营收（Amazon）</div>
+    <div class="value" style="color:var(--accent-dji)">$2.5亿+</div>
+    <div class="sub">无人机 60%+ 占主导</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Insta360 估算年营收（Amazon）</div>
+    <div class="value" style="color:var(--accent-insta)">$1.8亿+</div>
+    <div class="sub">360° 相机 70%+ 占主导</div>
+  </div>
+</div>
+
+<!-- Brand Comparison -->
+<div class="card">
+  <h2>品牌总览</h2>
+  <div class="dual-card">
+    <div>
+      <h3 style="color:var(--accent-dji)">DJI 大疆</h3>
+      <table>
+        <tr><td>品类覆盖</td><td>6 大品类（无人机、运动相机、手持相机、手机稳定器、麦克风、配件）</td></tr>
+        <tr><td>产品矩阵</td><td>50+ ASIN</td></tr>
+        <tr><td>价格区间</td><td>$75 – $1,116</td></tr>
+        <tr><td>核心优势</td><td>无人机品类独占 · 精品策略 · 技术研发雄厚</td></tr>
+        <tr><td>头部产品</td><td>Mini 4K Drone（月销 19,200）</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3 style="color:var(--accent-insta)">Insta360 影石</h3>
+      <table>
+        <tr><td>品类覆盖</td><td>5 大品类（360° 相机、运动相机、穿戴相机、Vlog 相机、配件）</td></tr>
+        <tr><td>产品矩阵</td><td>50+ ASIN</td></tr>
+        <tr><td>价格区间</td><td>$80 – $969</td></tr>
+        <tr><td>核心优势</td><td>360° 全景独占 · 穿戴上新品类 · 品牌词搜索 241K</td></tr>
+        <tr><td>头部产品</td><td>X5（月销 6,842）</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Market Share in Sports & Action Video Cameras -->
+<div class="card">
+  <h2>运动相机品类竞争（Sports & Action Video Cameras）</h2>
+  <div class="chart-container">
+    <div class="bar-group" id="marketShareBar"></div>
+  </div>
+  <table>
+    <tr><th>品牌</th><th>销量份额</th><th>销售额份额</th><th>ASIN 数</th><th>均价</th></tr>
+    <tr><td><span class="tag tag-insta">Insta360</span></td><td>33.8%</td><td><strong>42.2%</strong></td><td>27</td><td>$436</td></tr>
+    <tr><td><span class="tag tag-dji">DJI</span></td><td><strong>30.7%</strong></td><td>30.9%</td><td>10</td><td>$398</td></tr>
+    <tr><td><span class="tag" style="background:#8b5cf622;color:var(--accent-gopro)">GoPro</span></td><td>18.7%</td><td>19.4%</td><td>13</td><td>$393</td></tr>
+    <tr><td><span style="color:var(--text2)">AKASO</span></td><td>7.6%</td><td>3.5%</td><td>10</td><td>$139</td></tr>
+  </table>
+</div>
+
+<!-- Product Line Comparison -->
+<div class="card">
+  <h2>产品线对标</h2>
+  <table>
+    <tr><th>品类</th><th>DJI 产品</th><th>价格</th><th>Insta360 产品</th><th>价格</th><th>竞争态势</th></tr>
+    <tr><td>无人机</td><td><span class="tag tag-dji">Mini 4K / Mini 5 Pro</span></td><td>$209-$1,116</td><td>—</td><td>—</td><td>DJI 独占</td></tr>
+    <tr><td>360° 相机</td><td>—</td><td>—</td><td><span class="tag tag-insta">X5 / X4 Air</span></td><td>$350-$660</td><td>Insta360 独占</td></tr>
+    <tr><td>运动相机</td><td><span class="tag tag-dji">Action 4/5 Pro/6</span></td><td>$169-$597</td><td><span class="tag tag-insta">Ace Pro 2</span></td><td>$389-$420</td><td>⚔️ 正面竞争</td></tr>
+    <tr><td>手机稳定器</td><td><span class="tag tag-dji">Osmo Mobile 7/8</span></td><td>$75-$149</td><td><span class="tag tag-insta">Flow 系列</span></td><td>~$159</td><td>⚔️ 部分重叠</td></tr>
+    <tr><td>手持/Vlog</td><td><span class="tag tag-dji">Osmo Pocket 3</span></td><td>$319-$539</td><td><span class="tag tag-insta">Luna Ultra</span></td><td>$769-$969</td><td>不同定位</td></tr>
+    <tr><td>穿戴相机</td><td>—</td><td>—</td><td><span class="tag tag-insta">GO Ultra / GO 3S</span></td><td>$254-$574</td><td>Insta360 独占</td></tr>
+    <tr><td>麦克风</td><td><span class="tag tag-dji">Mic 3</span></td><td>$84-$259</td><td>—</td><td>—</td><td>DJI 独有</td></tr>
+  </table>
+</div>
+
+<!-- Search Volume Trend -->
+<div class="card">
+  <h2>品牌搜索趋势（2025.06 – 2026.05）</h2>
+  <div class="timeline-wrap">
+    <div class="chart-container" style="height:auto">
+      <div class="bar-group" id="trendBar"></div>
+    </div>
+  </div>
+  <table>
+    <tr><th>月份</th><th>dji</th><th>insta 360</th><th>insta360</th><th>go pro</th><th>action camera</th></tr>
+    <tr><td>2025-06</td><td>185,017</td><td>226,125</td><td>87,502</td><td>237,394</td><td>87,419</td></tr>
+    <tr><td>2025-07</td><td><strong>288,717</strong></td><td><strong>272,494</strong></td><td><strong>118,880</strong></td><td>248,760</td><td><strong>94,438</strong></td></tr>
+    <tr><td>2025-08</td><td>215,720</td><td>255,062</td><td>118,385</td><td>220,597</td><td>86,636</td></tr>
+    <tr><td>2025-09</td><td>225,740</td><td>234,418</td><td>116,940</td><td>202,035</td><td>91,371</td></tr>
+    <tr><td>2025-10</td><td><strong>297,624</strong></td><td>208,602</td><td>88,596</td><td>176,590</td><td>79,038</td></tr>
+    <tr><td>2025-11</td><td><strong>379,953</strong></td><td><strong>290,857</strong></td><td><strong>113,222</strong></td><td>226,088</td><td>92,718</td></tr>
+    <tr><td>2025-12</td><td>268,511</td><td>210,320</td><td>90,718</td><td>185,055</td><td>84,755</td></tr>
+    <tr style="color:var(--text)"><td>2026-01</td><td>255,313</td><td>231,096</td><td>87,674</td><td>166,037</td><td>83,738</td></tr>
+    <tr><td>2026-02</td><td>249,594</td><td>216,076</td><td>93,135</td><td>203,894</td><td><strong>92,101</strong></td></tr>
+    <tr><td>2026-03</td><td>247,030</td><td>222,362</td><td>93,830</td><td>170,665</td><td>84,591</td></tr>
+    <tr><td>2026-04</td><td>231,219</td><td>218,484</td><td>86,520</td><td>167,511</td><td>84,586</td></tr>
+    <tr><td><strong>2026-05</strong></td><td>196,529</td><td><strong>241,398</strong></td><td>88,573</td><td><strong>166,611</strong></td><td><strong>77,050</strong></td></tr>
+  </table>
+  <p style="color:var(--text2);font-size:0.85em;margin-top:8px">GoPro 搜索量持续下降（YoY -28%），用户向 DJI 和 Insta360 迁移。Insta360 品牌词增长最快（+18% YoY）。</p>
+</div>
+
+<!-- Price Range -->
+<div class="card">
+  <h2>价格带覆盖</h2>
+  <div class="inline-chart"><span class="lbl">$100-200</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:75%"></div></div><span class="pct">DJI 厚</span></div>
+  <div class="inline-chart"><span class="lbl">$200-300</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:55%"></div><div class="bar-fill bar-insta" style="width:30%"></div></div><span class="pct">双方交错</span></div>
+  <div class="inline-chart"><span class="lbl">$300-400</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:65%"></div><div class="bar-fill bar-insta" style="width:55%"></div></div><span class="pct">⚔️ 核心战场</span></div>
+  <div class="inline-chart"><span class="lbl">$400-500</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:60%"></div><div class="bar-fill bar-insta" style="width:65%"></div></div><span class="pct">⚔️ 激烈竞争</span></div>
+  <div class="inline-chart"><span class="lbl">$500-600</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:50%"></div><div class="bar-fill bar-insta" style="width:55%"></div></div><span class="pct">竞争激烈</span></div>
+  <div class="inline-chart"><span class="lbl">$600+</span><div class="bar-line"><div class="bar-fill bar-dji" style="width:30%"></div><div class="bar-fill bar-insta" style="width:40%"></div></div><span class="pct">DJI 独家高端</span></div>
+</div>
+
+<!-- Flagship Products -->
+<div class="card">
+  <h2>旗舰产品对比</h2>
+  <div class="dual-card">
+    <div>
+      <h3 style="color:var(--accent-dji)">DJI 旗舰</h3>
+      <table>
+        <tr><th>产品</th><th>价格</th><th>月销</th><th>评分</th></tr>
+        <tr><td>Mini 4K Fly More</td><td>$449</td><td>19,200</td><td>4.5★</td></tr>
+        <tr><td>Mini 3</td><td>$339</td><td>14,815</td><td>4.5★</td></tr>
+        <tr><td>Osmo Pocket 3</td><td>$376</td><td>10,528</td><td>4.6★</td></tr>
+        <tr><td>Osmo Mobile 8</td><td>$109</td><td>11,228</td><td>4.5★</td></tr>
+        <tr><td>Action 6 Enhanced</td><td>$421</td><td>5,782</td><td>4.5★</td></tr>
+        <tr><td>Mini 5 Pro</td><td>$759</td><td>5,633</td><td>4.5★</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3 style="color:var(--accent-insta)">Insta360 旗舰</h3>
+      <table>
+        <tr><th>产品</th><th>价格</th><th>月销</th><th>评分</th></tr>
+        <tr><td>X5</td><td>$550</td><td>6,842</td><td>4.7★</td></tr>
+        <tr><td>Luna Ultra</td><td>$770</td><td>4,936</td><td>4.3★</td></tr>
+        <tr><td>GO Ultra Creator</td><td>$500</td><td>3,773</td><td>4.4★</td></tr>
+        <tr><td>X4 Air</td><td>$400</td><td>3,708</td><td>4.6★</td></tr>
+        <tr><td>Ace Pro 2</td><td>$420</td><td>3,350</td><td>4.4★</td></tr>
+        <tr><td>Snap Selfie Screen</td><td>$80</td><td>3,436</td><td>4.3★</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SWOT -->
+<div class="card">
+  <h2>SWOT 交叉对比</h2>
+  <div class="swot-grid">
+    <div class="swot-card swot-s">
+      <h4>💪 DJI 优势</h4>
+      <ul>
+        <li>无人机全球龙头品牌（品类独占）</li>
+        <li>6 条产品线深度布局</li>
+        <li>单品效率极高（3x Insta360）</li>
+        <li>技术研发雄厚（可变光圈）</li>
+        <li>价格带覆盖 $75-$1,116</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-s">
+      <h4>💪 Insta360 优势</h4>
+      <ul>
+        <li>360° 全景品类独占 = 品牌</li>
+        <li>品牌词搜索 241K（行业最高）</li>
+        <li>产品创新力强（GO Ultra 创品类）</li>
+        <li>全系 4.5★+ 高评分</li>
+        <li>场景 Bundle 矩阵极致</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-w">
+      <h4>⚠️ DJI 劣势</h4>
+      <ul>
+        <li>运动相机总体落后于 Insta360</li>
+        <li>无 360° 全景产品</li>
+        <li>无穿戴相机品类</li>
+        <li>广告依赖度高（87%）</li>
+        <li>$200-$400 区间有空白</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-w">
+      <h4>⚠️ Insta360 劣势</h4>
+      <ul>
+        <li>单品效率仅为 DJI 的 40%</li>
+        <li>过度依赖 360° 单一品类</li>
+        <li>Ace Pro 竞争劣势</li>
+        <li>运营复杂度高</li>
+        <li>Luna Ultra 评分 4.3★ 偏低</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-o">
+      <h4>🚀 DJI 机会</h4>
+      <ul>
+        <li>推出 360° 全景相机切入 Insta360 腹地</li>
+        <li>填充 $200-$400 运动相机价格带</li>
+        <li>无人机+运动相机生态联动</li>
+        <li>Mic 3 新品类扩展</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-o">
+      <h4>🚀 Insta360 机会</h4>
+      <ul>
+        <li>穿戴相机蓝海增长</li>
+        <li>企业/工业 360° 应用扩展</li>
+        <li>手机稳定器正面竞争 DJI</li>
+        <li>Vlog 相机新品（Luna）增长</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-t">
+      <h4>🔴 DJI 威胁</h4>
+      <ul>
+        <li>品类搜索量萎缩（action camera -10%）</li>
+        <li>Insta360 产品矩阵围剿</li>
+        <li>广告成本高企</li>
+        <li>无人机监管风险</li>
+      </ul>
+    </div>
+    <div class="swot-card swot-t">
+      <h4>🔴 Insta360 威胁</h4>
+      <ul>
+        <li>DJI 可能做 360° 相机</li>
+        <li>品类天花板（360° 相机小众）</li>
+        <li>GO Ultra 低评分 Bundle 稀释品牌</li>
+        <li>运动相机难追 DJI</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Rating -->
+<div class="card">
+  <h2>综合评分</h2>
+  <table>
+    <tr><th>维度</th><th>DJI</th><th>Insta360</th><th>说明</th></tr>
+    <tr><td>品牌力</td><td class="stars">★★★★★</td><td class="stars">★★★★★</td><td>双方都是顶级中国出海品牌</td></tr>
+    <tr><td>产品线宽度</td><td class="stars">★★★★★</td><td class="stars">★★★★</td><td>DJI 多无人机品类</td></tr>
+    <tr><td>单品效率</td><td class="stars">★★★★★</td><td class="stars">★★★</td><td>DJI 3x+</td></tr>
+    <tr><td>品类独占性</td><td class="stars">★★★★★</td><td class="stars">★★★★★</td><td>各有绝对护城河</td></tr>
+    <tr><td>技术创新</td><td class="stars">★★★★★</td><td class="stars">★★★★</td><td>DJI 稍领先</td></tr>
+    <tr><td>增长潜力</td><td class="stars">★★★★</td><td class="stars">★★★★</td><td>各有天花板</td></tr>
+    <tr><td><strong>综合</strong></td><td><strong style="color:var(--accent-dji);font-size:1.2em">4.6/5</strong></td><td><strong style="color:var(--accent-insta);font-size:1.2em">4.5/5</strong></td><td>实力相当</td></tr>
+  </table>
+</div>
+
+<!-- Conclusion -->
+<div class="conclusion-box">
+  <h3>核心结论</h3>
+  <ul>
+    <li><strong>不是零和博弈</strong> — 核心品类（DJI 无人机 vs Insta360 360° 相机）完全不重叠，直接竞争仅限运动相机（各占营收 10-15%）</li>
+    <li><strong>运动相机是唯一正面战场</strong> — DJI Action 6 技术领先，但 Insta360 在此品类的份额更多来自 X 系列</li>
+    <li><strong>相互入侵威胁存在</strong> — DJI 推出 360° 相机是最大变量；Insta360 不太可能做无人机</li>
+    <li><strong>品类趋势分化</strong> — action camera 搜索 YoY -11%，Insta360 品牌词 +18%，DJI +10%，GoPro -28%</li>
+    <li><strong>$100-$200 是 Insta360 最大盲区</strong> — 无产品覆盖，DJI 在此有无人机、稳定器、入门运动相机三重布局</li>
+    <li><strong>互补 > 竞争</strong> — DJI 无人机 + Insta360 X5 + DJI Pocket 3 = 完整拍摄生态</li>
+  </ul>
+</div>
+
+</div>
+
+<script>
+(function() {
+  // Market share bar chart
+  const brands = [
+    {name:'Insta360', val:33.8, color:'var(--accent-insta)'},
+    {name:'DJI', val:30.7, color:'var(--accent-dji)'},
+    {name:'GoPro', val:18.7, color:'var(--accent-gopro)'},
+    {name:'AKASO', val:7.6, color:'#64748b'},
+    {name:'其他', val:9.2, color:'#475569'}
+  ];
+  let container = document.getElementById('marketShareBar');
+  if(container) {
+    let max = Math.max(...brands.map(b=>b.val));
+    brands.forEach(b => {
+      let wrapper = document.createElement('div');
+      wrapper.className = 'bar-wrapper';
+      let bar = document.createElement('div');
+      bar.className = 'bar';
+      bar.style.height = (b.val/max*200)+'px';
+      bar.style.background = b.color;
+      let val = document.createElement('div');
+      val.className = 'val';
+      val.textContent = b.val+'%';
+      bar.appendChild(val);
+      let lbl = document.createElement('div');
+      lbl.className = 'bar-label';
+      lbl.textContent = b.name;
+      wrapper.appendChild(bar);
+      wrapper.appendChild(lbl);
+      container.appendChild(wrapper);
+    });
+  }
+
+  // Trend chart - simplified
+  let trendContainer = document.getElementById('trendBar');
+  if(trendContainer) {
+    let months = ['06','07','08','09','10','11','12','01','02','03','04','05'];
+    let djiData = [185017,288717,215720,225740,297624,379953,268511,255313,249594,247030,231219,196529];
+    let instaData = [226125,272494,255062,234418,208602,290857,210320,231096,216076,222362,218484,241398];
+    let maxVal = Math.max(...djiData, ...instaData);
+
+    // create dual grouped bars per month
+    months.forEach((m,i) => {
+      let wrapper = document.createElement('div');
+      wrapper.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;';
+
+      if(i%2===0 || i===months.length-1) {
+        let lbl = document.createElement('div');
+        lbl.style.cssText = 'margin-top:4px;font-size:0.6em;color:var(--text2);';
+        lbl.textContent = m;
+        wrapper.appendChild(lbl);
+      }
+
+      let barW = document.createElement('div');
+      barW.style.cssText = 'display:flex;gap:2px;width:100%;justify-content:center;align-items:flex-end;height:200px;';
+
+      let b1 = document.createElement('div');
+      b1.style.cssText = 'width:12px;border-radius:2px 2px 0 0;background:var(--accent-dji);';
+      b1.style.height = (djiData[i]/maxVal*180)+'px';
+
+      let b2 = document.createElement('div');
+      b2.style.cssText = 'width:12px;border-radius:2px 2px 0 0;background:var(--accent-insta);';
+      b2.style.height = (instaData[i]/maxVal*180)+'px';
+
+      barW.appendChild(b1);
+      barW.appendChild(b2);
+      wrapper.appendChild(barW);
+      trendContainer.appendChild(wrapper);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

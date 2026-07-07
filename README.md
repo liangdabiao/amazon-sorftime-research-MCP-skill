@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime、Sif、西柚洞察等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了七个核心技能：
+本项目配置了 Sorftime、Sif、西柚洞察、卖家精灵等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了八个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
@@ -15,6 +15,7 @@
 | `product-research` | 选品深度调研 | `/product-research "{产品关键词}" {SITE}` | LLM驱动的选品深度调研与决策 |
 | `sif-amazon-research` | 综合电商研究 | `/sif-amazon-research` | 基于Sif MCP的亚马逊市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化 |
 | `xiyou-insight` | 竞品流量与广告 | `/xiyou-insight` | 基于西柚MCP的7大场景分析：广告监控、流量缺口、竞品拆解、新品推广、广告预算、关键词库 |
+| `sellersprite-amazon-research` | 全链路数据调研 | `/product-research`, `/market-analysis`, `/competitor-analysis`, `/keyword-research`, `/listing-optimizer`, `/traffic-analysis`, `/opportunity-finder`, `/review-insights`, `/pricing-strategy`, `/ad-optimizer` | 基于卖家精灵MCP的43个工具完成选品分析、关键词研究、竞品监控、市场分析、定价策略、评论分析、广告优化、流量分析、Listing优化和蓝海机会挖掘 |
 
 ### 核心功能
 
@@ -98,6 +99,54 @@
 - `data.json` - 结构化数据
 - `dashboard.html` - ECharts可视化看板
 - `raw/` - 原始MCP响应数据
+
+#### 卖家精灵全链路调研 (sellersprite-amazon-research)
+- **智能选品助手**: `product_research` + `product_node` 完成选品分析
+- **市场全景分析**: `market_research` + 12个分布工具集完成市场分析
+- **竞品深度拆解**: `asin_detail` + `traffic_keyword` 完成竞品监控
+- **关键词选品研究**: `keyword_research` + `keyword_miner` 完成关键词研究
+- **Listing优化诊断**: `traffic_listing` + `keyword_order` 完成Listing优化
+- **流量结构分析**: `traffic_source` + `traffic_keyword_stat` 完成流量分析
+- **蓝海机会挖掘**: `aba_research_trend` + `google_trend` 完成机会挖掘
+- **买家评论洞察**: `review` + NLP分析完成评论分析
+- **定价策略分析**: `market_price_distribution` 完成定价策略
+- **广告投放优化**: `keyword_order` + `traffic_keyword` 完成广告优化
+
+**10大综合分析工作流**:
+
+| 命令 | 名称 | 核心工具 |
+|------|------|----------|
+| `/product-research` | 智能选品助手 | `product_research` + `product_node` |
+| `/market-analysis` | 市场全景分析 | `market_research` + 分布工具集 |
+| `/competitor-analysis` | 竞品深度拆解 | `asin_detail` + `traffic_keyword` |
+| `/keyword-research` | 关键词选品研究 | `keyword_research` + `keyword_miner` |
+| `/listing-optimizer` | Listing优化诊断 | `traffic_listing` + `keyword_order` |
+| `/traffic-analysis` | 流量结构分析 | `traffic_source` + `traffic_keyword_stat` |
+| `/opportunity-finder` | 蓝海机会挖掘 | `aba_research_trend` + `google_trend` |
+| `/review-insights` | 买家评论洞察 | `review` + NLP分析 |
+| `/pricing-strategy` | 定价策略分析 | `market_price_distribution` |
+| `/ad-optimizer` | 广告投放优化 | `keyword_order` + `traffic_keyword` |
+
+**16大战术选品策略**:
+- **新品爆发型**: 新品快速爆发、隐形爆款
+- **关键词趋势型**: ABA高增长趋势词、流量分散关键词、标题密度漏洞
+- **产品缺陷型**: 热销低评分产品、评论语义分析
+- **类目结构型**: 低品牌垄断类目、高新品占比市场、高毛利轻小品
+- **流量防伪型**: 自然流量反查、变体拆解模型
+- **机会捕捉型**: 本土溢价降维、FBM拦截、低质量Listing高销量、高客单长尾、季节前置爆破
+
+**卖家精灵MCP工具集**（43个API）:
+- **产品研究**: `product_research`, `asin_detail`, `keepa_info`, `review`
+- **市场研究**: `market_research`, `market_brand_concentration`, `market_price_distribution`, `product_node`
+- **关键词研究**: `keyword_research`, `keyword_miner`, `keyword_research_trends`, `aba_research_trend`
+- **流量分析**: `traffic_keyword`, `traffic_source`, `traffic_keyword_stat`, `traffic_listing`
+- **竞品分析**: `competitor_lookup`
+- **谷歌趋势**: `google_trend`
+
+**报告输出**: `{类别名}/`
+- `market_report.md` - Markdown结构化报告
+- `market_report.html` - HTML可视化报告（自动配套生成）
+- `research_data.json` - API原始数据
 
 ---
 
@@ -379,6 +428,54 @@ amazon-mcp/
 │       │       ├── data_aggregator.py     # 数据聚合器
 │       │       ├── report_generator.py    # 报告生成器
 │       │       └── dashboard_generator.py # Dashboard生成器
+│       ├── sellersprite-amazon-research/  # 卖家精灵全链路调研技能
+│       │   ├── SKILL.md
+│       │   ├── README.md
+│       │   ├── scripts/                   # 数据处理脚本
+│       │   │   ├── competitor_analysis.py
+│       │   │   ├── keyword_research.py
+│       │   │   ├── review_analysis.py
+│       │   │   ├── keyword_deep_analysis.py
+│       │   │   ├── tactical_strategies.py
+│       │   │   ├── mcp_call.py
+│       │   │   └── fix_keyword_report.py
+│       │   ├── comprehensive/             # 综合分析工作流
+│       │   │   ├── product-research.md
+│       │   │   ├── market-analysis.md
+│       │   │   ├── competitor-analysis.md
+│       │   │   ├── keyword-research.md
+│       │   │   ├── listing-optimizer.md
+│       │   │   ├── traffic-analysis.md
+│       │   │   ├── opportunity-finder.md
+│       │   │   ├── review-insights.md
+│       │   │   ├── pricing-strategy.md
+│       │   │   └── ad-optimizer.md
+│       │   ├── tactical/                  # 战术选品策略卡
+│       │   │   ├── new-product-burst.md
+│       │   │   ├── hidden-bestseller.md
+│       │   │   ├── aba-high-growth-trend.md
+│       │   │   ├── low-monopoly-keyword.md
+│       │   │   ├── title-density-gap.md
+│       │   │   ├── hot-low-rating.md
+│       │   │   ├── review-sentiment.md
+│       │   │   ├── low-brand-monopoly.md
+│       │   │   ├── high-new-product-ratio.md
+│       │   │   ├── high-margin-lightweight.md
+│       │   │   ├── natural-traffic-audit.md
+│       │   │   ├── variant-gap-analysis.md
+│       │   │   ├── local-premium-disruption.md
+│       │   │   ├── fbm-intercept.md
+│       │   │   ├── poor-listing-winner.md
+│       │   │   ├── high-ticket-long-tail.md
+│       │   │   └── seasonal-prepositioning.md
+│       │   └── reference/                 # MCP工具参考文档
+│       │       ├── tools_index.md
+│       │       ├── product_research.md
+│       │       ├── market_research.md
+│       │       ├── traffic_keyword.md
+│       │       ├── competitor_lookup.md
+│       │       ├── keyword_miner.md
+│       │       └── asin_detail.md
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
 │   └── analysis_{ASIN}_{站点}_{日期}.md
@@ -455,6 +552,17 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 ---
 
 ## 更新日志
+
+### v2.9 (2026-07-07)
+- **新增**: sellersprite-amazon-research 卖家精灵全链路调研技能
+- **新增**: 基于卖家精灵MCP的43个数据工具
+- **新增**: 10大综合分析工作流：智能选品助手、市场全景分析、竞品深度拆解、关键词选品研究、Listing优化诊断、流量结构分析、蓝海机会挖掘、买家评论洞察、定价策略分析、广告投放优化
+- **新增**: 16大战术选品策略卡：新品爆发、隐形爆款、ABA高增长趋势词、流量分散关键词、热销低评分、低品牌垄断、高毛利轻小品等
+- **新增**: comprehensive/ 综合分析工作流文档（10个）
+- **新增**: tactical/ 战术选品策略文档（16个）
+- **新增**: reference/ MCP工具参考文档（7个）
+- **新增**: scripts/ 数据处理脚本（7个）
+- **新增**: HTML可视化报告自动生成（Markdown报告完成后自动配套生成）
 
 ### v2.8 (2026-07-04)
 - **新增**: xiyou-insight 西柚洞察分析技能
