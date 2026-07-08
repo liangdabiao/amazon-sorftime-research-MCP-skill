@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目配置了 Sorftime、Sif、西柚洞察、卖家精灵等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了八个核心技能：
+本项目配置了 Sorftime、Sif、西柚洞察、卖家精灵等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了九个核心技能：
 
 | 技能 | 分析对象 | 命令 | 用途 |
 |------|----------|------|------|
@@ -16,6 +16,7 @@
 | `sif-amazon-research` | 综合电商研究 | `/sif-amazon-research` | 基于Sif MCP的亚马逊市场验证、竞品分析、流量诊断、关键词策略、广告审查、发布评估与增长优化 |
 | `xiyou-insight` | 竞品流量与广告 | `/xiyou-insight` | 基于西柚MCP的7大场景分析：广告监控、流量缺口、竞品拆解、新品推广、广告预算、关键词库 |
 | `sellersprite-amazon-research` | 全链路数据调研 | `/product-research`, `/market-analysis`, `/competitor-analysis`, `/keyword-research`, `/listing-optimizer`, `/traffic-analysis`, `/opportunity-finder`, `/review-insights`, `/pricing-strategy`, `/ad-optimizer` | 基于卖家精灵MCP的43个工具完成选品分析、关键词研究、竞品监控、市场分析、定价策略、评论分析、广告优化、流量分析、Listing优化和蓝海机会挖掘 |
+| `amazon-listing-builder` | Listing打造与优化 | `/listing-builder`, `/listing-title`, `/listing-bullets`, `/listing-aplus`, `/listing-st`, `/alexa-qa`, `/listing-audit` | 基于Cosmo语义算法+Alexa/Rufus对话式购物趋势的八步工作流，从词库到QA全链路打造爆款Listing |
 
 ### 核心功能
 
@@ -147,6 +148,51 @@
 - `market_report.md` - Markdown结构化报告
 - `market_report.html` - HTML可视化报告（自动配套生成）
 - `research_data.json` - API原始数据
+
+#### Listing打造与优化 (amazon-listing-builder)
+- **核心方法论**: "先分析、再生成、最后校验"的 AI 工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"
+- **数据来源优先级**: MCP（卖家精灵）> 浏览器，核心数据必须走 MCP
+
+**八步工作流**:
+
+| 步骤 | 名称 | 关键产出 |
+|------|------|----------|
+| 1 | 关键词分层词库 | 5 层词表（核心/功能/场景/问题/规格） |
+| 2 | 用户问题库 | 真实买家疑虑清单（来自评论/QA/Reddit/TikTok） |
+| 3 | 卖点证据库 | 每个卖点对应材料/数据/图片证据 |
+| 4 | 标题结构设计 | 品牌+核心词+差异属性+主场景+规格（3版对比） |
+| 5 | 五点描述 | 5 点对应 5 个决策环节（核心价值→痛点→场景→规格→信任） |
+| 6 | 描述+A+内容 | 痛点→场景→方案→细节→对比→注意（7屏模块结构） |
+| 7 | Search Terms | 只放补充索引词，不重复、不堆砌 |
+| 8 | QA 设计 | 答案型内容，对应自然语言搜索（Alexa/Rufus风格） |
+
+**7个子命令**:
+
+| 命令 | 用途 |
+|------|------|
+| `/listing-builder` | 完整八步流程，端到端生成全套 Listing |
+| `/listing-title` | 仅生成多版本标题（含优缺点对比） |
+| `/listing-bullets` | 仅生成五点描述（按决策链） |
+| `/listing-aplus` | 仅生成描述 + A+ 模块结构 |
+| `/listing-st` | 仅生成 Search Terms（补充索引策略） |
+| `/alexa-qa` | 仅生成对话式 QA（针对 Alexa/Rufus） |
+| `/listing-audit` | 对现有 Listing 做合规 + 语义 + 转化四项校验 |
+
+**四项校验**:
+- 合规检查（绝对化、医疗、环保、安全等）
+- 关键词覆盖检查
+- 语义覆盖检查（含 Alexa 模拟）
+- 转化逻辑检查
+
+**报告输出**: `{产品名}/`
+- `listing_package.md` - 完整 Listing 包（汇总交付）
+- `keyword_library.md` - 关键词分层词库
+- `question_library.md` - 用户问题库
+- `evidence_library.md` - 卖点证据库
+- `drafts_comparison.md` - 多版本草稿对比
+- `audit_report.md` - 合规与语义校验报告
+- `input_data.json` - 原始输入数据
+- `listing_package.html` - HTML可视化版本（可选）
 
 ---
 
@@ -476,6 +522,36 @@ amazon-mcp/
 │       │       ├── competitor_lookup.md
 │       │       ├── keyword_miner.md
 │       │       └── asin_detail.md
+│       ├── amazon-listing-builder/        # Listing打造与优化技能
+│       │   ├── skill.md
+│       │   ├── README.md
+│       │   ├── workflow/                  # 八步工作流分册
+│       │   │   ├── step-1-keyword-library.md
+│       │   │   ├── step-2-question-library.md
+│       │   │   ├── step-3-evidence-library.md
+│       │   │   ├── step-4-title-design.md
+│       │   │   ├── step-5-bullet-points.md
+│       │   │   ├── step-6-description-aplus.md
+│       │   │   ├── step-7-search-terms.md
+│       │   │   └── step-8-qa-design.md
+│       │   ├── prompts/                   # AI提示词模板
+│       │   │   ├── master-prompt.md
+│       │   │   ├── layered-keyword-prompt.md
+│       │   │   ├── painpoint-mapping-prompt.md
+│       │   │   ├── multiversion-prompt.md
+│       │   │   ├── compliance-check-prompt.md
+│       │   │   ├── semantic-coverage-prompt.md
+│       │   │   └── data-iteration-prompt.md
+│       │   ├── examples/                  # 真实案例
+│       │   │   ├── uv-outdoor-plants-fullcase.md
+│       │   │   ├── down-pillows-qa-example.md
+│       │   │   └── layered-keyword-template.md
+│       │   └── reference/                 # 背景知识
+│       │       ├── cosmo-alexa-algorithm.md
+│       │       ├── common-mistakes.md
+│       │       ├── sellersprite-mcp-integration.md
+│       │       ├── mcp-mandatory-protocol.md
+│       │       └── output-format-spec.md
 │       └── skill-creator/       # 技能创建工具
 ├── reports/                     # Listing分析报告
 │   └── analysis_{ASIN}_{站点}_{日期}.md
@@ -552,6 +628,17 @@ A: 确保安装了 `xlsxwriter` 库：`pip install xlsxwriter`
 ---
 
 ## 更新日志
+
+### v3.0 (2026-07-08)
+- **新增**: amazon-listing-builder Listing打造与优化技能
+- **新增**: 基于Cosmo语义算法+Alexa/Rufus对话式购物趋势的八步工作流
+- **新增**: "先分析、再生成、最后校验"的AI工程化流程，把Listing从关键词堆砌升级为语义覆盖+需求证据+答案型内容
+- **新增**: 7个子命令：/listing-builder、/listing-title、/listing-bullets、/listing-aplus、/listing-st、/alexa-qa、/listing-audit
+- **新增**: workflow/ 八步工作流分册（8个）：关键词分层词库、用户问题库、卖点证据库、标题设计、五点描述、描述A+、Search Terms、QA设计
+- **新增**: prompts/ AI提示词模板（7个）：主提示词、关键词分层、痛点映射、多版本生成、合规检查、语义覆盖、数据迭代
+- **新增**: examples/ 真实案例（3个）：抗UV户外仿真植物端到端、down filled pillows QA示例、关键词分层模板
+- **新增**: reference/ 背景知识（5个）：Cosmo/Alexa算法、常见误区、MCP集成、MCP强制协议、输出格式规范
+- **新增**: 四项校验机制：合规检查、关键词覆盖检查、语义覆盖检查、转化逻辑检查
 
 ### v2.9 (2026-07-07)
 - **新增**: sellersprite-amazon-research 卖家精灵全链路调研技能
