@@ -1,0 +1,61 @@
+你是一位亚马逊关键词分类专家。请根据以下产品信息，将关键词列表按 8 个维度分类。
+
+【产品信息】
+product_name: Schylling NeeDoh Nice Ice Baby - Sensory Squeeze Toy - Super Solid Squish - 1.25” Wide - Color May Vary (Pack of 1)
+brand: Schylling
+materials: 
+features: 
+use_cases: Baby
+negative_features: 
+description: Stop, collaborate, and squish this<br>The chill Nice Cube is back with a brand-new invention<br>Teenie size with a super solid sensory satisfaction<br>Colors may vary (blue, pink, purple); 1 cube per pack; 1” square<br>Age: 3+<br>
+category: SQUEEZE TOY
+
+【分类维度说明】
+1. **NEGATIVE (否定/敏感词)**: 与产品不相关、描述不符的词，需直接否定
+   - 例：freestanding（落地式）vs wall mount（壁挂式）
+   - 例：over door（门后）vs wall（墙面）
+
+2. **BRAND (品牌词)**: 竞品品牌名称
+   - 例：umbra, simplehuman, mDesign, household essentials
+
+3. **MATERIAL (材质词)**: 描述产品材质的词
+   - 例：wooden, metal, aluminum, bamboo, plastic
+
+4. **SCENARIO (使用场景词)**: 产品使用的位置/场景
+   - 例：entryway, bathroom, mudroom, garage, bedroom
+
+5. **ATTRIBUTE (属性修饰词)**: 描述产品属性/特性的词
+   - 例：wall mount, heavy duty, rustic, vintage, expandable
+
+6. **FUNCTION (功能词)**: 描述产品功能的词
+   - 例：hanging, storage, organizer, display
+
+7. **CORE (核心产品词)**: 产品核心名称
+   - 例：coat rack, hook, hanger, hat rack, towel rack
+
+8. **OTHER (其他)**: 未分类、拼写错误、其他语言等
+   - 例：coatrac（拼写错误）, perchero（西语）
+
+【待分类关键词】（共 1550 个，前500个示例）
+["needoh", "nee doh", "needoh nice cube", "squishy", "fidget toys", "needohs", "toys", "nedoh", "needoh dream drop", "needoh ice cube", "needoh ice cream", "squeeze toys", "needo", "fidget toys adults", "fidgets", "baby toys", "squishy toys", "needoh cube", "needoh gumdrop", "stress balls", "needoh jellyfish", "sensory toys", "needoh fuzz ball", "ice cream needoh", "squishies", "squishy fidget toys", "fidget", "water gun", "needoh nice berg", "mini needoh", "stress balls for adults", "nee doh cube", "nee doh nice cube", "dream drop needoh", "ice cube needoh", "needoh mini", "nice cube", "jellyfish needoh", "nedo", "stress ball", "stress toys", "squishys", "needoh snowball", "gumdrop needoh", "nee doh gumdrop", "toy", "kneedoh", "needih", "needoh gummy bear", "neh doh", "needoh pack", "fuzz ball needoh", "nee doh fuzz ball", "nee doh ice cream", "needos", "squishy cube", "needoh fuzzball", "nedoh nice cube", "schylling needoh", "snowball needoh", "needoh squishy", "fidget toy", "needoh popsicle", "adult fidget toys", "knee doh", "figets", "nice berg needoh", "need doh", "squishy dumpling toy", "needoh easter", "needoh heart", "needoh egg", "needoh mini cube", "fidgets for adults", "needoh nice cube mini", "giant needoh", "adopt me", "gum drop needoh", "nee doh dream drop", "pink needoh", "needoh'", "big needoh", "mini needoh nice cube", "squishy needoh", "new doh", "nee doh jellyfish", "baby toy", "squishy ball", "squishes", "squishy stress ball", "schylling", "needoh cat", "easter needoh", "fuzzball needoh", "neehdoh", "stress cube", "nido squishy", "needoh ball", "needoh nice ice baby", "gummy bear needoh", "big squishy", "sugar squishy", "stress balls for kids", "dream drop", "needoh easter bundle", "giant squishy", "nee doh ice cube", "needoh gum drop", "needoh ice berg", "needoh valentines day", "nedohs", "needoh swirl", "squishies needoh", "fidget squishy", "knee dough", "nee doh mini", "nice berg", "heart needoh", "needoh color changing", "jelly fish needoh", "color changing needoh", "needoo", "nedo squishy", "neeh doh", "meedoh", "fuzzy needoh", "popsicle needoh", "sensory", "ne doh", "schylling needoh nice cube", "needough", "nice ice baby", "needph", "nee doh squishy", "needoh small", "needoh big", "stress balls squeeze", "needoh cheese", "needoh icecream", "squishy pack", "nee dough", "ice cube squishy", "nee doh easter", "nice ice baby nee doh", "needoh pink", "needoh splat", "squishy balls", "stress toy", "squishy toy", "jelly cats", "needoh stress ball", "squishy's", "nedoh cube", "needoh donut", "needog", "needoh raindrop", "needoh fruit", "mini needoh ice cube", "needoh teardrop", "small needoh", "needoh sploot splat", "needoh golden egg hunt", "needoh ice cream cone", "laser tag", "sensory fidget toys", "nee doh stress ball", "mini nee doh", "nee doh gummy bear", "kneedoh cube", "needoh nice cube pink", "needoh drop", "neato cube", "needoh snowball crunch", "mini nice cube", "needoh bear", "needoh set", "needlh", "needoh ice cube mini", "needoh bunny", "needoh marshmallow", "sunny days squishy", "needoh fuzz", "needoh cheap", "needoh nice cream", "needoh jelly fish", "barbie doll", "mini toys", "baby sensory toys", "mini squishies", "squishy’s", "cat needoh", "jumbo needoh", "cube squishy", "nedo ice cube", "needoh bulk", "big needoh cube", "nedough", "nee doh mini cube", "needoh 3 pack", "need oh", "needoh dreamdrop", "needoh ice baby", "needoh squishies", "needoh nice cube big", "iceberg needoh", "needoh hearts", "needoh nice cube swirl", "mini stress toys", "needoh swirl cube", "needoj", "crunchy needoh", "mello mallow needoh", "needoh duck", "needoh jelly squish", "figits", "figet", "squish", "nee doh ball", "small fidget toys", "fidget toys squishy", "stress squishy", "nee doh egg", "stress cubes", "fidgets squishy", "neto cube", "needoh variety pack", "dreamdrop needoh", "nee doh heart", "ice berg needoh", "giant needoh nice cube", "needoh big cube", "nee - doh", "needoh fuzzy", "￼fidgets", "mini needohs", "needho", "icecream needoh", "figet toys", "adhd toys", "mini stress balls", "novelty toys & amusements", "squishy fidgets", "swuishy", "sugar ball", "teenie needoh", "nedoh dream drop", "needoh dog", "nehdoh", "stress balls needoh", "super needoh", "nido cube", "needoh iceberg", "neato squishies", "nee doh ice berg", "needoh nice burg", "needoh cube mini", "needoh ice cube big", "￼squishy’s", "beedoh", "fruit needoh", "nedoh pack", "marshmallow needoh", "needoh dupe", "cheap needoh", "cheese needoh", "needoh nice cream cone", "needohs pack", "egg needoh", "needoh jelly hops", "squeeze ball", "nee doh cat", "nee-doh", "adult fidgets", "nee doo", "nice cube nee doh", "nee doh gum drop", "nedo cube", "needo cube", "ice needoh", "mini needoh cube", "nee doh variety pack", "needoh cats", "needoh cool cats", "needoh niceberg", "niceberg needoh", "needoh ice", "needoh 4 pack", "needoh nice cube large", "nice burg needoh", "raindrop needoh", "purple needoh", "needoh giant", "needoh mini ice cube", "needoh shaggy", "ice cream cone needoh", "nice cream needoh", "needohs ice cream", "nee doh popsicle", "needoh color changing egg", "fidget ball", "fidget toys for adults", "mini stuff", "sensory balls", "squish ball", "mini fidgets", "squish balls", "squish toys", "cute squishies", "shaggy needoh", "squishy stress toy", "neadoh", "stress relief toys adults", "squishy’s￼", "nee doh nice cube mini", "needo ice cube", "needoh snowman", "squishy cubes", "needoh glow in the dark", "needoh groovy glob", "needoh gumdrop 1 pack", "schylling needoh dream drop", "nee doh squishies", "needoh teenie", "baby needoh", "mini ice cube needoh", "valentines needoh", "tear drop needoh", "needoh easter egg", "needoh egg hunt", "needoh mello mallo", "tiny needoh", "nee doh swirl", "needoh nice cube xl", "nee doh big", "needoh glitter", "needoh nice berg giant", "needoh packs", "snow needoh", "￼squishy", "glitter needoh", "nedoh mini", "nee doh splat", "needdoh", "needoh ice cube big jumbo", "needooh", "pink needoh cube", "blue needoh", "needoh fuzzy ball", "fuzzy needoh ball", "nee doh raindrop", "needoh water drop", "squeeze stress relief cubes", "needoh schylling", "swirl needoh", "teardrop needoh", "rain drop needoh", "needoh hearts 3 pack", "needoh globbles", "butter needoh", "ice cream nee doh", "mellow mallow needoh", "needohs dream drop", "needohs mini", "nice cream cone needoh", "needoh butter", "viral squishy", "bunny needoh", "jelly hops nee doh", "small toys", "figit", "stretchy toys", "stress relief toys", "cheap fidgets", "stress", "stress ball pack", "adult fidget", "boho comforter set", "fidget for adults", "cube fidget toy", "squishie", "nee doh fruit", "small squishy toys", "squishy fidget", "foam squishy", "cheap squishies", "squishy packs", "kneedo", "nee do", "nee doe", "water squishy", "nee doh color changing", "big squishy toys", "sensory toys adults", "sugar ball fidget", "sugar stress ball", "adult fidgets for anxiety and stress", "ice cube stress ball", "needoh balls", "squishy￼", "needoh nice cube 3 pack", "squish cube", "nee doh snowball", "nee doh snowball crunch", "needoe", "fidget toys needoh", "nee soh", "needoh cubes", "needoh multipack", "needoh nice cube purple", "squishy’s ￼", "worlds smallest needoh", "needoh large", "needoh mini nice cube", "needoh nice", "needoh nice cube small", "large needoh", "stress cube needoh", "squishy big", "fidgets needoh", "needoh cube large", "nee doh easter egg", "needoh eggs", "sploot splat needoh", "needoh small cube", "small needoh cube", "needoh nice cube -", "juguetes para apretar", "needoh bundle", "needoh mellow mallow", "needoh minis", "neeto squishy", "nee doh teardrop", "needoh groovy fruit", "needow", "needoh 2 pack", "needoh baby", "needoh jumbo", "snow ball needoh", "nedooh", "nee dih", "nee doh 4 pack", "needoh animals", "needoh cube pink", "swuishys", "baby squishy", "nee doh marshmallow", "needoh dream drop 1 pack", "needoh rain drop", "color change needoh", "donut needoh", "fuzz ball nee doh", "needoha", "neehdohs", "nnedoh", "squishy cheap", "sugar squishies", "moldable stress ball", "nee doh jelly fish", "needoh octopus", "nee doh jelly hops", "cake needoh", "dachshund needoh", "stress balls fidget toys", "tiny toys", "sensory toys for babies", "cheap toys", "stress relief toy", "fidget balls", "sensory toy", "squishies bulk", "squish toy", "cute fidgets", "squeeze", "squishy toys bulk", "fidget squishy toys", "squishies cheap", "big nee doh", "neto", "sensory squishy toys", "sqishy", "swuishies", "cube needoh", "nice cube needoh", "squishy ice cube", "squishy baby", "nee dough cube", "knee dough cube", "square squishy cube", "needoh tear drop", "ice cube nee doh", "need doh cube", "needoh snow", "gumdrop", "nee doh donut", "nee doh nice ice baby", "needoh fidgets", "squishy cheese cube", "squshy", "stress ball squishy", "kneadough cube"]
+
+【输出格式】
+请严格按照以下 JSON 格式输出，不要包含任何其他内容：
+```json
+{
+  "NEGATIVE": ["keyword1", "keyword2", ...],
+  "BRAND": ["keyword1", "keyword2", ...],
+  "MATERIAL": ["keyword1", "keyword2", ...],
+  "SCENARIO": ["keyword1", "keyword2", ...],
+  "ATTRIBUTE": ["keyword1", "keyword2", ...],
+  "FUNCTION": ["keyword1", "keyword2", ...],
+  "CORE": ["keyword1", "keyword2", ...],
+  "OTHER": ["keyword1", "keyword2", ...]
+}
+```
+
+注意：每个关键词只能属于一个分类，请根据最相关的特征进行分类。如果关键词超过500个，请按相同规则处理剩余关键词。
+
+【产品信息参考】
+ASIN: B0D9ZTW7PS
+站点: US

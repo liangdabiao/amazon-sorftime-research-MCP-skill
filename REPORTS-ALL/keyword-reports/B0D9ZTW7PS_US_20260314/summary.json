@@ -1,0 +1,18 @@
+{
+  "asin": "B0D9ZTW7PS",
+  "site": "US",
+  "generated_at": "2026-03-14T11:56:56.888112",
+  "total_keywords": 1550,
+  "categorized": {
+    "NEGATIVE": 0,
+    "BRAND": 2,
+    "MATERIAL": 0,
+    "SCENARIO": 52,
+    "ATTRIBUTE": 189,
+    "FUNCTION": 7,
+    "CORE": 1082,
+    "OTHER": 218
+  },
+  "output_directory": "D:\\amazon-mcp\\keyword-reports\\B0D9ZTW7PS_US_20260314",
+  "long_tail_limit": 30
+}

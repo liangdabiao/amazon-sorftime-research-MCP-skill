@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "asin": "B07PQFT83F",
+      "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
+      "price": "59.99",
+      "currency": "USD",
+      "stars": 4.5,
+      "ratings": 12580,
+      "url": "https://www.amazon.com/dp/B07PQFT83F",
+      "image": "https://example.com/image.jpg"
+    },
+    {
+      "asin": "B08X1Z8K5M",
+      "title": "Wireless Bluetooth Headphones B08X with Noise Cancelling",
+      "price": "59.99",
+      "currency": "USD",
+      "stars": 4.5,
+      "ratings": 12580,
+      "url": "https://www.amazon.com/dp/B08X1Z8K5M",
+      "image": "https://example.com/image.jpg"
+    }
+  ]
+}

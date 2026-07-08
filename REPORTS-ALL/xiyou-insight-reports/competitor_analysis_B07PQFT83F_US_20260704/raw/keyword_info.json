@@ -1,0 +1,29 @@
+{
+  "bluetooth headphones": {
+    "keyword": "bluetooth headphones",
+    "weekly_search_volume": 500000,
+    "search_frequency_rank": 50,
+    "competitive_difficulty": 75,
+    "cost_per_click": 2.5,
+    "click_conversion_rate": 8.5,
+    "natural_scroll_rate": 12
+  },
+  "wireless headphones": {
+    "keyword": "wireless headphones",
+    "weekly_search_volume": 450000,
+    "search_frequency_rank": 65,
+    "competitive_difficulty": 72,
+    "cost_per_click": 2.3,
+    "click_conversion_rate": 8.2,
+    "natural_scroll_rate": 10
+  },
+  "noise cancelling headphones": {
+    "keyword": "noise cancelling headphones",
+    "weekly_search_volume": 300000,
+    "search_frequency_rank": 120,
+    "competitive_difficulty": 78,
+    "cost_per_click": 2.8,
+    "click_conversion_rate": 9.0,
+    "natural_scroll_rate": 8
+  }
+}

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bluetooth keyboard - US 选品分析看板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e1e8ef;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        /* KPI 卡片网格 */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .kpi-card .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .kpi-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .kpi-card .note {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Go/No-Go 评分卡 */
+        .gogono-card {
+            background: linear-gradient(135deg, #64748b, #475569 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .gogono-card .score {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .gogono-card .verdict {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gogono-card .verdict-detail {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* 标签 */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag-green { background: #dcfce7; color: #166534; }
+        .tag-yellow { background: #fef9c3; color: #854d0e; }
+        .tag-red { background: #fee2e2; color: #991b1b; }
+        .tag-blue { background: #dbeafe; color: #1e40af; }
+        .tag-gray { background: #f1f5f9; color: #475569; }
+
+        /* 机会卡片 */
+        .opportunity-card {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .opportunity-card .rank {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #e1e8ef;
+            margin-top: 40px;
+        }
+
+        /* 维度分布表格 */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>bluetooth keyboard 选品分析看板</h1>
+            <div class="subtitle">
+                站点: US | 分析日期: 20260319
+            </div>
+        </div>
+
+        <!-- Go/No-Go 评分 -->
+        <div class="section">
+            <div class="section-title">选品决策评估</div>
+            <div class="gogono-card" style="background: linear-gradient(135deg, #64748b, #475569 100%);">
+                <div class="verdict">暂缓观望</div>
+                <div class="score">5.3 / 10</div>
+                <div class="verdict-detail">市场规模大但竞争激烈，Logitech垄断地位难以撼动，价格战严重利润空间薄。VOC痛点明确但需验证改进方案的市场接受度。</div>
+            </div>
+        </div>
+
+        <!-- 市场概况 KPI -->
+        <div class="section">
+            <div class="section-title">市场概况</div>
+            <div class="kpi-grid">
+                
+                <div class="kpi-card">
+                    <div class="label">Top100 月销量</div>
+                    <div class="value">340,449</div>
+                    <div class="note">件</div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top100 月销额</div>
+                    <div class="value">$13,984,207</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">平均价格</div>
+                    <div class="value">$36.63</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top3 品牌集中度</div>
+                    <div class="value">59.4%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">亚马逊自营份额</div>
+                    <div class="value">52.8%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">中国卖家份额</div>
+                    <div class="value">40.9%</div>
+                    <div class="note"></div>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- 维度分布 -->
+        <div class="section">
+            <div class="section-title">产品维度分布</div>
+            <div class="dimension-grid">
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>价格区间</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$0-30</td><td>42</td><td><span class="tag tag-blue">42%</span></td></tr><tr><td>$30-60</td><td>50</td><td><span class="tag tag-blue">50%</span></td></tr><tr><td>$60-100</td><td>6</td><td><span class="tag tag-gray">6%</span></td></tr><tr><td>$100-150</td><td>1</td><td><span class="tag tag-gray">1%</span></td></tr><tr><td>$150-200</td><td>1</td><td><span class="tag tag-gray">1%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>产品类型</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>标准套装</td><td>65</td><td><span class="tag tag-blue">65%</span></td></tr><tr><td>紧凑型</td><td>20</td><td><span class="tag tag-green">20%</span></td></tr><tr><td>人体工学型</td><td>8</td><td><span class="tag tag-gray">8%</span></td></tr><tr><td>复古打字机</td><td>5</td><td><span class="tag tag-gray">5%</span></td></tr><tr><td>游戏型</td><td>2</td><td><span class="tag tag-gray">2%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交叉分析 -->
+        
+        <div class="section">
+            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>价格区间 \ 产品类型</th>
+                        <th>compact</th><th>ergonomic</th><th>gaming</th><th>retro</th><th>standard</th>
+                        <th>合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>$0-30</strong></td><td>5</td><td>1</td><td><span class="tag tag-gray">0</span></td><td>1</td><td>35 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td><strong>42</strong></td></tr><tr><td><strong>$30-60</strong></td><td>12</td><td>3</td><td>3</td><td>4</td><td>28 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td><strong>50</strong></td></tr><tr><td><strong>$60-100</strong></td><td>2</td><td>3</td><td>1</td><td><span class="tag tag-gray">0</span></td><td>2</td><td><strong>8</strong></td></tr><tr><td><strong>$100+</strong></td><td>1</td><td>1</td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><span class="tag tag-gray">0</span></td><td><strong>2</strong></td></tr>
+                    <tr style="background: #f8fafc; font-weight: 600;">
+                        <td><strong>合计</strong></td>
+                        <td><strong>20</strong></td><td><strong>8</strong></td><td><strong>4</strong></td><td><strong>5</strong></td><td><strong>65</strong></td>
+                        <td><strong>102</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>红海:</strong> 中价($30-60) + 标准套装 (28款) | <strong>红海:</strong> 低价($0-30) + 标准套装 (35款) | <strong>机会:</strong> 高端($100+) + 复古打字机 (空白) | <strong>机会:</strong> 中价($30-60) + 人体工学 (薄供给) | <strong>机会:</strong> 低价($0-30) + 游戏型 (空白)</div>
+        </div>
+        
+
+        <!-- VOC 分析 -->
+        
+        <div class="section">
+            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>痛点</th>
+                        <th>频次/占比</th>
+                        <th>涉及品牌</th>
+                        <th>品牌机会</th>
+                        <th>产品方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>鼠标可靠性</strong></td>
+                    <td>滚轮失灵、左键双击/无响应、连接断开</td>
+                    <td>156<br><small>37%</small></td>
+                    <td>全部</td>
+                    <td>采用欧姆龙50M次微动、光学编码器替代机械编码器</td>
+                    <td>工业级滚轮5000万次寿命，2年质保承诺</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>键盘质量</strong></td>
+                    <td>按键粘连/无响应、空格键异响、掉漆</td>
+                    <td>87<br><small>21%</small></td>
+                    <td>全部</td>
+                    <td>采用剪刀脚开关、加强键帽结构</td>
+                    <td>1000万次按键寿命，静音设计</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>连接稳定性</strong></td>
+                    <td>蓝牙频繁断连、USB接收器缺失、延迟</td>
+                    <td>68<br><small>16%</small></td>
+                    <td>Logitech</td>
+                    <td>双模方案(2.4G+BT5.3)、Nordic/TI最新芯片</td>
+                    <td>零延迟2.4GHz + 多设备蓝牙5.3</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>耐用性</strong></td>
+                    <td>6-24个月内故障、塑料材质易损</td>
+                    <td>52<br><small>12%</small></td>
+                    <td>全部</td>
+                    <td>加强材质工艺、延长质保期</td>
+                    <td>3年超长质保</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>舒适度</strong></td>
+                    <td>鼠标太小、键盘太高、手部疲劳</td>
+                    <td>35<br><small>8%</small></td>
+                    <td>紧凑型</td>
+                    <td>人体工学设计、可调节角度</td>
+                    <td>波浪键设计+可拆卸掌托</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>软件兼容</strong></td>
+                    <td>驱动不支持、设置软件不稳定</td>
+                    <td>19<br><small>5%</small></td>
+                    <td>高端款</td>
+                    <td>简化软件、免驱动即插即用</td>
+                    <td>免驱动设计，按键可编程</td>
+                </tr>
+            
+                </tbody>
+            </table>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在鼠标可靠性(37%)、键盘质量(21%)、连接稳定性(16%)。Logitech质量下滑严重，为新进入者提供机会窗口。</div>
+        </div>
+        
+
+        <!-- 竞品格局 -->
+        
+        <div class="section">
+            <div class="section-title">竞品格局 (Top8)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品牌/型号</th>
+                        <th>价格</th>
+                        <th>月销量</th>
+                        <th>类型</th>
+                        <th>定位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>Logitech<br><small>MK270</small></td>
+                    <td>$24.99</td>
+                    <td>32,561</td>
+                    <td>量级标杆</td>
+                    <td><small>入门级无线套装，走量为主</small></td>
+                </tr>
+            
+                <tr>
+                    <td>Logitech<br><small>MK250</small></td>
+                    <td>$19.99</td>
+                    <td>17,908</td>
+                    <td>量级标杆</td>
+                    <td><small>入门蓝牙套装，超低价竞争</small></td>
+                </tr>
+            
+                <tr>
+                    <td>Logitech<br><small>Wave Keys & Lift</small></td>
+                    <td>$99.99</td>
+                    <td>15,236</td>
+                    <td>量级标杆</td>
+                    <td><small>高端人体工学，溢价明显</small></td>
+                </tr>
+            
+                <tr>
+                    <td>Logitech<br><small>MK345</small></td>
+                    <td>$33.99</td>
+                    <td>12,367</td>
+                    <td>中价位</td>
+                    <td><small>经典中端款，平衡性价比</small></td>
+                </tr>
+            
+                <tr>
+                    <td>Logitech<br><small>MX Keys S Combo</small></td>
+                    <td>$199.99</td>
+                    <td>10,720</td>
+                    <td>高价位</td>
+                    <td><small>专业办公旗舰，定价最高</small></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 进入壁垒 -->
+        
+        <div class="section">
+            <div class="section-title">进入壁垒评估</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>壁垒类型</th>
+                        <th>等级</th>
+                        <th>预估成本</th>
+                        <th>数据锚点</th>
+                        <th>缓解方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>品牌壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$50万+</td>
+                    <td><small>Logitech 48.9%份额，11.7万评论</small></td>
+                    <td>差异化定位，避开正面竞争</td>
+                </tr>
+            
+                <tr>
+                    <td>Review壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$3-5万</td>
+                    <td><small>Top10均值6,000+评论</small></td>
+                    <td>Vine计划 + 早期评论人</td>
+                </tr>
+            
+                <tr>
+                    <td>资金壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>¥15-20万</td>
+                    <td><small>首批备货1000件 + PPC</small></td>
+                    <td>控制MOQ，小步快跑</td>
+                </tr>
+            
+                <tr>
+                    <td>技术壁垒</td>
+                    <td><span class="tag tag-green">低</span></td>
+                    <td>¥5万</td>
+                    <td><small>产品同质化严重</small></td>
+                    <td>专注解决VOC痛点</td>
+                </tr>
+            
+                <tr>
+                    <td>认证壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>$2万</td>
+                    <td><small>FCC、蓝牙认证等</small></td>
+                    <td>选择有经验的工厂</td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 14:27</p>
+            <p>完整报告请查看 Markdown 文件</p>
+        </div>
+    </div>
+
+    <script>
+        // 页面交互脚本
+        console.log('Dashboard loaded successfully');
+    </script>
+</body>
+</html>

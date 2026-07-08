@@ -1,0 +1,227 @@
+{
+  "product_types": [
+    {"type": "湿粮罐头", "count": 18, "share": 0.36, "avg_price": 23.50, "description": "Classic Pate, Cuts in Gravy, Broth Complement等"},
+    {"type": "干粮", "count": 14, "share": 0.28, "avg_price": 22.80, "description": "Dry Cat Food, Kibble"},
+    {"type": "零食/猫条", "count": 10, "share": 0.20, "avg_price": 14.90, "description": "Lickable Treats, Creamy Purée, Churu"},
+    {"type": "猫砂", "count": 4, "share": 0.08, "avg_price": 28.50, "description": "Clumping Litter"},
+    {"type": "营养补充剂", "count": 2, "share": 0.04, "avg_price": 28.47, "description": "Urinary Tract Health, Joint Supplement"},
+    {"type": "其他", "count": 2, "share": 0.04, "avg_price": 10.50, "description": "Can Covers, Storage"}
+  ],
+  "dimensions_analysis": {
+    "产品形态": {
+      "湿粮": {"count": 18, "share": 0.36, "avg_price": 23.50, "top_brands": ["Fancy Feast", "Sheba", "Friskies"]},
+      "干粮": {"count": 14, "share": 0.28, "avg_price": 22.80, "top_brands": ["IAMS", "Purina ONE", "Hill's Science Diet"]},
+      "零食/猫条": {"count": 10, "share": 0.20, "avg_price": 14.90, "top_brands": ["INABA", "Temptations", "Delectables"]}
+    },
+    "价格区间": {
+      "$0-15": {"count": 10, "share": 0.20, "avg_sales": 48000, "description": "低价位，主要是零食和小包装"},
+      "$15-25": {"count": 25, "share": 0.50, "avg_sales": 52000, "description": "中价位，主流价格带"},
+      "$25-40": {"count": 12, "share": 0.24, "avg_sales": 38000, "description": "中高价位，大包装和高端品牌"},
+      "$40+": {"count": 3, "share": 0.06, "avg_sales": 33000, "description": "高价位，超大包装"}
+    },
+    "功能定位": {
+      "通用款": {"count": 30, "share": 0.60, "description": "适合所有猫咪"},
+      "室内猫": {"count": 8, "share": 0.16, "description": "Indoor, Hairball Care"},
+      "幼猫专用": {"count": 4, "share": 0.08, "description": "Kitten Food"},
+      "健康功能": {"count": 6, "share": 0.12, "description": "Urinary Tract, Weight Control, Sensitive Stomach"},
+      "天然/无谷": {"count": 2, "share": 0.04, "description": "Grain Free, Natural"}
+    },
+    "包装规格": {
+      "多包装/variety pack": {"count": 28, "share": 0.56, "description": "24-40 count variety packs"},
+      "大包装袋": {"count": 12, "share": 0.24, "description": "6-22 lb bags"},
+      "单包装/小包装": {"count": 10, "share": 0.20, "description": "Tubes, Cups, Cans"}
+    }
+  },
+  "cross_analysis": {
+    "price_type_matrix": [
+      {"price_range": "$0-30", "湿粮": 10, "干粮": 4, "零食": 8, "猫砂": 0, "补充剂": 0, "其他": 2},
+      {"price_range": "$30-60", "湿粮": 8, "干粮": 6, "零食": 0, "猫砂": 2, "补充剂": 2, "其他": 0}
+    ],
+    "opportunities": [
+      {
+        "combination": "湿粮 + $30-60",
+        "status": "竞争激烈",
+        "count": 8,
+        "insight": "主流品牌(Fancy Feast, Sheba)主导，价格战激烈"
+      },
+      {
+        "combination": "干粮 + $0-30",
+        "status": "薄供给",
+        "count": 4,
+        "insight": "机会点：低价位干粮市场供给不足，尤其是大包装"
+      },
+      {
+        "combination": "补充剂 + 高价位",
+        "status": "空白",
+        "count": 0,
+        "insight": "高端功能性补充剂市场空白，但需注意法规限制"
+      },
+      {
+        "combination": "天然/无谷 + 中价位",
+        "status": "空白",
+        "count": 0,
+        "insight": "中价位天然无谷猫粮市场机会明显"
+      }
+    ]
+  },
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "适口性",
+        "pain_point": "猫咪不喜欢吃，拒食",
+        "frequency": 18,
+        "percentage": "28%",
+        "affected_brands": ["Meow Mix", "Wuffes"],
+        "brand_opportunity": "使用真肉成分、天然肉味增强剂",
+        "product_solution": "添加天然肝脏粉、鱼油增强适口性，小批量试吃装"
+      },
+      {
+        "dimension": "包装问题",
+        "pain_point": "包装破损、未密封、洒漏",
+        "frequency": 14,
+        "percentage": "22%",
+        "affected_brands": ["Meow Mix"],
+        "brand_opportunity": "加强包装质量控制，使用更牢固的材料",
+        "product_solution": "双层包装、真空密封、防破损设计"
+      },
+      {
+        "dimension": "品质/安全性",
+        "pain_point": "导致猫咪呕吐、过敏、健康问题",
+        "frequency": 12,
+        "percentage": "19%",
+        "affected_brands": ["Meow Mix", "Wuffes"],
+        "brand_opportunity": "严格品控，第三方检测",
+        "product_solution": "无添加配方、可追溯原料、兽医推荐"
+      },
+      {
+        "dimension": "配方变化",
+        "pain_point": "配方改变导致猫咪不吃",
+        "frequency": 6,
+        "percentage": "9%",
+        "affected_brands": ["Meow Mix"],
+        "brand_opportunity": "保持配方稳定",
+        "product_solution": "配方升级前公告、过渡期配方"
+      },
+      {
+        "dimension": "保质期/新鲜度",
+        "pain_point": "产品陈旧、变质、结块",
+        "frequency": 8,
+        "percentage": "13%",
+        "affected_brands": ["Meow Mix", "Wuffes"],
+        "brand_opportunity": "缩短保质期管理",
+        "product_solution": "生产日期标注、小批量生产、新鲜度保证"
+      },
+      {
+        "dimension": "效果不佳",
+        "pain_point": "功能性产品无效",
+        "frequency": 6,
+        "percentage": "9%",
+        "affected_brands": ["Wuffes"],
+        "brand_opportunity": "临床验证效果",
+        "product_solution": "提供临床试验数据、无效退款保证"
+      }
+    ],
+    "summary": "主要痛点集中在适口性(28%)、包装问题(22%)、品质安全性(19%)和新鲜度(13%)。Meow Mix品牌问题最严重，涉及包装破损、配方变化和健康问题。"
+  },
+  "barriers": [
+    {
+      "type": "Review 壁垒",
+      "level": "高",
+      "data_anchor": "Top10 均值 20,000+ 评论",
+      "estimated_cost": "$50,000 - $100,000",
+      "solution": "Vine Program + 早期评论者优惠 + PPC 广告"
+    },
+    {
+      "type": "品牌壁垒",
+      "level": "高",
+      "data_anchor": "Top10 品牌集中度 84.6%，Fancy Feast/Sheba/Friskies 主导",
+      "estimated_cost": "$200,000+",
+      "solution": "差异化定位(如天然/功能性)，避开主流品牌价格战"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "data_anchor": "首批备货 + 广告预算",
+      "estimated_cost": "$50,000 - $100,000",
+      "solution": "控制首批 MOQ，分阶段投入"
+    },
+    {
+      "type": "合规壁垒",
+      "level": "中",
+      "data_anchor": "FDA 动物食品监管",
+      "estimated_cost": "$10,000+",
+      "solution": "符合 AAFCO 标准，第三方检测认证"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "中",
+      "data_anchor": "需稳定原料供应商",
+      "estimated_cost": "$30,000+",
+      "solution": "多供应商策略，质量保证体系"
+    }
+  ],
+  "decision": {
+    "overall_score": 6.8,
+    "verdict": "谨慎进入",
+    "scores": [
+      {"dimension": "市场规模", "weight": 0.20, "score": 9.0, "weighted_score": 1.80, "basis": "月销额 $42.5M，月销量 206万，市场巨大"},
+      {"dimension": "竞争格局", "weight": 0.25, "score": 4.0, "weighted_score": 1.00, "basis": "Top10品牌集中度84.6%，Fancy Feast主导，竞争激烈"},
+      {"dimension": "增长潜力", "weight": 0.15, "score": 6.0, "weighted_score": 0.90, "basis": "关键词月搜56万，但新品占比低，增长有限"},
+      {"dimension": "进入壁垒", "weight": 0.20, "score": 5.0, "weighted_score": 1.00, "basis": "Review壁垒高，品牌壁垒高，资金门槛中"},
+      {"dimension": "利润空间", "weight": 0.20, "score": 8.0, "weighted_score": 1.60, "basis": "平均价格$20.58，但需考虑广告费和佣金"}
+    ],
+   准入条件: [
+      "明确差异化定位（如天然/功能性/特定场景）",
+      "Review 积累预算 $50,000+",
+      "避开 Fancy Feast/Sheba 主打价格带",
+      "供应链质量保证体系完善",
+      "有兽医背书或临床验证更佳"
+    ],
+    "禁止进入: [
+      "无差异化优势的通用湿粮",
+      "与主流品牌直接价格竞争",
+      "原料和品质无法保证的产品"
+    ],
+    "风险提示": [
+      "品牌集中度高，新品牌突围困难",
+      "Review 壁垒高，需大量投入",
+      "配方变化可能导致差评剧增",
+      "包装问题频发，需加强品控"
+    ]
+  },
+  "product_matrix": [
+    {
+      "tier": 1,
+      "positioning": "天然无谷功能性猫粮",
+      "target_market": "关注健康的猫主人，避开与Fancy Feast直接竞争",
+      "decision_rationale": "数据分析显示中价位天然/无谷猫粮市场空白，消费者对品质和安全性要求高",
+      "specs": [
+        {"dimension": "产品形态", "spec": "干粮为主", "rationale": "干粮竞争较小，且易于存储和运输"},
+        {"dimension": "定位价格", "spec": "$18-25", "rationale": "避开湿粮$23-30价格带，选择中低价位干粮机会"},
+        {"dimension": "核心卖点", "spec": "无谷+单一蛋白源", "rationale": "解决过敏痛点，适口性问题"},
+        {"dimension": "包装", "spec": "真空密封大包装(6-10lb)", "rationale": "解决包装破损痛点，降低单价"},
+        {"dimension": "功能", "spec": "肠道健康+毛发护理", "rationale": "室内猫常见需求，功能性溢价"}
+      ],
+      "target_price": "$19.99",
+      "differentiation": "无谷单一蛋白源，解决猫咪过敏和适口性问题",
+      "competitor_benchmark": "Purina ONE B0000AH3RM - 我们的优势：无谷配方、真空包装、更优适口性",
+      "estimated_monthly_sales": "8,000 - 15,000"
+    },
+    {
+      "tier": 2,
+      "positioning": "高端猫条零食",
+      "target_market": "喜欢给猫咪奖励和互动的主人",
+      "decision_rationale": "INABA Churu 月销12万，市场验证成功，但价格较高有空间",
+      "specs": [
+        {"dimension": "产品形态", "spec": "猫条/纯泥", "rationale": "高毛利产品，互动性强"},
+        {"dimension": "定位价格", "spec": "$8-12", "rationale": "低于INABA($12.79)，保持竞争力"},
+        {"dimension": "核心卖点", "spec": "真肉成分+无添加", "rationale": "健康趋势，区别于廉价零食"},
+        {"dimension": "包装", "spec": "20支装独立包装", "rationale": "保持新鲜，方便喂食"}
+      ],
+      "target_price": "$9.99",
+      "differentiation": "真肉成分+更优性价比",
+      "competitor_benchmark": "INABA B0B52D7BBD - 我们的优势：更低价格、同等品质",
+      "estimated_monthly_sales": "5,000 - 10,000"
+    }
+  ]
+}

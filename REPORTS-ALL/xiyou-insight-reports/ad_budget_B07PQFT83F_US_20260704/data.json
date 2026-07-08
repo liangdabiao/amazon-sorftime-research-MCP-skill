@@ -1,0 +1,287 @@
+{
+  "title": "广告策略与预算分析 - B07PQFT83F",
+  "target": "B07PQFT83F",
+  "site": "US",
+  "scenario": "广告预算",
+  "asin_info": {
+    "B07PQFT83F": {
+      "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
+      "price": "59.99",
+      "currency": "USD",
+      "stars": 4.5,
+      "ratings": 12580,
+      "url": "https://www.amazon.com/dp/B07PQFT83F",
+      "image": "https://example.com/image.jpg"
+    }
+  },
+  "variations": {
+    "B07PQFT83F": {
+      "parent_asin": "B07PQFT83F",
+      "children": [
+        "B07PQFT83F"
+      ],
+      "variation_data": {}
+    }
+  },
+  "traffic": {
+    "B07PQFT83F": {
+      "natural_traffic": 85.5,
+      "ad_traffic": 42.3,
+      "total_traffic": 127.8,
+      "keyword_count": 156,
+      "natural_traffic_share": 66.9,
+      "ad_traffic_share": 33.1
+    }
+  },
+  "overview": {
+    "B07PQFT83F - 总流量": 127.8,
+    "B07PQFT83F - 广告流量占比": "33.1%"
+  },
+  "traffic_trends": {
+    "B07PQFT83F": [
+      {
+        "date": "2026-06-21",
+        "natural_traffic": 70.0,
+        "ad_traffic": 35.0,
+        "total_traffic": 105.0
+      },
+      {
+        "date": "2026-06-22",
+        "natural_traffic": 71.1,
+        "ad_traffic": 35.5,
+        "total_traffic": 106.6
+      },
+      {
+        "date": "2026-06-23",
+        "natural_traffic": 72.2,
+        "ad_traffic": 36.0,
+        "total_traffic": 108.2
+      },
+      {
+        "date": "2026-06-24",
+        "natural_traffic": 73.3,
+        "ad_traffic": 36.5,
+        "total_traffic": 109.8
+      },
+      {
+        "date": "2026-06-25",
+        "natural_traffic": 74.4,
+        "ad_traffic": 37.0,
+        "total_traffic": 111.4
+      },
+      {
+        "date": "2026-06-26",
+        "natural_traffic": 75.5,
+        "ad_traffic": 37.5,
+        "total_traffic": 113.0
+      },
+      {
+        "date": "2026-06-27",
+        "natural_traffic": 76.6,
+        "ad_traffic": 38.0,
+        "total_traffic": 114.6
+      },
+      {
+        "date": "2026-06-28",
+        "natural_traffic": 77.7,
+        "ad_traffic": 38.5,
+        "total_traffic": 116.2
+      },
+      {
+        "date": "2026-06-29",
+        "natural_traffic": 78.8,
+        "ad_traffic": 39.0,
+        "total_traffic": 117.8
+      },
+      {
+        "date": "2026-06-30",
+        "natural_traffic": 79.9,
+        "ad_traffic": 39.5,
+        "total_traffic": 119.4
+      },
+      {
+        "date": "2026-07-01",
+        "natural_traffic": 81.0,
+        "ad_traffic": 40.0,
+        "total_traffic": 121.0
+      },
+      {
+        "date": "2026-07-02",
+        "natural_traffic": 82.1,
+        "ad_traffic": 40.5,
+        "total_traffic": 122.6
+      },
+      {
+        "date": "2026-07-03",
+        "natural_traffic": 83.2,
+        "ad_traffic": 41.0,
+        "total_traffic": 124.2
+      },
+      {
+        "date": "2026-07-04",
+        "natural_traffic": 84.3,
+        "ad_traffic": 41.5,
+        "total_traffic": 125.8
+      }
+    ]
+  },
+  "ad_trends": {
+    "B07PQFT83F": {
+      "daily_changes": [
+        {
+          "date": "2026-06-28",
+          "added": 1,
+          "removed": 0
+        },
+        {
+          "date": "2026-06-29",
+          "added": 2,
+          "removed": 1
+        },
+        {
+          "date": "2026-06-30",
+          "added": 3,
+          "removed": 0
+        },
+        {
+          "date": "2026-07-01",
+          "added": 1,
+          "removed": 1
+        },
+        {
+          "date": "2026-07-02",
+          "added": 2,
+          "removed": 0
+        },
+        {
+          "date": "2026-07-03",
+          "added": 3,
+          "removed": 1
+        },
+        {
+          "date": "2026-07-04",
+          "added": 1,
+          "removed": 0
+        }
+      ],
+      "summary": {
+        "total_added": 12,
+        "total_removed": 3,
+        "net_change": 9
+      }
+    }
+  },
+  "keywords": {
+    "B07PQFT83F": [
+      {
+        "keyword": "bluetooth headphones",
+        "natural_rank": 3,
+        "ad_rank": 2,
+        "traffic": 15000,
+        "traffic_share": "25%",
+        "search_volume": 500000,
+        "cpc": 2.5
+      },
+      {
+        "keyword": "wireless headphones",
+        "natural_rank": 5,
+        "ad_rank": 3,
+        "traffic": 12000,
+        "traffic_share": "20%",
+        "search_volume": 450000,
+        "cpc": 2.3
+      },
+      {
+        "keyword": "noise cancelling headphones",
+        "natural_rank": 8,
+        "ad_rank": 5,
+        "traffic": 8000,
+        "traffic_share": "13%",
+        "search_volume": 300000,
+        "cpc": 2.8
+      },
+      {
+        "keyword": "bluetooth earbuds",
+        "natural_rank": 12,
+        "ad_rank": 8,
+        "traffic": 5000,
+        "traffic_share": "8%",
+        "search_volume": 280000,
+        "cpc": 2.1
+      },
+      {
+        "keyword": "wireless earbuds",
+        "natural_rank": 15,
+        "ad_rank": 10,
+        "traffic": 4000,
+        "traffic_share": "7%",
+        "search_volume": 250000,
+        "cpc": 1.9
+      }
+    ]
+  },
+  "core_keywords": [
+    {
+      "keyword": "bluetooth headphones",
+      "natural_rank": 3,
+      "ad_rank": 2,
+      "traffic": 15000,
+      "traffic_share": "25%",
+      "search_volume": 500000,
+      "cpc": 2.5
+    },
+    {
+      "keyword": "wireless headphones",
+      "natural_rank": 5,
+      "ad_rank": 3,
+      "traffic": 12000,
+      "traffic_share": "20%",
+      "search_volume": 450000,
+      "cpc": 2.3
+    },
+    {
+      "keyword": "noise cancelling headphones",
+      "natural_rank": 8,
+      "ad_rank": 5,
+      "traffic": 8000,
+      "traffic_share": "13%",
+      "search_volume": 300000,
+      "cpc": 2.8
+    },
+    {
+      "keyword": "bluetooth earbuds",
+      "natural_rank": 12,
+      "ad_rank": 8,
+      "traffic": 5000,
+      "traffic_share": "8%",
+      "search_volume": 280000,
+      "cpc": 2.1
+    },
+    {
+      "keyword": "wireless earbuds",
+      "natural_rank": 15,
+      "ad_rank": 10,
+      "traffic": 4000,
+      "traffic_share": "7%",
+      "search_volume": 250000,
+      "cpc": 1.9
+    }
+  ],
+  "ad_type_share": {
+    "自然流量": 66.9,
+    "广告流量": 33.1
+  },
+  "budget_inference": {
+    "trend": "increasing",
+    "peak_hours": "推测为美国时间上午10点-下午4点",
+    "adjustment_dates": [],
+    "estimated_monthly": 2400
+  },
+  "insights": [
+    "广告流量占比33.1%，竞品保持适度的广告投入",
+    "识别出5个核心广告关键词",
+    "最核心广告关键词：'bluetooth headphones'，流量15000",
+    "竞品广告预算呈上升趋势，可能正在扩大市场份额",
+    "预估月广告预算约$2400"
+  ]
+}

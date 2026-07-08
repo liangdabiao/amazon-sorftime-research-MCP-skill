@@ -1,0 +1,228 @@
+{
+  "dog toy": {
+    "关键词": "dog toy",
+    "周搜索量": "29002",
+    "周搜索排名": "4739",
+    "月搜索量": "124867",
+    "推荐cpc竞价": "1.82",
+    "词搜索量旺季": "12月",
+    "搜索结果竞品数量": "167203",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比5.00%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为3.13%/7.81%/7.81%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为0.00%/0.00%/11.11%,\r\n                    平均星级为0,\r\n                    平均评价数为4.28,\r\n                    做coupon促销产品数量/占比分别为1个 /1.00% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B09BBL8T4Z",
+          "price": 5.99,
+          "title": "Best Pet Supplies Interactive Squeaky Dog Chew Toy, Ideal Dog Toys for Chewers, Small, Medium & Large Dogs, and Fetch Lovers - Crinkle Duck (Blue), Large",
+          "monthly_sales": "本产品月销量：65706（占比：5.53%）",
+          "brand": "Best Pet Supplies",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B09BBL8T4Z?psc=1"
+        },
+        {
+          "asin": "B00CPDWT2M",
+          "price": 9.99,
+          "title": "Benebone Wishbone Durable Dog Chew Toy for Aggressive Chewers, Real Bacon, Made in USA, Medium",
+          "monthly_sales": "本产品月销量：51452（占比：4.33%）",
+          "brand": "Benebone",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B00CPDWT2M?psc=1"
+        },
+        {
+          "asin": "B0F19ZT36X",
+          "price": 19.99,
+          "title": "WOOF Party Pupsicle - Long-Lasting Interactive Dog Toys for Boredom - Low-Mess Design - Birthday Gifts for Dogs - Large Dog Toys - Party Pink",
+          "monthly_sales": "本产品月销量：34782（占比：2.93%）",
+          "brand": "WOOF",
+          "seller": "Woof Pet",
+          "url": "https://www.amazon.com/dp/B0F19ZT36X?psc=1"
+        },
+        {
+          "asin": "B000F4AVPA",
+          "price": 9.94,
+          "title": "Chuckit! Ultra Ball Dog Toy - Medium Bouncy Fetch Balls For Dogs 20-60 lbs - Made from Durable Rubber - Floating Water Pet Toys - Size Medium - 2.5-inch Diameter - Pack of 2",
+          "monthly_sales": "本产品月销量：31361（占比：2.64%）",
+          "brand": "Chuckit!",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B000F4AVPA?psc=1"
+        },
+        {
+          "asin": "B09DJ6CD2B",
+          "price": 34.95,
+          "title": "Benebone Medium 4-Pack Dog Toys for Aggressive Chewers – Durable Dog Bones, Made in USA – Dog Toys for Medium Dogs Under 60 lbs",
+          "monthly_sales": "本产品月销量：27585（占比：2.32%）",
+          "brand": "Benebone",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B09DJ6CD2B?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Benebone",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：91691（占比：7.71%）"
+        },
+        {
+          "brand": "Best Pet Supplies",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：80936（占比：6.81%）"
+        },
+        {
+          "brand": "Chuckit!",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：56131（占比：4.72%）"
+        },
+        {
+          "brand": "Outward Hound",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：48631（占比：4.09%）"
+        },
+        {
+          "brand": "KONG",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：48298（占比：4.06%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:23",
+          "monthly_sales": "统计样本中本品牌月销量和：403989（占比：33.98%）"
+        },
+        {
+          "seller": "Pattern Products",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：60453（占比：5.09%）"
+        },
+        {
+          "seller": "Woof Pet",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：43229（占比：3.64%）"
+        },
+        {
+          "seller": "R-lian",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：19274（占比：1.62%）"
+        },
+        {
+          "seller": "JimJi",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：19270（占比：1.62%）"
+        }
+      ]
+    }
+  },
+  "dog toys": {
+    "关键词": "dog toys",
+    "周搜索量": "101239",
+    "周搜索排名": "549",
+    "月搜索量": "443820",
+    "推荐cpc竞价": "1.11",
+    "词搜索量旺季": "12月",
+    "搜索结果竞品数量": "178021",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比11.54%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为16.07%/17.86%/19.64%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为50.00%/50.00%/50.00%,\r\n                    平均星级为0,\r\n                    平均评价数为4.30,\r\n                    做coupon促销产品数量/占比分别为2个 /2.00% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B09BBL8T4Z",
+          "price": 5.99,
+          "title": "Best Pet Supplies Interactive Squeaky Dog Chew Toy, Ideal Dog Toys for Chewers, Small, Medium & Large Dogs, and Fetch Lovers - Crinkle Duck (Blue), Large",
+          "monthly_sales": "本产品月销量：65706（占比：4.33%）",
+          "brand": "Best Pet Supplies",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B09BBL8T4Z?psc=1"
+        },
+        {
+          "asin": "B0718YFR4K",
+          "price": 9.95,
+          "title": "DreamBone Twist Sticks Chews for Dogs, 50 Count, Treat Your Dog to Easy-to-Digest Rawhide-Free Chews Made with Real Vegetables and Chicken",
+          "monthly_sales": "本产品月销量：57452（占比：3.79%）",
+          "brand": "DreamBone",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0718YFR4K?psc=1"
+        },
+        {
+          "asin": "B00CPDWT2M",
+          "price": 9.99,
+          "title": "Benebone Wishbone Durable Dog Chew Toy for Aggressive Chewers, Real Bacon, Made in USA, Medium",
+          "monthly_sales": "本产品月销量：51452（占比：3.39%）",
+          "brand": "Benebone",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B00CPDWT2M?psc=1"
+        },
+        {
+          "asin": "B0F19ZT36X",
+          "price": 19.99,
+          "title": "WOOF Party Pupsicle - Long-Lasting Interactive Dog Toys for Boredom - Low-Mess Design - Birthday Gifts for Dogs - Large Dog Toys - Party Pink",
+          "monthly_sales": "本产品月销量：34782（占比：2.29%）",
+          "brand": "WOOF",
+          "seller": "Woof Pet",
+          "url": "https://www.amazon.com/dp/B0F19ZT36X?psc=1"
+        },
+        {
+          "asin": "B000F4AVPA",
+          "price": 9.94,
+          "title": "Chuckit! Ultra Ball Dog Toy - Medium Bouncy Fetch Balls For Dogs 20-60 lbs - Made from Durable Rubber - Floating Water Pet Toys - Size Medium - 2.5-inch Diameter - Pack of 2",
+          "monthly_sales": "本产品月销量：31361（占比：2.07%）",
+          "brand": "Chuckit!",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B000F4AVPA?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Benebone",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：91691（占比：6.04%）"
+        },
+        {
+          "brand": "Best Pet Supplies",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：80936（占比：5.33%）"
+        },
+        {
+          "brand": "DreamBone",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：57452（占比：3.79%）"
+        },
+        {
+          "brand": "Chuckit!",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：56131（占比：3.70%）"
+        },
+        {
+          "brand": "Outward Hound",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：48631（占比：3.21%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:26",
+          "monthly_sales": "统计样本中本品牌月销量和：478938（占比：31.57%）"
+        },
+        {
+          "seller": "Pattern Products",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：60453（占比：3.98%）"
+        },
+        {
+          "seller": "Woof Pet",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：43229（占比：2.85%）"
+        },
+        {
+          "seller": "R-lian",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：19274（占比：1.27%）"
+        },
+        {
+          "seller": "JimJi",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：19270（占比：1.27%）"
+        }
+      ]
+    }
+  }
+}

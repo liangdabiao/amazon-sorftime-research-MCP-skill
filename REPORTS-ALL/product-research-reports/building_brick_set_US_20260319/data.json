@@ -1,0 +1,414 @@
+{
+  "metadata": {
+    "keyword": "building brick set",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "166099011",
+    "category_name": "Toy Building Sets",
+    "collected_at": "2026-03-19T18:08:18.591346"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 492754,
+    "top100_monthly_revenue": 9741647,
+    "avg_price": 19.76979921015355,
+    "median_price": 19.97,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.9826647779622286,
+    "top10_brand_concentration": 1.0,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 0
+  },
+  "price_ranges": [
+    {
+      "range": "$0-30",
+      "count": 83,
+      "share": 0.8896569079094233,
+      "sales": 438382.0
+    },
+    {
+      "range": "$30-60",
+      "count": 15,
+      "share": 0.09938021812100967,
+      "sales": 48970.0
+    },
+    {
+      "range": "$60-100",
+      "count": 2,
+      "share": 0.010962873969566965,
+      "sales": 5402.0
+    }
+  ],
+  "product_types": [
+    {"type": "Creator 3-in-1", "count": 15, "description": "多变动物/交通工具"},
+    {"type": "Speed Champions", "count": 12, "description": "赛车系列"},
+    {"type": "Botanicals", "count": 8, "description": "花卉植物装饰"},
+    {"type": "Minecraft", "count": 10, "description": "游戏IP联动"},
+    {"type": "Star Wars", "count": 8, "description": "星战IP"},
+    {"type": "City", "count": 8, "description": "城市场景"},
+    {"type": "NINJAGO", "count": 6, "description": "忍者主题"},
+    {"type": "DUPLO", "count": 3, "description": "幼童大颗粒"},
+    {"type": "Classic", "count": 3, "description": "基础积木盒"},
+    {"type": "Other", "count": 27, "description": "其他主题"}
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {"price_range": "$0-30", "creator": 12, "speed_champions": 3, "botanicals": 4, "minecraft": 8, "star_wars": 4, "duplo": 2},
+      {"price_range": "$30-60", "creator": 3, "speed_champions": 8, "botanicals": 3, "minecraft": 2, "star_wars": 3, "duplo": 1},
+      {"price_range": "$60-100", "creator": 0, "speed_champions": 1, "botanicals": 1, "minecraft": 0, "star_wars": 1, "duplo": 0}
+    ],
+    "opportunities": [
+      {"dimension": "DUPLO幼童市场", "status": "相对机会", "reason": "竞争较少，但需解决安全认证"}
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "LEGO",
+      "sales": 472034,
+      "revenue": 23601700,
+      "count": 94
+    },
+    {
+      "brand": "Goliath",
+      "sales": 6949,
+      "revenue": 347450,
+      "count": 1
+    },
+    {
+      "brand": "MAGNA-TILES",
+      "sales": 5229,
+      "revenue": 261450,
+      "count": 2
+    },
+    {
+      "brand": "Tsomtto",
+      "sales": 3337,
+      "revenue": 166850,
+      "count": 1
+    },
+    {
+      "brand": "Mega s",
+      "sales": 2741,
+      "revenue": 137050,
+      "count": 1
+    },
+    {
+      "brand": "Mega Bloks",
+      "sales": 2464,
+      "revenue": 123200,
+      "count": 1
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B0DJ1B2RW6",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Cute Bunny Toy - Building Toy for Girls and Boys, Ages 8+ - Gift for Easter Basket - W/ 3 Build Options, Bunny, Seal, or Llama - 31162",
+      "price": 15.97,
+      "monthly_sales": 36277,
+      "reviews": 1893,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2024-11-08"
+    },
+    {
+      "asin": "B0FMYST4JS",
+      "brand": "LEGO",
+      "title": "LEGO Easter Bunny and Chick Egg Hunt Building Toy for Girls & Boys - Springtime Playset for Kids, Ages 8+ - Basket Stuffer or Gift Idea for Easter - 40808",
+      "price": 12.99,
+      "monthly_sales": 23855,
+      "reviews": 117,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": "2025-08-20"
+    },
+    {
+      "asin": "B0DRW6C2RF",
+      "brand": "LEGO",
+      "title": "LEGO Botanicals Happy Plants Building Toy for Kids, Girls, and Boys 9+ - Playroom Decor for Desk or Shelf - Birthday Gift Idea for Young Gardeners - Artificial Indoor Plant for Play & Display - 10349",
+      "price": 19.99,
+      "monthly_sales": 18713,
+      "reviews": 2958,
+      "rating": 4.9,
+      "type": "竞品",
+      "launch_date": "2025-01-15"
+    },
+    {
+      "asin": "B0FMS7CRHX",
+      "brand": "LEGO",
+      "title": "LEGO Botanicals Daisies Building Toy - Artificial Flowers Crafting Kit for Girls & Boys, Ages 9+ - Gift for Easter Baskets - Kids Room Decor for Book Shelf or Desk - 11508",
+      "price": 0.0,
+      "monthly_sales": 17279,
+      "reviews": 387,
+      "rating": 4.9,
+      "type": "竞品",
+      "launch_date": "2025-12-31"
+    },
+    {
+      "asin": "B0FMS84RFJ",
+      "brand": "LEGO",
+      "title": "LEGO Speed Champions Time Machine from Back to The Future Building Toy for Kids - Pretend Play & Display Car Toy W/2 Build Modes for Boys & Girls, Ages 9+ - Gift Ideas for Birthdays & Fans - 77256",
+      "price": 27.49,
+      "monthly_sales": 15921,
+      "reviews": 725,
+      "rating": 4.9,
+      "type": "竞品",
+      "launch_date": "2025-10-08"
+    },
+    {
+      "asin": "B0CGY4J7QT",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Flatbed Truck with Helicopter Toy, Transforms from Flatbed Truck Toy to Propeller Plane to Hot Rod and SUV Cars, Gift Idea for Boys and Girls Ages 7 Years Old and Up, 31146",
+      "price": 19.97,
+      "monthly_sales": 10948,
+      "reviews": 5666,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2023-11-18"
+    },
+    {
+      "asin": "B0BLJ4SVWV",
+      "brand": "LEGO",
+      "title": "LEGO Creator 3 in 1 Magical Unicorn Toy, Transforms to Seahorse to Peacock, Rainbow Animal Figures, Unicorn Gift for Grandchildren, Girls and Boys, Buildable Toys, 31140",
+      "price": 9.97,
+      "monthly_sales": 10562,
+      "reviews": 7387,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2022-12-21"
+    },
+    {
+      "asin": "B0FMS8D34Q",
+      "brand": "LEGO",
+      "title": "LEGO Minecraft Steve’s Taiga Adventure Building Toy for Boys & Girls - Video Game Playset & Toy Figures for Kids, Ages 6 + - W/2 Minifigures & 2 Pretend Play Animals - Gift Idea for Birthdays - 21583",
+      "price": 9.97,
+      "monthly_sales": 9126,
+      "reviews": 206,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2026-01-01"
+    },
+    {
+      "asin": "B0FMS854MN",
+      "brand": "LEGO",
+      "title": "LEGO Sonic The Hedgehog Sonic: Speedster Lightning Race Car Toy for Boys & Girls - Toy Building Set W/Minifigure for Kids & Gamers, Ages 7+ - Gift Idea for Birthdays - 77117",
+      "price": 9.97,
+      "monthly_sales": 8767,
+      "reviews": 233,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2026-01-01"
+    },
+    {
+      "asin": "B00NHQFA1I",
+      "brand": "LEGO",
+      "title": "LEGO Classic Medium Creative Brick Box 10696 Building Toy Set - Featuring Storage, Includes Train, Car, and a Tiger Figure, and Playset for Kids, Boys, and Girls Ages 4-99",
+      "price": 24.88,
+      "monthly_sales": 8680,
+      "reviews": 56381,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2014-12-13"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "缺件问题",
+        "pain_point": "缺少零件/配件导致无法完成拼装",
+        "frequency": 8,
+        "percentage": "42%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "严格QC流程+10%备用件+快速补件服务",
+        "product_solution": "每套含10%备用零件，扫码申请免费补件48小时内发货"
+      },
+      {
+        "dimension": "包装破损",
+        "pain_point": "运输导致盒子压坏，影响送礼体验",
+        "frequency": 4,
+        "percentage": "21%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "加强物流包装，使用双层纸箱",
+        "product_solution": "双层瓦楞纸箱+气泡袋缓冲，箱体标注'礼品请轻放'"
+      },
+      {
+        "dimension": "说明问题",
+        "pain_point": "说明书缺失、错误或只有部分图纸",
+        "frequency": 3,
+        "percentage": "16%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "数字化说明书+视频教程",
+        "product_solution": "扫码获取全套视频教程+AR拼装指引"
+      },
+      {
+        "dimension": "难度不符",
+        "pain_point": "标注年龄与实际难度不符，孩子无法独立完成",
+        "frequency": 2,
+        "percentage": "11%",
+        "affected_brands": ["LEGO"],
+        "brand_opportunity": "重新进行年龄评级测试",
+        "product_solution": "按实际测试结果标注年龄，提供难度分级标签"
+      },
+      {
+        "dimension": "质量问题",
+        "pain_point": "零件不匹配、质量差或数量不符",
+        "frequency": 2,
+        "percentage": "11%",
+        "affected_brands": ["LEGO", "其他品牌"],
+        "brand_opportunity": "提高模具精度和品控标准",
+        "product_solution": "ISO 9001认证+100%尺寸检测"
+      }
+    ],
+    "summary": "主要痛点集中在缺件(42%)、包装破损(21%)、说明书问题(16%)。缺件是行业共性问题，但包装和说明书可通过改进解决。"
+  },
+  "barriers": [
+    {"type": "品牌壁垒", "level": "极高", "data_anchor": "LEGO 98%市场份额", "estimated_cost": "无法量化", "solution": "无有效绕过方案"},
+    {"type": "Review壁垒", "level": "极高", "data_anchor": "Top10均值5000+评论", "estimated_cost": "$50,000+", "solution": "Vine+PPC但仍需时间积累"},
+    {"type": "资金壁垒", "level": "高", "data_anchor": "备货+广告+IP授权", "estimated_cost": "¥2,000,000+", "solution": "控制MOQ但起订量仍高"},
+    {"type": "供应链壁垒", "level": "极高", "data_anchor": "精度要求+IP授权", "estimated_cost": "N/A", "solution": "需正版IP授权"},
+    {"type": "渠道壁垒", "level": "中", "data_anchor": "Amazon自营为主", "estimated_cost": "适中", "solution": "FBA可解决但竞争激烈"}
+  ],
+  "decision": {
+    "overall_score": 3.35,
+    "verdict": "不建议进入",
+    "scores": [
+      {"dimension": "市场规模", "weight": 0.20, "score": 8, "weighted_score": 1.60, "rationale": "月销$974万，规模可观"},
+      {"dimension": "竞争格局", "weight": 0.25, "score": 1, "weighted_score": 0.25, "rationale": "LEGO垄断98%，无生存空间"},
+      {"dimension": "增长潜力", "weight": 0.15, "score": 6, "weighted_score": 0.90, "rationale": "稳定增长但被头部垄断"},
+      {"dimension": "进入壁垒", "weight": 0.20, "score": 1, "weighted_score": 0.20, "rationale": "壁垒极高难以突破"},
+      {"dimension": "利润空间", "weight": 0.20, "score": 2, "weighted_score": 0.40, "rationale": "需IP授权+高精度模具"}
+    ],
+    "entry_conditions": "无 - 不建议进入",
+    "exception_cases": [
+      "DUPLO幼童市场：竞争相对较少，但需解决安全认证",
+      "磁性积木：MAGNA-TILES已验证，但需专利规避",
+      "教育STEM套装：与编程/机器人结合，需差异化定位"
+    ],
+    "minimum_requirements": {
+      "budget": "¥2,000,000+",
+      "timeline": "12-18个月品牌建设期",
+      "differentiation": "必须有明确差异化",
+      "ip_license": "或使用原创IP但品牌建设更难"
+    }
+  },
+  "trend_data": [
+    {
+      "date": "2024-03",
+      "value": 1.4
+    },
+    {
+      "date": "2024-05",
+      "value": 1.86
+    },
+    {
+      "date": "2024-06",
+      "value": 1.29
+    },
+    {
+      "date": "2024-07",
+      "value": 8.24
+    },
+    {
+      "date": "2024-08",
+      "value": 2.72
+    },
+    {
+      "date": "2024-09",
+      "value": 1.35
+    },
+    {
+      "date": "2024-10",
+      "value": 1.0
+    },
+    {
+      "date": "2024-12",
+      "value": 1.2
+    },
+    {
+      "date": "2025-01",
+      "value": 16.52
+    },
+    {
+      "date": "2025-02",
+      "value": 14.2
+    },
+    {
+      "date": "2025-03",
+      "value": 1.5
+    },
+    {
+      "date": "2025-04",
+      "value": 1.0
+    },
+    {
+      "date": "2025-05",
+      "value": 1.0
+    },
+    {
+      "date": "2025-06",
+      "value": 1.0
+    },
+    {
+      "date": "2025-07",
+      "value": 1.0
+    },
+    {
+      "date": "2025-08",
+      "value": 3.27
+    },
+    {
+      "date": "2025-09",
+      "value": 1.14
+    },
+    {
+      "date": "2025-10",
+      "value": 1.29
+    },
+    {
+      "date": "2025-11",
+      "value": 1.82
+    },
+    {
+      "date": "2025-12",
+      "value": 1.0
+    },
+    {
+      "date": "2026-01",
+      "value": 18.06
+    },
+    {
+      "date": "2026-02",
+      "value": 23.25
+    },
+    {
+      "date": "2026-03",
+      "value": 19.2
+    }
+  ],
+  "keywords": {
+    "building brick sets": {
+      "monthly_search": 95,
+      "weekly_search": 18,
+      "cpc": 1.52,
+      "competition_count": 37658
+    }
+  }
+}

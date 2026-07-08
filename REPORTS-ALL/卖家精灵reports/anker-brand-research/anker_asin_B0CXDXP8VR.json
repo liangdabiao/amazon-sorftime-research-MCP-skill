@@ -1,0 +1,83 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "asin": "B0CXDXP8VR",
+    "asinUrl": "https://www.amazon.com/dp/B0CXDXP8VR?psc=1",
+    "availableDate": 1709654400000,
+    "brand": "Anker",
+    "brandUrl": "/stores/Anker/page/D24FDA17-DECF-46BB-AF47-AF4647D2B1F8?lp_asin=B0CXDXP8VR&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto",
+    "bsrId": "wireless",
+    "bsrLabel": "Cell Phones & Accessories",
+    "bsrRank": 138,
+    "subcategories": [
+      {
+        "rank": 10,
+        "code": "7073960011",
+        "label": "Cell Phone Portable Power Banks"
+      }
+    ],
+    "createdTime": 1709803424000,
+    "dimensions": "6.2\"L x 2.89\"W x 1.02\"Th",
+    "firstRatingDate": 1771344000000,
+    "imageUrl": "https://m.media-amazon.com/images/I/31s+5kNtJFL._AC_US200_.jpg",
+    "lqs": 100,
+    "nodeId": 7073960011,
+    "nodeIdPath": "2335752011:2407755011:2407761011:7073960011",
+    "nodeLabelPath": "Cell Phones & Accessories:Accessories:Chargers & Power Adapters:Portable Power Banks",
+    "nodeLabelPathLocale": null,
+    "parent": "B0DB75CXPC",
+    "price": 69.99,
+    "primePrice": -1.0,
+    "deliveryPrice": -1.0,
+    "coupon": "",
+    "questions": null,
+    "rating": 4.6,
+    "ratings": 8318,
+    "reviews": 3343,
+    "variantRatings": 2297,
+    "variantReviews": 2941,
+    "sellerId": "A294P4X9EWVXLJ",
+    "sellerName": "AnkerDirect",
+    "fulfillment": "FBA",
+    "sellers": 2,
+    "marketplace": "US",
+    "title": "Anker Power Bank, 20,000mAh Travel Essential Portable Charger with Built-in USB-C Cable, 3-Port 87W Max Fast Charging Battery Pack, for MacBook, iPhone 16/15 Series, Samsung, Switch, and More",
+    "updatedTime": 1783403072000,
+    "variations": 3,
+    "weight": "0.95 Pounds",
+    "zoomImageUrl": "https://m.media-amazon.com/images/I/31s+5kNtJFL._AC_US600_.jpg",
+    "skuList": [
+      "Color: Black"
+    ],
+    "variationList": [
+      {
+        "asin": "B0CXDXP8VR",
+        "attribute": "Color: Black"
+      },
+      {
+        "asin": "B0CXDQXC3Q",
+        "attribute": "Color: Violet"
+      },
+      {
+        "asin": "B0CXDMYS8C",
+        "attribute": "Color: White"
+      }
+    ],
+    "features": [
+      "87W Power to Share: Distribute 87W across three devices, with a single device receiving up to 65W, to rapidly charge iPhones, Samsung phones. Quickly charge a 14\" MacBook Pro to 50% in under 40 minutes.",
+      "Speedy Cable Charging: Utilize the built-in cable to elevate your iPhone 15 Pro to 58% or a MacBook Air to 52% in 30 minutes. You can also fully recharge this power bank in 1.5 hours with a 65W charger.",
+      "20,000mAh for Extended Use: Eliminate concerns about battery depletion with a 20,000mAh power bank that ensures consistent, reliable charging for all your devices, also approved for airline travel.",
+      "Lasts Longer, Charges Faster: The integrated USB-C cable is designed to endure, withstanding over 10,000 bends for dependable charging and convenient storage.",
+      "What You Get: Anker Power Bank (20K, 87W, Built-In USB-C Cable), 6.2 × 2.9 × 1.0 in (15.5 oz), welcome guide, 18-month warranty, and friendly customer service."
+    ],
+    "overviews": "{\"Connector Type\":\"Built-In C Cable + 1C1A\",\"Brand\":\"Anker\",\"Battery Capacity\":\"20000 Milliamp Hours\",\"Color\":\"Black\",\"Special Feature\":\"Built In Cable, Fast Charging\"}",
+    "badge": {
+      "bestSeller": "N",
+      "amazonChoice": "Y",
+      "newRelease": "N",
+      "ebc": "Y",
+      "video": "Y"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "asin": "B0FMRTXKF6",
+  "site": "US",
+  "generated_at": "2026-03-14T11:37:17.488473",
+  "total_keywords": 46,
+  "categorized": {
+    "NEGATIVE": 10,
+    "BRAND": 30,
+    "MATERIAL": 0,
+    "SCENARIO": 1,
+    "ATTRIBUTE": 0,
+    "FUNCTION": 0,
+    "CORE": 5,
+    "OTHER": 0
+  },
+  "output_directory": "D:\\amazon-mcp\\keyword-reports\\B0FMRTXKF6_US_20260314",
+  "long_tail_limit": 30
+}

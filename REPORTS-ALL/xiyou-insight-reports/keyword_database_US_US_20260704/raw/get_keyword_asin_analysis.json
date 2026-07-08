@@ -1,0 +1,76 @@
+[
+  {
+    "keyword": "bluetooth headphones",
+    "data": {
+      "asins": [
+        {
+          "asin": "B0XXXXXXXX1",
+          "title": "Competitor A - Premium Headphones",
+          "price": "79.99",
+          "stars": 4.7,
+          "natural_rank": 1,
+          "ad_rank": 1,
+          "traffic": 25000,
+          "traffic_share": "40%"
+        },
+        {
+          "asin": "B0XXXXXXXX2",
+          "title": "Competitor B - Wireless Pro",
+          "price": "69.99",
+          "stars": 4.6,
+          "natural_rank": 2,
+          "ad_rank": 2,
+          "traffic": 18000,
+          "traffic_share": "28%"
+        },
+        {
+          "asin": "B07PQFT83F",
+          "title": "Target Product",
+          "price": "59.99",
+          "stars": 4.5,
+          "natural_rank": 3,
+          "ad_rank": 3,
+          "traffic": 15000,
+          "traffic_share": "24%"
+        }
+      ]
+    }
+  },
+  {
+    "keyword": "wireless headphones",
+    "data": {
+      "asins": [
+        {
+          "asin": "B0XXXXXXXX1",
+          "title": "Competitor A - Premium Headphones",
+          "price": "79.99",
+          "stars": 4.7,
+          "natural_rank": 1,
+          "ad_rank": 1,
+          "traffic": 25000,
+          "traffic_share": "40%"
+        },
+        {
+          "asin": "B0XXXXXXXX2",
+          "title": "Competitor B - Wireless Pro",
+          "price": "69.99",
+          "stars": 4.6,
+          "natural_rank": 2,
+          "ad_rank": 2,
+          "traffic": 18000,
+          "traffic_share": "28%"
+        },
+        {
+          "asin": "B07PQFT83F",
+          "title": "Target Product",
+          "price": "59.99",
+          "stars": 4.5,
+          "natural_rank": 3,
+          "ad_rank": 3,
+          "traffic": 15000,
+          "traffic_share": "24%"
+        }
+      ]
+    }
+  }
+]

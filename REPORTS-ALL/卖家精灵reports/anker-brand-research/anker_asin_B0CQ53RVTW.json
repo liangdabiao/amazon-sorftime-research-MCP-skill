@@ -1,0 +1,84 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "asin": "B0CQ53RVTW",
+    "asinUrl": "https://www.amazon.com/dp/B0CQ53RVTW?psc=1",
+    "availableDate": 1709568000000,
+    "brand": "Soundcore",
+    "brandUrl": "/stores/soundcore/page/AD6AD8C0-90C7-4C65-8000-0AC741FA2633?lp_asin=B0CQ53RVTW&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto",
+    "bsrId": "electronics",
+    "bsrLabel": "Electronics",
+    "bsrRank": 208,
+    "subcategories": [
+      {
+        "rank": 14,
+        "code": "7073956011",
+        "label": "Portable Bluetooth Speakers"
+      }
+    ],
+    "createdTime": 1704796023000,
+    "dimensions": "11.65\"D x 7.28\"W x 3.98\"H",
+    "firstRatingDate": 1768752000000,
+    "imageUrl": "https://m.media-amazon.com/images/I/510jISriF5L._AC_US200_.jpg",
+    "lqs": 99,
+    "nodeId": 7073956011,
+    "nodeIdPath": "172282:172623:689637011:7073956011",
+    "nodeLabelPath": "Electronics:Portable Audio & Video:Portable Speakers & Docks:Portable Bluetooth Speakers",
+    "nodeLabelPathLocale": null,
+    "parent": "B0CZTQY3VR",
+    "price": 90.99,
+    "primePrice": -1.0,
+    "deliveryPrice": -1.0,
+    "coupon": "",
+    "questions": null,
+    "rating": 4.6,
+    "ratings": 7963,
+    "reviews": 4010,
+    "variantRatings": 0,
+    "variantReviews": 2996,
+    "sellerId": "A294P4X9EWVXLJ",
+    "sellerName": "AnkerDirect",
+    "fulfillment": "NA",
+    "sellers": 3,
+    "marketplace": "US",
+    "title": "Soundcore Boom 2 By Anker, Outdoor Speaker, 80W, Subwoofer, BassUp 2.0, 24H Playtime, IPX7 Waterproof, Floatable, RGB Lights, USB-C, Custom EQ, Portable for Camping and Beach - Black",
+    "updatedTime": 1783403861000,
+    "variations": 3,
+    "weight": "1.66 kg",
+    "zoomImageUrl": "https://m.media-amazon.com/images/I/510jISriF5L._AC_US600_.jpg",
+    "skuList": [
+      "Color: Black"
+    ],
+    "variationList": [
+      {
+        "asin": "B0CQ53RVTW",
+        "attribute": "Color: Black"
+      },
+      {
+        "asin": "B0CQ55VQH8",
+        "attribute": "Color: Blue"
+      },
+      {
+        "asin": "B0CQ6WNXKF",
+        "attribute": "Color: Green"
+      }
+    ],
+    "features": [
+      "Big Bass You Can Feel, Outdoors or In: soundcore Boom 2 delivers deep, punchy bass you can feel. As an outdoor bluetooth speaker, it features a dedicated subwoofer and BassUp 2.0 technology to deliver deeper, harder-hitting bass — helping fill open spaces like campsites, patios, and backyards with powerful sound.",
+      "Clear, Balanced Sound at Any Volume: soundcore Boom 2 combines crisp highs, detailed mids, and rich bass in one powerful outdoor bluetooth speaker. Smart tuning keeps the sound clear and balanced, whether you’re relaxing with friends or turning things up.",
+      "All‑Day Playtime, Plus Backup Power: Take soundcore Boom 2 on all-day adventures with up to 24 hours of playtime on a single charge. When phones start running low, the built-in power bank keeps them going — and when the speaker itself needs a top-up, fast charging gets it back quickly. Perfect for trips where outlets aren't an option. (Playtime varies by volume level and audio content.)",
+      "Waterproof, Floatable, and Ready for Anything: Built for life outside, soundcore Boom 2 is an outdoor bluetooth speaker with an IPX7 waterproof rating and a floatable design. Bring it to the pool, the beach, or out in the rain—no worries, just uninterrupted music.",
+      "Customize the Sound, Set the Vibe: Adjust your audio with the customizable Pro EQ in the Soundcore app for a sound that fits your preferences. Built‑in RGB lights add a splash of color to match the mood—whether it’s a beach hang, a late‑night bonfire, or a chill backyard moment.",
+      "FROM ANKER — TRUSTED BY 80 MILLION+ USERS WORLDWIDE: Engineered by Anker, the world’s #1 charging brand, soundcore Boom 2 delivers powerful outdoor sound you can trust. With deep, punchy bass, long‑lasting battery life, and a waterproof, floatable design, it's ready for any adventure."
+    ],
+    "overviews": "{\"Brand\":\"Soundcore\",\"Manufacturer\":\"Anker\",\"Speaker Maximum Output Power\":\"80 watts\",\"Frequency Response\":\"45 hertz\",\"Connectivity Technology\":\"Bluetooth\"}",
+    "badge": {
+      "bestSeller": "N",
+      "amazonChoice": "Y",
+      "newRelease": "N",
+      "ebc": "Y",
+      "video": "Y"
+    }
+  }
+}

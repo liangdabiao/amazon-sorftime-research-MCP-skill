@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Chew Toys - US 选品分析看板</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e1e8ef;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        /* KPI 卡片网格 */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .kpi-card .label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .kpi-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .kpi-card .note {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Go/No-Go 评分卡 */
+        .gogono-card {
+            background: linear-gradient(135deg, #f59e0b, #d97706 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .gogono-card .score {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
+        .gogono-card .verdict {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gogono-card .verdict-detail {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e1e8ef;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        /* 标签 */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tag-green { background: #dcfce7; color: #166534; }
+        .tag-yellow { background: #fef9c3; color: #854d0e; }
+        .tag-red { background: #fee2e2; color: #991b1b; }
+        .tag-blue { background: #dbeafe; color: #1e40af; }
+        .tag-gray { background: #f1f5f9; color: #475569; }
+
+        /* 机会卡片 */
+        .opportunity-card {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .opportunity-card .rank {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #16a34a;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #e1e8ef;
+            margin-top: 40px;
+        }
+
+        /* 维度分布表格 */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dimension-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Dog Chew Toys 选品分析看板</h1>
+            <div class="subtitle">
+                站点: US | 分析日期: 20260319
+            </div>
+        </div>
+
+        <!-- Go/No-Go 评分 -->
+        <div class="section">
+            <div class="section-title">选品决策评估</div>
+            <div class="gogono-card" style="background: linear-gradient(135deg, #f59e0b, #d97706 100%);">
+                <div class="verdict">谨慎进入</div>
+                <div class="score">6.3 / 10</div>
+                <div class="verdict-detail">谨慎进入</div>
+            </div>
+        </div>
+
+        <!-- 市场概况 KPI -->
+        <div class="section">
+            <div class="section-title">市场概况</div>
+            <div class="kpi-grid">
+                
+                <div class="kpi-card">
+                    <div class="label">Top100 月销量</div>
+                    <div class="value">515,373</div>
+                    <div class="note">件</div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top100 月销额</div>
+                    <div class="value">$6,409,202</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">平均价格</div>
+                    <div class="value">$12.44</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">Top3 品牌集中度</div>
+                    <div class="value">44.9%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">亚马逊自营份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+                <div class="kpi-card">
+                    <div class="label">中国卖家份额</div>
+                    <div class="value">0.0%</div>
+                    <div class="note"></div>
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- 维度分布 -->
+        <div class="section">
+            <div class="section-title">产品维度分布</div>
+            <div class="dimension-grid">
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">价格区间分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>价格区间</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$0-30</td><td>99</td><td><span class="tag tag-blue">95%</span></td></tr><tr><td>$30-60</td><td>1</td><td><span class="tag tag-gray">5%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div>
+                    <h4 style="margin-bottom: 12px; color: #475569; font-size: 14px;">产品类型分布</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>产品类型</th>
+                                <th>产品数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Nylon Bone</td><td>62</td><td><span class="tag tag-blue">62%</span></td></tr><tr><td>Rubber Toy</td><td>18</td><td><span class="tag tag-yellow">18%</span></td></tr><tr><td>Plush Toy</td><td>10</td><td><span class="tag tag-yellow">10%</span></td></tr><tr><td>Puzzle/Interactive</td><td>6</td><td><span class="tag tag-gray">6%</span></td></tr><tr><td>Wood Blend</td><td>4</td><td><span class="tag tag-gray">4%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交叉分析 -->
+        
+        <div class="section">
+            <div class="section-title">价格区间 × 产品类型 交叉分析</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>价格区间 \ 产品类型</th>
+                        <th>nylon_bone</th><th>plush_toy</th><th>puzzle_toy</th><th>rubber_toy</th><th>wood_blend</th>
+                        <th>合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>$0-5</strong></td><td>8</td><td>4</td><td><span class="tag tag-gray">0</span></td><td>3</td><td>2</td><td><strong>17</strong></td></tr><tr><td><strong>$5-10</strong></td><td>25 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>5</td><td>1</td><td>8</td><td>3</td><td><strong>42</strong></td></tr><tr><td><strong>$10-15</strong></td><td>15 <span class="tag tag-red" style="font-size: 10px;">红海</span></td><td>1</td><td>2</td><td>6</td><td>2</td><td><strong>26</strong></td></tr><tr><td><strong>$15-25</strong></td><td>5</td><td>2</td><td>4</td><td>4</td><td>1</td><td><strong>16</strong></td></tr><tr><td><strong>$25+</strong></td><td>2</td><td><span class="tag tag-gray">0</span></td><td>3</td><td>2</td><td><span class="tag tag-gray">0</span></td><td><strong>7</strong></td></tr>
+                    <tr style="background: #f8fafc; font-weight: 600;">
+                        <td><strong>合计</strong></td>
+                        <td><strong>55</strong></td><td><strong>12</strong></td><td><strong>10</strong></td><td><strong>23</strong></td><td><strong>8</strong></td>
+                        <td><strong>108</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 16px; padding: 12px; background: #fefce8; border-radius: 8px; font-size: 13px; color: #854d0e;"><strong>洞察：</strong><strong>机会:</strong>  (opportunity) | <strong>机会:</strong>  (thin_supply) | <strong>机会:</strong>  (red_ocean)</div>
+        </div>
+        
+
+        <!-- VOC 分析 -->
+        
+        <div class="section">
+            <div class="section-title">VOC 分析 - 用户痛点洞察</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>痛点</th>
+                        <th>频次/占比</th>
+                        <th>涉及品牌</th>
+                        <th>品牌机会</th>
+                        <th>产品方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>耐久性</strong></td>
+                    <td>被咬碎/损坏/不耐用，极端撕咬者可能几天内破坏</td>
+                    <td>28<br><small>39%</small></td>
+                    <td>KONG</td>
+                    <td>改进橡胶配方，增加硬度</td>
+                    <td>采用更硬质天然橡胶，提供耐久性等级标识</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>尺寸不符</strong></td>
+                    <td>实际尺寸与描述不符，比预期小很多</td>
+                    <td>18<br><small>25%</small></td>
+                    <td>KONG</td>
+                    <td>明确尺寸标注</td>
+                    <td>增加犬型对照表，标注实际尺寸图</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>填充体验</strong></td>
+                    <td>开口太小难以填充零食，取出困难</td>
+                    <td>8<br><small>11%</small></td>
+                    <td>KONG</td>
+                    <td>优化开口设计</td>
+                    <td>宽口径设计，增加可视填充线</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>质量问题</strong></td>
+                    <td>有粉末残留、脏污、损坏等质量问题</td>
+                    <td>6<br><small>8%</small></td>
+                    <td>KONG</td>
+                    <td>质检优化</td>
+                    <td>加强出厂检验，改进包装</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>气味问题</strong></td>
+                    <td>橡胶味太重，或者没有香味狗不感兴趣</td>
+                    <td>4<br><small>6%</small></td>
+                    <td>KONG</td>
+                    <td>香料添加技术</td>
+                    <td>天然肉味渗透工艺，持久香味</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>清洁问题</strong></td>
+                    <td>内部难以清洗</td>
+                    <td>3<br><small>4%</small></td>
+                    <td>KONG</td>
+                    <td>表面优化</td>
+                    <td>光滑内壁设计，可用洗碗机清洗</td>
+                </tr>
+            
+                </tbody>
+            </table>
+            <div style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-radius: 8px; font-size: 13px; color: #0369a1;"><strong>总结：</strong>主要痛点集中在耐久性(39%)、尺寸问题(25%)、填充体验(11%)。核心机会：改进橡胶耐久性配方，明确尺寸标注，优化填充开口设计。</div>
+        </div>
+        
+
+        <!-- 竞品格局 -->
+        
+        <div class="section">
+            <div class="section-title">竞品格局 (Top8)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品牌/型号</th>
+                        <th>价格</th>
+                        <th>月销量</th>
+                        <th>类型</th>
+                        <th>定位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>Benebone<br><small></small></td>
+                    <td>$9.99</td>
+                    <td>51,390</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Benebone<br><small></small></td>
+                    <td>$34.95</td>
+                    <td>27,585</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>KONG<br><small></small></td>
+                    <td>$13.96</td>
+                    <td>21,897</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Frienhund<br><small></small></td>
+                    <td>$14.99</td>
+                    <td>19,270</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>KONG<br><small></small></td>
+                    <td>$7.46</td>
+                    <td>19,219</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Nylabone<br><small></small></td>
+                    <td>$9.69</td>
+                    <td>13,945</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Jeefome<br><small></small></td>
+                    <td>$9.99</td>
+                    <td>13,342</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                <tr>
+                    <td>Multipet<br><small></small></td>
+                    <td>$3.21</td>
+                    <td>13,038</td>
+                    <td>竞品</td>
+                    <td><small></small></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 进入壁垒 -->
+        
+        <div class="section">
+            <div class="section-title">进入壁垒评估</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>壁垒类型</th>
+                        <th>等级</th>
+                        <th>预估成本</th>
+                        <th>数据锚点</th>
+                        <th>缓解方案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td>Review 壁垒</td>
+                    <td><span class="tag tag-red">高</span></td>
+                    <td>$8,000+</td>
+                    <td><small>Top10 均值 50,000+ 评论</small></td>
+                    <td>Vine + PPC + Coupon</td>
+                </tr>
+            
+                <tr>
+                    <td>资金壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>¥5-8万</td>
+                    <td><small>首批 1000 件 + 广告</small></td>
+                    <td>控制首批 MOQ</td>
+                </tr>
+            
+                <tr>
+                    <td>品牌壁垒</td>
+                    <td><span class="tag tag-gray">中高</span></td>
+                    <td>-</td>
+                    <td><small>Benebone/KONG/Nylabone 占 45%</small></td>
+                    <td>差异化定位</td>
+                </tr>
+            
+                <tr>
+                    <td>认证壁垒</td>
+                    <td><span class="tag tag-green">低</span></td>
+                    <td>$500</td>
+                    <td><small>无特殊认证要求</small></td>
+                    <td>基本安全检测</td>
+                </tr>
+            
+                <tr>
+                    <td>供应链壁垒</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>¥2-3万</td>
+                    <td><small>需优质尼龙/橡胶原料</small></td>
+                    <td>1688 直接采购</td>
+                </tr>
+            
+                <tr>
+                    <td>CPC 门槛</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>$3,000/月</td>
+                    <td><small>关键词 CPC $1.1-$1.8</small></td>
+                    <td>长尾词策略</td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>数据来源: Sorftime MCP | 生成时间: 2026-03-19 18:54</p>
+            <p>完整报告请查看 Markdown 文件</p>
+        </div>
+    </div>
+
+    <script>
+        // 页面交互脚本
+        console.log('Dashboard loaded successfully');
+    </script>
+</body>
+</html>

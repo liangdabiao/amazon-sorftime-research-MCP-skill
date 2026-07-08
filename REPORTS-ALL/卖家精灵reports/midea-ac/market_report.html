@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midea (美的) 窗式空调 Amazon US 市场调研报告</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #22263a;
+    --accent: #4f8cff;
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --text: #e1e4ed;
+    --text2: #8b90a5;
+    --border: #2a2e40;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 28px; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .date { color: var(--text2); font-size: 14px; margin-bottom: 30px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
+  .kpi-card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+  .kpi-card .label { color: var(--text2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-card .value { font-size: 24px; font-weight: 700; margin-top: 8px; }
+  .kpi-card .value.gold { color: var(--accent2); }
+  .kpi-card .value.blue { color: var(--accent); }
+  .card { background: var(--card); border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid var(--border); }
+  .card h2 { font-size: 18px; margin-bottom: 16px; color: var(--accent); }
+  .card h3 { font-size: 15px; margin-bottom: 12px; color: var(--accent2); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--text2); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+  .rank-badge { display: inline-block; background: var(--accent); color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700; }
+  .rank-1 { background: #ffd700; color: #000; }
+  .bar-container { width: 100%; height: 20px; background: var(--card2); border-radius: 10px; overflow: hidden; margin-top: 4px; }
+  .bar-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-green { background: rgba(0,212,170,0.15); color: var(--accent2); }
+  .tag-blue { background: rgba(79,140,255,0.15); color: var(--accent); }
+  .tag-red { background: rgba(255,107,107,0.15); color: var(--accent3); }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .swot-item { padding: 16px; border-radius: 8px; }
+  .swot-s { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); }
+  .swot-w { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); }
+  .swot-o { background: rgba(79,140,255,0.1); border: 1px solid rgba(79,140,255,0.3); }
+  .swot-t { background: rgba(255,193,7,0.1); border: 1px solid rgba(255,193,7,0.3); }
+  canvas { width: 100% !important; height: auto !important; max-height: 300px; margin-top: 16px; }
+  .rating-stars { color: #ffd700; }
+  .section { margin-bottom: 30px; }
+  .insight { background: var(--card2); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; margin-top: 12px; font-size: 14px; color: var(--text2); }
+  .footer { text-align: center; color: var(--text2); font-size: 12px; padding: 30px; border-top: 1px solid var(--border); margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Midea (美的) 窗式空调 Amazon US 市场调研报告</h1>
+<div class="date">报告日期: 2026-07-07 | 数据来源: sellerSprite MCP API | 类目: Window Air Conditioners</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Midea 市占率(销量)</div>
+    <div class="value gold">34.0%</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">排名 #1</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Midea 市占率(销售额)</div>
+    <div class="value gold">41.6%</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">排名 #1</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Midea 月销量</div>
+    <div class="value blue">65,671</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">台/月</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Midea 月销售额</div>
+    <div class="value blue">$21.3M</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">美元/月</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Midea 均价</div>
+    <div class="value">$402</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">高端定位</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Midea U-Shaped 评分</div>
+    <div class="value" style="color:#ffd700">4.7 ★</div>
+    <div style="font-size:12px;color:var(--text2);margin-top:4px">151 条评论</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>品牌集中度</h2>
+  <canvas id="brandChart"></canvas>
+  <table>
+    <tr><th>排名</th><th>品牌</th><th>销量占比</th><th>销售额占比</th><th>ASIN</th><th>均价</th><th>月销量</th></tr>
+    <tr><td><span class="rank-badge rank-1">1</span></td><td><strong>Midea</strong></td><td>34.0%</td><td>41.6%</td><td>4</td><td>$402</td><td>65,671</td></tr>
+    <tr><td><span class="rank-badge">2</span></td><td>Frigidaire</td><td>26.7%</td><td>19.1%</td><td>7</td><td>$336</td><td>51,438</td></tr>
+    <tr><td><span class="rank-badge">3</span></td><td>GE</td><td>10.7%</td><td>6.9%</td><td>2</td><td>$227</td><td>20,574</td></tr>
+    <tr><td><span class="rank-badge">4</span></td><td>LG</td><td>9.5%</td><td>9.8%</td><td>13</td><td>$342</td><td>18,250</td></tr>
+    <tr><td><span class="rank-badge">5</span></td><td>Electactic</td><td>4.2%</td><td>5.1%</td><td>9</td><td>$332</td><td>7,998</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>卖家类型分布</h2>
+  <canvas id="sellerChart"></canvas>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px">
+    <div style="text-align:center"><div style="font-size:28px;font-weight:700;color:var(--accent)">89.6%</div><div style="color:var(--text2);font-size:12px">Amazon 自营</div></div>
+    <div style="text-align:center"><div style="font-size:28px;font-weight:700">8.2%</div><div style="color:var(--text2);font-size:12px">FBM</div></div>
+    <div style="text-align:center"><div style="font-size:28px;font-weight:700">2.2%</div><div style="color:var(--text2);font-size:12px">FBA</div></div>
+  </div>
+  <div class="insight">Amazon 自营占绝对主导(89.6%), 第三方卖家空间有限。</div>
+</div>
+
+<div class="card">
+  <h2>上架时间分布</h2>
+  <canvas id="listingChart"></canvas>
+  <div class="insight">半年内上架的新品贡献了最大销量占比, 市场活跃度高, 新品接受度好。</div>
+</div>
+
+<div class="card">
+  <h2>评分分布</h2>
+  <canvas id="ratingChart"></canvas>
+</div>
+
+<div class="card">
+  <h2>卖家国家分布</h2>
+  <canvas id="countryChart"></canvas>
+</div>
+
+<div class="card">
+  <h2>Midea 产品线</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+    <div style="background:var(--card2);border-radius:8px;padding:16px">
+      <h3>U-Shaped 系列 (2026新款)</h3>
+      <div><span class="tag tag-green">旗舰</span> <span class="tag tag-blue">4.7★</span></div>
+      <div style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>6,000 BTU</span><span>$349.99</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>8,000 BTU</span><span>$379.99</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>10,000 BTU</span><span>$449.99</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>12,000 BTU</span><span>$459.99</span></div>
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:var(--text2)">月销 ~27,457 台 | 超静音 32 dBA | 节能 37%+</div>
+    </div>
+    <div style="background:var(--card2);border-radius:8px;padding:16px">
+      <h3>Smart Inverter 系列</h3>
+      <div><span class="tag tag-blue">传统窗式</span></div>
+      <div style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>5,000 BTU</span><span>$169.99</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>8,000 BTU w/Heat</span><span>$339.99</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>18,000 BTU</span><span>$544.99</span></div>
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:var(--text2)">月销 ~31,475 台 | 覆盖全价位段</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>SWOT 分析</h2>
+  <div class="swot-grid">
+    <div class="swot-item swot-s"><strong>优势 (Strengths)</strong><br><span style="font-size:13px;color:var(--text2)">• 销量/销售额双料第1<br>• U-Shaped 创新差异化<br>• 4.7★高评分验证产品力<br>• 均价 $402 高端定位</span></div>
+    <div class="swot-item swot-w"><strong>劣势 (Weaknesses)</strong><br><span style="font-size:13px;color:var(--text2)">• ASIN数少(4个), 覆盖面有限<br>• 部分产品评分偏低(3.8★)<br>• 依赖 Amazon 1P 渠道</span></div>
+    <div class="swot-item swot-o"><strong>机会 (Opportunities)</strong><br><span style="font-size:13px;color:var(--text2)">• 便携式空调(Portable AC)市场<br>• 扩展更多 BTU 规格<br>• 品牌词 SEO 和广告投放</span></div>
+    <div class="swot-item swot-t"><strong>威胁 (Threats)</strong><br><span style="font-size:13px;color:var(--text2)">• 季节性波动大<br>• Frigidaire/LG 品牌竞争<br>• 中国低价品牌涌入</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>评级与行动建议</h2>
+  <div style="text-align:center;margin:20px 0">
+    <span style="font-size:48px;font-weight:700;background:linear-gradient(135deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent">✅ 推荐</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center;margin-bottom:20px">
+    <div><div style="font-size:24px;font-weight:700;color:var(--accent2)">5.0</div><div style="font-size:11px;color:var(--text2)">市场地位</div></div>
+    <div><div style="font-size:24px;font-weight:700;color:var(--accent2)">5.0</div><div style="font-size:11px;color:var(--text2)">产品力</div></div>
+    <div><div style="font-size:24px;font-weight:700;color:var(--accent)">4.0</div><div style="font-size:11px;color:var(--text2)">利润率</div></div>
+    <div><div style="font-size:24px;font-weight:700;color:var(--accent)">4.0</div><div style="font-size:11px;color:var(--text2)">竞争壁垒</div></div>
+    <div><div style="font-size:24px;font-weight:700;color:var(--accent)">4.0</div><div style="font-size:11px;color:var(--text2)">增长潜力</div></div>
+  </div>
+  <div style="background:var(--card2);border-radius:8px;padding:16px">
+    <strong>核心结论:</strong> Midea 在窗式空调类目已建立不可撼动的市场地位。U-Shaped 系列产品创新差异化和 4.7★ 高评分是其核心竞争力。建议关注便携式空调市场作为第二增长曲线。
+  </div>
+</div>
+
+<div class="footer">
+  ⚠️ 数据来源: sellerSprite MCP API | 销量/销售额为估算值 | 数据采集: 2026-07-06/07
+</div>
+
+</div>
+
+<script>
+const brandData = [
+  { brand: 'Midea', share: 34.0, color: '#00d4aa' },
+  { brand: 'Frigidaire', share: 26.7, color: '#4f8cff' },
+  { brand: 'GE', share: 10.7, color: '#ff6b6b' },
+  { brand: 'LG', share: 9.5, color: '#ffd700' },
+  { brand: 'Electactic', share: 4.2, color: '#a78bfa' },
+  { brand: 'Garvee', share: 3.9, color: '#f97316' },
+  { brand: 'Others', share: 11.0, color: '#4a4d5e' },
+];
+
+const canvasBrand = document.getElementById('brandChart').getContext('2d');
+const cw = canvasBrand.canvas.parentElement.clientWidth;
+canvasBrand.canvas.width = cw;
+canvasBrand.canvas.height = 280;
+
+let x = 60;
+const bw = (cw - 80) / brandData.length;
+brandData.forEach((b, i) => {
+  const h = (b.share / 40) * 200;
+  canvasBrand.fillStyle = b.color;
+  canvasBrand.fillRect(x + i * bw, 260 - h, bw - 8, h);
+  canvasBrand.fillStyle = '#e1e4ed';
+  canvasBrand.font = '12px sans-serif';
+  canvasBrand.textAlign = 'center';
+  canvasBrand.fillText(b.brand, x + i * bw + (bw - 8) / 2, 278);
+  canvasBrand.fillStyle = b.color;
+  canvasBrand.font = 'bold 14px sans-serif';
+  canvasBrand.fillText(b.share + '%', x + i * bw + (bw - 8) / 2, 255 - h);
+});
+
+// Seller chart
+const sellerCanvas = document.getElementById('sellerChart').getContext('2d');
+sellerCanvas.canvas.width = cw;
+sellerCanvas.canvas.height = 200;
+const sData = [
+  { label: 'Amazon 自营', pct: 89.6, color: '#4f8cff' },
+  { label: 'FBM', pct: 8.2, color: '#ff6b6b' },
+  { label: 'FBA', pct: 2.2, color: '#00d4aa' },
+];
+let sx = 60;
+const sw = (cw - 80) / sData.length;
+sData.forEach(s => {
+  const sh = (s.pct / 100) * 160;
+  sellerCanvas.fillStyle = s.color;
+  sellerCanvas.fillRect(sx, 180 - sh, sw - 8, sh);
+  sellerCanvas.fillStyle = '#e1e4ed';
+  sellerCanvas.font = '12px sans-serif';
+  sellerCanvas.textAlign = 'center';
+  sellerCanvas.fillText(s.label, sx + (sw - 8) / 2, 198);
+  sellerCanvas.fillStyle = s.color;
+  sellerCanvas.font = 'bold 13px sans-serif';
+  sellerCanvas.fillText(s.pct + '%', sx + (sw - 8) / 2, 175 - sh);
+  sx += sw;
+});
+
+// Rating chart
+const ratingCanvas = document.getElementById('ratingChart').getContext('2d');
+ratingCanvas.canvas.width = cw;
+ratingCanvas.canvas.height = 200;
+const rData = [
+  { label: '<2.0', pct: 0.2, color: '#ff6b6b' },
+  { label: '2.0-3.0', pct: 1.4, color: '#f97316' },
+  { label: '3.0-3.5', pct: 2.6, color: '#ffd700' },
+  { label: '3.5-4.0', pct: 8.5, color: '#a78bfa' },
+  { label: '4.0-4.3', pct: 25.3, color: '#4f8cff' },
+  { label: '4.3-4.5', pct: 35.7, color: '#00d4aa' },
+  { label: '>4.5', pct: 13.4, color: '#22c55e' },
+];
+let rx = 50;
+const rw = (cw - 70) / rData.length;
+rData.forEach(r => {
+  const rh = (r.pct / 40) * 150;
+  ratingCanvas.fillStyle = r.color;
+  ratingCanvas.fillRect(rx, 180 - rh, rw - 4, rh);
+  ratingCanvas.fillStyle = '#e1e4ed';
+  ratingCanvas.font = '11px sans-serif';
+  ratingCanvas.textAlign = 'center';
+  ratingCanvas.fillText(r.label, rx + (rw - 4) / 2, 198);
+  ratingCanvas.fillStyle = r.color;
+  ratingCanvas.font = 'bold 11px sans-serif';
+  ratingCanvas.fillText(r.pct + '%', rx + (rw - 4) / 2, 175 - rh);
+  rx += rw;
+});
+
+// Listing date chart
+const listCanvas = document.getElementById('listingChart').getContext('2d');
+listCanvas.canvas.width = cw;
+listCanvas.canvas.height = 200;
+const lData = [
+  { label: '1月', pct: 0.4, color: '#ff6b6b' },
+  { label: '3月', pct: 28.2, color: '#f97316' },
+  { label: '半年', pct: 28.5, color: '#ffd700' },
+  { label: '1年', pct: 24.5, color: '#4f8cff' },
+  { label: '1年半', pct: 19.3, color: '#a78bfa' },
+  { label: '2年', pct: 9.7, color: '#00d4aa' },
+  { label: '3年', pct: 2.8, color: '#22c55e' },
+];
+let lx = 50;
+const lw = (cw - 70) / lData.length;
+lData.forEach(l => {
+  const lh = (l.pct / 35) * 150;
+  listCanvas.fillStyle = l.color;
+  listCanvas.fillRect(lx, 180 - lh, lw - 4, lh);
+  listCanvas.fillStyle = '#e1e4ed';
+  listCanvas.font = '11px sans-serif';
+  listCanvas.textAlign = 'center';
+  listCanvas.fillText(l.label, lx + (lw - 4) / 2, 198);
+  listCanvas.fillStyle = l.color;
+  listCanvas.font = 'bold 11px sans-serif';
+  listCanvas.fillText(l.pct + '%', lx + (lw - 4) / 2, 175 - lh);
+  lx += lw;
+});
+
+// Country chart
+const countryCanvas = document.getElementById('countryChart').getContext('2d');
+countryCanvas.canvas.width = cw;
+countryCanvas.canvas.height = 200;
+const cData = [
+  { label: '美国', pct: 70.8, color: '#4f8cff' },
+  { label: '中国香港', pct: 20.6, color: '#00d4aa' },
+  { label: '中国', pct: 1.7, color: '#ff6b6b' },
+];
+let cx = 60;
+const cw2 = (cw - 80) / cData.length;
+cData.forEach(c => {
+  const ch = (c.pct / 80) * 150;
+  countryCanvas.fillStyle = c.color;
+  countryCanvas.fillRect(cx, 180 - ch, cw2 - 8, ch);
+  countryCanvas.fillStyle = '#e1e4ed';
+  countryCanvas.font = '12px sans-serif';
+  countryCanvas.textAlign = 'center';
+  countryCanvas.fillText(c.label, cx + (cw2 - 8) / 2, 198);
+  countryCanvas.fillStyle = c.color;
+  countryCanvas.font = 'bold 13px sans-serif';
+  countryCanvas.fillText(c.pct + '%', cx + (cw2 - 8) / 2, 175 - ch);
+  cx += cw2;
+});
+</script>
+
+</body>
+</html>

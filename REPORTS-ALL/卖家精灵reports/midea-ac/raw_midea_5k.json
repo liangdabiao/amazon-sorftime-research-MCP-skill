@@ -1,0 +1,103 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "asin": "B085797ZFF",
+    "asinUrl": "https://www.amazon.com/dp/B085797ZFF?psc=1",
+    "availableDate": 1582646400000,
+    "brand": "Midea",
+    "brandUrl": "/stores/Makeyourselfathome/page/4F6A19CF-5B7B-4D5A-A739-6EA8B46D4560?lp_asin=B085797ZFF&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto",
+    "bsrId": "home-garden",
+    "bsrLabel": "Home & Kitchen",
+    "bsrRank": 581,
+    "subcategories": [
+      {
+        "rank": 4,
+        "code": "3737721",
+        "label": "Window Air Conditioners"
+      }
+    ],
+    "createdTime": 1606456917000,
+    "dimensions": "15.35\"D x 15.98\"W x 12.05\"H",
+    "firstRatingDate": 1652544000000,
+    "imageUrl": "https://m.media-amazon.com/images/I/41p2jnCPftL._AC_US200_.jpg",
+    "lqs": 99,
+    "nodeId": 3737721,
+    "nodeIdPath": "1055398:3206324011:14554126011:3737721",
+    "nodeLabelPath": "Home & Kitchen:Heating, Cooling & Air Quality:Air Conditioners:Window",
+    "nodeLabelPathLocale": null,
+    "parent": "B0GHY9BDKF",
+    "price": 169.99,
+    "primePrice": -1.0,
+    "deliveryPrice": -1.0,
+    "coupon": "",
+    "questions": 382,
+    "rating": 4.4,
+    "ratings": 12055,
+    "reviews": 0,
+    "variantRatings": 0,
+    "variantReviews": 1763,
+    "sellerId": "",
+    "sellerName": "Amazon",
+    "fulfillment": "AMZ",
+    "sellers": 3,
+    "marketplace": "US",
+    "title": "Midea 5,000 BTU EasyCool Small Window Air Conditioner - Cool up to 150 Sq. Ft. with Easy-to-Use Mechanical Controls and Reusable Filter, Perfect for Small Bedroom, Living Room, Home Office",
+    "updatedTime": 1783354377000,
+    "variations": 8,
+    "weight": "35.3 Pounds",
+    "zoomImageUrl": "https://m.media-amazon.com/images/I/41p2jnCPftL._AC_US600_.jpg",
+    "skuList": [
+      "Style: 5,000 BTU"
+    ],
+    "variationList": [
+      {
+        "asin": "B0DXDTSL4D",
+        "attribute": "Style: 5,000 BTU, Electronic Control"
+      },
+      {
+        "asin": "B0CYFCJN7R",
+        "attribute": "Style: 6,000 BTU, Electronic Control"
+      },
+      {
+        "asin": "B0GL6H2J7P",
+        "attribute": "Style: 12,000 BTU with Heat"
+      },
+      {
+        "asin": "B0FYJWFWXP",
+        "attribute": "Style: 6,000 BTU, Electronic Control (New model)"
+      },
+      {
+        "asin": "B0DXDTLNDR",
+        "attribute": "Style: 18,000 BTU (Inverter)"
+      },
+      {
+        "asin": "B085797ZFF",
+        "attribute": "Style: 5,000 BTU"
+      },
+      {
+        "asin": "B0H79RW5PN",
+        "attribute": "Style: 7,800 BTU (Inverter)"
+      },
+      {
+        "asin": "B0CVVQWGH2",
+        "attribute": "Style: 8,000 BTU with Heat"
+      }
+    ],
+    "features": [
+      "PERFECT FOR SMALLER ROOMS - Midea's Affordable Window AC unit is perfect to help your room be as comfortable as possible. It can cool 150 sq. ft. with 7 temperature settings, 2 cooling/2 fan-only speeds, and 2-way air direction to give you the perfect amount of cooling every time.",
+      "ENERGY EFFICIENT- Midea's 5,000 BTU window air conditioner has a Combined Energy Efficiency Rate (CEER) of 11.0 which helps reduce the energy costs to save you money throughout the year.",
+      "QUIET & EASY TO USE - This window AC unit is quieter than a household refrigerator. It also features easy-to-use mechanical controls to quickly set the time, temperature, and mode and has a removable & reusable air filter.",
+      "EASY INSTALLATION - Easily install in your home or apartment's existing window frame. Suitable for windows 23''-36'' wide and minimum 13'' high. All mounting accessories are included. A screwdriver is required (but not included) for installation. For some window frames, pilot holes are recommended before installing screws. Please see included instruction manual for further detail.",
+      "WARRANTY: 1 Year Parts & Labor Warranty comes with each Midea product to ensure the quality of our brand to our customers. Our team is happy to help if any questions or issues arise and make sure to register your product on our website for even faster support in the future."
+    ],
+    "overviews": "{\"Brand\":\"Midea\",\"Capacity\":\"0.42 tons\",\"Cooling Power\":\"5000 British Thermal Units\",\"Special Feature\":\"Dust Filter, Fast Cooling\",\"Product Dimensions\":\"15.35\\\"D x 15.98\\\"W x 12.05\\\"H\",\"Start year\":\"2022\",\"Seasonal Energy Efficiency Ratio (SEER)\":\"11\",\"Color\":\"White\",\"Voltage\":\"110 Volts\",\"Noise Level\":\"57 Decibels\"}",
+    "badge": {
+      "bestSeller": "N",
+      "amazonChoice": "N",
+      "newRelease": "N",
+      "ebc": "Y",
+      "video": "Y"
+    }
+  }
+}

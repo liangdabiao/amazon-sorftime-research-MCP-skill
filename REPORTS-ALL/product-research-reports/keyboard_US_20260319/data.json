@@ -1,0 +1,430 @@
+{
+  "metadata": {
+    "keyword": "keyboard",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "1194464",
+    "category_name": "Computer Keyboard",
+    "collected_at": "2026-03-19T16:17:42.439501"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords",
+    "reviews",
+    "analysis",
+    "report_generation"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 340355,
+    "top100_monthly_revenue": 13992948,
+    "avg_price": 36.69,
+    "median_price": 18.99,
+    "top3_product_concentration": 0.1930,
+    "top3_brand_concentration": 0.5937,
+    "top10_brand_concentration": 0.82,
+    "amazon_share": 0.5279,
+    "china_seller_share": 0.64,
+    "new_product_share": 0.0121,
+    "keyword_monthly_search": 534713
+  },
+  "price_ranges": [
+    {"range": "$0-30", "count": 42, "share": 0.485, "sales": 165247},
+    {"range": "$30-60", "count": 50, "share": 0.357, "sales": 121580},
+    {"range": "$60-100", "count": 6, "share": 0.113, "sales": 38513},
+    {"range": "$100-150", "count": 1, "share": 0.013, "sales": 4295},
+    {"range": "$150-200", "count": 1, "share": 0.031, "sales": 10720}
+  ],
+  "product_types": [
+    {"type": "标准全尺寸", "count": 60, "share": 0.35},
+    {"type": "紧凑/便携", "count": 25, "share": 0.15},
+    {"type": "静音设计", "count": 30, "share": 0.18},
+    {"type": "多设备切换", "count": 25, "share": 0.15},
+    {"type": "打字机复古", "count": 15, "share": 0.09},
+    {"type": "人体工学", "count": 10, "share": 0.06},
+    {"type": "RGB背光", "count": 10, "share": 0.06}
+  ],
+  "product_types_detailed": {
+    "standard_full_size": {
+      "count": 60,
+      "description": "标准全尺寸键盘"
+    },
+    "compact_portable": {
+      "count": 25,
+      "description": "紧凑/便携键盘"
+    },
+    "ergonomic_wave": {
+      "count": 10,
+      "description": "人体工学 Wave Keys"
+    },
+    "quiet_design": {
+      "count": 30,
+      "description": "静音设计"
+    },
+    "rgb_backlit": {
+      "count": 10,
+      "description": "背光 RGB"
+    },
+    "retro_typewriter": {
+      "count": 15,
+      "description": "打字机复古设计"
+    },
+    "multi_device": {
+      "count": 25,
+      "description": "多设备切换"
+    }
+  },
+  "dimensions": [
+    {
+      "name": "价格区间",
+      "values": [
+        {"range": "$0-30", "count": 42, "share": 0.485},
+        {"range": "$30-60", "count": 50, "share": 0.357},
+        {"range": "$60-100", "count": 6, "share": 0.113},
+        {"range": "$100-150", "count": 1, "share": 0.013},
+        {"range": "$150-200", "count": 1, "share": 0.031}
+      ]
+    },
+    {
+      "name": "产品类型",
+      "values": [
+        {"type": "标准全尺寸", "count": 60, "share": 0.35},
+        {"type": "紧凑/便携", "count": 25, "share": 0.15},
+        {"type": "静音设计", "count": 30, "share": 0.18},
+        {"type": "多设备切换", "count": 25, "share": 0.15},
+        {"type": "打字机复古", "count": 15, "share": 0.09},
+        {"type": "人体工学", "count": 10, "share": 0.06},
+        {"type": "RGB背光", "count": 10, "share": 0.06}
+      ]
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-30",
+        "standard_full_size": 25,
+        "compact_portable": 10,
+        "ergonomic_wave": 0,
+        "retro_design": 5,
+        "gaming": 2
+      },
+      {
+        "price_range": "$30-60",
+        "standard_full_size": 30,
+        "compact_portable": 12,
+        "ergonomic_wave": 3,
+        "retro_design": 3,
+        "gaming": 2
+      },
+      {
+        "price_range": "$60-100",
+        "standard_full_size": 2,
+        "compact_portable": 2,
+        "ergonomic_wave": 2,
+        "retro_design": 0,
+        "gaming": 0
+      },
+      {
+        "price_range": "$100+",
+        "standard_full_size": 0,
+        "compact_portable": 1,
+        "ergonomic_wave": 2,
+        "retro_design": 0,
+        "gaming": 0
+      }
+    ]
+  },
+  "top_brands": [
+    {"brand": "Logitech", "sales": 166641, "revenue": 9160000, "count": 18},
+    {"brand": "RECCAZR", "sales": 17765, "revenue": 390000, "count": 3},
+    {"brand": "EDJO", "sales": 17678, "revenue": 409000, "count": 9},
+    {"brand": "seenda", "sales": 16609, "revenue": 274000, "count": 6},
+    {"brand": "SABLUTE", "sales": 16577, "revenue": 618000, "count": 11},
+    {"brand": "Trueque", "sales": 13351, "revenue": 426000, "count": 5},
+    {"brand": "ProtoArc", "sales": 7580, "revenue": 464000, "count": 3},
+    {"brand": "Amazon Basics", "sales": 5000, "revenue": 150000, "count": 2},
+    {"brand": "ULSOU", "sales": 5591, "revenue": 186000, "count": 1},
+    {"brand": "MEETION", "sales": 5077, "revenue": 117000, "count": 1}
+  ],
+  "competitors": [
+    {
+      "asin": "B079JLY5M5",
+      "brand": "Logitech",
+      "title": "MK270 Wireless Keyboard and Mouse Combo",
+      "price": 24.99,
+      "monthly_sales": 32561,
+      "reviews": 116949,
+      "rating": 4.4,
+      "type": "量级标杆",
+      "launch_date": "2018-05-31"
+    },
+    {
+      "asin": "B0F36RKWDH",
+      "brand": "Logitech",
+      "title": "MK250 Bluetooth Wireless Mouse and Keyboard Combo",
+      "price": 19.99,
+      "monthly_sales": 17908,
+      "reviews": 903,
+      "rating": 4.3,
+      "type": "量级标杆",
+      "launch_date": "2025-04-08"
+    },
+    {
+      "asin": "B0FDFZLCMM",
+      "brand": "Logitech",
+      "title": "Wave Keys & Lift Vertical Mouse Ergonomic Combo",
+      "price": 99.99,
+      "monthly_sales": 15236,
+      "reviews": 53,
+      "rating": 4.2,
+      "type": "量级标杆",
+      "launch_date": "2025-09-03"
+    },
+    {
+      "asin": "B00QXT5T3U",
+      "brand": "Logitech",
+      "title": "MK345 Wireless Keyboard and Mouse Combo with Palm Rest",
+      "price": 33.99,
+      "monthly_sales": 12367,
+      "reviews": 40854,
+      "rating": 4.4,
+      "type": "中价位",
+      "launch_date": "2015-01-15"
+    },
+    {
+      "asin": "B0BKVY4WKT",
+      "brand": "Logitech",
+      "title": "MX Keys S Combo Performance Wireless Keyboard",
+      "price": 199.99,
+      "monthly_sales": 10720,
+      "reviews": 995,
+      "rating": 4.5,
+      "type": "高价位",
+      "launch_date": "2023-04-21"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "耐用性/寿命",
+        "pain_point": "鼠标左键失灵、产品几个月后损坏",
+        "frequency": 85,
+        "percentage": "20.4%",
+        "affected_brands": ["Logitech", "Logitech", "Logitech", "Logitech", "Logitech"],
+        "brand_opportunity": "采用欧姆龙5000万次微动开关",
+        "product_solution": "宣传5年按键寿命 + 3年质保"
+      },
+      {
+        "dimension": "连接稳定性",
+        "pain_point": "断连、延迟、失联",
+        "frequency": 58,
+        "percentage": "13.9%",
+        "affected_brands": ["Logitech", "Logitech"],
+        "brand_opportunity": "蓝牙5.2 + 2.4G双模连接技术",
+        "product_solution": "加入一键重连功能 + 防断连设计"
+      },
+      {
+        "dimension": "人体工学",
+        "pain_point": "手腕疼痛、鼠标太小/不舒服",
+        "frequency": 48,
+        "percentage": "11.5%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "分体式人体工学设计 + 波形键位",
+        "product_solution": "可拆卸掌托 + 人体工学认证"
+      },
+      {
+        "dimension": "缺失配件",
+        "pain_point": "USB接收器缺失",
+        "frequency": 35,
+        "percentage": "8.4%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "包装改进 + 质检流程优化",
+        "product_solution": "接收器藏于键盘内部电池仓"
+      },
+      {
+        "dimension": "按键手感",
+        "pain_point": "太硬、太软、无反馈、按键粘连",
+        "frequency": 32,
+        "percentage": "7.7%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "提供机械/静音薄膜多种选择",
+        "product_solution": "剪刀脚结构 + 1.5mm触发行程"
+      },
+      {
+        "dimension": "软件兼容",
+        "pain_point": "SetPoint软件不支持、无法自定义",
+        "frequency": 28,
+        "percentage": "6.7%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "开源软件支持 + 即插即用",
+        "product_solution": "无需软件驱动，FN键直选功能"
+      },
+      {
+        "dimension": "静音效果",
+        "pain_point": "标称静音实则很吵",
+        "frequency": 25,
+        "percentage": "6.0%",
+        "affected_brands": ["Logitech"],
+        "brand_opportunity": "静音结构专利 + 实测数据",
+        "product_solution": "宣称<35dB + 实测视频展示"
+      }
+    ],
+    "summary": "主要痛点集中在：耐用性(20.4%)、连接稳定性(13.9%)、人体工学(11.5%)、缺失配件(8.4%)。Logitech高价产品寿命仅1-2年严重影响品牌声誉，这是中国卖家突破的最佳机会点。"
+  },
+  "barriers": [
+    {
+      "type": "Review壁垒",
+      "level": "极高",
+      "data_anchor": "Top10平均30,000+评论",
+      "estimated_cost": "$50,000+",
+      "solution": "Vine计划 + 站外推广 + KOC合作"
+    },
+    {
+      "type": "品牌壁垒",
+      "level": "高",
+      "data_anchor": "Logitech品牌认知度极高，占据59%市场份额",
+      "estimated_cost": "$100,000+",
+      "solution": "避开Logitech主战场，选择细分市场"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "data_anchor": "首批备货$30-50K + 广告投放",
+      "estimated_cost": "¥30-50万",
+      "solution": "控制首批MOQ，分批备货"
+    },
+    {
+      "type": "技术壁垒",
+      "level": "低",
+      "data_anchor": "产品技术成熟，供应链完善",
+      "estimated_cost": "-",
+      "solution": "ODM贴牌模式"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "低",
+      "data_anchor": "中国供应链成熟，1688采购方便",
+      "estimated_cost": "-",
+      "solution": "1688直接采购"
+    }
+  ],
+  "decision": {
+    "overall_score": 4.45,
+    "verdict": "暂缓观望",
+    "decision_text": "市场规模大但竞争格局极差，Logitech垄断59%市场份额，亚马逊自营占据53%，新卖家突围难度极高",
+    "dimensions": [
+      {"name": "市场规模", "weight": 0.20, "score": 9.0, "weighted": 1.80},
+      {"name": "竞争格局", "weight": 0.25, "score": 2.0, "weighted": 0.50},
+      {"name": "增长潜力", "weight": 0.20, "score": 4.0, "weighted": 0.80},
+      {"name": "进入壁垒", "weight": 0.20, "score": 3.0, "weighted": 0.60},
+      {"name": "利润空间", "weight": 0.15, "score": 5.0, "weighted": 0.75}
+    ],
+    "准入条件": [
+      "预算至少¥50万(首批备货+Vine+站外推广)",
+      "必须选择人体工学或复古设计细分市场",
+      "Review策略：Vine计划+KOC推广，3个月内积累200+评论",
+      "价格定位：$60-100(避开红海，有利润空间)",
+      "质保承诺：3年质保(差异化Logitech的1-2年)"
+    ],
+    "禁止进入": [
+      "$0-30入门级：42款产品红海竞争",
+      "$100+旗舰级：Logitech MX系列垄断",
+      "标准全尺寸设计：无法差异化"
+    ]
+  },
+  "trend_data": [
+    {"date": "2024-03", "value": 5.57},
+    {"date": "2024-04", "value": 3.85},
+    {"date": "2024-05", "value": 3.65},
+    {"date": "2024-06", "value": 3.33},
+    {"date": "2024-07", "value": 4.34},
+    {"date": "2024-08", "value": 4.6},
+    {"date": "2024-09", "value": 6.46},
+    {"date": "2024-10", "value": 7.27},
+    {"date": "2024-11", "value": 6.35},
+    {"date": "2024-12", "value": 4.06},
+    {"date": "2025-01", "value": 4.8},
+    {"date": "2025-02", "value": 3.85},
+    {"date": "2025-03", "value": 3.72},
+    {"date": "2025-04", "value": 3.49},
+    {"date": "2025-05", "value": 2.27},
+    {"date": "2025-06", "value": 1.54},
+    {"date": "2025-07", "value": 1.25},
+    {"date": "2025-08", "value": 1.83},
+    {"date": "2025-09", "value": 1.44},
+    {"date": "2025-10", "value": 4.19},
+    {"date": "2025-11", "value": 3.0},
+    {"date": "2025-12", "value": 4.75},
+    {"date": "2026-01", "value": 2.14},
+    {"date": "2026-02", "value": 2.27},
+    {"date": "2026-03", "value": 1.21}
+  ],
+  "keywords": {
+    "keyboard": {
+      "monthly_search": 534713,
+      "weekly_search": 124885,
+      "cpc": 1.08,
+      "competition_count": 147920
+    },
+    "keyboards": {
+      "monthly_search": 58515,
+      "weekly_search": 13478,
+      "cpc": 1.08,
+      "competition_count": 149625
+    },
+    "portable keyboard": {
+      "monthly_search": 26702,
+      "weekly_search": 5545,
+      "cpc": 1.50,
+      "competition_count": 2355
+    }
+  },
+  "product_matrix": [
+    {
+      "tier": "Tier 1",
+      "name": "人体工学入门款",
+      "target_price": 69.99,
+      "target_market": "$60-100人体工学细分市场",
+      "positioning": "低于Logitech Wave Keys($99.99)，同配置更优",
+      "specs": {
+        "连接方式": "蓝牙5.2 + 2.4G双模",
+        "人体工学": "波形键位 + 可拆卸掌托",
+        "耐用性": "欧姆龙5000万次微动",
+        "静音": "<35dB按键声音",
+        "保修": "3年质保"
+      },
+      "differentiation": "Like Logitech, Built to Last",
+      "estimated_sales": "2000-5000件/月",
+      "competitor_asin": "B0FDFZLCMM"
+    },
+    {
+      "tier": "Tier 2",
+      "name": "复古打字机设计",
+      "target_price": 39.99,
+      "target_market": "$30-50复古设计细分市场",
+      "positioning": "年轻女性、桌面美学追求者",
+      "specs": {
+        "设计": "打字机圆形键帽 + 多色可选"
+      },
+      "risk": "小众市场，天花板明显"
+    },
+    {
+      "tier": "Tier 3",
+      "name": "入门级基础款",
+      "recommendation": "不推荐",
+      "reason": "$0-30价格带已有42款产品红海竞争，利润空间极薄"
+    }
+  ]
+}

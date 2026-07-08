@@ -1,0 +1,522 @@
+{
+  "metadata": {
+    "keyword": "dog food",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "6514317011",
+    "category_name": "Canned Dog Food",
+    "collected_at": "2026-03-19T20:19:34.379492"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 825483,
+    "top100_monthly_revenue": 22478380,
+    "avg_price": 27.230580096743363,
+    "median_price": 28.68,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.4438952710110323,
+    "top10_brand_concentration": 0.8617609326903158,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 486921
+  },
+  "price_ranges": [
+    {
+      "range": "$30-60",
+      "count": 40,
+      "share": 0.3228291800073412,
+      "sales": 266490.0
+    },
+    {
+      "range": "$0-30",
+      "count": 57,
+      "share": 0.6588009686450236,
+      "sales": 543829.0
+    },
+    {
+      "range": "$60-100",
+      "count": 3,
+      "share": 0.018369851347635264,
+      "sales": 15164.0
+    }
+  ],
+  "product_types": [
+    {
+      "dimension": "产品形态",
+      "values": [
+        "Classic Loaf",
+        "Filets in Gravy",
+        "Chopped Ground",
+        "Stew",
+        "Paté",
+        "Home Delights"
+      ],
+      "description": "质地差异"
+    },
+    {
+      "dimension": "蛋白质",
+      "values": [
+        "Chicken",
+        "Beef",
+        "Turkey",
+        "Lamb",
+        "Salmon",
+        "Variety Pack"
+      ],
+      "description": "口味选择"
+    },
+    {
+      "dimension": "包装形式",
+      "values": [
+        "Easy Peel Trays (3.5 oz)",
+        "Cans (10-13.5 oz)",
+        "Pouches",
+        "Tubs"
+      ],
+      "description": "便携性"
+    },
+    {
+      "dimension": "包装尺寸",
+      "values": [
+        "Small (1.76-3.5 oz)",
+        "Medium (10-13.5 oz)",
+        "Large (Multipacks)"
+      ],
+      "description": "单次用量"
+    },
+    {
+      "dimension": "特殊功能",
+      "values": [
+        "Grain Free",
+        "Sensitive Stomach",
+        "Small Breed",
+        "Senior"
+      ],
+      "description": "细分需求"
+    }
+  ],
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-30",
+        "Classic Loaf/Chopped Ground": 54,
+        "Filets in Gravy/Stew": 3
+      },
+      {
+        "price_range": "$30-60",
+        "Classic Loaf/Chopped Ground": 3,
+        "Filets in Gravy/Stew": 35,
+        "Grain Free": 2
+      },
+      {
+        "price_range": "$60-100",
+        "Science Diet Premium": 3
+      }
+    ],
+    "market_gaps": [
+      {
+        "dimension": "Grain Free + 中价位($25-40)",
+        "status": "薄供给",
+        "count": 3,
+        "opportunity": "⭐⭐⭐"
+      },
+      {
+        "dimension": "Small Breed + 小包装(3.5oz)",
+        "status": "竞争激烈",
+        "count": 15,
+        "opportunity": "⭐"
+      },
+      {
+        "dimension": "Novel Protein (Venison/Duck)",
+        "status": "市场空白",
+        "count": 0,
+        "opportunity": "⭐⭐⭐⭐"
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "Cesar",
+      "sales": 183383,
+      "revenue": 9169150,
+      "count": 14
+    },
+    {
+      "brand": "Blue Buffalo",
+      "sales": 101500,
+      "revenue": 5075000,
+      "count": 12
+    },
+    {
+      "brand": "Beneful",
+      "sales": 81545,
+      "revenue": 4077250,
+      "count": 8
+    },
+    {
+      "brand": "Pedigree",
+      "sales": 78946,
+      "revenue": 3947300,
+      "count": 5
+    },
+    {
+      "brand": "Hill’s Science Diet",
+      "sales": 76245,
+      "revenue": 3812250,
+      "count": 10
+    },
+    {
+      "brand": "Purina ONE",
+      "sales": 70781,
+      "revenue": 3539050,
+      "count": 8
+    },
+    {
+      "brand": "Nutrish",
+      "sales": 48382,
+      "revenue": 2419100,
+      "count": 4
+    },
+    {
+      "brand": "Nature’s Recipe",
+      "sales": 29610,
+      "revenue": 1480500,
+      "count": 3
+    },
+    {
+      "brand": "Purina Pro Plan",
+      "sales": 21475,
+      "revenue": 1073750,
+      "count": 7
+    },
+    {
+      "brand": "ROYAL CANIN",
+      "sales": 19502,
+      "revenue": 975100,
+      "count": 6
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "B071J1BFTX",
+      "brand": "Cesar",
+      "title": "Cesar Wet Dog Food Classic Loaf in Sauce Grilled Chicken, Filet Mignon, Porterhouse Steak, Beef, Chicken & Liver and Turkey Variety Pack 3.5 oz. Easy Peel Trays (36 Count, Pack of 1)",
+      "price": 35.94,
+      "monthly_sales": 51762,
+      "reviews": 34251,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": "2017-05-29"
+    },
+    {
+      "asin": "B014UTY5OI",
+      "brand": "Pedigree",
+      "title": "Pedigree Wet Dog Food, Choice Cuts Adult Canned Dog Food with Beef, 13.2 oz. Cans, 12 Count",
+      "price": 12.34,
+      "monthly_sales": 39373,
+      "reviews": 39578,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2016-07-13"
+    },
+    {
+      "asin": "B004INAQVI",
+      "brand": "Purina ONE",
+      "title": "Purina ONE Classic Ground Chicken and Brown Rice Entree Adult Wet Dog Food - (Pack of 12) 13 oz. Cans",
+      "price": 23.76,
+      "monthly_sales": 33472,
+      "reviews": 4384,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2011-11-18"
+    },
+    {
+      "asin": "B08S7QQXCX",
+      "brand": "Beneful",
+      "title": "Beneful Purina Small Breed Wet Dog Food Variety Pack, IncrediBites With Real Beef, Chicken and Salmon - (Pack of 30) 3 Oz. Cans",
+      "price": 27.84,
+      "monthly_sales": 28071,
+      "reviews": 14649,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2021-01-12"
+    },
+    {
+      "asin": "B072J7R8R1",
+      "brand": "Cesar",
+      "title": "Cesar Wet Dog Food Steak Lovers Variety Pack, Adult, Wet Food for Dogs with Real Meat, 3.5 oz Easy Peel Trays, 36 Count",
+      "price": 35.94,
+      "monthly_sales": 27029,
+      "reviews": 11148,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": "2018-07-07"
+    },
+    {
+      "asin": "B07MF5YGT1",
+      "brand": "Hill’s Science Diet",
+      "title": "Hill‘s Science Diet Adult 1-6 Sensitive Stomach & Skin Wet Dog Food, Turkey & Rice Stew, 12.5 oz. Cans, 12-Pack",
+      "price": 49.06,
+      "monthly_sales": 25238,
+      "reviews": 5602,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2019-02-19"
+    },
+    {
+      "asin": "B082BVBWBX",
+      "brand": "Nature’s Recipe",
+      "title": "Nature‘s Recipe Grain Free Wet Dog Food Variety Pack, Chicken Recipes with Beef, Turkey & Lamb in Savory Broth, 2.75 oz. Cups (Pack of 12), 2 Count",
+      "price": 29.56,
+      "monthly_sales": 22973,
+      "reviews": 2507,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2020-01-17"
+    },
+    {
+      "asin": "B09PF7YGF9",
+      "brand": "Nutrish",
+      "title": "Nutrish Gentle Digestion Premium Paté Wet Dog Food, Real Chicken, Pumpkin & Salmon Recipe, 13 oz. Can, 12 Count (Rachael Ray)",
+      "price": 28.68,
+      "monthly_sales": 20893,
+      "reviews": 1393,
+      "rating": 4.5,
+      "type": "竞品",
+      "launch_date": "2022-01-12"
+    },
+    {
+      "asin": "B0176Q0CQW",
+      "brand": "Nutrish",
+      "title": "Nutrish Rachael Ray Premium Natural Wet Dog Food, Savory Favorites Variety Pack, 8 Ounce Tub (Pack of 6)",
+      "price": 12.88,
+      "monthly_sales": 20373,
+      "reviews": 10823,
+      "rating": 4.4,
+      "type": "竞品",
+      "launch_date": "2015-11-05"
+    },
+    {
+      "asin": "B0BMDXQ4FF",
+      "brand": "Blue Buffalo",
+      "title": "Blue Buffalo Homestyle Recipe Adult Wet Dog Food, Made with Natural Ingredients, Chicken and Beef Dinner Variety Pack, 12.5-oz Cans (6 Count, 3 of Each)",
+      "price": 17.58,
+      "monthly_sales": 19859,
+      "reviews": 5430,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": "2023-01-04"
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "产品质量",
+        "pain_point": "变质、异味、批次质量不稳定、过期产品",
+        "frequency": 28,
+        "percentage": "20%",
+        "affected_brands": [
+          "Cesar",
+          "Pedigree",
+          "Purina ONE"
+        ],
+        "brand_opportunity": "加强品质控制、新鲜度保证、缩短供应链周期",
+        "product_solution": "新鲜日期标注、真空密封包装、小批量生产"
+      },
+      {
+        "dimension": "包装问题",
+        "pain_point": "罐头凹陷、漏液、破损、缺少易拉盖",
+        "frequency": 37,
+        "percentage": "26%",
+        "affected_brands": [
+          "Cesar",
+          "Pedigree",
+          "Purina ONE",
+          "全品牌"
+        ],
+        "brand_opportunity": "改进包装材料、加强运输保护、优化罐体设计",
+        "product_solution": "加强外包装、添加易拉盖设计、防伪密封"
+      },
+      {
+        "dimension": "消化健康",
+        "pain_point": "导致腹泻、呕吐、肠胃不适、软便",
+        "frequency": 22,
+        "percentage": "16%",
+        "affected_brands": [
+          "Pedigree",
+          "Purina ONE"
+        ],
+        "brand_opportunity": "添加益生菌、单一蛋白配方、敏感肠胃专用配方",
+        "product_solution": "易消化配方、添加益生元、无谷物配方"
+      },
+      {
+        "dimension": "适口性",
+        "pain_point": "狗狗拒吃、挑食、不爱吃",
+        "frequency": 18,
+        "percentage": "13%",
+        "affected_brands": [
+          "Pedigree",
+          "Purina ONE",
+          "Cesar"
+        ],
+        "brand_opportunity": "改善口味、增加天然诱食剂、优化肉质",
+        "product_solution": "真实肉块、天然肉汤、适口性测试"
+      },
+      {
+        "dimension": "性价比",
+        "pain_point": "涨价、肉块少汤汁多、分量不足",
+        "frequency": 15,
+        "percentage": "11%",
+        "affected_brands": [
+          "Pedigree",
+          "Cesar"
+        ],
+        "brand_opportunity": "提高固形物含量、透明化配料表、合理定价",
+        "product_solution": "增加肉块比例、减少填充物、物有所值"
+      },
+      {
+        "dimension": "成分透明度",
+        "pain_point": "副产品多、营养评分低、成分不透明",
+        "frequency": 10,
+        "percentage": "7%",
+        "affected_brands": [
+          "Cesar",
+          "Pedigree"
+        ],
+        "brand_opportunity": "使用全肉、无谷配方、透明化配料表",
+        "product_solution": "第一成分是真实肉类、无副产品、AAFCO认证"
+      }
+    ],
+    "summary": "主要痛点集中在包装问题(26%)、产品质量(20%)、消化健康(16%)"
+  },
+  "barriers": [
+    {
+      "type": "品牌壁垒",
+      "level": "高",
+      "data_anchor": "Top10 品牌占86%市场份额",
+      "estimated_cost": "$100K+",
+      "mitigation": "差异化定位、Vine计划、精准细分市场"
+    },
+    {
+      "type": "Review壁垒",
+      "level": "高",
+      "data_anchor": "Top10 均值15,000+评论",
+      "estimated_cost": "$20K+",
+      "mitigation": "Vine + PPC早期积累、邀请评价"
+    },
+    {
+      "type": "渠道壁垒",
+      "level": "高",
+      "data_anchor": "Amazon占80%份额",
+      "estimated_cost": "-",
+      "mitigation": "FBA必需、多渠道布局、品牌官网"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "data_anchor": "首批备货 + 广告投入",
+      "estimated_cost": "¥50-100K",
+      "mitigation": "控制首批MOQ、按需补货"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "中",
+      "data_anchor": "湿粮生产 + 保质期管理",
+      "estimated_cost": "¥30-50K",
+      "mitigation": "代工厂合作、小批量测试、冷链物流"
+    }
+  ],
+  "decision": {
+    "overall_score": 5.5,
+    "verdict": "谨慎进入/暂缓观望",
+    "scores": {
+      "market_size": {
+        "score": 7,
+        "weight": 0.2,
+        "weighted": 1.4,
+        "rationale": "月销额$22.5M，需求稳定"
+      },
+      "competition": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0,
+        "rationale": "高度集中，红海市场"
+      },
+      "barriers": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6,
+        "rationale": "品牌、Review、渠道壁垒高"
+      },
+      "profit_margin": {
+        "score": 8,
+        "weight": 0.2,
+        "weighted": 1.6,
+        "rationale": "成本可控，溢价空间大"
+      },
+      "supply_chain": {
+        "score": 6,
+        "weight": 0.15,
+        "weighted": 0.9,
+        "rationale": "代工厂成熟，但需认证"
+      }
+    },
+    "entry_conditions": [
+      "有独特的配方或供应链优势",
+      "能够精准切入空白细分市场",
+      "有充足的资金和长期运营规划"
+    ],
+    "tier1_product": {
+      "positioning": "Grain Free中价位市场薄供给机会",
+      "target_market": "注重健康但预算敏感的消费者",
+      "specs": {
+        "protein": "Chicken + Sweet Potato",
+        "package_format": "12x10oz Cans",
+        "price": "$28-32",
+        "differentiation": "易拉盖设计 + 新鲜日期保证"
+      },
+      "competitor_asin": "B09PF7YGF9 (Nutrish)"
+    }
+  },
+  "trend_data": [
+    {
+      "date": "2025-01",
+      "value": 1.0
+    },
+    {
+      "date": "2025-05",
+      "value": 1.0
+    }
+  ],
+  "keywords": {
+    "dog food": {
+      "monthly_search": 486921,
+      "weekly_search": 128480,
+      "cpc": 12.58,
+      "competition_count": 167922
+    },
+    "dog foods": {
+      "monthly_search": 85,
+      "weekly_search": 19,
+      "cpc": 12.58,
+      "competition_count": 186987
+    }
+  }
+}

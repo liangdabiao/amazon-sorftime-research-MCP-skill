@@ -1,0 +1,236 @@
+{
+  "title": "新品推广分析 - B07PQFT83F",
+  "target": "B07PQFT83F",
+  "site": "US",
+  "scenario": "新品推广",
+  "asin_info": {
+    "B07PQFT83F": {
+      "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
+      "price": "59.99",
+      "currency": "USD",
+      "stars": 4.5,
+      "ratings": 12580,
+      "url": "https://www.amazon.com/dp/B07PQFT83F",
+      "image": "https://example.com/image.jpg"
+    }
+  },
+  "traffic": {
+    "B07PQFT83F": {
+      "natural_traffic": 85.5,
+      "ad_traffic": 42.3,
+      "total_traffic": 127.8,
+      "keyword_count": 156,
+      "natural_traffic_share": 66.9,
+      "ad_traffic_share": 33.1
+    }
+  },
+  "overview": {
+    "B07PQFT83F - 总流量": 127.8,
+    "B07PQFT83F - 自然流量": 85.5,
+    "B07PQFT83F - 广告流量": 42.3,
+    "B07PQFT83F - 关键词数": 156
+  },
+  "traffic_trends": {
+    "B07PQFT83F": [
+      {
+        "date": "2026-06-21",
+        "natural_traffic": 70.0,
+        "ad_traffic": 35.0,
+        "total_traffic": 105.0
+      },
+      {
+        "date": "2026-06-22",
+        "natural_traffic": 71.1,
+        "ad_traffic": 35.5,
+        "total_traffic": 106.6
+      },
+      {
+        "date": "2026-06-23",
+        "natural_traffic": 72.2,
+        "ad_traffic": 36.0,
+        "total_traffic": 108.2
+      },
+      {
+        "date": "2026-06-24",
+        "natural_traffic": 73.3,
+        "ad_traffic": 36.5,
+        "total_traffic": 109.8
+      },
+      {
+        "date": "2026-06-25",
+        "natural_traffic": 74.4,
+        "ad_traffic": 37.0,
+        "total_traffic": 111.4
+      },
+      {
+        "date": "2026-06-26",
+        "natural_traffic": 75.5,
+        "ad_traffic": 37.5,
+        "total_traffic": 113.0
+      },
+      {
+        "date": "2026-06-27",
+        "natural_traffic": 76.6,
+        "ad_traffic": 38.0,
+        "total_traffic": 114.6
+      },
+      {
+        "date": "2026-06-28",
+        "natural_traffic": 77.7,
+        "ad_traffic": 38.5,
+        "total_traffic": 116.2
+      },
+      {
+        "date": "2026-06-29",
+        "natural_traffic": 78.8,
+        "ad_traffic": 39.0,
+        "total_traffic": 117.8
+      },
+      {
+        "date": "2026-06-30",
+        "natural_traffic": 79.9,
+        "ad_traffic": 39.5,
+        "total_traffic": 119.4
+      },
+      {
+        "date": "2026-07-01",
+        "natural_traffic": 81.0,
+        "ad_traffic": 40.0,
+        "total_traffic": 121.0
+      },
+      {
+        "date": "2026-07-02",
+        "natural_traffic": 82.1,
+        "ad_traffic": 40.5,
+        "total_traffic": 122.6
+      },
+      {
+        "date": "2026-07-03",
+        "natural_traffic": 83.2,
+        "ad_traffic": 41.0,
+        "total_traffic": 124.2
+      },
+      {
+        "date": "2026-07-04",
+        "natural_traffic": 84.3,
+        "ad_traffic": 41.5,
+        "total_traffic": 125.8
+      }
+    ]
+  },
+  "traffic_stage": {
+    "stage": "stable",
+    "stage_name": "稳定期",
+    "reason": "流量得分127.8较高且稳定，关键词数量156充足",
+    "traffic_score": 127.8,
+    "keyword_count": 156
+  },
+  "keywords": {
+    "B07PQFT83F": [
+      {
+        "keyword": "bluetooth headphones",
+        "natural_rank": 3,
+        "ad_rank": 2,
+        "traffic": 15000,
+        "traffic_share": "25%",
+        "traffic_growth": "+12%"
+      },
+      {
+        "keyword": "wireless headphones",
+        "natural_rank": 5,
+        "ad_rank": 3,
+        "traffic": 12000,
+        "traffic_share": "20%",
+        "traffic_growth": "+8%"
+      },
+      {
+        "keyword": "noise cancelling headphones",
+        "natural_rank": 8,
+        "ad_rank": 5,
+        "traffic": 8000,
+        "traffic_share": "13%",
+        "traffic_growth": "+15%"
+      },
+      {
+        "keyword": "bluetooth earbuds",
+        "natural_rank": 12,
+        "ad_rank": 8,
+        "traffic": 5000,
+        "traffic_share": "8%",
+        "traffic_growth": "-3%"
+      },
+      {
+        "keyword": "wireless earbuds",
+        "natural_rank": 15,
+        "ad_rank": 10,
+        "traffic": 4000,
+        "traffic_share": "7%",
+        "traffic_growth": "+5%"
+      }
+    ]
+  },
+  "bsr_trends": [
+    {
+      "date": "2026-06-21",
+      "rank": 500
+    },
+    {
+      "date": "2026-06-22",
+      "rank": 470
+    },
+    {
+      "date": "2026-06-23",
+      "rank": 440
+    },
+    {
+      "date": "2026-06-24",
+      "rank": 410
+    },
+    {
+      "date": "2026-06-25",
+      "rank": 380
+    },
+    {
+      "date": "2026-06-26",
+      "rank": 350
+    },
+    {
+      "date": "2026-06-27",
+      "rank": 320
+    },
+    {
+      "date": "2026-06-28",
+      "rank": 290
+    },
+    {
+      "date": "2026-06-29",
+      "rank": 260
+    },
+    {
+      "date": "2026-06-30",
+      "rank": 230
+    },
+    {
+      "date": "2026-07-01",
+      "rank": 200
+    },
+    {
+      "date": "2026-07-02",
+      "rank": 170
+    },
+    {
+      "date": "2026-07-03",
+      "rank": 140
+    },
+    {
+      "date": "2026-07-04",
+      "rank": 110
+    }
+  ],
+  "insights": [
+    "产品处于稳定期，已获得稳定的自然流量",
+    "重点维护排名，扩大市场份额",
+    "可以考虑拓展相关关键词",
+    "发现4个流量增长的关键词，建议加大投放"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "B07PQFT83F": {
+    "daily_changes": [
+      {
+        "date": "2026-06-28",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "date": "2026-06-29",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "date": "2026-06-30",
+        "added": 0,
+        "removed": 2
+      },
+      {
+        "date": "2026-07-01",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "date": "2026-07-02",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "date": "2026-07-03",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "date": "2026-07-04",
+        "added": 0,
+        "removed": 1
+      }
+    ],
+    "summary": {
+      "total_added": 9,
+      "total_removed": 6,
+      "net_change": 3
+    }
+  }
+}

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreame 亚马逊美国站品牌市场深度调研报告</title>
+<style>
+:root {
+  --bg: #0f1419; --card: #1a2332; --border: #2a3a4e;
+  --accent: #00d4aa; --accent2: #4f9cf7; --accent3: #ff6b6b;
+  --gold: #ffd700; --text: #e8edf2; --muted: #8899aa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6; padding: 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0f1419 0%, #1a3a3a 50%, #0f1419 100%);
+  padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: 2.4em; color: var(--accent); margin-bottom: 10px; }
+.hero .subtitle { color: var(--muted); font-size: 1.1em; }
+.hero .badge { display: inline-block; background: var(--accent); color: #000; padding: 4px 16px;
+  border-radius: 20px; font-weight: 600; margin-top: 12px; }
+
+/* KPI cards */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px; margin: 24px 0; }
+.kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; text-align: center; }
+.kpi-card .value { font-size: 1.8em; font-weight: 700; color: var(--accent); }
+.kpi-card .label { font-size: 0.85em; color: var(--muted); margin-top: 4px; }
+
+/* Section */
+.section { background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px; margin: 20px 0; }
+.section h2 { color: var(--accent); font-size: 1.4em; margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border); }
+.section h3 { color: var(--accent2); font-size: 1.1em; margin: 16px 0 8px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--accent2); font-weight: 600; font-size: 0.85em; text-transform: uppercase; }
+tr:hover td { background: rgba(79, 156, 247, 0.05); }
+
+/* Charts */
+.chart-container { margin: 20px 0; }
+.chart-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.chart-box { flex: 1; min-width: 300px; }
+
+/* Tags */
+.tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.8em;
+  font-weight: 600; }
+.tag-green { background: rgba(0,212,170,0.15); color: var(--accent); }
+.tag-blue { background: rgba(79,156,247,0.15); color: var(--accent2); }
+.tag-red { background: rgba(255,107,107,0.15); color: var(--accent3); }
+.tag-yellow { background: rgba(255,215,0,0.15); color: var(--gold); }
+
+/* Summary */
+.summary-box { background: rgba(0,212,170,0.05); border-left: 3px solid var(--accent);
+  padding: 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+.summary-box.warning { border-left-color: var(--gold);
+  background: rgba(255,215,0,0.05); }
+.summary-box.danger { border-left-color: var(--accent3);
+  background: rgba(255,107,107,0.05); }
+
+/* Footer */
+.footer { text-align: center; padding: 30px; color: var(--muted); font-size: 0.85em; }
+
+canvas { width: 100% !important; height: auto !important; max-height: 300px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Dreame (追觅) 品牌深度调研</h1>
+  <div class="subtitle">Amazon US 站 · 2026年7月</div>
+  <div class="badge">月营收 $80.2M · 44个ASIN</div>
+</div>
+
+<div class="container">
+
+<!-- KPI Grid -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="value">$80.2M</div>
+    <div class="label">月营收</div>
+  </div>
+  <div class="kpi-card">
+    <div class="value">179K</div>
+    <div class="label">月销量（件）</div>
+  </div>
+  <div class="kpi-card">
+    <div class="value">4.22★</div>
+    <div class="label">加权平均评分</div>
+  </div>
+  <div class="kpi-card">
+    <div class="value">$455</div>
+    <div class="label">平均售价</div>
+  </div>
+  <div class="kpi-card">
+    <div class="value">8</div>
+    <div class="label">覆盖子类目</div>
+  </div>
+  <div class="kpi-card">
+    <div class="value">35K+</div>
+    <div class="label">总评论数</div>
+  </div>
+</div>
+
+<!-- Product Mix -->
+<div class="section">
+  <h2>产品线分布</h2>
+  <canvas id="productMixChart"></canvas>
+</div>
+
+<!-- Top Products -->
+<div class="section">
+  <h2>Top 10 Best Seller 产品</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>排名</th><th>产品</th><th>售价</th><th>月销</th><th>月收入</th><th>评分</th><th>评论</th></tr>
+    <tr><td>🥇</td><td>L40 Ultra Gen 2</td><td>$569.99</td><td>15,057</td><td>$8.58M</td><td>4.2★</td><td>700</td></tr>
+    <tr><td>🥈</td><td>L40s Ultra CE</td><td>$409.99</td><td>15,057</td><td>$6.17M</td><td>4.2★</td><td>700</td></tr>
+    <tr><td>🥉</td><td>X60 Ultra</td><td>$1,499.99</td><td>2,865</td><td>$4.30M</td><td>4.3★</td><td>271</td></tr>
+    <tr><td>4</td><td>X60 Max Ultra</td><td>$1,614.99</td><td>2,865</td><td>$4.63M</td><td>4.3★</td><td>271</td></tr>
+    <tr><td>5</td><td>L40s Ultra CE (New)</td><td>$469.99</td><td>3,309</td><td>$1.56M</td><td>—</td><td>新品</td></tr>
+    <tr><td>6</td><td>L60 Ultra PE</td><td>$999.99</td><td>2,154</td><td>$2.15M</td><td>4.5★</td><td>125</td></tr>
+    <tr><td>7</td><td>H12 Pro Gen2 Wet Dry</td><td>$296.99</td><td>4,772</td><td>$1.42M</td><td>4.1★</td><td>2,980</td></tr>
+    <tr><td>8</td><td>L40 Ultra Robot</td><td>$590.48</td><td>2,412</td><td>$1.42M</td><td>4.2★</td><td>1,660</td></tr>
+    <tr><td>9</td><td>D20 Pro Plus</td><td>$359.99</td><td>3,694</td><td>$1.33M</td><td>4.2★</td><td>1,239</td></tr>
+    <tr><td>10</td><td>AirStyle Pro 7-in-1</td><td>$249.99</td><td>3,242</td><td>$810K</td><td>4.2★</td><td>381</td></tr>
+  </table>
+  </div>
+  <div class="summary-box">⚠️ 带变体的ASIN销量为父体级汇总，非独立去重计数。</div>
+</div>
+
+<div class="section">
+  <h2>产品收入分布（按价格带）</h2>
+  <canvas id="revenueByPriceChart"></canvas>
+</div>
+
+<!-- Market Overview -->
+<div class="section">
+  <h2>Robot Vacuums 市场大盘</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="value">$165.3M</div><div class="label">类目月营收</div></div>
+    <div class="kpi-card"><div class="value">360K</div><div class="label">类目月销量</div></div>
+    <div class="kpi-card"><div class="value">30</div><div class="label">品牌数</div></div>
+    <div class="kpi-card"><div class="value">$434</div><div class="label">平均售价</div></div>
+    <div class="kpi-card"><div class="value">10.5%</div><div class="label">退货率</div></div>
+    <div class="kpi-card"><div class="value">1,958</div><div class="label">产品数</div></div>
+  </div>
+  <div class="summary-box warning">⚠️ 品牌集中度极高 — Top 10 品牌占 90.3% 市场份额</div>
+</div>
+
+<div class="section">
+  <h2>品牌集中度分析</h2>
+  <canvas id="brandConcentrationChart"></canvas>
+  <div class="summary-box">Top 3 品牌占 <strong>63.9%</strong> 销量 · Top 5 占 <strong>76.8%</strong> · Top 10 占 <strong>90.3%</strong></div>
+</div>
+
+<div class="section">
+  <h2>新品表现（按上架时间）</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>上架时间</th><th>新品数</th><th>均价</th><th>月均销量</th><th>月均收入</th><th>平均评分</th></tr>
+    <tr><td>1个月内</td><td>5</td><td>$382</td><td>846</td><td>$346K</td><td>4.7★</td></tr>
+    <tr><td>3个月内</td><td>21</td><td>$342</td><td>4,181</td><td>$1.75M</td><td>4.2★</td></tr>
+    <tr><td>6个月内</td><td>43</td><td>$506</td><td>3,552</td><td>$1.70M</td><td>4.3★</td></tr>
+    <tr><td>12个月内</td><td>57</td><td>$495</td><td>3,659</td><td>$1.68M</td><td>4.3★</td></tr>
+  </table>
+  </div>
+</div>
+
+<!-- New Products Chart -->
+<div class="section">
+  <h2>新品销量趋势</h2>
+  <canvas id="newProductChart"></canvas>
+</div>
+
+<!-- Sentiment Analysis -->
+<div class="section">
+  <h2>客户评价分析</h2>
+  <div class="chart-row">
+    <div class="chart-box">
+      <h3>好评主题</h3>
+      <canvas id="positiveThemeChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>差评主题</h3>
+      <canvas id="negativeThemeChart"></canvas>
+    </div>
+  </div>
+  <div class="summary-box danger">⚠️ 售后支持是差评核心痛点(5/5严重度)，其次为毛发缠绕(4/5)</div>
+  <div class="summary-box">仅展示样本评论，不代表总体分布</div>
+</div>
+
+<!-- Price Analysis -->
+<div class="section">
+  <h2>L40 Ultra Gen 2 价格与 BSR 趋势</h2>
+  <div class="chart-row">
+    <div class="chart-box">
+      <h3>价格波动 ($384.99 ~ $859.99)</h3>
+      <canvas id="priceHistoryChart"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>BSR 波动 (498 ~ 23,156)</h3>
+      <canvas id="bsrHistoryChart"></canvas>
+    </div>
+  </div>
+  <div class="summary-box">当前价格: $459.99 · 当前 BSR: 6,815</div>
+</div>
+
+<!-- SWOT -->
+<div class="section">
+  <h2>SWOT 分析</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+    <div class="summary-box">
+      <h3 style="color:var(--accent);margin:0 0 8px">✅ 优势</h3>
+      <ul style="margin-left:20px;font-size:0.95em">
+        <li>产品力强，吸力技术行业领先</li>
+        <li>价格带覆盖全面 ($20-$1,600)</li>
+        <li>产品线多元化（清洁+美发+风扇）</li>
+        <li>FBA 为主，物流体验好</li>
+        <li>新品推出速度快，迭代积极</li>
+      </ul>
+    </div>
+    <div class="summary-box danger">
+      <h3 style="color:var(--accent3);margin:0 0 8px">⚠️ 劣势</h3>
+      <ul style="margin-left:20px;font-size:0.95em">
+        <li>品牌认知度仍低于 iRobot</li>
+        <li>售后支持被多次吐槽</li>
+        <li>部分产品质量稳定性待提高</li>
+        <li>高端线产品评论数偏低</li>
+        <li>功能宣传与实际有出入</li>
+      </ul>
+    </div>
+    <div class="summary-box" style="border-left-color:var(--accent2)">
+      <h3 style="color:var(--accent2);margin:0 0 8px">🚀 机会</h3>
+      <ul style="margin-left:20px;font-size:0.95em">
+        <li>清洁家电市场持续增长</li>
+        <li>智能家居生态扩展</li>
+        <li>美发/个护品类高毛利</li>
+        <li>消耗品（清洁液）持续复购收入</li>
+        <li>多国站点扩展空间</li>
+      </ul>
+    </div>
+    <div class="summary-box warning">
+      <h3 style="color:var(--gold);margin:0 0 8px">🔥 威胁</h3>
+      <ul style="margin-left:20px;font-size:0.95em">
+        <li>Robot Vacuums 品牌集中度极高</li>
+        <li>Roborock/Shark 竞争加剧</li>
+        <li>退货率 10.47% 偏高</li>
+        <li>低价竞争者增多</li>
+        <li>关税/贸易政策不确定性</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Recommendations -->
+<div class="section">
+  <h2>行动建议</h2>
+  <div class="summary-box" style="border-left-color:var(--accent)">
+    <h3>✅ 推荐</h3>
+    <ul style="margin-left:20px">
+      <li><strong>巩固高端 Robot Vacuums</strong> — L40 Ultra Gen 2 是绝对主力，持续投入优化</li>
+      <li><strong>提升售后体验</strong> — 建立 Amazon 售后专项团队，这是差评核心来源</li>
+      <li><strong>强化美发产品线</strong> — AirStyle Pro 和 Pocket Pro 增长潜力大</li>
+      <li><strong>清洁液消耗品</strong> — 低客单价高复购，提升品牌粘性</li>
+    </ul>
+  </div>
+  <div class="summary-box warning">
+    <h3>⚠️ 谨慎</h3>
+    <ul style="margin-left:20px">
+      <li>中端市场 ($200-500) 竞争最激烈，价格战风险大</li>
+      <li>塔扇线季节性明显，库存管理需控制</li>
+      <li>高端产品评论数不足，需运营提升</li>
+    </ul>
+  </div>
+  <div class="summary-box danger">
+    <h3>🚫 不推荐</h3>
+    <ul style="margin-left:20px">
+      <li>超低价竞争 — 不建议进入 &lt;$150 的 Robot Vacuums 市场</li>
+      <li>类目过度扩张 — 聚焦现有 8 个子类目，而非分散</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Dreame 品牌深度调研报告 · 2026年7月7日</p>
+  <p>数据源: 卖家精灵 MCP API · 调研工具: sellersprite-amazon-research skill</p>
+</div>
+
+</div>
+
+<script>
+// Product Mix Chart
+const mixCtx = document.getElementById('productMixChart').getContext('2d');
+const mixW = mixCtx.canvas.parentElement.clientWidth || 800;
+mixCtx.canvas.width = mixW;
+mixCtx.canvas.height = 280;
+
+const products = [
+  {name:'Robot Vacuums', count:26, color:'#00d4aa'},
+  {name:'Wet-Dry Vacuums', count:7, color:'#4f9cf7'},
+  {name:'Carpet Cleaners', count:3, color:'#ffd700'},
+  {name:'Hair Stylers', count:2, color:'#ff6b6b'},
+  {name:'Tower Fans', count:2, color:'#a78bfa'},
+  {name:'Hair Dryers', count:2, color:'#f97316'},
+  {name:'Cleaning Liquids', count:2, color:'#34d399'},
+];
+const total = products.reduce((s,p) => s+p.count, 0);
+let startAngle = -Math.PI/2;
+const cw = mixW, ch = 280, cx = cw/2-100, cy = ch/2, r = Math.min(cw/2-120, ch/2-20);
+
+// Draw donut chart
+products.forEach(p => {
+  const slice = (p.count/total) * Math.PI * 2;
+  const endAngle = startAngle + slice;
+  const x1 = cx + r * Math.cos(startAngle);
+  const y1 = cy + r * Math.sin(startAngle);
+  const x2 = cx + r * Math.cos(endAngle);
+  const y2 = cy + r * Math.sin(endAngle);
+  const large = slice > Math.PI ? 1 : 0;
+
+  mixCtx.beginPath();
+  mixCtx.moveTo(cx, cy);
+  mixCtx.arc(cx, cy, r, startAngle, endAngle);
+  mixCtx.closePath();
+  mixCtx.fillStyle = p.color;
+  mixCtx.fill();
+
+  startAngle = endAngle;
+});
+
+// Inner circle for donut
+mixCtx.beginPath();
+mixCtx.arc(cx, cy, r*0.5, 0, Math.PI*2);
+mixCtx.fillStyle = '#1a2332';
+mixCtx.fill();
+
+// Legend
+let lx = cw/2 + 20, ly = 30;
+mixCtx.font = '12px sans-serif';
+products.forEach(p => {
+  mixCtx.fillStyle = p.color;
+  mixCtx.fillRect(lx, ly, 12, 12);
+  mixCtx.fillStyle = '#e8edf2';
+  mixCtx.fillText(`${p.name} (${p.count})`, lx+18, ly+10);
+  ly += 22;
+});
+
+// Center text
+mixCtx.fillStyle = '#fff';
+mixCtx.font = 'bold 24px sans-serif';
+mixCtx.textAlign = 'center';
+mixCtx.fillText('44', cx, cy+4);
+mixCtx.font = '11px sans-serif';
+mixCtx.fillStyle = '#8899aa';
+mixCtx.fillText('ASINs', cx, cy+20);
+
+// Brand Concentration Bar Chart
+function drawBarChart(canvasId, labels, values, colors, title) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 600;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 250;
+
+  const pad = {top:30, bottom:40, left:60, right:30};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 250 - pad.top - pad.bottom;
+  const max = Math.max(...values);
+  const barW = Math.min(60, cw2 / labels.length * 0.6);
+  const gap = cw2 / labels.length;
+
+  ctx.clearRect(0,0,w,250);
+
+  // Title
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '13px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(title, pad.left, 18);
+
+  // Y axis
+  ctx.strokeStyle = '#2a3a4e';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top + ch2);
+  ctx.lineTo(pad.left + cw2, pad.top + ch2);
+  ctx.stroke();
+
+  // Y labels
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + ch2 - (i/4)*ch2;
+    const v = (max * i / 4).toFixed(0);
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(v, pad.left-8, y+4);
+    ctx.strokeStyle = '#1a2332';
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y);
+    ctx.lineTo(pad.left+cw2, y);
+    ctx.stroke();
+  }
+
+  labels.forEach((l,i) => {
+    const x = pad.left + i * gap + (gap - barW)/2;
+    const h = (values[i]/max) * ch2;
+    const y = pad.top + ch2 - h;
+
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(x, y, barW, h);
+
+    ctx.fillStyle = '#e8edf2';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(values[i]+'%', x+barW/2, y-6);
+
+    ctx.save();
+    ctx.translate(x+barW/2, pad.top+ch2+12);
+    ctx.rotate(-Math.PI/3);
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(l, 0, 0);
+    ctx.restore();
+  });
+}
+
+// Revenue by Price Band Chart
+function drawRevenuePriceChart() {
+  const ctx = document.getElementById('revenueByPriceChart').getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 600;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 250;
+
+  const bands = [
+    {label:'<$150', rev:1.06, color:'#34d399'},
+    {label:'$150-300', rev:5.8, color:'#4f9cf7'},
+    {label:'$300-500', rev:13.5, color:'#a78bfa'},
+    {label:'$500-1K', rev:22.3, color:'#ffd700'},
+    {label:'>$1,000', rev:13.8, color:'#ff6b6b'},
+  ];
+
+  const pad = {top:30, bottom:50, left:60, right:30};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 250 - pad.top - pad.bottom;
+  const max = 25;
+  const barW = Math.min(70, cw2 / bands.length * 0.6);
+  const gap = cw2 / bands.length;
+
+  ctx.clearRect(0,0,w,250);
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '13px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('月收入 (Million USD)', pad.left, 18);
+
+  ctx.strokeStyle = '#2a3a4e';
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top+ch2);
+  ctx.lineTo(pad.left+cw2, pad.top+ch2);
+  ctx.stroke();
+
+  bands.forEach((b,i) => {
+    const x = pad.left + i*gap + (gap-barW)/2;
+    const h = (b.rev/max)*ch2;
+    const y = pad.top+ch2-h;
+
+    ctx.fillStyle = b.color;
+    ctx.fillRect(x, y, barW, h);
+
+    ctx.fillStyle = '#e8edf2';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('$'+b.rev.toFixed(1)+'M', x+barW/2, y-6);
+
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '11px sans-serif';
+    ctx.fillText(b.label, x+barW/2, pad.top+ch2+16);
+  });
+}
+
+// New Product Performance
+function drawNewProductChart() {
+  const ctx = document.getElementById('newProductChart').getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 600;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 250;
+
+  const labels = ['1月内', '3个月', '6个月', '12个月'];
+  const sales = [846, 4181, 3552, 3659];
+  const revenues = [0.346, 1.75, 1.70, 1.68];
+
+  const pad = {top:30, bottom:40, left:60, right:60};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 250 - pad.top - pad.bottom;
+  const maxSales = 5000;
+  const maxRev = 2.0;
+  const gap = cw2 / (labels.length-1);
+
+  ctx.clearRect(0,0,w,250);
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '12px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('月均销量', pad.left, 18);
+
+  // Grid
+  ctx.strokeStyle = '#2a3a4e';
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top+ch2);
+  ctx.lineTo(pad.left+cw2, pad.top+ch2);
+  ctx.stroke();
+
+  // Sales line
+  ctx.strokeStyle = '#00d4aa';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  sales.forEach((v,i) => {
+    const x = pad.left + i*gap;
+    const y = pad.top + ch2 - (v/maxSales)*ch2;
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // Dots
+  sales.forEach((v,i) => {
+    const x = pad.left + i*gap;
+    const y = pad.top + ch2 - (v/maxSales)*ch2;
+    ctx.fillStyle = '#00d4aa';
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI*2);
+    ctx.fill();
+    ctx.fillStyle = '#e8edf2';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(v.toLocaleString(), x, y-12);
+
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '11px sans-serif';
+    ctx.fillText(labels[i], x, pad.top+ch2+16);
+  });
+}
+
+// Sentiment Theme Charts
+function drawSentimentChart(canvasId, items, color) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 300;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 220;
+
+  const pad = {top:10, bottom:30, left:10, right:10};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 220 - pad.top - pad.bottom;
+  const barH = Math.min(28, ch2 / items.length * 0.7);
+  const gap = ch2 / items.length;
+  const max = items[0][1];
+
+  ctx.clearRect(0,0,w,220);
+
+  items.forEach((item, i) => {
+    const x = pad.left;
+    const y = pad.top + i*gap + (gap-barH)/2;
+    const w2 = (item[1]/max) * cw2;
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(x, y, w2, barH, 4) : ctx.rect(x, y, w2, barH);
+    ctx.fill();
+
+    ctx.fillStyle = '#e8edf2';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(item[0], x+8, y+barH/2+4);
+
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'right';
+    const sev = ['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐'][Math.min(4, Math.floor(item[2])-1)];
+    ctx.fillText(sev, x+cw2-4, y+barH/2+4);
+  });
+}
+
+// Price History
+function drawPriceHistory() {
+  const ctx = document.getElementById('priceHistoryChart').getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 400;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 200;
+
+  const points = [
+    {p:859.99,b:15000},{p:720.00,b:12000},{p:650.00,b:8000},
+    {p:580.00,b:5000},{p:520.00,b:3500},{p:459.99,b:3000},
+    {p:384.99,b:2000},{p:420.00,b:4000},{p:459.99,b:6815},
+  ];
+
+  const pad = {top:20, bottom:30, left:55, right:20};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 200 - pad.top - pad.bottom;
+  const minP = 350, maxP = 900;
+  const gap = cw2 / (points.length-1);
+
+  ctx.clearRect(0,0,w,200);
+
+  // Grid
+  ctx.strokeStyle = '#2a3a4e';
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top+ch2);
+  ctx.lineTo(pad.left+cw2, pad.top+ch2);
+  ctx.stroke();
+
+  // Price line
+  ctx.strokeStyle = '#4f9cf7';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  points.forEach((pt,i) => {
+    const x = pad.left + i*gap;
+    const y = pad.top + ch2 - ((pt.p-minP)/(maxP-minP))*ch2;
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // Fill under line
+  ctx.beginPath();
+  points.forEach((pt,i) => {
+    const x = pad.left + i*gap;
+    const y = pad.top + ch2 - ((pt.p-minP)/(maxP-minP))*ch2;
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.lineTo(pad.left+(points.length-1)*gap, pad.top+ch2);
+  ctx.lineTo(pad.left, pad.top+ch2);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(79,156,247,0.1)';
+  ctx.fill();
+
+  ctx.fillStyle = '#e8edf2';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('$859', pad.left, pad.top+6);
+  ctx.fillText('$385', pad.left+cw2, pad.top+ch2-2);
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '10px sans-serif';
+  ctx.fillText('时间 →', pad.left+cw2/2, pad.top+ch2+18);
+}
+
+// BSR History
+function drawBsrHistory() {
+  const ctx = document.getElementById('bsrHistoryChart').getContext('2d');
+  const w = ctx.canvas.parentElement.clientWidth || 400;
+  ctx.canvas.width = w;
+  ctx.canvas.height = 200;
+
+  const points = [
+    {b:498},{b:5000},{b:12000},{b:8000},
+    {b:3000},{b:15000},{b:20000},{b:23156},{b:6815},
+  ];
+
+  const pad = {top:20, bottom:30, left:55, right:20};
+  const cw2 = w - pad.left - pad.right;
+  const ch2 = 200 - pad.top - pad.bottom;
+  const minB = 0, maxB = 25000;
+  const gap = cw2 / (points.length-1);
+
+  ctx.clearRect(0,0,w,200);
+
+  ctx.strokeStyle = '#2a3a4e';
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top+ch2);
+  ctx.lineTo(pad.left+cw2, pad.top+ch2);
+  ctx.stroke();
+
+  ctx.strokeStyle = '#ff6b6b';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  points.forEach((pt,i) => {
+    const x = pad.left + i*gap;
+    const y = pad.top + ((pt.b-minB)/(maxB-minB))*ch2;
+    i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = '#e8edf2';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('BSR 498', pad.left, pad.top+10);
+  ctx.fillText('BSR 23,156', pad.left+cw2, pad.top+ch2-2);
+  ctx.fillStyle = '#8899aa';
+  ctx.font = '10px sans-serif';
+  ctx.fillText('时间 →', pad.left+cw2/2, pad.top+ch2+18);
+}
+
+// Call all draw functions
+drawBarChart('brandConcentrationChart',
+  ['Top3', 'Top5', 'Top10'],
+  [63.9, 76.8, 90.3],
+  ['#00d4aa', '#4f9cf7', '#ff6b6b'],
+  '品牌集中度 (%)'
+);
+
+drawRevenuePriceChart();
+drawNewProductChart();
+
+drawSentimentChart('positiveThemeChart', [
+  ['吸力强劲', 95, 5],
+  ['快速建图', 88, 4],
+  ['自清洁方便', 85, 5],
+  ['宠物友好', 78, 4],
+  ['App好用', 72, 3],
+  ['性价比高', 60, 3],
+], '#00d4aa');
+
+drawSentimentChart('negativeThemeChart', [
+  ['售后支持差', 95, 5],
+  ['毛发缠绕', 80, 4],
+  ['功能缩水', 65, 3],
+  ['8-12月故障', 60, 3],
+  ['客服响应慢', 55, 3],
+], '#ff6b6b');
+
+drawPriceHistory();
+drawBsrHistory();
+
+</script>
+
+</body>
+</html>

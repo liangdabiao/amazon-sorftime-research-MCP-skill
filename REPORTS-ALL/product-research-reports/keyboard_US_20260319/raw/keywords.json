@@ -1,0 +1,341 @@
+{
+  "keyboard": {
+    "关键词": "keyboard",
+    "周搜索量": "124885",
+    "周搜索排名": "299",
+    "月搜索量": "534713",
+    "推荐cpc竞价": "1.08",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "147920",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比21.43%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为36.67%/36.67%/46.67%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为66.67%/66.67%/66.67%,\r\n                    平均星级为0,\r\n                    平均评价数为4.47,\r\n                    做coupon促销产品数量/占比分别为8个 /8.42% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B01FV0F5HG",
+          "price": 29.18,
+          "title": "Amazon Basics Multipurpose Copy Printer Paper, 20 lb, 8.5 x 11 Inches, 5 Reams (2,500 Sheets), 92 Bright White",
+          "monthly_sales": "本产品月销量：348326（占比：76.99%）",
+          "brand": "Amazon Basics",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B01FV0F5HG?psc=1"
+        },
+        {
+          "asin": "B00MW8G3YU",
+          "price": 0.0,
+          "title": "Amazon Basics Leak-Proof Dog and Puppy Potty Training Pee Pads with Quick-Dry 5-Layer Super Absorbent Surface for Dog Training, Floor Protection, Regular Size 22x22', Blue & White, 50 Count",
+          "monthly_sales": "本产品月销量：261942（占比：57.89%）",
+          "brand": "Amazon Basics",
+          "seller": "N/A",
+          "url": "https://www.amazon.com/dp/B00MW8G3YU?psc=1"
+        },
+        {
+          "asin": "B00LH3DMUO",
+          "price": 11.64,
+          "title": "Amazon Basics AAA Long-Lasting Alkaline Batteries, 36-Count, 1.5 Volt, Reliable Performance, 10-Year Shelf Life, Emergency Storage",
+          "monthly_sales": "本产品月销量：229076（占比：50.63%）",
+          "brand": "Amazon Basics",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B00LH3DMUO?psc=1"
+        },
+        {
+          "asin": "B06ZY9LP74",
+          "price": 55.89,
+          "title": "HP 64 Black & Tri-Color Ink Cartridges Printers (Combo Pack) | Works with Printer Series: Inspire 7950e; Envy Photo 6200, 7100, 7800; Tango | Eligible for Instant Ink | X4D92AN",
+          "monthly_sales": "本产品月销量：97543（占比：21.56%）",
+          "brand": "HP",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B06ZY9LP74?psc=1"
+        },
+        {
+          "asin": "B0035LCFNQ",
+          "price": 21.75,
+          "title": "Duracell Coppertop AA Batteries with Power Boost Ingredients, 24 Count Pack Double A Battery with Long-lasting Power, Alkaline AA Battery for Household and Office Devices",
+          "monthly_sales": "本产品月销量：93338（占比：20.63%）",
+          "brand": "DURACELL",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0035LCFNQ?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Amazon Basics",
+          "product_count": "在统计样本中，产品数量:6",
+          "monthly_sales": "统计样本中本品牌月销量和：994462（占比：219.79%）"
+        },
+        {
+          "brand": "HP",
+          "product_count": "在统计样本中，产品数量:10",
+          "monthly_sales": "统计样本中本品牌月销量和：411999（占比：91.06%）"
+        },
+        {
+          "brand": "DURACELL",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：93338（占比：20.63%）"
+        },
+        {
+          "brand": "Anker",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：87691（占比：19.38%）"
+        },
+        {
+          "brand": "Hammermill",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：79862（占比：17.65%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:34",
+          "monthly_sales": "统计样本中本品牌月销量和：1760259（占比：389.05%）"
+        },
+        {
+          "seller": "N/A",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：261942（占比：57.89%）"
+        },
+        {
+          "seller": "AnkerDirect",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：119351（占比：26.38%）"
+        },
+        {
+          "seller": "Chen Ying Ke Ji",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：46817（占比：10.35%）"
+        },
+        {
+          "seller": "WolfBox Direct",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：34218（占比：7.56%）"
+        }
+      ]
+    }
+  },
+  "keyboards": {
+    "关键词": "keyboards",
+    "周搜索量": "13478",
+    "周搜索排名": "22656",
+    "月搜索量": "58515",
+    "推荐cpc竞价": "1.08",
+    "词搜索量旺季": "均衡",
+    "搜索结果竞品数量": "149625",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比26.09%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为4.17%/4.17%/8.33%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为0.00%/0.00%/0.00%,\r\n                    平均星级为0,\r\n                    平均评价数为4.50,\r\n                    做coupon促销产品数量/占比分别为2个 /3.85% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B004N627KS",
+          "price": 19.95,
+          "title": "Logitech K270 Wireless Keyboard for Windows, 2.4 GHz Wireless, Full-Size, Number Pad, 8 Multimedia Keys, 2-Year Battery Life, Compatible with PC, Laptop, Black",
+          "monthly_sales": "本产品月销量：32334（占比：8.20%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B004N627KS?psc=1"
+        },
+        {
+          "asin": "B0F36RKWDH",
+          "price": 19.99,
+          "title": "Logitech MK250 Bluetooth Wireless Mouse and Keyboard Combo: Fast & Easy Connectivity, Compact Wireless Keyboard, Ambidextrous Mouse, Durable Build - Windows/MacOS - Graphite",
+          "monthly_sales": "本产品月销量：17913（占比：4.54%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0F36RKWDH?psc=1"
+        },
+        {
+          "asin": "B00QXT5T3U",
+          "price": 33.99,
+          "title": "Logitech MK345 Wireless Keyboard and Mouse Combo with Palm Rest, 2.4 GHz USB Receiver, Compatible with PC, Laptop, Black",
+          "monthly_sales": "本产品月销量：12416（占比：3.15%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B00QXT5T3U?psc=1"
+        },
+        {
+          "asin": "B07WJ5D3H4",
+          "price": 11.7,
+          "title": "Amazon Basics Wired QWERTY Keyboard, Works with Windows, Plug and Play, Easy to Use with Media Control, Full-Sized, Black",
+          "monthly_sales": "本产品月销量：12001（占比：3.04%）",
+          "brand": "Amazon Basics",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B07WJ5D3H4?psc=1"
+        },
+        {
+          "asin": "B01AROOL12",
+          "price": 19.99,
+          "title": "Logitech MK235 Wireless Keyboard and Mouse Combo for Windows, 2.4 GHz Wireless Unifying USB Receiver, 15 FN Keys, Long Battery Life, Compatible with PC, Laptop",
+          "monthly_sales": "本产品月销量：11450（占比：2.90%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B01AROOL12?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Logitech",
+          "product_count": "在统计样本中，产品数量:20",
+          "monthly_sales": "统计样本中本品牌月销量和：182661（占比：46.30%）"
+        },
+        {
+          "brand": "AULA",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：23122（占比：5.86%）"
+        },
+        {
+          "brand": "Apple",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：13666（占比：3.46%）"
+        },
+        {
+          "brand": "Amazon Basics",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：12001（占比：3.04%）"
+        },
+        {
+          "brand": "RECCAZR",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：11364（占比：2.88%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:28",
+          "monthly_sales": "统计样本中本品牌月销量和：218062（占比：55.27%）"
+        },
+        {
+          "seller": "AULA MALL",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：13053（占比：3.31%）"
+        },
+        {
+          "seller": "Reccazr Direct",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：11364（占比：2.88%）"
+        },
+        {
+          "seller": "AULA Tech USA",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：10069（占比：2.55%）"
+        },
+        {
+          "seller": "DY US",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：7904（占比：2.00%）"
+        }
+      ]
+    }
+  },
+  "portable keyboard": {
+    "关键词": "portable keyboard",
+    "周搜索量": "5545",
+    "周搜索排名": "50144",
+    "月搜索量": "26702",
+    "推荐cpc竞价": "1.50",
+    "词搜索量旺季": "2月",
+    "搜索结果竞品数量": "2355",
+    "搜索结果首页统计": "近15日关键词搜索首页产品销量Top100数据报告：\r\n                    自然位非Best Seller Top100产品数量占比33.33%,\r\n                    自然位评价数低于100/300/500的产品数量占比分别为36.36%/45.45%/48.48%,\r\n                    广告位评价数低于100/300/500的产品数量占比分别为0.00%/100.00%/100.00%,\r\n                    平均星级为1,\r\n                    平均评价数为4.33,\r\n                    做coupon促销产品数量/占比分别为6个 /20.69% ",
+    "近15日前3页自然位销量Top100产品统计": {
+      "top5_product": [
+        {
+          "asin": "B004N627KS",
+          "price": 19.95,
+          "title": "Logitech K270 Wireless Keyboard for Windows, 2.4 GHz Wireless, Full-Size, Number Pad, 8 Multimedia Keys, 2-Year Battery Life, Compatible with PC, Laptop, Black",
+          "monthly_sales": "本产品月销量：32334（占比：25.97%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B004N627KS?psc=1"
+        },
+        {
+          "asin": "B0F36RKWDH",
+          "price": 19.99,
+          "title": "Logitech MK250 Bluetooth Wireless Mouse and Keyboard Combo: Fast & Easy Connectivity, Compact Wireless Keyboard, Ambidextrous Mouse, Durable Build - Windows/MacOS - Graphite",
+          "monthly_sales": "本产品月销量：17913（占比：14.39%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0F36RKWDH?psc=1"
+        },
+        {
+          "asin": "B07WJ5D3H4",
+          "price": 11.7,
+          "title": "Amazon Basics Wired QWERTY Keyboard, Works with Windows, Plug and Play, Easy to Use with Media Control, Full-Sized, Black",
+          "monthly_sales": "本产品月销量：12001（占比：9.64%）",
+          "brand": "Amazon Basics",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B07WJ5D3H4?psc=1"
+        },
+        {
+          "asin": "B0BKW3LB2B",
+          "price": 119.99,
+          "title": "Logitech MX Keys S Wireless Keyboard, Low Profile, Fluid Precise Quiet Typing, Programmable Keys, Backlighting, Bluetooth, USB C Rechargeable, for Windows PC, Linux, Chrome, Mac - Graphite",
+          "monthly_sales": "本产品月销量：9347（占比：7.51%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B0BKW3LB2B?psc=1"
+        },
+        {
+          "asin": "B014EUQOGK",
+          "price": 29.99,
+          "title": "Logitech K400 Plus Wireless Touch TV Keyboard with Easy Media Control and Built-in Touchpad, HTPC Keyboard for PC-Connected TV, Windows, Android, ChromeOS, Laptop, Tablet - Black",
+          "monthly_sales": "本产品月销量：7945（占比：6.38%）",
+          "brand": "Logitech",
+          "seller": "Amazon",
+          "url": "https://www.amazon.com/dp/B014EUQOGK?psc=1"
+        }
+      ],
+      "top5_brand": [
+        {
+          "brand": "Logitech",
+          "product_count": "在统计样本中，产品数量:8",
+          "monthly_sales": "统计样本中本品牌月销量和：85389（占比：68.59%）"
+        },
+        {
+          "brand": "Amazon Basics",
+          "product_count": "在统计样本中，产品数量:1",
+          "monthly_sales": "统计样本中本品牌月销量和：12001（占比：9.64%）"
+        },
+        {
+          "brand": "ProtoArc",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：10119（占比：8.13%）"
+        },
+        {
+          "brand": "Samsers",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：6219（占比：5.00%）"
+        },
+        {
+          "brand": "Arteck",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：4286（占比：3.44%）"
+        }
+      ],
+      "top5_seller": [
+        {
+          "seller": "Amazon",
+          "product_count": "在统计样本中，产品数量:15",
+          "monthly_sales": "统计样本中本品牌月销量和：112171（占比：90.11%）"
+        },
+        {
+          "seller": "ProtoArc",
+          "product_count": "在统计样本中，产品数量:5",
+          "monthly_sales": "统计样本中本品牌月销量和：10119（占比：8.13%）"
+        },
+        {
+          "seller": "Samsers",
+          "product_count": "在统计样本中，产品数量:4",
+          "monthly_sales": "统计样本中本品牌月销量和：6219（占比：5.00%）"
+        },
+        {
+          "seller": "Arteck",
+          "product_count": "在统计样本中，产品数量:3",
+          "monthly_sales": "统计样本中本品牌月销量和：3830（占比：3.08%）"
+        },
+        {
+          "seller": "TerraGrow-EU",
+          "product_count": "在统计样本中，产品数量:2",
+          "monthly_sales": "统计样本中本品牌月销量和：3103（占比：2.49%）"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "asin": "B0H2WX235T",
+    "asinUrl": "https://www.amazon.com/dp/B0H2WX235T?th=1",
+    "availableDate": null,
+    "brand": "Midea",
+    "brandUrl": "/stores/Makeyourselfathome/page/4F6A19CF-5B7B-4D5A-A739-6EA8B46D4560?lp_asin=B0G34M7C1M&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto",
+    "bsrId": "home-garden",
+    "bsrLabel": "Home & Kitchen",
+    "bsrRank": 1305,
+    "subcategories": [
+      {
+        "rank": 2,
+        "code": "3737721",
+        "label": "Window Air Conditioners"
+      }
+    ],
+    "createdTime": 1779836458000,
+    "dimensions": "21.97\"D x 19.17\"W x 13.46\"H",
+    "firstRatingDate": null,
+    "imageUrl": "https://m.media-amazon.com/images/I/41aC+tGtZpL._AC_SR200,200_.jpg",
+    "lqs": null,
+    "nodeId": 3737721,
+    "nodeIdPath": "1055398:3206324011:14554126011:3737721",
+    "nodeLabelPath": "Home & Kitchen:Heating, Cooling & Air Quality:Air Conditioners:Window",
+    "nodeLabelPathLocale": null,
+    "parent": "B0H2WX235T",
+    "price": null,
+    "primePrice": -1.0,
+    "deliveryPrice": -1.0,
+    "coupon": "",
+    "questions": null,
+    "rating": 4.5,
+    "ratings": 60,
+    "reviews": null,
+    "variantRatings": null,
+    "variantReviews": null,
+    "sellerId": "",
+    "sellerName": "Amazon.com",
+    "fulfillment": "AMZ",
+    "sellers": 2,
+    "marketplace": "US",
+    "title": "Midea 6,000 BTU U Shaped Smart Inverter Window Air Conditioner - Cools 250 Sq Ft, Ultra Quiet with Open Window Operation - Alexa/Google Assistant Compatible, 37% Energy Savings, Remote (2026 Edition)",
+    "updatedTime": 1779840670000,
+    "variations": 5,
+    "weight": "53.1 Pounds",
+    "zoomImageUrl": "https://m.media-amazon.com/images/I/41aC+tGtZpL._AC_SR600,600_.jpg",
+    "skuList": null,
+    "variationList": [
+      {
+        "asin": "B0G34M7C1M",
+        "attribute": "Style: 6,000 BTU (2026 Edition)"
+      },
+      {
+        "asin": "B0G34MR64D",
+        "attribute": "Style: 8,000 BTU (2026 Edition)"
+      },
+      {
+        "asin": "B0GL6LJFVM",
+        "attribute": "Style: 6,000 BTU (2026 Edition, Jet Black)"
+      },
+      {
+        "asin": "B0G34JL2ZS",
+        "attribute": "Style: 12,000 BTU (2026 Edition)"
+      },
+      {
+        "asin": "B0G34PP2JW",
+        "attribute": "Style: 10,000 BTU (2026 Edition)"
+      }
+    ],
+    "features": [
+      "ULTRA QUIET - The U-shape design of Midea U Smart Inverter AC uses your window to block noise outside. The highly-efficient inverter system warrants ultra-low noise and vibration, 9x quieter than traditional units with operation as low as 32 dBA.",
+      "MORE THAN 37% ENERGY SAVINGS - With the advanced DC Inverter technology, Midea U window air conditioner achieves over 37% energy savings compared to other traditional units. It is the first window AC to obtain the ENERGY STAR Certification.",
+      "SMART CONTROL - Midea U Smart Inverter air conditioner is Wi-Fi enabled and can be controlled from anywhere using the SmartHome app on iOS or Android. You can also use voice commands throughout your house, office, or apartment using Alexa or Google Assistant devices.",
+      "FLEXIBLE WINDOW OPENING - The U-shaped design allows your window to open, bringing fresh air into your home and maintaining more of your view when the window air conditioner is installed. When the window is closed, the Anti-Theft Mechanism locks the window for added safety.",
+      "ROBUST INSTALLATION - Install the included quick-snap bracket, set the air conditioner on the bracket, and secure the sidearms. Then you are all done and ready to enjoy. Available for single-hung or double-hung windows with width 22\"-36\", minimal height at 13.75\"."
+    ],
+    "overviews": "{\"Brand\":\"Midea\",\"Capacity\":\"0.5 Tons\",\"Cooling Power\":\"6000 British Thermal Units\",\"Special Feature\":\"Fast Cooling, Remote Controlled\",\"Product Dimensions\":\"21.97\\\"D x 19.17\\\"W x 13.46\\\"H\",\"Start year\":\"2026\",\"Seasonal Energy Efficiency Ratio (SEER)\":\"15.0\",\"Color\":\"White\",\"Voltage\":\"115 Volts\",\"Noise Level\":\"32 Decibels\"}",
+    "badge": {
+      "bestSeller": "N",
+      "amazonChoice": "N",
+      "newRelease": "N",
+      "ebc": "Y",
+      "video": "Y"
+    }
+  }
+}

@@ -1,0 +1,525 @@
+{
+  "metadata": {
+    "keyword": "cat food",
+    "site": "US",
+    "date": "20260319",
+    "node_id": "6514357011",
+    "category_name": "Canned Cat Food",
+    "collected_at": "2026-03-19T18:48:52.579359"
+  },
+  "files": {
+    "category_info": "raw/category_info.json",
+    "top100": "raw/top100.json",
+    "trend": "raw/trend.json",
+    "keywords": "raw/keywords.json",
+    "keyword_extends": null,
+    "potential_products": null,
+    "blue_ocean_categories": null
+  },
+  "status": "success",
+  "steps_completed": [
+    "category_search",
+    "top100",
+    "trend",
+    "keywords"
+  ],
+  "errors": [],
+  "market_overview": {
+    "top100_monthly_sales": 2063133,
+    "top100_monthly_revenue": 42459896,
+    "avg_price": 20.58030021331634,
+    "median_price": 19.97,
+    "top3_product_concentration": 0,
+    "top3_brand_concentration": 0.3998835751257917,
+    "top10_brand_concentration": 0.8465261328280823,
+    "amazon_share": 0,
+    "china_seller_share": 0,
+    "new_product_share": 0,
+    "keyword_monthly_search": 567383
+  },
+  "price_ranges": [
+    {
+      "range": "$0-30",
+      "count": 37,
+      "share": 0.7872958262991285,
+      "sales": 1624296.0
+    },
+    {
+      "range": "$30-60",
+      "count": 13,
+      "share": 0.21270417370087144,
+      "sales": 438837.0
+    }
+  ],
+  "product_types": [
+    {
+      "type": "湿粮罐头",
+      "count": 18,
+      "share": 0.36,
+      "avg_price": 23.5
+    },
+    {
+      "type": "干粮",
+      "count": 14,
+      "share": 0.28,
+      "avg_price": 22.8
+    },
+    {
+      "type": "零食/猫条",
+      "count": 10,
+      "share": 0.2,
+      "avg_price": 14.9
+    },
+    {
+      "type": "猫砂",
+      "count": 4,
+      "share": 0.08,
+      "avg_price": 28.5
+    },
+    {
+      "type": "营养补充剂",
+      "count": 2,
+      "share": 0.04,
+      "avg_price": 28.47
+    },
+    {
+      "type": "其他",
+      "count": 2,
+      "share": 0.04,
+      "avg_price": 10.5
+    }
+  ],
+  "dimensions_analysis": {
+    "产品形态": {
+      "湿粮": {
+        "count": 18,
+        "share": 0.36,
+        "avg_price": 23.5
+      },
+      "干粮": {
+        "count": 14,
+        "share": 0.28,
+        "avg_price": 22.8
+      },
+      "零食/猫条": {
+        "count": 10,
+        "share": 0.2,
+        "avg_price": 14.9
+      }
+    },
+    "功能定位": {
+      "通用款": {
+        "count": 30,
+        "share": 0.6
+      },
+      "室内猫": {
+        "count": 8,
+        "share": 0.16
+      },
+      "健康功能": {
+        "count": 6,
+        "share": 0.12
+      },
+      "幼猫专用": {
+        "count": 4,
+        "share": 0.08
+      },
+      "天然/无谷": {
+        "count": 2,
+        "share": 0.04
+      }
+    }
+  },
+  "cross_analysis": {
+    "price_type_matrix": [
+      {
+        "price_range": "$0-30",
+        "湿粮": 18,
+        "干粮": 9,
+        "零食": 10
+      },
+      {
+        "price_range": "$30-60",
+        "湿粮": 0,
+        "干粮": 5,
+        "零食": 0
+      }
+    ],
+    "opportunities": [
+      {
+        "combination": "天然/无谷 + 中价位",
+        "status": "空白",
+        "insight": "中价位天然无谷猫粮市场机会明显"
+      },
+      {
+        "combination": "干粮 + $0-30",
+        "status": "薄供给",
+        "insight": "低价位干粮市场供给不足"
+      }
+    ]
+  },
+  "top_brands": [
+    {
+      "brand": "Fancy Feast",
+      "sales": 372814,
+      "revenue": 18640700,
+      "count": 8
+    },
+    {
+      "brand": "Friskies",
+      "sales": 260961,
+      "revenue": 13048050,
+      "count": 8
+    },
+    {
+      "brand": "Temptations",
+      "sales": 191238,
+      "revenue": 9561900,
+      "count": 4
+    },
+    {
+      "brand": "Sheba",
+      "sales": 173604,
+      "revenue": 8680200,
+      "count": 3
+    },
+    {
+      "brand": "INABA",
+      "sales": 149089,
+      "revenue": 7454450,
+      "count": 2
+    },
+    {
+      "brand": "Purina ONE",
+      "sales": 137008,
+      "revenue": 6850400,
+      "count": 4
+    },
+    {
+      "brand": "IAMS",
+      "sales": 130913,
+      "revenue": 6545650,
+      "count": 3
+    },
+    {
+      "brand": "Hill’s Science Diet",
+      "sales": 118991,
+      "revenue": 5949550,
+      "count": 4
+    },
+    {
+      "brand": "Meow Mix",
+      "sales": 112482,
+      "revenue": 5624100,
+      "count": 2
+    },
+    {
+      "brand": "Blue Buffalo",
+      "sales": 99396,
+      "revenue": 4969800,
+      "count": 3
+    }
+  ],
+  "competitors": [
+    {
+      "asin": "",
+      "brand": "INABA",
+      "title": "INABA Churu Cat Treats, Lickable, Squeezable Creamy Purée Cat Treat with Green Tea Extract & Taurine, 0.5 Ounces Each Tube, 20 Tubes, Chicken Variety Box",
+      "price": 12.79,
+      "monthly_sales": 120231,
+      "reviews": 11357,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Sheba",
+      "title": "Sheba Perfect Portions Wet Cat Food Cuts in Gravy, Cat Food Wet Recipe, Roasted Chicken Entree, with Sustainable Salmon, Tender Turkey Entree, 2.6 oz. Twin-Pack Trays (24 Count, 48 Servings)",
+      "price": 23.38,
+      "monthly_sales": 90061,
+      "reviews": 20398,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Meow Mix",
+      "title": "Meow Mix Original Choice Dry Cat Food, 6.3 Pound Bag",
+      "price": 8.99,
+      "monthly_sales": 80841,
+      "reviews": 50576,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Temptations",
+      "title": "Temptations Cat Treats Classic Crunchy and Soft Cat Treats, Tasty Chicken Flavor, 30 oz. Tub",
+      "price": 15.48,
+      "monthly_sales": 75474,
+      "reviews": 70579,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Fancy Feast",
+      "title": "Purina Fancy Feast Gravy Lovers Poultry and Beef Grilled Gourmet Wet Cat Food Variety Pack - (Pack of 24) 3 oz. Cans",
+      "price": 22.86,
+      "monthly_sales": 70504,
+      "reviews": 54027,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Fancy Feast",
+      "title": "Purina Fancy Feast Grilled Wet Cat Food Seafood Collection in Wet Cat Food Variety Pack - (Pack of 24) 3 oz. Cans",
+      "price": 22.86,
+      "monthly_sales": 70263,
+      "reviews": 46307,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Fancy Feast",
+      "title": "Fancy Feast Poultry and Beef Feast Classic Pate Collection Grain Free Wet Cat Food Variety Pack - (Pack of 30) 3 oz. Cans",
+      "price": 28.06,
+      "monthly_sales": 65398,
+      "reviews": 10507,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Sheba",
+      "title": "Sheba Perfect Portions Wet Cat Food Pate with Sustainable Salmon, Signature Seafood Entree, and Tender White Fish and Tuna Entree Variety Pack, 2.6 oz. Twin Pack Trays (24 Count, 48 Servings)",
+      "price": 23.38,
+      "monthly_sales": 60269,
+      "reviews": 24500,
+      "rating": 4.6,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Temptations",
+      "title": "Temptations Creamy Puree Squeezable Lickable Cat Treats, Wet Cat Treats with Salmon and Chicken Variety Pack, 0.42 oz. Tubes, 16 Count",
+      "price": 8.98,
+      "monthly_sales": 58827,
+      "reviews": 22238,
+      "rating": 4.7,
+      "type": "竞品",
+      "launch_date": ""
+    },
+    {
+      "asin": "",
+      "brand": "Delectables",
+      "title": "Delectables Squeeze Up Variety Pack, Creamy Squeezable Puree, Lickable Wet Cat Treats, Grain Free, No Added Fillers, No by-Products, No Added Preservatives, 0.5 Ounces Tube, 20 Tubes Total",
+      "price": 11.62,
+      "monthly_sales": 58594,
+      "reviews": 21796,
+      "rating": 4.8,
+      "type": "竞品",
+      "launch_date": ""
+    }
+  ],
+  "voc_analysis": {
+    "dimensions": [
+      {
+        "dimension": "适口性",
+        "pain_point": "猫咪不喜欢吃，拒食",
+        "frequency": 18,
+        "percentage": "28%",
+        "affected_brands": [
+          "Meow Mix"
+        ],
+        "brand_opportunity": "使用真肉成分、天然肉味增强剂",
+        "product_solution": "添加天然肝脏粉、鱼油增强适口性"
+      },
+      {
+        "dimension": "包装问题",
+        "pain_point": "包装破损、未密封、洒漏",
+        "frequency": 14,
+        "percentage": "22%",
+        "affected_brands": [
+          "Meow Mix"
+        ],
+        "brand_opportunity": "加强包装质量控制",
+        "product_solution": "双层包装、真空密封"
+      },
+      {
+        "dimension": "品质/安全性",
+        "pain_point": "导致猫咪呕吐、过敏、健康问题",
+        "frequency": 12,
+        "percentage": "19%",
+        "affected_brands": [
+          "Meow Mix"
+        ],
+        "brand_opportunity": "严格品控，第三方检测",
+        "product_solution": "无添加配方、可追溯原料"
+      },
+      {
+        "dimension": "配方变化",
+        "pain_point": "配方改变导致猫咪不吃",
+        "frequency": 6,
+        "percentage": "9%",
+        "affected_brands": [
+          "Meow Mix"
+        ],
+        "brand_opportunity": "保持配方稳定",
+        "product_solution": "配方升级前公告"
+      },
+      {
+        "dimension": "保质期/新鲜度",
+        "pain_point": "产品陈旧、变质",
+        "frequency": 8,
+        "percentage": "13%",
+        "affected_brands": [
+          "Meow Mix"
+        ],
+        "brand_opportunity": "缩短保质期管理",
+        "product_solution": "生产日期标注"
+      }
+    ],
+    "summary": "主要痛点集中在适口性(28%)、包装问题(22%)、品质安全性(19%)和新鲜度(13%)。"
+  },
+  "barriers": [
+    {
+      "type": "Review壁垒",
+      "level": "高",
+      "data_anchor": "Top10均值20,000+评论",
+      "estimated_cost": "$50,000-$100,000",
+      "solution": "Vine Program + PPC"
+    },
+    {
+      "type": "品牌壁垒",
+      "level": "高",
+      "data_anchor": "Top10品牌集中度84.6%",
+      "estimated_cost": "$200,000+",
+      "solution": "差异化定位"
+    },
+    {
+      "type": "资金壁垒",
+      "level": "中",
+      "estimated_cost": "$50,000-$100,000",
+      "solution": "分阶段投入"
+    },
+    {
+      "type": "合规壁垒",
+      "level": "中",
+      "solution": "符合AAFCO标准"
+    },
+    {
+      "type": "供应链壁垒",
+      "level": "中",
+      "solution": "多供应商策略"
+    }
+  ],
+  "decision": {
+    "overall_score": 6.8,
+    "verdict": "谨慎进入",
+    "scores": [
+      {
+        "dimension": "市场规模",
+        "weight": 0.2,
+        "score": 9.0,
+        "weighted_score": 1.8,
+        "basis": "月销额$42.5M"
+      },
+      {
+        "dimension": "竞争格局",
+        "weight": 0.25,
+        "score": 4.0,
+        "weighted_score": 1.0,
+        "basis": "品牌集中度84.6%"
+      },
+      {
+        "dimension": "增长潜力",
+        "weight": 0.15,
+        "score": 6.0,
+        "weighted_score": 0.9,
+        "basis": "关键词月搜56万"
+      },
+      {
+        "dimension": "进入壁垒",
+        "weight": 0.2,
+        "score": 5.0,
+        "weighted_score": 1.0,
+        "basis": "Review/品牌壁垒高"
+      },
+      {
+        "dimension": "利润空间",
+        "weight": 0.2,
+        "score": 8.0,
+        "weighted_score": 1.6,
+        "basis": "平均价格$20.58"
+      }
+    ],
+    "准入条件": [
+      "明确差异化定位",
+      "Review预算$50,000+",
+      "避开主流品牌价格带",
+      "供应链质量保证"
+    ],
+    "禁止进入": [
+      "无差异化的通用湿粮",
+      "与主流品牌价格竞争",
+      "原料品质无法保证"
+    ],
+    "风险提示": [
+      "品牌集中度高",
+      "Review壁垒高",
+      "配方变化风险",
+      "包装问题频发"
+    ]
+  },
+  "trend_data": [
+    {
+      "date": "2024-03",
+      "value": 1.52
+    },
+    {
+      "date": "2024-04",
+      "value": 1.0
+    },
+    {
+      "date": "2024-05",
+      "value": 1.0
+    },
+    {
+      "date": "2025-02",
+      "value": 1.0
+    },
+    {
+      "date": "2025-03",
+      "value": 1.0
+    },
+    {
+      "date": "2025-05",
+      "value": 1.0
+    }
+  ],
+  "keywords": {
+    "cat food": {
+      "monthly_search": 567383,
+      "weekly_search": 131505,
+      "cpc": 5.62,
+      "competition_count": 154969
+    },
+    "cat foods": {
+      "monthly_search": 53,
+      "weekly_search": 9,
+      "cpc": 3.38,
+      "competition_count": 162513
+    }
+  }
+}
