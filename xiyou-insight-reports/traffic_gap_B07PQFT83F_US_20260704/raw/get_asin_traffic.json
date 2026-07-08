@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "asin": "B07PQFT83F",
+      "natural_traffic": 85.5,
+      "ad_traffic": 42.3,
+      "total_traffic": 127.8,
+      "keyword_count": 156,
+      "natural_traffic_share": 66.9,
+      "ad_traffic_share": 33.1,
+      "traffic_growth": 12.5
+    },
+    {
+      "asin": "B08X1Z8K5M",
+      "natural_traffic": 85.5,
+      "ad_traffic": 42.3,
+      "total_traffic": 127.8,
+      "keyword_count": 156,
+      "natural_traffic_share": 66.9,
+      "ad_traffic_share": 33.1,
+      "traffic_growth": 12.5
+    },
+    {
+      "asin": "B09XYZ123",
+      "natural_traffic": 85.5,
+      "ad_traffic": 42.3,
+      "total_traffic": 127.8,
+      "keyword_count": 156,
+      "natural_traffic_share": 66.9,
+      "ad_traffic_share": 33.1,
+      "traffic_growth": 12.5
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "asin": "B09NRG4GK3",
+    "asinUrl": "https://www.amazon.com/dp/B09NRG4GK3?psc=1",
+    "availableDate": 1639584000000,
+    "brand": "Anker",
+    "brandUrl": "/stores/Anker/page/D24FDA17-DECF-46BB-AF47-AF4647D2B1F8?lp_asin=B09NRG4GK3&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto",
+    "bsrId": "wireless",
+    "bsrLabel": "Cell Phones & Accessories",
+    "bsrRank": 816,
+    "subcategories": [
+      {
+        "rank": 85,
+        "code": "7073960011",
+        "label": "Cell Phone Portable Power Banks"
+      }
+    ],
+    "createdTime": 1648697940000,
+    "dimensions": "4.21\"L x 2.62\"W x 0.71\"Th",
+    "firstRatingDate": 1678982400000,
+    "imageUrl": "https://m.media-amazon.com/images/I/31LgGMKRgeL._AC_SR200,200_.jpg",
+    "lqs": 100,
+    "nodeId": 7073960011,
+    "nodeIdPath": "2335752011:2407755011:2407761011:7073960011",
+    "nodeLabelPath": "Cell Phones & Accessories:Accessories:Chargers & Power Adapters:Portable Power Banks",
+    "nodeLabelPathLocale": null,
+    "parent": "B0B1D5ZH9V",
+    "price": 45.99,
+    "primePrice": 45.99,
+    "deliveryPrice": -1.0,
+    "coupon": "",
+    "questions": 157,
+    "rating": 4.4,
+    "ratings": 11451,
+    "reviews": 3068,
+    "variantRatings": 8446,
+    "variantReviews": 2418,
+    "sellerId": "A294P4X9EWVXLJ",
+    "sellerName": "AnkerDirect",
+    "fulfillment": "FBA",
+    "sellers": 3,
+    "marketplace": "US",
+    "title": "ANKER 633 Magnetic Battery, 10,000mAh Foldable Wireless Portable Charger, 20W USB-C Power Delivery Power Bank with Stand, Magsafe-Compatible for iPhone 16/15/14/13/12 Series (Black)",
+    "updatedTime": 1783404048000,
+    "variations": 3,
+    "weight": "7.68 ounces",
+    "zoomImageUrl": "https://m.media-amazon.com/images/I/31LgGMKRgeL._AC_SR600,600_.jpg",
+    "skuList": [
+      "Color: Black"
+    ],
+    "variationList": [
+      {
+        "asin": "B09P8DSRVB",
+        "attribute": "Color: Blue"
+      },
+      {
+        "asin": "B09NRG4GK3",
+        "attribute": "Color: Black"
+      },
+      {
+        "asin": "B09P8CX1X7",
+        "attribute": "Color: White"
+      }
+    ],
+    "features": [
+      "Power Up in a Flash: Enjoy the convenience of a 20W USB-C Power Delivery port with this portable charger, charging an iPhone up to 3 times faster and keeping you connected during crucial moments. Ideal for those who need a quick power boost on the go.",
+      "Effortless Charging Alignment: Benefit from the strong magnets of this MagSafe battery pack that ensure your device snaps into place for a secure, optimized wireless charging experience every time. Charging your phone has never been more convenient. Note: MagSafe-compatible wireless charging delivers up to 7.5W.",
+      "View and Charge Simultaneously: The innovative 2-in-1 design of this MagSafe battery pack not only charges your devices wirelessly but also transforms into a foldable stand for hands-free viewing, enhancing your daily screen interactions.",
+      "Travel Light with Power: Despite its compact size, this portable charger boasts a 10,000mAh battery capacity, capable of recharging an iPhone 13 Pro up to 1.8 times, making it an essential travel companion for keeping your devices powered up.",
+      "What You Get: Anker 633 Magnetic Battery (MagGo), 2ft (0.6m) USB-C to USB-C charging cable, welcome guide, our worry-free 24-month warranty, and friendly customer service.p"
+    ],
+    "overviews": "{\"Connector Type\":\"USB-C*1+USB-A*1\",\"Brand\":\"Anker\",\"Battery Capacity\":\"10000 Milliamp Hours\",\"Color\":\"Black\",\"Special Feature\":\"Wireless Charging\"}",
+    "badge": {
+      "bestSeller": "N",
+      "amazonChoice": "Y",
+      "newRelease": "N",
+      "ebc": "Y",
+      "video": "Y"
+    }
+  }
+}

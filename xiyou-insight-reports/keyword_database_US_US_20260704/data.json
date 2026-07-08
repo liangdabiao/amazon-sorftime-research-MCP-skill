@@ -1,0 +1,232 @@
+{
+  "title": "关键词库搭建 - US",
+  "target": "US",
+  "site": "US",
+  "scenario": "关键词库",
+  "asin_info": {
+    "B07PQFT83F": {
+      "title": "Wireless Bluetooth Headphones B07P with Noise Cancelling",
+      "price": "59.99",
+      "stars": 4.5,
+      "ratings": 12580
+    },
+    "B08X1Z8K5M": {
+      "title": "Wireless Bluetooth Headphones B08X with Noise Cancelling",
+      "price": "59.99",
+      "stars": 4.5,
+      "ratings": 12580
+    }
+  },
+  "keyword_competition": {
+    "bluetooth headphones": [
+      {
+        "asin": "B0XXXXXXXX1",
+        "title": "Competitor A - Premium Headphones",
+        "price": "79.99",
+        "stars": 4.7,
+        "natural_rank": 1,
+        "ad_rank": 1,
+        "traffic": 25000,
+        "traffic_share": "40%"
+      },
+      {
+        "asin": "B0XXXXXXXX2",
+        "title": "Competitor B - Wireless Pro",
+        "price": "69.99",
+        "stars": 4.6,
+        "natural_rank": 2,
+        "ad_rank": 2,
+        "traffic": 18000,
+        "traffic_share": "28%"
+      },
+      {
+        "asin": "B07PQFT83F",
+        "title": "Target Product",
+        "price": "59.99",
+        "stars": 4.5,
+        "natural_rank": 3,
+        "ad_rank": 3,
+        "traffic": 15000,
+        "traffic_share": "24%"
+      }
+    ],
+    "wireless headphones": [
+      {
+        "asin": "B0XXXXXXXX1",
+        "title": "Competitor A - Premium Headphones",
+        "price": "79.99",
+        "stars": 4.7,
+        "natural_rank": 1,
+        "ad_rank": 1,
+        "traffic": 25000,
+        "traffic_share": "40%"
+      },
+      {
+        "asin": "B0XXXXXXXX2",
+        "title": "Competitor B - Wireless Pro",
+        "price": "69.99",
+        "stars": 4.6,
+        "natural_rank": 2,
+        "ad_rank": 2,
+        "traffic": 18000,
+        "traffic_share": "28%"
+      },
+      {
+        "asin": "B07PQFT83F",
+        "title": "Target Product",
+        "price": "59.99",
+        "stars": 4.5,
+        "natural_rank": 3,
+        "ad_rank": 3,
+        "traffic": 15000,
+        "traffic_share": "24%"
+      }
+    ]
+  },
+  "all_keywords": [
+    {
+      "keyword": "bluetooth headphones",
+      "natural_rank": 3,
+      "ad_rank": 2,
+      "traffic": 15000,
+      "traffic_share": "25%",
+      "search_volume": 500000,
+      "competitive_difficulty": 75,
+      "cpc": 2.5,
+      "weekly_search_volume": 500000,
+      "search_frequency_rank": 50,
+      "click_conversion_rate": 8.5,
+      "natural_scroll_rate": 12,
+      "competition_count": 3
+    },
+    {
+      "keyword": "wireless headphones",
+      "natural_rank": 5,
+      "ad_rank": 3,
+      "traffic": 12000,
+      "traffic_share": "20%",
+      "search_volume": 450000,
+      "competitive_difficulty": 70,
+      "cpc": 2.0,
+      "weekly_search_volume": 300000,
+      "search_frequency_rank": 100,
+      "click_conversion_rate": 8.5,
+      "natural_scroll_rate": 12,
+      "competition_count": 3
+    },
+    {
+      "keyword": "noise cancelling headphones",
+      "natural_rank": 8,
+      "ad_rank": 5,
+      "traffic": 8000,
+      "traffic_share": "13%",
+      "search_volume": 300000,
+      "competitive_difficulty": 78,
+      "cpc": 2.8
+    },
+    {
+      "keyword": "bluetooth earbuds",
+      "natural_rank": 12,
+      "ad_rank": 8,
+      "traffic": 5000,
+      "traffic_share": "8%",
+      "search_volume": 280000,
+      "competitive_difficulty": 70,
+      "cpc": 2.1
+    },
+    {
+      "keyword": "wireless earbuds",
+      "natural_rank": 15,
+      "ad_rank": 10,
+      "traffic": 4000,
+      "traffic_share": "7%",
+      "search_volume": 250000,
+      "competitive_difficulty": 68,
+      "cpc": 1.9
+    }
+  ],
+  "categorized_keywords": {
+    "强相关": [],
+    "高相关": [],
+    "中相关": [
+      {
+        "keyword": "wireless headphones",
+        "natural_rank": 5,
+        "ad_rank": 3,
+        "traffic": 12000,
+        "traffic_share": "20%",
+        "search_volume": 450000,
+        "competitive_difficulty": 70,
+        "cpc": 2.0,
+        "weekly_search_volume": 300000,
+        "search_frequency_rank": 100,
+        "click_conversion_rate": 8.5,
+        "natural_scroll_rate": 12,
+        "competition_count": 3
+      },
+      {
+        "keyword": "bluetooth earbuds",
+        "natural_rank": 12,
+        "ad_rank": 8,
+        "traffic": 5000,
+        "traffic_share": "8%",
+        "search_volume": 280000,
+        "competitive_difficulty": 70,
+        "cpc": 2.1
+      },
+      {
+        "keyword": "wireless earbuds",
+        "natural_rank": 15,
+        "ad_rank": 10,
+        "traffic": 4000,
+        "traffic_share": "7%",
+        "search_volume": 250000,
+        "competitive_difficulty": 68,
+        "cpc": 1.9
+      }
+    ],
+    "低相关": [
+      {
+        "keyword": "bluetooth headphones",
+        "natural_rank": 3,
+        "ad_rank": 2,
+        "traffic": 15000,
+        "traffic_share": "25%",
+        "search_volume": 500000,
+        "competitive_difficulty": 75,
+        "cpc": 2.5,
+        "weekly_search_volume": 500000,
+        "search_frequency_rank": 50,
+        "click_conversion_rate": 8.5,
+        "natural_scroll_rate": 12,
+        "competition_count": 3
+      },
+      {
+        "keyword": "noise cancelling headphones",
+        "natural_rank": 8,
+        "ad_rank": 5,
+        "traffic": 8000,
+        "traffic_share": "13%",
+        "search_volume": 300000,
+        "competitive_difficulty": 78,
+        "cpc": 2.8
+      }
+    ],
+    "极低相关": []
+  },
+  "keyword_stats": {
+    "total": 5,
+    "强相关": 0,
+    "高相关": 0,
+    "中相关": 3,
+    "低相关": 2,
+    "极低相关": 0
+  },
+  "negative_keywords": [],
+  "insights": [
+    "共收集并去重5个关键词",
+    "建议补充更多高相关度关键词",
+    "中相关关键词：3个",
+    "低相关关键词：2个"
+  ]
+}

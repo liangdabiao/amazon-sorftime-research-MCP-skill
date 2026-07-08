@@ -1,0 +1,90 @@
+{
+  "data": {
+    "trends": [
+      {
+        "date": "2026-06-21",
+        "natural_traffic": 50,
+        "ad_traffic": 30,
+        "total_traffic": 80
+      },
+      {
+        "date": "2026-06-22",
+        "natural_traffic": 52,
+        "ad_traffic": 31,
+        "total_traffic": 83
+      },
+      {
+        "date": "2026-06-23",
+        "natural_traffic": 54,
+        "ad_traffic": 32,
+        "total_traffic": 86
+      },
+      {
+        "date": "2026-06-24",
+        "natural_traffic": 56,
+        "ad_traffic": 33,
+        "total_traffic": 89
+      },
+      {
+        "date": "2026-06-25",
+        "natural_traffic": 58,
+        "ad_traffic": 34,
+        "total_traffic": 92
+      },
+      {
+        "date": "2026-06-26",
+        "natural_traffic": 60,
+        "ad_traffic": 35,
+        "total_traffic": 95
+      },
+      {
+        "date": "2026-06-27",
+        "natural_traffic": 62,
+        "ad_traffic": 36,
+        "total_traffic": 98
+      },
+      {
+        "date": "2026-06-28",
+        "natural_traffic": 64,
+        "ad_traffic": 37,
+        "total_traffic": 101
+      },
+      {
+        "date": "2026-06-29",
+        "natural_traffic": 66,
+        "ad_traffic": 38,
+        "total_traffic": 104
+      },
+      {
+        "date": "2026-06-30",
+        "natural_traffic": 68,
+        "ad_traffic": 39,
+        "total_traffic": 107
+      },
+      {
+        "date": "2026-07-01",
+        "natural_traffic": 70,
+        "ad_traffic": 40,
+        "total_traffic": 110
+      },
+      {
+        "date": "2026-07-02",
+        "natural_traffic": 72,
+        "ad_traffic": 41,
+        "total_traffic": 113
+      },
+      {
+        "date": "2026-07-03",
+        "natural_traffic": 74,
+        "ad_traffic": 42,
+        "total_traffic": 116
+      },
+      {
+        "date": "2026-07-04",
+        "natural_traffic": 76,
+        "ad_traffic": 43,
+        "total_traffic": 119
+      }
+    ]
+  }
+}

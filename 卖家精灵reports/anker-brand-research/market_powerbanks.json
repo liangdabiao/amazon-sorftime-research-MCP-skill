@@ -1,0 +1,167 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": {
+    "guestId": null,
+    "pages": 1,
+    "page": 1,
+    "size": 50,
+    "total": 1,
+    "took": 0,
+    "url": null,
+    "order": {
+      "field": "",
+      "desc": true
+    },
+    "items": [
+      {
+        "marketplace": "US",
+        "currency": "USD",
+        "nodeId": 7073960011,
+        "nodeLabelName": "Portable Power Banks",
+        "nodeIdPath": "2335752011:2407755011:2407761011:7073960011",
+        "nodeLabelPath": "Cell Phones & Accessories:Accessories:Chargers & Power Adapters:Portable Power Banks",
+        "nodeLabelLocale": "便携式电源箱",
+        "nodeLabelPathLocale": "手机:辅料:充电器:便携式电源箱",
+        "top10Images": [
+          {
+            "asin": "B0CB1FW5FC",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71gH0eRJcFL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0CZ9M6X8Q",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61wj4AVKTGL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0BMW2985V",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61rM8I9EK7L._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0CSW947RH",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61LRFwys3NL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0BL7P8K16",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71Rr0I3ExyL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0FB2SDTB9",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61qMCWoFtcL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0F8HXYD46",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61vP1lfNnjL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0DWHDM15Q",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81aQgHOW20L._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0CXDXP8VR",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61jWG2JyYNL._AC_US200_.jpg"
+          },
+          {
+            "asin": "B0D7DKJ75M",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/618crocn6IL._AC_US200_.jpg"
+          }
+        ],
+        "totalProducts": 1753,
+        "ranking": 1,
+        "topProducts": 100,
+        "brands": 44,
+        "sellers": 56,
+        "totalUnits": 1615860,
+        "totalRevenue": 54900586.46,
+        "avgUnits": 16158,
+        "avgRevenue": 549006.0,
+        "avgPrice": 35.21,
+        "avgRatings": 6041,
+        "avgRating": 4.4,
+        "avgBsr": 2411,
+        "baseAvgVolume": 202.97,
+        "avgVolume": 12.39,
+        "baseAvgWeight": 246.0,
+        "avgWeight": 0.5423,
+        "avgProfit": 76.14,
+        "avgSellers": 2.2,
+        "ebcProportion": 98.0,
+        "amazonSelfProportion": 5.0,
+        "fbaProportion": 81.0,
+        "fbmProportion": 0.0,
+        "sellerNation": "CN",
+        "sellerNationLabel": "中国",
+        "sellerProportion": 68.0,
+        "returnRatio": 4.7994,
+        "avgReturnRatio": 4.7989,
+        "searchToPurchaseRatio": 10.14393,
+        "top3ProductSales": 222185,
+        "top3BrandSales": 632831,
+        "top3SellerSales": 609021,
+        "top3ProductRevenue": 5443495.13,
+        "top3BrandRevenue": 25961073.33,
+        "top3SellerRevenue": 25763226.7,
+        "top3ProductCrn": 0.1375,
+        "top3BrandCrn": 0.3916,
+        "top3SellerCrn": 0.3769,
+        "top5ProductSales": 319699,
+        "top5BrandSales": 818695,
+        "top5SellerSales": 765604,
+        "top5ProductRevenue": 7473449.94,
+        "top5BrandRevenue": 30407216.92,
+        "top5SellerRevenue": 29464766.39,
+        "top5ProductCrn": 0.1979,
+        "top5BrandCrn": 0.5067,
+        "top5SellerCrn": 0.4738,
+        "top10ProductSales": 484468,
+        "top10BrandSales": 1058591,
+        "top10SellerSales": 974397,
+        "top10ProductRevenue": 16888994.88,
+        "top10BrandRevenue": 35752666.2,
+        "top10SellerRevenue": 34179065.45,
+        "top10ProductCrn": 0.2998,
+        "top10BrandCrn": 0.6551,
+        "top10SellerCrn": 0.603,
+        "top20ProductSales": 743556,
+        "top20BrandSales": 1346631,
+        "top20SellerSales": 1236227,
+        "top20ProductRevenue": 26314904.97,
+        "top20BrandRevenue": 46858281.3,
+        "top20SellerRevenue": 43620544.52,
+        "top20ProductCrn": 0.4602,
+        "top20BrandCrn": 0.8334,
+        "top20SellerCrn": 0.7651,
+        "l1NewRatio": 0.0,
+        "l1NewCount": 0,
+        "l1NewAvgPrice": 0.0,
+        "l1NewAvgReviews": 0,
+        "l1NewAvgRating": 0.0,
+        "l1NewAvgSales": 0,
+        "l1NewAvgRevenue": 0.0,
+        "l3NewRatio": 0.1,
+        "l3NewCount": 10,
+        "l3NewAvgPrice": 29.06,
+        "l3NewAvgReviews": 16924,
+        "l3NewAvgRating": 4.3,
+        "l3NewAvgSales": 9670,
+        "l3NewAvgRevenue": 224306.91,
+        "l6NewRatio": 0.22,
+        "l6NewCount": 22,
+        "l6NewAvgPrice": 28.11,
+        "l6NewAvgReviews": 8913,
+        "l6NewAvgRating": 4.4,
+        "l6NewAvgSales": 10493,
+        "l6NewAvgRevenue": 264276.54,
+        "l12NewRatio": 0.43,
+        "l12NewCount": 43,
+        "l12NewAvgPrice": 33.22,
+        "l12NewAvgReviews": 5208,
+        "l12NewAvgRating": 4.4,
+        "l12NewAvgSales": 12589,
+        "l12NewAvgRevenue": 426979.74
+      }
+    ],
+    "terminal": null,
+    "hasNextPage": null,
+    "guestVisited": false
+  }
+}

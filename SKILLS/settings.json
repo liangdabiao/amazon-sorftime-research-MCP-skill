@@ -1,0 +1,19 @@
+{
+  "env000": {
+    "ANTHROPIC_AUTH_TOKEN": "912958a7-3172-4e8e-b9b0-a1441f00d631",
+    "ANTHROPIC_BASE_URL": "https://ark.cn-beijing.volces.com/api/coding",
+    "ANTHROPIC_MODEL": "ark-code-latest"
+  },
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://tokenhub.tencentmaas.com",
+    "ANTHROPIC_AUTH_TOKEN": "sk-9ahA6dEXUrkUvVKYy39awDeH1GcGY2FGqYKA0W2WEY2XlkA5",
+    "ANTHROPIC_MODEL": "deepseek-v4-flash-202605",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-flash-202605",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-flash-202605",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash-202605",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash-202605",
+    "ENABLE_TOOL_SEARCH": false
+  }
+    
+  
+}

@@ -1,0 +1,126 @@
+{
+  "data": {
+    "hours": [
+      {
+        "hour": 0,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 1,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 2,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 3,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 4,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 5,
+        "natural_rank": 5,
+        "ad_rank": 2
+      },
+      {
+        "hour": 6,
+        "natural_rank": 6,
+        "ad_rank": 2
+      },
+      {
+        "hour": 7,
+        "natural_rank": 6,
+        "ad_rank": 2
+      },
+      {
+        "hour": 8,
+        "natural_rank": 6,
+        "ad_rank": 3
+      },
+      {
+        "hour": 9,
+        "natural_rank": 6,
+        "ad_rank": 3
+      },
+      {
+        "hour": 10,
+        "natural_rank": 6,
+        "ad_rank": 3
+      },
+      {
+        "hour": 11,
+        "natural_rank": 6,
+        "ad_rank": 3
+      },
+      {
+        "hour": 12,
+        "natural_rank": 7,
+        "ad_rank": 3
+      },
+      {
+        "hour": 13,
+        "natural_rank": 7,
+        "ad_rank": 3
+      },
+      {
+        "hour": 14,
+        "natural_rank": 7,
+        "ad_rank": 3
+      },
+      {
+        "hour": 15,
+        "natural_rank": 7,
+        "ad_rank": 3
+      },
+      {
+        "hour": 16,
+        "natural_rank": 7,
+        "ad_rank": 4
+      },
+      {
+        "hour": 17,
+        "natural_rank": 7,
+        "ad_rank": 4
+      },
+      {
+        "hour": 18,
+        "natural_rank": 8,
+        "ad_rank": 4
+      },
+      {
+        "hour": 19,
+        "natural_rank": 8,
+        "ad_rank": 4
+      },
+      {
+        "hour": 20,
+        "natural_rank": 8,
+        "ad_rank": 4
+      },
+      {
+        "hour": 21,
+        "natural_rank": 8,
+        "ad_rank": 4
+      },
+      {
+        "hour": 22,
+        "natural_rank": 8,
+        "ad_rank": 4
+      },
+      {
+        "hour": 23,
+        "natural_rank": 8,
+        "ad_rank": 4
+      }
+    ]
+  }
+}

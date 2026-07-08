@@ -1,0 +1,36 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": [
+    {
+      "label": "FBM",
+      "asinNum": 3,
+      "asinRatio": 0.3,
+      "units": 12023,
+      "unitsRatio": 0.082,
+      "ratings": 453,
+      "rating": 4.2,
+      "productNum": 3
+    },
+    {
+      "label": "FBA",
+      "asinNum": 1,
+      "asinRatio": 0.1,
+      "units": 3286,
+      "unitsRatio": 0.0224,
+      "ratings": 348,
+      "rating": 4.1,
+      "productNum": 1
+    },
+    {
+      "label": "Amazon自营",
+      "asinNum": 6,
+      "asinRatio": 0.6,
+      "units": 131370,
+      "unitsRatio": 0.8956,
+      "ratings": 5293,
+      "rating": 4.2,
+      "productNum": 6
+    }
+  ]
+}

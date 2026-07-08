@@ -1,0 +1,169 @@
+{
+  "code": "OK",
+  "message": "成功",
+  "data": [
+    {
+      "label": "2.0以下",
+      "asins": [
+        "B0GWCC3GCS"
+      ],
+      "products": 1,
+      "units": 573,
+      "revenue": 412554.25,
+      "unitsRatio": 0.0024
+    },
+    {
+      "label": "2.0-3.0",
+      "asins": [
+        "B0GMVTJ2L1",
+        "B0H696YS6J",
+        "B0GX5334WB",
+        "B0GXWP3Q1Z"
+      ],
+      "products": 4,
+      "units": 3237,
+      "revenue": 825911.03,
+      "unitsRatio": 0.0138
+    },
+    {
+      "label": "3.0-3.5",
+      "asins": [
+        "B094X3BMJ3",
+        "B09HF5VMV6",
+        "B0CKZWMWYB"
+      ],
+      "products": 3,
+      "units": 5960,
+      "revenue": 2194055.0,
+      "unitsRatio": 0.0255
+    },
+    {
+      "label": "3.5-4.0",
+      "asins": [
+        "B0DT299GRK",
+        "B0H14PLKBC",
+        "B0CL12Q3VG",
+        "B0CRK2CTB5",
+        "B0GWC3SBZV",
+        "B08NTZQ6ZF",
+        "B0C5Y12WGK",
+        "B0GR9BR94V",
+        "B0H2YF1VLM",
+        "B0C5Y1DCXF",
+        "B0G3X89V27",
+        "B0BM58VLQ1",
+        "B0FHBLRYGG",
+        "B0DKJP5XDF",
+        "B0GQJ1R1XY",
+        "B0FHM3VQZK",
+        "B0DK621W96",
+        "B0CZ8FY7BV",
+        "B0GHN131TL",
+        "B0GR4R8QCX",
+        "B0D92NL47P",
+        "B0FF52BH9K",
+        "B0DXDVZXH2",
+        "B0CFYFMZCP"
+      ],
+      "products": 24,
+      "units": 25302,
+      "revenue": 6962410.45,
+      "unitsRatio": 0.1081
+    },
+    {
+      "label": "4.0-4.3",
+      "asins": [
+        "B0GSGG3HYN",
+        "B0GSFMFLQ9",
+        "B0F79TJ3FZ",
+        "B0GWCN72M2",
+        "B0GYNX4577",
+        "B09WB5TZ7Q",
+        "B00V80M7C0",
+        "B0GXTBTB9T",
+        "B08YJSKDSZ",
+        "B09TM28Q98",
+        "B0CWL5BX8V",
+        "B0GWCYLYH6",
+        "B0D2PG3RZT",
+        "B0BM58H4X6",
+        "B0GHZ879LX",
+        "B06XFVQFP9",
+        "B0CL1DJPZ8",
+        "B0BJ7VB6YH",
+        "B0BZ43XHGM",
+        "B0GX1F843F",
+        "B0FFJZ86RF",
+        "B0FDQHJ46H",
+        "B0CZ4JL8PM",
+        "B0BM57LB4B",
+        "B0CQ8TYRNY",
+        "B0CFYDPB1S",
+        "B0DK63CLPV"
+      ],
+      "products": 27,
+      "units": 54229,
+      "revenue": 14088642.05,
+      "unitsRatio": 0.2317
+    },
+    {
+      "label": "4.3-4.5",
+      "asins": [
+        "B0GQLG6CL2",
+        "B0FHPYCP66",
+        "B07RGM11L5",
+        "B0FDQF4XPL",
+        "B08T9HB4TL",
+        "B0GFD641HV",
+        "B0G52NZH54",
+        "B0GQLS9W27",
+        "B0GL66WRYX",
+        "B085797ZFF",
+        "B0GT82WKZT",
+        "B0F5QGRZQF",
+        "B0GVDR4HF4",
+        "B0GSYZJ5MR",
+        "B0CFYG7H9Z",
+        "B0CQ2DXC88",
+        "B0FF92SCY6",
+        "B0GGH9ZCXM",
+        "B0DFZN9BYP",
+        "B0GQYFC3KD",
+        "B0DKJK1JQ1",
+        "B0DKJPNDBD",
+        "B0GT8WGC88",
+        "B0GH7MDLCX",
+        "B0GLYXKH7M",
+        "B0FGXGSF18",
+        "B0FDGXYM8X",
+        "B0GQCFVXFY",
+        "B0GN2M1VRY",
+        "B0CY2GZLVG",
+        "B0DFZS2JNG",
+        "B0FHM4HZJF"
+      ],
+      "products": 32,
+      "units": 113334,
+      "revenue": 23943443.21,
+      "unitsRatio": 0.4842
+    },
+    {
+      "label": "4.5以上",
+      "asins": [
+        "B0H2VRPFJJ",
+        "B0GG9WFXSK",
+        "B0GS89N7YY",
+        "B0G34JL2ZS",
+        "B0GMW82W2Y",
+        "B0GQ4YZ95P",
+        "B0GX5C4KLQ",
+        "B0D9KPQ22L",
+        "B0H394VXK8"
+      ],
+      "products": 9,
+      "units": 31407,
+      "revenue": 14028007.57,
+      "unitsRatio": 0.1342
+    }
+  ]
+}
