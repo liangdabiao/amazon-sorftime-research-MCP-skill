@@ -1,6 +1,6 @@
 # Amazon Sorftime MCP Skills - 亚马逊竞品分析与品类选品工具
 
-基于 Sorftime，Sif，卖家精灵，西柚等MCP 服务和 Claude Skills 的亚马逊分析工具集。
+基于 Sorftime，Sif，卖家精灵，西柚等MCP 服务和 Agent Skills 的亚马逊分析工具集。
 
 感谢大家支持项目，其实我开发了100个skill给大家了： https://agents.liangdabiao.com/
 
