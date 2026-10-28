@@ -4,6 +4,8 @@
 
 感谢大家支持项目，其实我开发了100个skill给大家了： https://agents.liangdabiao.com/
 
+如果没有key， 也可以试试我这个： https://github.com/liangdabiao/Amazon-Skills-Liang 
+
 ## 项目简介
 
 本项目配置了 Sorftime、Sif、西柚洞察、卖家精灵等跨境电商数据服务的 MCP (Model Context Protocol) 服务器，并开发了九个核心技能：
