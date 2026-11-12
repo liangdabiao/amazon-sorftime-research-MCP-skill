@@ -1,6 +1,6 @@
 # Amazon Listing Builder Skill
 
-> **AI 驱动的亚马逊爆款 Listing 打造助手** — 基于 Cosmo 语义算法 + Alexa/Rufus 对话式购物趋势，通过"先分析、再生成、最后校验"的工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"。
+> **AI 驱动的亚马逊爆款 Listing 打造助手** — 基于 Cosmo 语义算法 + Alexa/Rufus 对话式购物趋势，通过"先分析、再生成、最后校验"的工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"。已适配 **2026-07-27 美国站标题新规**：Item Name（≤75 字符）+ Item Highlights 商品亮点（≤125 字符）双字段结构。
 
 ---
 
@@ -25,7 +25,7 @@
 - **关键词分层词库** — 把关键词按 5 层（核心/功能/场景/问题/规格）组织，决定每个词放哪里
 - **用户问题库** — 从评论、QA、客服、Reddit/TikTok 提取真实买家疑虑
 - **卖点证据库** — 每个卖点必须有材料/工艺/数据证据，杜绝"漂亮废话"
-- **3 版标题对比** — 关键词覆盖版 / 转化表达版 / 简洁合规版，列出优缺点再由人决策
+- **3 版"标题 + 亮点"组合对比** — Item Name（≤75）+ Item Highlights（≤125，可搜索索引）双字段，关键词覆盖版 / 转化表达版 / 简洁合规版，列出优缺点再由人决策
 - **五点决策链** — 每点对应一个用户决策环节（核心价值 → 痛点 → 场景 → 规格 → 信任）
 - **A+ 7 屏模块结构** — 每屏对应一个语义关系，承接 Cosmo 算法
 - **Search Terms 策略** — 只放补充索引词，不重复、不堆砌、不超字节
@@ -139,7 +139,7 @@ Claude 会调用 `examples/down-pillows-qa-example.md` 的模板风格生成。
 | 1 | 关键词分层词库 | 5 层词表（核心/功能/场景/问题/规格） | `workflow/step-1-keyword-library.md` |
 | 2 | 用户问题库 | 真实买家疑虑清单 | `workflow/step-2-question-library.md` |
 | 3 | 卖点证据库 | 每个卖点对应材料/数据/图片证据 | `workflow/step-3-evidence-library.md` |
-| 4 | 标题结构设计 | 品牌+核心词+差异属性+主场景+规格 | `workflow/step-4-title-design.md` |
+| 4 | 标题+亮点分层设计 | Item Name（≤75）+ Item Highlights（≤125）双字段 | `workflow/step-4-title-design.md` |
 | 5 | 五点描述 | 5 点对应 5 个决策环节 | `workflow/step-5-bullet-points.md` |
 | 6 | 描述 + A+ 内容 | 痛点 → 场景 → 方案 → 细节 → 对比 → 注意 | `workflow/step-6-description-aplus.md` |
 | 7 | Search Terms | 只放补充索引词，不堆砌 | `workflow/step-7-search-terms.md` |
@@ -204,7 +204,7 @@ Claude 会调用 `examples/down-pillows-qa-example.md` 的模板风格生成。
 ### 案例 1：抗 UV 户外仿真植物（端到端 9 步完整演示）
 **文件**：`examples/uv-outdoor-plants-fullcase.md`
 
-包含完整的词库拆解、痛点证据映射、3 版标题对比、五点描述、7 段式描述、A+ 7 屏结构、ST 优化、10 题 QA、上线后数据迭代示例。
+包含完整的词库拆解、痛点证据映射、3 版"标题 + 亮点"组合对比（2026 新规双字段）、五点描述、7 段式描述、A+ 7 屏结构、ST 优化、10 题 QA、上线后数据迭代示例。
 
 ### 案例 2：down filled pillows QA（Alexa 风格示例）
 **文件**：`examples/down-pillows-qa-example.md`
@@ -371,10 +371,10 @@ amazon-listing-builder（消费数据）
 - 高合规风险品类 / 新账号 → 简洁合规版
 
 ### Q4：Skill 支持哪些站点？
-**A**：方法论支持所有站点。字符限制差异：
-- 美国站：标题 200 字符、ST 250 字节
-- 欧洲站：同美国
-- 日本站：标题 100 字节、ST 100 字节
+**A**：方法论支持所有站点。字符限制差异（2026-07 新规后）：
+- 美国站：标题 Item Name ≤75 字符 + 商品亮点 Item Highlights ≤125 字符（双字段）、ST 250 字节
+- 欧洲站 / 加拿大站：同美国站
+- 日本站及媒介类目（图书/音乐/影音）：以 `getDefinitionsProductType` 返回的类目 schema 为准
 
 ### Q5：上线后多久迭代一次？
 **A**：

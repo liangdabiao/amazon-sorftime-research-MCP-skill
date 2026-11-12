@@ -1,6 +1,6 @@
 ---
 name: amazon-listing-builder
-description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + Alexa/Rufus 对话式购物趋势）。通过"先分析、再生成、最后校验"的 AI 工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"。提供八步工作流（关键词分层词库 → 用户问题库 → 卖点证据库 → 标题 → 五点 → 描述A+ → Search Terms → QA）、给 Codex 的可复用提示词、真实案例（抗 UV 户外仿真植物、down filled pillows QA）以及五大常见误区检查。触发场景：(1) 用户说"帮我写 Listing / 写标题 / 写五点 / 写描述 / 写 A+ / 写 QA / 写 Search Terms"(2) 用户输入 /listing-builder, /build-listing, /cosmo-listing, /alexa-qa, /listing-title, /listing-bullets, /listing-aplus, /listing-st, /listing-qa(3) 用户提及 Cosmo 算法、Alexa 算法、Rufus、对话式购物、语义搜索、答案型 Listing(4) 用户希望结合卖家精灵 MCP 数据做关键词分层与痛点映射。适用于亚马逊美国站等站点的运营、Listing 优化师、产品开发、跨境营销人员。
+description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + Alexa/Rufus 对话式购物趋势，适配 2026-07 标题新规：Item Name 75 字符 + Item Highlights 商品亮点 125 字符双字段结构）。通过"先分析、再生成、最后校验"的 AI 工程化流程，把 Listing 从"关键词堆砌"升级为"语义覆盖 + 需求证据 + 答案型内容"。提供八步工作流（关键词分层词库 → 用户问题库 → 卖点证据库 → 标题+亮点分层 → 五点 → 描述A+ → Search Terms → QA）、给 Codex 的可复用提示词、真实案例（抗 UV 户外仿真植物、down filled pillows QA）以及五大常见误区检查。触发场景：(1) 用户说"帮我写 Listing / 写标题 / 写五点 / 写描述 / 写 A+ / 写 QA / 写 Search Terms"(2) 用户输入 /listing-builder, /build-listing, /cosmo-listing, /alexa-qa, /listing-title, /listing-bullets, /listing-aplus, /listing-st, /listing-qa(3) 用户提及 Cosmo 算法、Alexa 算法、Rufus、对话式购物、语义搜索、答案型 Listing(4) 用户希望结合卖家精灵 MCP 数据做关键词分层与痛点映射(5) 用户提及 Item Highlights、商品亮点、title_differentiation、2026 标题新规、75 字符标题拆分、标题改版。适用于亚马逊美国站等站点的运营、Listing 优化师、产品开发、跨境营销人员。
 ---
 
 # 亚马逊爆款 Listing 打造助手（Cosmo / Alexa 新算法版）
@@ -73,7 +73,7 @@ description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + 
 | 1 | 关键词分层词库 | 5 层词表（核心/功能/场景/问题/规格） | `workflow/step-1-keyword-library.md` |
 | 2 | 用户问题库 | 真实买家疑虑清单（来自评论/QA/Reddit/TikTok） | `workflow/step-2-question-library.md` |
 | 3 | 卖点证据库 | 每个卖点对应材料/数据/图片证据 | `workflow/step-3-evidence-library.md` |
-| 4 | 标题结构设计 | 品牌+核心词+差异属性+主场景+规格 | `workflow/step-4-title-design.md` |
+| 4 | 标题+亮点分层设计 | Item Name（≤75）+ Item Highlights（≤125）双字段 | `workflow/step-4-title-design.md` |
 | 5 | 五点描述 | 5 点对应 5 个决策环节（不堆词） | `workflow/step-5-bullet-points.md` |
 | 6 | 描述 + A+ 内容 | 痛点 → 场景 → 方案 → 细节 → 对比 → 注意 | `workflow/step-6-description-aplus.md` |
 | 7 | Search Terms | 只放补充索引词，不重复、不堆砌 | `workflow/step-7-search-terms.md` |
@@ -94,7 +94,7 @@ description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + 
 > 2. 每个词标注：搜索意图、建议位置、是否必须前台、是否进 ST
 > 3. 评论痛点 + 用户问题 → 输出"痛点-解决方案-证据-关键词-图片模块"映射表
 > 4. 基于 Cosmo + 对话式购物逻辑，列出必须覆盖的用户任务和自然语言问题
-> 5. 生成 3 版标题（关键词覆盖版 / 转化表达版 / 简洁合规版）+ 优缺点对比
+> 5. 生成 3 版"标题 + 商品亮点"组合（Item Name ≤75 + Item Highlights ≤125；关键词覆盖版 / 转化表达版 / 简洁合规版）+ 优缺点对比
 > 6. 五点描述：每点对应一个用户疑虑 + 一个核心卖点，禁用空泛词
 > 7. 产品描述 + A+ 模块结构（使用场景 → 产品结构 → 痛点解决 → 信任证明）
 > 8. Search Terms 建议（只放前台未覆盖但有索引价值的词）
@@ -192,7 +192,7 @@ description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + 
 
 1. **澄清输入** — 产品信息（标题/类目/规格）、是否提供竞品 ASIN、是否启用卖家精灵 MCP、目标站点
 2. **跑八步工作流** — 按步骤执行，每步保存产出
-3. **生成草稿** — 至少 3 版标题 + 1 套五点 + 描述/A+/ST/QA
+3. **生成草稿** — 至少 3 版"标题 + 亮点"组合 + 1 套五点 + 描述/A+/ST/QA
 4. **跑校验** — 合规 + 关键词覆盖 + 语义覆盖 + 转化逻辑
 5. **打包交付** — `listing_package.md` 汇总，附 HTML 可视化版本（可选）
 
@@ -200,7 +200,8 @@ description: 亚马逊爆款 Listing 打造助手（基于 Cosmo 语义算法 + 
 
 ## 十一、关键原则（每次都要回顾）
 
-- **标题不是堆词**，是让系统和买家快速定位
+- **标题不是堆词**，是让系统和买家快速定位（2026-07 新规后 Item Name ≤75 字符，只管身份识别）
+- **亮点不是第二标题**，是逗号分隔的比较辅助短语（Item Highlights ≤125 字符，可搜索索引，不重复标题词）
 - **五点不是卖点罗列**，是购买决策链
 - **描述和 A+ 不是重复信息**，是场景和信任构建
 - **ST 不是垃圾桶**，是补充索引池

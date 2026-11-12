@@ -54,19 +54,21 @@ mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=..."})
 
 旧方法：把 uv resistant artificial outdoor plants、outdoor artificial flowers、fake flowers outdoor 全塞标题，结果标题像词库垃圾桶。
 
-新方法：按用户搜索意图把词分成 5 层，每层放在不同位置（标题 / 五点 / 描述 / ST / QA），让系统理解关系，让买家读得下去。
+新方法：按用户搜索意图把词分成 5 层，每层放在不同位置（标题 / 亮点 / 五点 / 描述 / ST / QA），让系统理解关系，让买家读得下去。
 
 ---
 
 ## 二、五层词库结构
 
-| 层级 | 名称 | 示例（抗 UV 户外仿真植物） | 建议位置 |
+| 层级 | 名称 | 示例（抗 UV 户外仿真植物） | 建议位置（2026-07 新规：标题 Item Name ≤75 + 亮点 Highlights ≤125） |
 |------|------|--------------------------|---------|
-| 1 | 核心品类词 | artificial flowers / artificial plants / fake flowers / faux plants | 标题开头 + 五点 + 描述 |
-| 2 | 功能属性词 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | 标题 + 五点 1 |
-| 3 | 场景词 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 标题 + 五点 3 + A+ |
-| 4 | 问题词 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 五点 + QA + A+ |
-| 5 | 规格词 | 12 bundles / plastic stems / 16 inch / flowers for pots | 标题 + 五点 4 |
+| 1 | 核心品类词 | artificial flowers / artificial plants / fake flowers / faux plants | Item Name 开头 + 亮点放同义词变体 + 五点 + 描述 |
+| 2 | 功能属性词 | UV resistant / fade resistant / weather resistant / waterproof / maintenance free | Item Name 关键差异 + 亮点 + 五点 1 |
+| 3 | 场景词 | outdoor / patio / garden / porch / planter / front door / cemetery / balcony | 主场景进 Item Name 或亮点 + 次场景亮点 + 五点 3 + A+ |
+| 4 | 问题词 | won't fade in sun / for outdoor planters / looks real / no watering / full sun | 亮点（简短价值短语）+ 五点 + QA + A+ |
+| 5 | 规格词 | 12 bundles / plastic stems / 16 inch / flowers for pots | Item Name + 亮点（包装内容）+ 五点 4 |
+
+> ⚠️ 标题缩减到 75 字符后，放不下的 P0 词优先挪到 Item Highlights（官方确认可搜索索引），不要硬塞标题。
 
 ---
 
@@ -82,7 +84,7 @@ mcp__web_reader__webReader({url:"https://www.amazon.com/s?k=..."})
 | `ppc` | 广告建议价 |
 | `click_concentration` | 点击集中度（0~1） |
 | `conversion_concentration` | 转化集中度（0~1） |
-| `suggested_position` | 标题 / 五点 / 描述 / ST / QA |
+| `suggested_position` | 标题（Item Name）/ 亮点（Highlights）/ 五点 / 描述 / ST / QA |
 | `must_frontend` | 是否必须前台（true/false） |
 | `priority` | P0（必放）/ P1（推荐）/ P2（补充） |
 

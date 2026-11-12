@@ -80,37 +80,43 @@
 
 ---
 
-## 第四步：标题（3 版对比）
+## 第四步：标题 + 商品亮点（3 版组合对比，2026-07 新规双字段）
+
+> 按 2026-07-27 美国站新规提交：Item Name（≤75 字符，身份识别）+ Item Highlights（≤125 字符，逗号分隔短语，API 字段 `title_differentiation`，可搜索索引）。
 
 ### 版本 1：关键词覆盖版
 ```
-Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Realistic Faux Plants for Patio Garden Porch Planters, Fade Resistant Outdoor Decor
+Item Name:       Brand UV Resistant Artificial Flowers, 12 Bundles
+Item Highlights: UV & Fade Resistant, Realistic Faux Plants, for Patio Garden Porch Planters, Outdoor Decor, No Watering Needed
 ```
-- 字符数：178
-- 前 80 字符：`Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Real`
-- 埋入：L1（artificial flowers, faux plants）、L2（UV resistant, fade resistant）、L3（outdoors, patio, garden, porch, planters）、L5（12 bundles）
-- 优点：核心词全覆盖，结构清晰
-- 缺点：字符偏长，移动端可能截断
+- Item Name 字符数：49；Item Highlights 字符数：111
+- 埋入：Item Name — L1（artificial flowers）、L2（UV resistant）、L5（12 bundles）；Highlights — L1 变体（faux plants）、L2（fade resistant / no watering）、L3（patio, garden, porch, planters, outdoor decor）
+- 优点：核心词全覆盖，标题+亮点两层索引
+- 缺点：亮点接近满配，后续加词空间小
 
 ### 版本 2：转化表达版
 ```
-Brand 12-Bundle UV Resistant Artificial Flowers — Fade-Resistant Outdoor Faux Plants for Patio & Porch Planters
+Item Name:       Brand 12-Bundle UV Resistant Fake Plants That Look Real
+Item Highlights: UV & Fade Proof, Lush & Realistic, for Patio & Porch Planters, Zero Maintenance Outdoor Decor
 ```
-- 字符数：125
-- 前 80 字符：`Brand 12-Bundle UV Resistant Artificial Flowers — Fade-Resistant Out`
+- Item Name 字符数：55；Item Highlights 字符数：96
 - 优点：移动端友好，价值前置
-- 缺点：牺牲了 garden 场景
+- 缺点：牺牲了 garden 场景词
 
 ### 版本 3：简洁合规版
 ```
-Brand UV Resistant Artificial Flowers, 12 Bundles Faux Plants for Outdoor Patio Garden Planters
+Item Name:       Brand UV Resistant Artificial Flowers, 12 Bundles
+Item Highlights: Fade Resistant, for Outdoor Planters, Plastic Stems, No Watering
 ```
-- 字符数：103
-- 优点：安全、合规、加载快
+- Item Name 字符数：49；Item Highlights 字符数：72
+- 优点：安全、合规、留白多
 - 缺点：差异化表达弱
 
 ### 推荐基础版：**版本 1**
 理由：户外仿真植物品类流量竞争激烈，关键词覆盖优先。后期根据数据可向版本 2 转化。
+
+### 存量迁移说明
+本案例旧版 200 字符长标题（`Brand UV Resistant Artificial Flowers for Outdoors, 12 Bundles Realistic Faux Plants for Patio Garden Porch Planters, Fade Resistant Outdoor Decor`，178 字符）已超 75 字符：可主动按双字段重写提交，或等亚马逊 AI 自动拆分后在 14 天审核窗口内人工复核（防止转化词被切掉）。
 
 ---
 
@@ -274,7 +280,7 @@ A: Each set is shipped with reinforced packaging to reduce transit damage. If an
 
 1. **词库分层**让标题不堆砌
 2. **痛点证据库**让五点有内容支撑
-3. **3 版标题对比**让选择有依据
+3. **3 版"标题 + 亮点"组合对比**让选择有依据（Item Name ≤75 + Item Highlights ≤125 双字段）
 4. **A+ 7 屏结构**让语义覆盖完整
 5. **ST 只放补充词**让索引更精准
 6. **QA 答案型**承接对话式搜索
