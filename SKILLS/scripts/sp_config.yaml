@@ -1,0 +1,474 @@
+# 40-selling-point · 卖点库配置
+# 唯一真相源：所有阈值、权重、卖点定义、判定规则都在这里，不许写进代码。
+# 改完直接重跑 build_selling_points.py，不要改脚本里的常量。
+
+version: 1
+
+meta:
+  module: 40-selling-point
+  category: sponge-holder
+  category_name: 吸盘海绵架
+  marketplace: US
+  date: "2026-11-16"
+  owner_brand: nieifi
+  # 写进 xlsx 说明页的口径备注。换类目必须一起改，否则说明页会和数据脱钩。
+  review_note: "309 条分层抽样（每 ASIN 20 负 + 20 正）"
+  kb_note: "232 词，全表统一 2026-10 卖家精灵口径"
+
+# ---------------------------------------------------------------- 输入
+inputs:
+  bullets_json: 调研/sponge-holder/products_wall_full.json      # 30 ASIN × 五点原文
+  keyword_library: 调研/sponge-holder/keyword_library.csv       # 232 词，含 W / R / prio
+  review_xlsx: 调研/sponge-holder/review-analysis/4 Reports/Sponge-Holder-Review-Analysis-20261113.xlsx
+  insight_xlsx: 调研/sponge-holder/review-analysis/4 Reports/Sponge-Holder-洞察补充-20261113.xlsx
+  # 图片证据包（本轮为空，见 image.enabled）
+  image_pack: 调研/sponge-holder/selling-point/image_pack
+
+outputs:
+  dir: 调研/sponge-holder/selling-point
+
+# ---------------------------------------------------------------- 权重
+# M = S×0.45 + P×0.35 + D×0.20，沿用 amazon-listing-builder/reference/ranking-rules.md
+weights:
+  S: 0.45   # 需求强度
+  P: 0.35   # 痛点严重度
+  D: 0.20   # 差异化
+
+# ---------------------------------------------------------------- 分档
+# 痛点：P = 该卖点关联差评条数 / 差评总条数
+pain_tiers:
+  - [0.30, 1.0]
+  - [0.15, 0.7]
+  - [0.05, 0.4]
+  - [0.00, 0.2]
+
+# 差异化：D = 1 - 五点覆盖率，覆盖率越高越不差异
+coverage_tiers:
+  - [0.60, 0.10]   # cov >= 60% → D=0.10（人手一份，等于没有）
+  - [0.20, 0.40]
+  - [0.05, 0.70]
+  - [0.00, 1.00]
+
+# 好评验证度 V：买家主动夸过多少条
+validated_tiers:
+  - [10, 1.0]
+  - [3, 0.6]
+  - [1, 0.3]
+  - [0, 0.0]
+
+# ---------------------------------------------------------------- 角色判定
+# 三源矩阵（五点覆盖率 × 痛点 P × 好评验证 V）
+roles:
+  entry_ticket:      {label: 入场券,   cov_min: 0.60, p_min: 0.40}
+  main_gap:          {label: 主攻空白, cov_max: 0.25, p_min: 0.40}
+  common:            {label: 常见卖点, cov_min: 0.20, cov_max: 0.60, p_min: 0.40}
+  validated:         {label: 已验证卖点, cov_max: 0.60, v_min: 0.60, p_max: 0.40}
+  # 品类标配 = 大多数人写 + 确实有人夸。覆盖率再高但零好评验证的，是行业套话，降为待验证。
+  standard:          {label: 品类标配, cov_min: 0.40, p_max: 0.40, v_min: 0.30}
+  pending:           {label: 待验证,   cov_max: 0.20, p_max: 0.40, v_max: 0.60}
+  drop:              {label: 淘汰,     cov_max: 0.10, p_max: 0.10, v_max: 0.10}
+
+# ---------------------------------------------------------------- 分级
+# 两个指标分工，不要混：
+#   G 机会分 = P × (1 − 覆盖)  → 决定"值不值得主攻"（定级）
+#   M 文案分 = S/P/D 加权      → 决定"五点里谁先说"（50-copy 排序）
+# 之所以不拿 M 定级：本类目多数卖点没有专属搜索词，S 天然为 0，
+# 用 M 卡级会把"痛点很重但没人搜"的卖点误杀，也会让低分区排序变成噪声。
+grades:
+  A: {label: A-主攻,   g_min: 0.20, evidence_dims_min: 2, roles: [main_gap, common], slots: 5}
+  B: {label: B-必写,   roles: [entry_ticket, standard]}
+  C: {label: C-加分/待证, roles: [validated, pending]}
+  D: {label: D-淘汰,   roles: [drop]}
+
+# 证据维度：五点 / 评论 / 图片。本轮 image.enabled=false，故最多 2 维。
+evidence:
+  dims: [bullet, review, image]
+
+# ---------------------------------------------------------------- 冲突
+# 全员声称 + 大量差评 = 品类级反噬，必须单列
+conflict:
+  cov_min: 0.20
+  p_min: 0.40
+  # 差评里出现下列二级类目，判定为"声称与体验背离"，风险更高
+  betrayal_l2:
+    - 标称防锈却生锈
+    - 标称配件与实物不符
+    - 官方安装方法无效
+    - 结构设计偷工减料
+
+# ---------------------------------------------------------------- 图片维度
+# 本轮降级：沙箱无外网（curl m.media-amazon.com SSL 断），web_fetch 取 amazon.com/dp 返回
+# Access restricted，asin_detail 只给 1 张主图 URL 且无法读取。故图片维度标 DATA_MISSING，
+# 另出「待补图清单」给出采集口径，等图包到位后把 enabled 改 true 重跑。
+image:
+  enabled: false
+  confidence: JUDGED
+  reason: 无图包；沙箱无外网 + Amazon 页面反爬
+  images_per_asin: 7
+  slots:
+    - {pos: 1, name: 主图, task: 点击}
+    - {pos: 2, name: 卖点图, task: 差异化}
+    - {pos: 3, name: 场景图, task: 对号入座}
+    - {pos: 4, name: 细节图, task: 材质做工}
+    - {pos: 5, name: 尺寸图, task: 降退货}
+    - {pos: 6, name: 安装图, task: 降顾虑}
+    - {pos: 7, name: 对比图, task: 转化}
+
+# ---------------------------------------------------------------- 卖点定义
+# kw_patterns: 关键词匹配子串（小写），用于算 S
+# bullet_patterns: 五点正则（小写），用于算覆盖率与位次
+# review_l2: 精确匹配 04_二级频次 的「二级」列
+sp_defs:
+
+  - id: SP01
+    name: 强吸附不滑落
+    claim: Holds tight, no slipping
+    l1: [吸附牢固, 吸附失效]
+    sp_type: 功能
+    kw_patterns: [suction]
+    bullet_patterns:
+      - 'strong(est)? suction'
+      - 'suction cup'
+      - 'rock-solid'
+      - "won'?t (slip|fall|drop|move)"
+      - "stays? (put|in place)"
+      - 'secure hold|holds? firmly|firmly'
+      - 'powerful (suction|grip)|strong grip|grip that'
+      - 'holds? up to'
+    review_l2:
+      - 吸得牢不滑落
+      - 吸盘完全不粘，装上就掉
+      - 吸盘会下滑，需要反复重按
+      - 单侧吸盘漏气脱开
+
+  - id: SP02
+    name: 长期稳固不衰减
+    claim: Still holding after months
+    l1: [吸附牢固, 吸附失效]
+    sp_type: 功能
+    kw_patterns: []
+    bullet_patterns:
+      - 'long[- ]lasting'
+      - 'lasts? for years|built to last'
+      - 'long[- ]term (stability|use|performance)'
+      - 'over time|years of'
+    review_l2:
+      - 长期使用仍稳固
+      - 长期使用后吸附力衰减
+
+  - id: SP03
+    name: 吸盘+胶条双安装
+    claim: Two ways to mount
+    l1: [安装省事, 安装与说明]
+    sp_type: 功能
+    kw_patterns: [adhesive, peel and stick]
+    bullet_patterns:
+      - 'two (different )?(install|mount)'
+      - '2 (ways|installation|mounting|options|methods)'
+      - 'dual mounting'
+      - 'both (adhesive|installation)'
+      - 'adhesive (pad|strip|hook)|adhesive.*suction|suction.*adhesive'
+      - 'choose (the|any) (method|installation)'
+    review_l2:
+      - 安装简单
+      - 胶条方案在非金属面更牢
+      - 官方安装方法无效
+      - 胶条/背胶失效或脱落
+      - 拆除后留残胶难清理
+
+  - id: SP04
+    name: 免打孔免工具
+    claim: No drilling, no tools
+    l1: [安装省事, 安装与说明]
+    sp_type: 功能
+    kw_patterns: [no drill, damage free, renter]
+    bullet_patterns:
+      - 'no (drill|drilling|screws?|nails?|holes?)'
+      - 'without (drilling|tools|damage)'
+      - 'tool[- ]free|no tools'
+      - 'damage[- ]free|no damage|without leaving'
+      - 'peel (off|and stick)|install in one minute|1 second installation|installs? in seconds'
+    review_l2:
+      - 安装简单
+      - 吸盘难压入孔位
+      - 重新安装麻烦
+
+  - id: SP05
+    name: 光滑面基材适配
+    claim: Works on tile, glass, steel
+    l1: [多场景适用, 基材不适配]
+    sp_type: 场景
+    kw_patterns: []
+    bullet_patterns:
+      - 'non[- ]porous'
+      - 'smooth (and neat )?surfaces?'
+      - 'compatibility notice'
+      - '(works?|suitable|great) (on|for).*(tile|glass|metal|stainless)'
+      - 'not (recommended|suitable|work).*(textured|porous|stone)'
+    review_l2:
+      - 非不锈钢水槽也能吸
+      - 镜子与瓷砖等光滑面可用
+      - 石材/陶瓷/纹理面吸不住
+
+  - id: SP06
+    name: 承重强
+    claim: Holds up to 11 lbs
+    l1: [材质做工好, 结构断裂]
+    sp_type: 结构
+    kw_patterns: []
+    bullet_patterns:
+      - 'holds? up to \d'
+      - 'weight capacity|supports? up to'
+      - 'heavy[- ]duty'
+    review_l2: []
+
+  - id: SP07
+    name: 结构与连接件耐用
+    claim: Reinforced frame, no snap
+    l1: [结构断裂, 材质做工好]
+    sp_type: 结构
+    kw_patterns: []
+    bullet_patterns:
+      - 'reinforced'
+      - 'thick (stainless|steel|material)'
+      - "won'?t (bend|deform|sag)"
+      - 'durable (construction|material)'
+      - 'maintain (its|their) shape'
+      - 'built (strong|to last)'
+      - 'not (prone to|easily) bend'
+      - 'sturdy (construction|design|bracket)'
+      - 'strong & lightweight'
+    review_l2:
+      - 结实稳固
+      - 塑料卡扣/连接件断裂
+      - 篮体或挂钩整体散架
+      - 来料变形，品控不佳
+      - 结构设计偷工减料
+
+  - id: SP08
+    name: 安全做工无利边
+    claim: Rounded edges, safe to handle
+    l1: [做工与安全]
+    sp_type: 结构
+    kw_patterns: []
+    bullet_patterns:
+      - 'rounded edges?'
+      - 'smooth (rounded|edges)'
+      - 'no sharp'
+    review_l2:
+      - 毛刺/利边割伤
+
+  - id: SP09
+    name: SUS304 不锈钢材质
+    claim: SUS 304 stainless steel
+    l1: [材质做工好, 锈蚀掉漆]
+    sp_type: 材质
+    kw_patterns: []
+    bullet_patterns:
+      - 'sus\s?304|304 stainless|sus304'
+      - 'stainless steel'
+    review_l2: []
+
+  - id: SP10
+    name: 防锈不掉漆
+    claim: Rustproof coating that lasts
+    l1: [材质做工好, 锈蚀掉漆]
+    sp_type: 材质
+    kw_patterns: [anti rust, rustproof, rust proof]
+    bullet_patterns:
+      - 'rust[- ]?(proof|resistant|free)'
+      - 'neverrust'
+      - 'anti[- ]?rust'
+      - "won'?t rust"
+      - 'corrosion'
+      - 'paint finish|rustproof coating'
+    review_l2:
+      - 不生锈耐腐蚀
+      - 金属件生锈
+      - 涂层起皮脱落
+      - 标称防锈却生锈
+
+  - id: SP11
+    name: 多工具一体收纳
+    claim: Sponge, brush and soap in one
+    l1: [容量与多功能, 尺寸与容量不适配]
+    sp_type: 功能
+    kw_patterns: [brush holder, soap holder, dish soap, sponge and brush, brush and sponge, scrubber]
+    bullet_patterns:
+      - 'holds? (sponge|soap|brush|scrubber)'
+      - 'multi[- ]?(functional|purpose|use)'
+      - 'all[- ]in[- ]one'
+      - 'storage areas?'
+      - 'dish (brush|cloth|towel)|sink stopper|scouring pad'
+    review_l2:
+      - 能同时放多块海绵和刷子
+      - 放不下其他清洁工具
+
+  - id: SP12
+    name: 大容量放厚海绵
+    claim: Fits thick Scrub Daddy sponges
+    l1: [容量与多功能, 尺寸与容量不适配]
+    sp_type: 功能
+    kw_patterns: [large capacity]
+    bullet_patterns:
+      - 'large capacity'
+      - 'fits? (large|thick|scrub daddy|scrub mommy|smiley)'
+      - 'multiple sponges|\d+ (regular )?sponges'
+      - 'scrub daddy|scrub mommy'
+    review_l2:
+      - 加厚海绵放不进
+      - 尺寸偏小
+
+  - id: SP13
+    name: 分区不混放
+    claim: Divided zones, nothing mixes
+    l1: [容量与多功能, 使用设计不合理]
+    sp_type: 功能
+    kw_patterns: []
+    bullet_patterns:
+      - '\d+[- ]in[- ]1'
+      - 'divider|compartment|separate (areas?|sections?)|storage areas?'
+      - 'dedicated (spots?|sections?|areas?)'
+    review_l2: []
+
+  - id: SP14
+    name: 可取放可移动
+    claim: Lift out when washing pots
+    l1: [安装省事, 使用设计不合理]
+    sp_type: 功能
+    kw_patterns: []
+    bullet_patterns:
+      - 'removable|detachable|reposition'
+      - 'move and adjust|move it'
+      - 'lift out|take out'
+      - 'foldable|bracket folds'
+    review_l2:
+      - 可取放，洗大件时腾空间
+      - 不常用时反而挡事
+
+  - id: SP15
+    name: 离台面省空间
+    claim: Clears your countertop
+    l1: [省台面空间, 使用设计不合理]
+    sp_type: 场景
+    kw_patterns: [space saving, small sink, compact]
+    bullet_patterns:
+      - 'space[- ]saving|save (counter|sink|storage) space'
+      - 'off the counter|counter space|free up'
+      - 'compact (design|size|footprint)|maximizes? .*space'
+      - 'slim|low[- ]profile|minimal (design|footprint)'
+      - "won'?t (take up|affect)|doesn'?t? (take|affect)"
+    review_l2:
+      - 台面清爽不杂乱
+      - 凸出过多影响观感
+      - 尺寸偏大
+
+  - id: SP17
+    name: 镂空快干不易霉
+    claim: Open frame, dries fast
+    l1: [快干不易霉, 清洁与霉变]
+    sp_type: 功能
+    kw_patterns: [drain, anti mold, mold]
+    bullet_patterns:
+      - 'drain(age|ing)?'
+      - 'quick dry|dry (quickly|fast|more efficiently)'
+      - 'air (dry|circulation|convection|ventilation)|ventilat'
+      - 'hollow|open (design|structure|grid|wire|frame)'
+      - 'anti[- ]?mold|odor|hygien'
+    review_l2:
+      - 沥干快不发霉
+      - 接缝与吸盘处发霉积垢
+
+  - id: SP18
+    name: 颜值融入水槽
+    claim: Sleek finish, matches decor
+    l1: [颜值适配]
+    sp_type: 外观
+    kw_patterns: []
+    bullet_patterns:
+      - 'sleek|modern|stylish|aesthetic'
+      - 'decor|complement|matches? any'
+      - 'polished finish|brushed finish|textured'
+      - 'looks? (good|great)'
+    review_l2:
+      - 外观好看且融入水槽
+
+  - id: SP19
+    name: 笑脸/造型记忆点
+    claim: Smiley shape, easy to remember
+    l1: [颜值适配]
+    sp_type: 外观
+    kw_patterns: []
+    bullet_patterns:
+      - '\bsmiley\b'
+      - '\bcute\b|\bfun\b'
+      - 'm[- ]shaped'
+    review_l2: []
+
+  - id: SP20
+    name: 多场景通用
+    claim: Kitchen, bathroom, RV
+    l1: [多场景适用]
+    sp_type: 场景
+    kw_patterns: [bathroom, rv, apartment, office]
+    bullet_patterns:
+      - '\bbathroom\b|\brv\b|\bapartment\b|\boffice\b|workspace|craft room'
+      - 'small (kitchen|sink)|tight spots?'
+    review_l2:
+      - 浴室与淋浴墙面可用
+      - 房车与公寓小水槽适配
+
+  - id: SP21
+    name: 水槽内外两用
+    claim: In-sink or on the wall
+    l1: [多场景适用, 基材不适配]
+    sp_type: 场景
+    kw_patterns: [in sink, inside sink]
+    bullet_patterns:
+      - 'in[- ]sink|inside sink|inside the sink'
+      - 'in sink or (on|wall)|wall or in sink'
+      - 'over (the )?(faucet|divider)'
+    review_l2:
+      - 非不锈钢水槽也能吸
+
+  - id: SP22
+    name: 性价比与备件
+    claim: Extra suction cups included
+    l1: [性价比]
+    sp_type: 价值
+    kw_patterns: [2 pack, two pack]
+    bullet_patterns:
+      - 'extra (suction|adhesive|hook)'
+      - '\d+ (extra|spare)'
+      - '2 pack|two pack|\bvalue\b'
+      - 'satisfaction|money back|free return'
+    review_l2:
+      - 价格合适还送备用吸盘
+      - 价格偏高不值
+
+  - id: SP23
+    name: 尺寸与适配告知
+    claim: Measure before you buy
+    l1: [尺寸与容量不适配]
+    sp_type: 信任
+    kw_patterns: []
+    bullet_patterns:
+      - 'please measure|measure before|before (purchase|buying|ordering)'
+      - 'dimension|overall size|measures? [\d.]'
+      - 'double (bowl|sink)|depth|divider'
+      - 'not included|illustration purposes'
+    review_l2:
+      - 标称配件与实物不符
+      - 尺寸偏大
+      - 尺寸偏小
+      - 放不下其他清洁工具
+
+# ---------------------------------------------------------------- L1 映射
+# 复用 30-insight 的 19 个一级类目，保证三源可对齐。新增类目必须先在这里登记。
+l1_axis:
+  固定与安装: [吸附牢固, 吸附失效, 安装省事, 安装与说明]
+  结构与材质: [材质做工好, 结构断裂, 锈蚀掉漆, 做工与安全]
+  收纳与容量: [容量与多功能, 尺寸与容量不适配]
+  空间与场景: [省台面空间, 多场景适用, 基材不适配, 使用设计不合理]
+  卫生与外观: [快干不易霉, 清洁与霉变, 颜值适配]
+  价值: [性价比]
