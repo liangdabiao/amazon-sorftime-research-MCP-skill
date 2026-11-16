@@ -77,6 +77,6 @@ scripts/check.py      交付前自检，不过就不许交（7 项，退出码�
 | `scripts/` | ✅ `config.yaml` + `merge.py` + `check.py` |
 | `20-competitor` | ⬜ 骨架 |
 | `30-insight` | ⬜ 骨架 |
-| `40-selling-point` | ⬜ 骨架 |
+| `40-selling-point` | ✅ v1，可运行（`scripts/build_selling_points.py` + `check_sp.py`，7 项自检全过；图片维度待图包） |
 | `50-copy` | ⬜ 骨架（排序规则草稿在 `vendor/amazon-listing-builder/reference/ranking-rules.md`） |
 | `90-main-image` | ⬜ 骨架 |
