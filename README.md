@@ -29,7 +29,7 @@ SKILLS/
 │   ├── 10-keyword/         ✅ 关键词调研 v3.7（唯一做满的模块）
 │   ├── 20-competitor/      竞品分析（骨架）
 │   ├── 30-insight/         用户洞察（骨架）
-│   ├── 40-selling-point/   卖点提炼（骨架）
+│   ├── 40-selling-point/   卖点提炼 ✅ v1
 │   ├── 50-copy/            文案生成（骨架）
 │   ├── 90-main-image/      主图设计需求（骨架）
 │   └── _common/            输出规范、口径声明、政策边界
@@ -37,7 +37,10 @@ SKILLS/
 └── scripts/                全库共用的脚本层（唯一真相源）
     ├── config.yaml         权重、阈值、名额、判断词表、路径——全部外置
     ├── merge.py            合并 → 打分 → 分层 → 优先级 → 四象限
-    └── check.py            交付前 7 项自检，不过就不许交
+    ├── check.py            交付前 7 项自检，不过就不许交
+    ├── sp_config.yaml      卖点定义、角色矩阵、分级名额、图片开关
+    ├── build_selling_points.py  五点 × 评论 × 词库 → 卖点库
+    └── check_sp.py         卖点库 7 项自检，退出码非 0 不许交
 ```
 
 ## 快速开始
@@ -71,6 +74,15 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 - **方法 C 只做证据，不做发现**。五点里大量词组不是搜索词（285 条里只有 23 条是），全放进来会把词库灌满没有搜索量的词。它默认只给已发现的词补一条"竞品确实这么写"的证据，真正的产出是三类词（痛点 / 证据 / 限制）给五点用。
 - **否定清单有白名单**。`kitchen sink`、`suction cup` 这类比本品宽得多的词，R1=0 但不该否定——否掉等于关掉半个类目入口，只标观察。
 
+## 40-selling-point 做了什么
+
+三源交叉：竞品五点是「供给」，评论痛点是「需求」，关键词是「搜索」。主键复用 `30-insight` 的 19 个一级类目，三源才能对齐；各建一套分类就只剩三张互不相干的表。
+
+- **两个分数分工**：`G = P × (1 − 覆盖率)` 定级，`M = S×0.45 + P×0.35 + D×0.20` 只做五点排序。拿 M 定级会误杀"痛点重但没人搜"的卖点——一个类目里大半卖点没有专属搜索词。
+- **角色六分类**：入场券 / 主攻空白 / 常见卖点 / 已验证卖点 / 品类标配 / 待验证。核心判断是"低覆盖不等于机会"：评论侧没痛点，没人写就只是废话；评论侧有痛点但没人写，才是真空隙。
+- **冲突单独成表**：品类级反噬（全员写全员骂）、声称与体验背离（承诺了没做到）、痛点未解决（差评集中但少数人写——这是机会）。
+- **图片维度是明确缺口**：沙箱无外网、Amazon 页面反爬、`asin_detail` 只给一张主图 URL 且不可读。只能走用户截图图包，缺省标 `DATA_MISSING`，同时输出"应承载图位"清单等图包回填。
+
 ## 模块状态
 
 | 模块 | 状态 |
@@ -80,7 +92,7 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 | `_common` | ✅ 输出规范与口径声明 |
 | `20-competitor` | ⬜ 骨架 |
 | `30-insight` | ⬜ 骨架（评论分析可复用 `amz-review-analysis`） |
-| `40-selling-point` | ⬜ 骨架 |
+| `40-selling-point` | ✅ v1，可运行（`scripts/build_selling_points.py` + `check_sp.py`，7 项自检全过；图片维度待图包） |
 | `50-copy` | ⬜ 骨架（排序规则草稿在 `skills/amazon-listing-builder/reference/ranking-rules.md`） |
 | `90-main-image` | ⬜ 骨架 |
 
@@ -100,6 +112,7 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 | [Amazon-Skills-Liang](https://github.com/liangdabiao/Amazon-Skills-Liang) | liangdabiao | 上游 9 个 skill 的原作者，`SKILLS/skills/` 下内容来自这里 |
 | [amz-review-analysis-skill](https://github.com/CoderAndyLee/amz-review-analysis-skill) | Andy（CoderAndyLee / Andy聊跨境） | 类目级评论分析流水线：合并卖家精灵 review、逐层长出分类列、输出 HTML 看板。**自定义许可（源码可见、自用免费），不是 MIT/Apache，转载或商用前请看它的 LICENSE** |
 | **amazon-keyword-strategy v0.4.0** | — | 关键词模块 v3.7 借鉴了四条：绝对锚分层、竞争度四维打分与四象限打法、词根六分类、品牌双分类 |
+| [zach-feature-demand-validator](https://github.com/zach22-1999/amazon-skills) | Zach | 卖点库的"三维交叉验证真伪"思路来源：低覆盖不等于机会，要看评论侧有没有需求 |
 | **卖家精灵 MCP**（SellerSprite） | SellerSprite | 全部市场侧数据来源：`keyword_miner` 搜索量与竞争指标、`asin_detail` 详情与五点（`features` 字段）、`traffic_keyword` 流量词、`product_research` 扩池 |
 | **amazon-listing-builder** | liangdabiao | `50-copy` 的排序规则草稿来源 |
 | **xiyou-insight / sif-amazon-research** | liangdabiao | 流量诊断与市场验证，作为后续模块的参考 |
@@ -115,6 +128,7 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 
 ## 更新日志
 
+- **v4**（2026-11-16）：新增 `40-selling-point` 卖点库模块（`sp_config.yaml` + `build_selling_points.py` + `check_sp.py`），G/M 双分数分工，7 项自检；图片维度留作缺口，等图包回填。
 - **v3.7**（2026-11-13）：关键词模块四项结构改造——四档分层（三模式可切）、竞争度与四象限、词根六分类、品牌双分类；R3 改精确覆盖率；搜索量底表统一期次。
 - **v3.6**：脚本收敛为 `scripts/{config.yaml, merge.py, check.py}`；优先级改名额制；搜索转化率退出排序；分层与相关性解耦。
 - **v3.5**：R3 覆盖率归一化；新增五路合并追踪表；EST 词限 P2；否定清单加白名单。

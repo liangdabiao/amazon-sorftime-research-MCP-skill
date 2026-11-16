@@ -1,6 +1,6 @@
 ---
 name: amazon-base-skills
-description: 亚马逊关键词调研与文案生成的技能库入口。分两层：modules/ 是本项目主线（输入契约、关键词调研、竞品分析、用户洞察、卖点提炼、文案生成、主图需求），vendor/ 是上游方法论与 MCP 工具参考。当用户要做关键词调研、竞品拆解、痛点分析、卖点提炼、Listing 文案时使用。用户说"/keyword-research"、"挖关键词"、"调研这个 ASIN"、"这个词值不值得做"、"写标题/五点"时触发。
+description: 亚马逊关键词调研与文案生成的技能库入口。分两层：modules/ 是本项目主线（输入契约、关键词调研、竞品分析、用户洞察、卖点提炼、文案生成、主图需求），vendor/ 是上游方法论与 MCP 工具参考。当用户要做关键词调研、竞品拆解、痛点分析、卖点提炼、卖点库、Listing 文案时使用。用户说"/keyword-research"、"挖关键词"、"调研这个 ASIN"、"这个词值不值得做"、"建卖点库"、"写标题/五点"时触发。
 ---
 
 # 亚马逊技能库（amazon-base）
@@ -15,7 +15,7 @@ skills/
 │   ├── 10-keyword/   关键词调研  ← 已完成
 │   ├── 20-competitor/ 竞品分析
 │   ├── 30-insight/   用户洞察
-│   ├── 40-selling-point/ 卖点提炼
+│   ├── 40-selling-point/ 卖点提炼 ← 已完成
 │   ├── 50-copy/      文案生成
 │   └── 90-main-image/ 主图设计需求
 └── vendor/           上游方法论与工具参考（只读，别在这里改）
@@ -52,7 +52,7 @@ skills/
 | 挖词、扩词、做词库、否词清单 | `modules/10-keyword/SKILL.md` |
 | 竞品怎么打、竞品卖点拆解 | `modules/20-competitor/` |
 | 评论痛点、用户画像、使用场景 | `modules/30-insight/` |
-| 卖点库、卖点排序 | `modules/40-selling-point/` |
+| 卖点库、卖点提炼、卖点排序、这个卖点成不成立 | `modules/40-selling-point/SKILL.md` |
 | 写标题 / 亮点 / 五点 / ST | `modules/50-copy/` |
 | 主图顺序、设计 brief | `modules/90-main-image/` |
 | 查某个 MCP 工具怎么调 | `vendor/sellersprite-amazon-research/reference/` |
@@ -93,8 +93,8 @@ GitHub 仓库里还留着这些文件的历史副本（API 删除要逐文件调
 | `_common` | ✅ |
 | `20-competitor` | ⬜ 骨架 |
 | `30-insight` | ⬜ 骨架 |
-| `40-selling-point` | ⬜ 骨架 |
+| `40-selling-point` | ✅ v1，可运行（`scripts/build_selling_points.py` + `check_sp.py`，图片维度待图包） |
 | `50-copy` | ⬜ 骨架 |
 | `90-main-image` | ⬜ 骨架 |
 
-下一步：用一个真实 ASIN 组跑通 `10-keyword`，校准 R 的判定阈值，再往 `20-competitor` 走。
+下一步：`20-competitor` 补齐竞品拆解表，`30-insight` 把 `amz-review-analysis` 的产物正式纳入模块，之后 `50-copy` 接 `40-selling-point` 的交接单。
