@@ -1,0 +1,204 @@
+{
+  "_comment": "amazon-listing-doctor 最终输出骨架。compliance_report.py 按此结构填充。字段名已对齐各脚本实际输出。所有值为空值示例。",
+  "meta": {
+    "market": "",
+    "language": "",
+    "mode": "",
+    "category": "",
+    "brand": "",
+    "is_parent": false,
+    "is_variation": false,
+    "generated_at": ""
+  },
+  "title": {
+    "field": "title",
+    "value": "",
+    "char_count": 0,
+    "checks": {
+      "char_limit": {"status": "PASS", "actual": 0, "limit": 75},
+      "char_utilization": {"status": "PASS", "actual": 0, "limit": 75, "full_threshold": 72},
+      "repeated_word": {"status": "PASS", "details": []},
+      "forbidden_char": {"status": "PASS"},
+      "promo_word": {"status": "PASS"},
+      "subjective_word": {"status": "PASS"},
+      "casing": {"status": "PASS"},
+      "core_keyword_pos": {"status": "PASS", "within_chars": 0, "limit": 50}
+    },
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "highlights": {
+    "field": "item_highlights",
+    "value": "",
+    "char_count": 0,
+    "clause_count": 0,
+    "checks": {
+      "char_limit": {"status": "PASS", "actual": 0, "limit": 125},
+      "min_clauses": {"status": "PASS", "actual": 0, "limit": 3},
+      "separator_format": {"status": "PASS", "found": []},
+      "phrase_not_sentence": {"status": "PASS", "details": []},
+      "no_embedded_pipe": {"status": "PASS", "found": []},
+      "char_utilization": {"status": "PASS", "actual": 0, "limit": 125},
+      "distinct_from_title": {"status": "PASS"},
+      "cross_field_repeat": {"status": "PASS", "limit": 2, "tbd": true, "details": []}
+    },
+    "display_string": {
+      "preview": "",
+      "combined_chars": 0,
+      "title_chars": 0,
+      "highlights_chars": 0,
+      "separator": " | (pipe U+007C, 渲染层自动拼接, 非字段内容)",
+      "note": "前端实测：标题与亮点拼成一行显示在标题位（亚马逊承认的展示 bug）"
+    },
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "bullets": {
+    "field": "bullets",
+    "value": "",
+    "count": 0,
+    "checks": {
+      "count_limit": {"status": "PASS", "actual": 0, "min": 5, "max": 6},
+      "bullets": []
+    },
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "description": {
+    "value": "",
+    "char_count": 0
+  },
+  "backend": {
+    "field": "backend_search_terms",
+    "value": "",
+    "byte_count": 0,
+    "checks": {
+      "byte_limit": {"status": "PASS", "actual": 0, "limit": 250},
+      "separator": {"status": "PASS"},
+      "no_stopwords": {"status": "PASS", "found": []},
+      "no_special_chars": {"status": "PASS"},
+      "distinct_from_title_bullets": {"status": "PASS", "duplicates": []}
+    },
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "attributes": {
+    "filled": [],
+    "top10_expected": [],
+    "filled_ratio": 0.0,
+    "band_a_critical_6": [],
+    "band_a_filled": [],
+    "compliant": true
+  },
+  "variation": {
+    "is_parent": false,
+    "is_variation": false,
+    "checks": {
+      "parent_no_attrs": {"status": "PASS"},
+      "child_has_attrs": {"status": "PASS"}
+    },
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "cdq_score": {
+    "total": 0,
+    "grade": "",
+    "components": {
+      "structured_attribute": {"score": 0.0, "weight": 0.30, "reason": ""},
+      "title": {"score": 0.0, "weight": 0.25, "reason": ""},
+      "variation": {"score": 0.0, "weight": 0.20, "reason": ""},
+      "image": {"score": 0.0, "weight": 0.15, "reason": ""},
+      "bullet_point": {"score": 0.0, "weight": 0.05, "reason": ""},
+      "a_plus": {"score": 0.0, "weight": 0.05, "reason": ""}
+    },
+    "improve_suggestions": []
+  },
+  "indexability_report": {
+    "score": 0,
+    "core_keyword_position": 0,
+    "backend_hygiene": 0.0,
+    "attribute_completeness": 0.0,
+    "effective_index_terms": 0,
+    "risks": []
+  },
+  "alexa_discoverability": {
+    "_comment": "AEO 双模式。AEO 模式输出 buyer_alignment 三态；无 _alexa_aeo_result 时降级为 substring 词匹配，输出 scene_coverage/audience_coverage/limit_coverage/missing_* 字段。",
+    "score": 0,
+    "_extraction_method": "aeo_agent",
+    "product": "",
+    "buyer_questions": [],
+    "buyer_alignment": {
+      "covered": [],
+      "partial": [],
+      "missing": []
+    },
+    "total_questions": 0,
+    "covered_count": 0,
+    "partial_count": 0,
+    "missing_count": 0,
+    "top_missing_questions": [],
+    "suggestions": [],
+    "category": null,
+    "lexicon_source": "",
+    "used_fallback": false,
+    "input_available": true,
+    "input_unavailable_reason": null
+  },
+  "cosmo_report": {
+    "score": 0,
+    "coverage_ratio": 0.0,
+    "covered_concepts": {"use_case": [], "audience": [], "goal": [], "constraint": []},
+    "missing_concepts": {"use_case": [], "audience": [], "goal": [], "constraint": []},
+    "per_dimension": {
+      "use_case": {"covered": 0, "total": 0, "ratio": 0.0},
+      "audience": {"covered": 0, "total": 0, "ratio": 0.0},
+      "goal": {"covered": 0, "total": 0, "ratio": 0.0},
+      "constraint": {"covered": 0, "total": 0, "ratio": 0.0}
+    },
+    "suggestions": [],
+    "category": null,
+    "ontology_source": "",
+    "used_fallback": false
+  },
+  "triage_report": {
+    "title": "",
+    "char_count": 0,
+    "char_limit": 75,
+    "over_char_limit": false,
+    "phrases": [],
+    "summary": {},
+    "note": ""
+  },
+  "keyword_coverage": {
+    "duplicates_across_layers": [],
+    "backend_overlap": [],
+    "weighted_index_score": 0.0,
+    "coverage_per_layer": {
+      "title": {"hit": 0, "total": 0, "ratio": 0.0, "weight": 5},
+      "highlights": {"hit": 0, "total": 0, "ratio": 0.0, "weight": 4},
+      "bullets": {"hit": 0, "total": 0, "ratio": 0.0, "weight": 4},
+      "backend": {"hit": 0, "total": 0, "ratio": 0.0, "weight": 4}
+    },
+    "keyword_details": [],
+    "missing_keywords": [],
+    "total_keywords": 0
+  },
+  "image_report": {
+    "field": "images",
+    "image_count": 0,
+    "defects": [],
+    "cdq_image_score": 0.0,
+    "compliant": true,
+    "fix_suggestions": []
+  },
+  "compliance_report": {
+    "overall_compliant": true,
+    "total_score": 0,
+    "summary": "",
+    "passed_checks": 0,
+    "failed_checks": 0,
+    "warnings": 0,
+    "critical_issues": [],
+    "action_items": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "_meta": {
+      "confidence": "low",
+      "granularity": "broad_category",
+      "note": "Public broad-category approximation, not calibrated per sub-category: some attributes may not exist for a specific sub-category, and true facet attributes may be missing. Fallback only - scores using this list are marked as reference values; verify against Seller Central attribute panel or live storefront facet filters."
+    }
+  },
+  "product_types": [
+    "Skincare Set",
+    "Serum",
+    "Shampoo",
+    "Cosmetics",
+    "Lotion"
+  ],
+  "top10_attributes": [
+    "brand",
+    "skin_type",
+    "scent",
+    "formulation",
+    "volume",
+    "ingredients",
+    "application_area",
+    "age_range",
+    "cruelty_free",
+    "special_ingredients"
+  ],
+  "band_a_critical_6": [
+    "brand",
+    "skin_type",
+    "scent",
+    "formulation",
+    "volume",
+    "ingredients"
+  ],
+  "title_formula": "[Brand] [Product Type] for [Skin/Hair Type], [Key Ingredient], [Scent], [Volume]"
+}

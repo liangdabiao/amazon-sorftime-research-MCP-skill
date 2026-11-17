@@ -1,0 +1,221 @@
+{
+  "title": {
+    "max_chars": {
+      "strict_75": 75,
+      "transition_200": 200
+    },
+    "recommended_max": 60,
+    "warn_threshold": 70,
+    "core_keyword_within_chars": 50,
+    "word_repeat_max": 2,
+    "repeat_exempt": [
+      "in", "on", "over", "with", "for", "to", "of", "at", "by",
+      "and", "or", "but", "nor", "so", "yet",
+      "the", "a", "an"
+    ],
+    "repeat_exempt_by_lang": {
+      "en": [
+        "in", "on", "over", "with", "for", "to", "of", "at", "by",
+        "and", "or", "but", "nor", "so", "yet",
+        "the", "a", "an", "this", "that", "these", "those", "is", "are", "was", "were", "be", "been"
+      ],
+      "de": [
+        "mit", "für", "durch", "aus", "bei", "über", "unter", "von", "zu",
+        "ohne", "gegen", "nach", "seit", "bis", "während",
+        "und", "oder", "aber", "denn", "weil", "wenn", "als", "damit", "sowie", "noch",
+        "der", "die", "das", "den", "dem", "des",
+        "ein", "eine", "einer", "eines", "einem", "einen",
+        "kein", "keine",
+        "ich", "du", "er", "sie", "es", "wir", "ihr",
+        "dieser", "diese", "dieses", "jener", "jene", "jenes",
+        "alle", "alles", "beide"
+      ],
+      "fr": [
+        "avec", "pour", "par", "dans", "sur", "sans", "sous", "entre",
+        "vers", "chez", "de", "du", "des", "le", "la", "les",
+        "un", "une", "et", "ou", "mais", "donc", "or", "ni", "car",
+        "je", "tu", "il", "elle", "nous", "vous", "ils", "elles",
+        "ce", "cette", "ces", "mon", "ton", "son", "notre", "votre", "leur",
+        "qui", "que", "quoi", "dont", "où"
+      ],
+      "it": [
+        "con", "per", "da", "in", "su", "senza", "sotto", "tra", "fra",
+        "verso", "di", "del", "della", "dei", "degli", "delle",
+        "il", "lo", "la", "i", "gli", "le", "un", "una", "uno",
+        "e", "o", "ma", "che", "perché", "quando", "come", "dove",
+        "io", "tu", "lui", "lei", "noi", "voi", "loro"
+      ],
+      "es": [
+        "con", "para", "por", "de", "del", "en", "sobre", "sin", "bajo",
+        "entre", "hacia", "desde", "hasta", "durante", "mediante",
+        "el", "la", "los", "las", "un", "una", "unos", "unas",
+        "y", "o", "pero", "sino", "porque", "cuando", "como", "donde",
+        "yo", "tú", "él", "ella", "nosotros", "vosotros", "ellos", "ellas"
+      ]
+    },
+    "repeat_normalization": ["strip_hyphen", "singularize", "lowercase"],
+    "forbidden_chars": ["!", "$", "?", "_", "{", "}", "^", "¬", "¦"],
+    "forbidden_non_ascii": ["Æ", "Š", "Œ", "Ÿ", "Ž", "Ø", "ß"],
+    "allowed_punct": ["-", "/", ",", "&", ".", "(", ")", "\"", "'"],
+    "allowed_unit_abbr": ["cm", "oz", "in", "kg", "ml", "lb", "ft", "mm", "g", "mg", "W", "V", "Ah", "Hz"],
+    "forbidden_promo_words": {
+      "en": [
+        "free shipping", "best seller", "hot item", "100% quality guaranteed",
+        "sale", "discount", "cheap", "bargain", "new arrival", "top rated",
+        "#1", "best price", "lowest price", "limited time", "free gift", "guaranteed",
+        "buy now", "hurry", "special offer", "exclusive deal", "save money",
+        "money back", "no risk", "risk free", "100% satisfaction"
+      ],
+      "zh": [
+        "免运费", "热销", "爆款", "第一", "精品", "优质", "特价", "促销",
+        "降价", "包邮", "赠品", "热卖", "正品",
+        "限时", "抢购", "秒杀", "超值", "亏本", "官方授权", "高品质"
+      ],
+      "ja": [],
+      "de": [
+        "kostenloser versand", "kostenloser verschiffen", "gratis versand",
+        "am besten", "bestseller", "top angebot", "sonderangebot",
+        "rabatt", "reduziert", "günstig", "billig",
+        "neuheit", "neu eingetroffen", "neuerscheinung",
+        "limitierte auflage", "nur heute", "nur für kurze zeit",
+        "geschenk", "gratis", "garantiert",
+        "jetzt kaufen", "schnell zugreifen", "kaufen",
+        "geld zurück", "risikofrei", "100% zufriedenheit"
+      ],
+      "fr": [
+        "livraison gratuite", "meilleure vente", "article chaud",
+        "promotion", "solde", "réduction", "bon marché",
+        "nouveau", "nouveauté", "premium",
+        "édition limitée", "offre spéciale", "offre exclusive",
+        "uniquement aujourd'hui", "temps limité",
+        "cadeau", "garanti", "achetez maintenant",
+        "remboursement", "sans risque", "100% satisfaction"
+      ],
+      "it": [
+        "spedizione gratuita", "più venduto", "articolo caldo",
+        "promozione", "saldo", "sconto", "economico",
+        "nuovo", "novità",
+        "edizione limitata", "offerta speciale", "offerta esclusiva",
+        "solo oggi", "tempo limitato",
+        "regalo", "garantito", "acquista ora",
+        "rimborso", "senza rischi", "100% soddisfazione"
+      ],
+      "es": [
+        "envío gratis", "envío gratuito", "más vendido", "artículo caliente",
+        "promoción", "rebaja", "descuento", "barato",
+        "nuevo", "novedad",
+        "edición limitada", "oferta especial", "oferta exclusiva",
+        "solo hoy", "tiempo limitado",
+        "regalo", "garantizado", "compra ahora",
+        "reembolso", "sin riesgo", "100% satisfacción"
+      ]
+    },
+    "forbidden_subjective": {
+      "en": [
+        "amazing", "incredible", "perfect", "awesome", "stunning", "fantastic", "unbelievable",
+        "miracle", "revolutionary", "world class", "cutting edge", "state of the art"
+      ],
+      "zh": [
+        "完美", "惊艳", "极佳", "超强", "顶级",
+        "神器", "无敌", "极致", "豪华", "高端大气"
+      ],
+      "de": [
+        "unglaublich", "atemberaubend", "fantastisch", "erstaunlich",
+        "revolutionär", "wunder", "wundervoll", "klasse", "spitze",
+        "erstklassig", "premium", "luxuriös", "hochwertig"
+      ],
+      "fr": [
+        "incroyable", "stupéfiant", "fantastique", "étonnant",
+        "révolutionnaire", "merveille", "merveilleux", "exceptionnel",
+        "premium", "luxueux", "haut de gamme"
+      ],
+      "it": [
+        "incredibile", "stupefacente", "fantastico", "sorprendente",
+        "rivoluzionario", "meraviglia", "meraviglioso", "eccezionale",
+        "premium", "lussuoso", "alta gamma"
+      ],
+      "es": [
+        "increíble", "asombroso", "fantástico", "sorprendente",
+        "revolucionario", "maravilla", "maravilloso", "excepcional",
+        "premium", "lujoso", "alta gama"
+      ]
+    },
+    "no_all_caps": true,
+    "title_case": true,
+    "numbers_arabic": true,
+    "brand_first": true,
+    "must_contain": ["brand", "product_type"]
+  },
+  "highlights": {
+    "max_chars": 125,
+    "min_short_clauses": 3,
+    "required_separator": ",",
+    "phrase_not_sentence": true,
+    "max_clause_chars": 40,
+    "render_separator": "|",
+    "display_concatenated": true,
+    "prerequisite_title_within": 75,
+    "distinct_from_title": true,
+    "cross_field_repeat_check": true,
+    "_notes_highlights": [
+      "required_separator=,：官方明确亮点短语间用逗号分隔，非分号/竖线/换行（官方 FAQ 原文）。",
+      "phrase_not_sentence=true：官方要求『以逗号分隔的短语，而不是完整的句子』；max_clause_chars=40 为启发式，单段超长提示可能写成句子。",
+      "render_separator=|：前端『渲染层』把 title 与 highlights 拼成一行时的分隔符（pipe U+007C），非字段内容本身。注意区分：标题禁用字符清单禁的是 ¦（broken bar U+00A6），渲染拼接用的 |（pipe U+007C）不在禁用清单。",
+      "display_concatenated=true：实测（2026-08）前端 SERP + PDP 把『标题 | 亮点』拼成一行显示在标题位，与官方『亮点在标题下方分行』的设计意图不符；亚马逊官方已在卖家论坛承认此为展示 bug，正在调查。质检须按『拼接同行』的真实呈现建模。",
+      "prerequisite_title_within=75：官方 FAQ——只有标题已 ≤75 字符时，亮点字段才可填写。",
+      "cross_field_repeat_check=true：拼接同行后，标题词在亮点里再出现会造成跨字段堆砌（买家在一行里连续看到）。给 WARN 级建议；但官方无跨字段重复明文规则，标 TBD，不计入 compliant/FAIL。"
+    ]
+  },
+  "bullets": {
+    "count_min": 5,
+    "count_max": 6,
+    "max_chars_each": 500,
+    "five_questions": [
+      "material_reliability",
+      "size_fit",
+      "use_scene",
+      "key_limitation",
+      "competitor_diff"
+    ]
+  },
+  "backend_search_terms": {
+    "max_bytes": 250,
+    "separator": "space",
+    "strip_stopwords": true,
+    "stopwords": [
+      "and", "the", "for", "with", "of", "a", "an", "or", "but",
+      "in", "on", "to", "is", "it", "this", "that"
+    ],
+    "no_special_chars": true,
+    "distinct_from_title_bullets": true
+  },
+  "variation": {
+    "parent_no_attrs": true,
+    "child_has_attrs": true,
+    "child_attrs": ["color", "size", "flavor", "scent", "style"]
+  },
+  "category_exempt": {
+    "media_exempt_75": true,
+    "media_categories": ["Books", "Music", "DVD", "Video", "Software"]
+  },
+  "site_overrides": {
+    "JP": {
+      "recommended_max": 50
+    },
+    "ME": {
+      "skip_75_rule": true
+    }
+  },
+  "_notes": [
+    "字段名与值以 rules.json 为准，禁止自行改动。",
+    "forbidden_promo_words.en/.zh 各扩充 8-9 个常见违规词（促销+主观混合）；ja/de/fr/it/es 已补齐站点合规黑名单（2026-07-29）。",
+    "forbidden_subjective.en/.zh/.de/.fr/.it/.es 已补齐。",
+    "待验证项1：日本站『全角50文字』说法来自中文卖家媒体汇总，未直接抓取日文 Seller Central 原文；2026-07-27 后统一为 75 字符，该差异将消失（见 site_overrides.JP.recommended_max=50）。",
+    "待验证项2：中东站（Souq）是否完全不执行 75 字符新规，来自行业媒体汇总，建议以 Seller Central 中东站官方公告为准（见 site_overrides.ME.skip_75_rule）。",
+    "待验证项3：backend_search_terms.max_bytes 多数源引 250 字节；Captain Bi 引 262 字节；以 Seller Central 后台提示为准，此处取 250。",
+    "core_keyword_within_chars：移动端首屏约 60 字符截断线；rules.json 定为 50，留出安全余量。",
+    "repeat_exempt：合并了介词(in/on/over/with/for/to/of/at/by)、连词(and/or/but/nor/so/yet)、冠词(the/a/an)，共 18 个虚词，不计入重复统计。",
+    "repeat_exempt_by_lang：按 language 分组的多语言虚词表。德语 listing 不会再因 mit/für/durch/aus/bei/über 等介词被误判关键词堆砌（2026-07-29）。",
+    "数据分层（2026-07-29）：前台数据(title/bullets/description/images/A+)可由 SellerSprite MCP（asin_detail）取数；后台数据(item_highlights/backend_search_terms/attributes_top10/band_a_critical_6)必须从 Seller Central 导出。缺数据时评分优雅降级（详见 SKILL.md 数据分层小节）。"
+  ]
+}

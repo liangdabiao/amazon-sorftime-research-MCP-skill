@@ -1,0 +1,32 @@
+{
+  "components": {
+    "structured_attribute": {"weight": 0.30},
+    "title": {"weight": 0.25},
+    "variation": {"weight": 0.20},
+    "image": {"weight": 0.15},
+    "bullet_point": {"weight": 0.05},
+    "a_plus": {"weight": 0.05}
+  },
+  "title_rule": {"compliant_full": 1.0, "any_violation": 0.0},
+  "image_scoring": {
+    "ge4_no_defect": 1.0,
+    "ge4_defect": 0.4,
+    "lt4_no_defect": 0.6,
+    "lt4_defect": 0.0
+  },
+  "a_plus_scoring": {"has": 1.0, "missing": 0.0},
+  "attributes_scoring": {
+    "critical_6_full": 1.0,
+    "formula": "filled_top10_ratio",
+    "critical_defect_if_band_a_missing_gt_half": true
+  },
+  "variation_scoring": {"correct_structure": 1.0, "defect": 0.0, "orphan_inapplicable": true},
+  "orphan_redistribute": true,
+  "grades": {
+    "optimized": [90, 100],
+    "great": [80, 89],
+    "good": [70, 79],
+    "fair": [50, 69],
+    "poor": [0, 49]
+  }
+}

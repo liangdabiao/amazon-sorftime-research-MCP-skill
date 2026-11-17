@@ -24,13 +24,18 @@ SKILLS/
 │
 ├── amz-review-analysis/    类目级评论分析流水线（第三方 skill，见「致谢」许可说明）
 │
+├── vendor/                 第三方 skill 原样留存（只读参考，各自 LICENSE 生效）→ 仓库侧映射到 SKILLS/skills/
+│   ├── amazon-listing-doctor/  Listing 体检评分：CDQ / A9 / COSMO / Alexa / 合规（MIT）
+│   ├── amazon-listing-builder/ Listing 八步工作流
+│   └── ...                 每个目录带 SOURCE.md 或 README，写明来源与版本
+│
 ├── modules/                本项目改造层：按运营流程拆的模块
 │   ├── 00-input/           输入契约：竞品 ASIN 组、本品事实卡、后台数据回流
 │   ├── 10-keyword/         ✅ 关键词调研 v3.7（唯一做满的模块）
 │   ├── 20-competitor/      竞品分析（骨架）
 │   ├── 30-insight/         用户洞察（骨架）
 │   ├── 40-selling-point/   卖点提炼 ✅ v1
-│   ├── 50-copy/            文案生成（骨架）
+│   ├── 50-copy/            文案生成 ✅ v2（含第三方体检评分）
 │   ├── 90-main-image/      主图设计需求（骨架）
 │   └── _common/            输出规范、口径声明、政策边界
 │
@@ -40,7 +45,11 @@ SKILLS/
     ├── check.py            交付前 7 项自检，不过就不许交
     ├── sp_config.yaml      卖点定义、角色矩阵、分级名额、图片开关
     ├── build_selling_points.py  五点 × 评论 × 词库 → 卖点库
-    └── check_sp.py         卖点库 7 项自检，退出码非 0 不许交
+    ├── check_sp.py         卖点库 7 项自检，退出码非 0 不许交
+    ├── copy_config.yaml    文案字段边界、词表、判定阈值、体检工具配置
+    ├── check_copy.py       文案 15 项自检（C0-C12），写 08 / CP-03 / CP-04
+    ├── score_copy.py       文案体检评分，调 vendor/amazon-listing-doctor，写 CP-07
+    └── build_copy.py       正文 → CP-02 / 粘贴稿 / CP-05 / CP-06 / 文案.xlsx / _summary.json
 ```
 
 ## 快速开始
@@ -51,7 +60,14 @@ pip install pyyaml
 # 在一个已按 10-keyword 的输入契约准备好数据的项目目录里：
 python SKILLS/scripts/merge.py  <项目目录>
 python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
+
+# 50-copy 出稿：check → score → build，三步顺序不能换
+python SKILLS/scripts/check_copy.py --category sponge-holder   # 写 08 自检 / 覆盖清单 / 问题清单
+python SKILLS/scripts/score_copy.py --category sponge-holder   # 调 vendor 体检，写 CP-07 评分
+python SKILLS/scripts/build_copy.py --category sponge-holder --sku <SKU>   # 出 xlsx / 粘贴稿 / 汇总
 ```
+
+第三方体检工具零依赖、无需 API Key，随仓库一起走（`SKILLS/vendor/amazon-listing-doctor/`），不联网、不额外安装。若该目录被删掉，`score_copy.py` 会在 `04_评分` 表写「未执行」并继续，不影响其余产物。
 
 `merge.py` 只读文件、不认代码里的常量；`check.py` 检查的是"这轮有没有偷工"（字段是否齐、五路是否都有贡献、EST 占比、否定清单有没有过泛词、P0 名额、品牌词有没有混进标题层、取值是否合法）。**换类目只改 `config.yaml`，不改代码。**
 
@@ -93,7 +109,7 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 | `20-competitor` | ⬜ 骨架 |
 | `30-insight` | ⬜ 骨架（评论分析可复用 `amz-review-analysis`） |
 | `40-selling-point` | ✅ v1，可运行（`scripts/build_selling_points.py` + `check_sp.py`，7 项自检全过；图片维度待图包） |
-| `50-copy` | ⬜ 骨架（排序规则草稿在 `skills/amazon-listing-builder/reference/ranking-rules.md`） |
+| `50-copy` | ✅ v2，可运行（`check_copy.py` 15 项 + `score_copy.py` 第三方体检 + `build_copy.py` 出 xlsx；sponge-holder 已出成稿，两套检查全过） |
 | `90-main-image` | ⬜ 骨架 |
 
 ## 四条贯穿全库的规矩
@@ -114,8 +130,9 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 | **amazon-keyword-strategy v0.4.0** | — | 关键词模块 v3.7 借鉴了四条：绝对锚分层、竞争度四维打分与四象限打法、词根六分类、品牌双分类 |
 | [zach-feature-demand-validator](https://github.com/zach22-1999/amazon-skills) | Zach | 卖点库的"三维交叉验证真伪"思路来源：低覆盖不等于机会，要看评论侧有没有需求 |
 | **卖家精灵 MCP**（SellerSprite） | SellerSprite | 全部市场侧数据来源：`keyword_miner` 搜索量与竞争指标、`asin_detail` 详情与五点（`features` 字段）、`traffic_keyword` 流量词、`product_research` 扩池 |
-| **amazon-listing-builder** | liangdabiao | `50-copy` 的排序规则草稿来源 |
+| **amazon-listing-builder** | liangdabiao | `50-copy` 的词位规则（5 层词库）、字段边界、红线词表来源。**注意：`reference/ranking-rules.md` 不在上游仓库，是本项目 11-13 写进去的草稿，已作废** |
 | **xiyou-insight / sif-amazon-research** | liangdabiao | 流量诊断与市场验证，作为后续模块的参考 |
+| [amazon-listing-doctor](https://github.com/buluslan/amazon-listing-doctor) | Buluu@新西楼（公众号：新西楼.AI） | `50-copy` 的**第三方体检评分**（`04_评分` 表 / `CP-07`）：CDQ 六维质量分、A9 收录、COSMO 意图覆盖、Alexa 可发现性、2026 新规合规、标题词组分诊。**MIT 许可，原样存放于 `SKILLS/vendor/amazon-listing-doctor/`，未改一行代码**；来源、版本、提交号与口径差异见该目录 `SOURCE.md` |
 
 被借鉴的部分都改过：不是照抄，是拿真实类目跑完之后，把"和数据对不上"的规则换掉。比如上游的竞争分用等权平均，实测会被三项低值拉平、掩盖"商品数四万九"这种硬壁垒，于是补了单项极端值覆盖；上游的层级用固定绝对锚，小类目会被压成全是长尾，于是改成头部比例锚。
 
@@ -128,6 +145,7 @@ python SKILLS/scripts/check.py  <项目目录>     # 退出码 0 才算交付
 
 ## 更新日志
 
+- **v5**（2026-11-17）：`50-copy` 补第三方体检评分。新增 `skills/scripts/score_copy.py` 与 `vendor/amazon-listing-doctor/`（MIT，v0.4.12）；`文案.xlsx` 第 4 张表改为 `04_评分`（原 04 问题清单顺移到 05，自检 06）。体检抓到 3 个真问题：后台 ST 与五点重复词 `rv`（删除后 A9 87→94、合规失败项 1→0）、标题核心词 `kitchen sink organizer` 未进前 50 字符（改不动，两个十万级词互换无增量）、COSMO/Alexa 因本体未收敛降级（不作结论）。
 - **v4**（2026-11-16）：新增 `40-selling-point` 卖点库模块（`sp_config.yaml` + `build_selling_points.py` + `check_sp.py`），G/M 双分数分工，7 项自检；图片维度留作缺口，等图包回填。
 - **v3.7**（2026-11-13）：关键词模块四项结构改造——四档分层（三模式可切）、竞争度与四象限、词根六分类、品牌双分类；R3 改精确覆盖率；搜索量底表统一期次。
 - **v3.6**：脚本收敛为 `scripts/{config.yaml, merge.py, check.py}`；优先级改名额制；搜索转化率退出排序；分层与相关性解耦。

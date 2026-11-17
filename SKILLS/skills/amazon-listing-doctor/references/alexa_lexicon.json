@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "scope": "open-source doctor · full public lexicon (common + 10 categories); also the ALEXA AEO scenario/audience seed bank",
+    "note": "Per-category lexicons are public category common sense (e.g. 'noise cancelling' for Electronics, 'machine washable' for Apparel, 'bpa free' for Baby) — not proprietary research — so they ship in this open build. alexa_check picks the category-specific list when data.category matches one of the keys below, else falls back to _common. 本文件供 ALEXA AEO 模块复用为场景/人群种子词, 并作为 substring 兜底词库。",
+    "category_specific": true,
+    "categories": ["Electronics", "Apparel", "Home_Kitchen", "Beauty_Personal_Care", "Tools_Home_Improvement", "Sports_Outdoors", "Toys_Games", "Grocery_Gourmet", "Pet_Supplies", "Baby"]
+  },
+  "_common": {
+    "scene": ["commute", "travel", "office", "workout", "outdoor", "home", "gym", "camping", "hiking", "running", "sleep", "study"],
+    "audience": ["men", "women", "kids", "children", "seniors", "baby", "professional", "student", "athlete"],
+    "limitation": ["waterproof", "leakproof", "portable", "washable", "rechargeable", "cordless", "lightweight", "durable", "breathable"]
+  },
+  "Electronics": {
+    "scene": ["commute", "workout", "office", "gaming", "travel"],
+    "audience": ["men", "women", "kids", "professional", "gamer"],
+    "limitation": ["waterproof", "noise cancelling", "long battery", "fast charge", "wireless"]
+  },
+  "Apparel": {
+    "scene": ["casual", "work", "party", "workout", "travel", "outdoor", "beach", "office", "lounging", "date"],
+    "audience": ["men", "women", "kids", "teens", "toddler", "plus size", "maternity"],
+    "limitation": ["machine washable", "wrinkle resistant", "breathable", "quick dry", "stretch", "uv protection", "lightweight"]
+  },
+  "Home_Kitchen": {
+    "scene": ["kitchen", "dining", "cooking", "baking", "bedroom", "bathroom", "living room", "entertaining", "party", "storage"],
+    "audience": ["family", "home chef", "household", "kids", "apartment", "dorm"],
+    "limitation": ["dishwasher safe", "microwave safe", "bpa free", "non stick", "stackable", "rust proof", "heat resistant"]
+  },
+  "Beauty_Personal_Care": {
+    "scene": ["daily skincare", "makeup", "travel", "gym", "office", "bedtime", "morning routine", "spa", "shower"],
+    "audience": ["men", "women", "teens", "sensitive skin", "mature skin", "oily skin", "dry skin"],
+    "limitation": ["cruelty free", "vegan", "paraben free", "sulfate free", "fragrance free", "non comedogenic", "hypoallergenic", "waterproof"]
+  },
+  "Tools_Home_Improvement": {
+    "scene": ["diy", "renovation", "construction", "repair", "garage", "workshop", "outdoor", "plumbing", "electrical", "gardening"],
+    "audience": ["diyer", "professional contractor", "handyman", "homeowner", "electrician", "plumber", "carpenter"],
+    "limitation": ["cordless", "rechargeable", "heavy duty", "rust resistant", "impact resistant", "waterproof", "lightweight", "ergonomic"]
+  },
+  "Sports_Outdoors": {
+    "scene": ["hiking", "camping", "cycling", "running", "fishing", "hunting", "climbing", "skiing", "swimming", "backpacking"],
+    "audience": ["athlete", "hiker", "camper", "runner", "cyclist", "hunter", "men", "women", "kids"],
+    "limitation": ["waterproof", "windproof", "lightweight", "breathable", "uv protection", "durable", "ripstop", "insulated"]
+  },
+  "Toys_Games": {
+    "scene": ["indoor", "outdoor", "birthday party", "playdate", "classroom", "travel", "bath time", "beach", "backyard", "family game night"],
+    "audience": ["kids", "toddlers", "preschool", "teens", "boys", "girls", "family"],
+    "limitation": ["non toxic", "bpa free", "washable", "durable", "age appropriate", "lead free", "phthalate free"]
+  },
+  "Grocery_Gourmet": {
+    "scene": ["breakfast", "snack", "baking", "cooking", "gifting", "holiday", "party", "everyday", "on the go", "meal prep"],
+    "audience": ["family", "kids", "adults", "vegan", "vegetarian", "gluten free", "keto", "foodies"],
+    "limitation": ["organic", "non gmo", "gluten free", "sugar free", "kosher", "halal", "preservative free", "shelf stable"]
+  },
+  "Pet_Supplies": {
+    "scene": ["indoor", "outdoor", "training", "travel", "walking", "feeding", "grooming", "playtime", "crate", "vet visits"],
+    "audience": ["dogs", "cats", "puppies", "kittens", "small animals", "birds", "fish", "pet owners"],
+    "limitation": ["machine washable", "waterproof", "leakproof", "chew resistant", "non toxic", "odor free", "durable", "portable"]
+  },
+  "Baby": {
+    "scene": ["feeding", "bedtime", "bath time", "travel", "playtime", "nursery", "stroller", "daycare", "diaper change", "on the go"],
+    "audience": ["newborn", "infant", "toddler", "baby", "parents", "moms", "dads", "caregivers"],
+    "limitation": ["bpa free", "phthalate free", "non toxic", "machine washable", "hypoallergenic", "lead free", "food grade", "waterproof"]
+  }
+}

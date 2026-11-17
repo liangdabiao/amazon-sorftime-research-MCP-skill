@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "_meta": {
+      "confidence": "low",
+      "granularity": "broad_category",
+      "note": "Public broad-category approximation, not calibrated per sub-category: some attributes may not exist for a specific sub-category, and true facet attributes may be missing. Fallback only - scores using this list are marked as reference values; verify against Seller Central attribute panel or live storefront facet filters."
+    }
+  },
+  "product_types": [
+    "Coffee",
+    "Snack",
+    "Tea",
+    "Spice",
+    "Pasta"
+  ],
+  "top10_attributes": [
+    "brand",
+    "flavor",
+    "item_weight",
+    "ingredients",
+    "dietary_preference",
+    "package_type",
+    "allergen_free",
+    "origin",
+    "servings_per_container",
+    "expiration_date"
+  ],
+  "band_a_critical_6": [
+    "brand",
+    "flavor",
+    "item_weight",
+    "ingredients",
+    "dietary_preference",
+    "package_type"
+  ],
+  "title_formula": "[Brand] [Product Type], [Flavor], [Weight], [Dietary Feature]"
+}

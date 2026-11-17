@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "_meta": {
+      "confidence": "low",
+      "granularity": "broad_category",
+      "note": "Public broad-category approximation, not calibrated per sub-category: some attributes may not exist for a specific sub-category, and true facet attributes may be missing. Fallback only - scores using this list are marked as reference values; verify against Seller Central attribute panel or live storefront facet filters."
+    }
+  },
+  "product_types": [
+    "Yoga Mat",
+    "Dumbbell",
+    "Bike",
+    "Camping Tent",
+    "Water Bottle"
+  ],
+  "top10_attributes": [
+    "brand",
+    "material",
+    "color",
+    "size",
+    "item_weight",
+    "skill_level",
+    "age_range",
+    "activity",
+    "water_resistance",
+    "grip_size"
+  ],
+  "band_a_critical_6": [
+    "brand",
+    "material",
+    "color",
+    "size",
+    "item_weight",
+    "skill_level"
+  ],
+  "title_formula": "[Brand] [Product Type] for [Activity], [Material/Size], [Color], [Skill Level]"
+}

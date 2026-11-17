@@ -1,0 +1,118 @@
+{
+  "_meta": {
+    "scope": "open-source doctor · COSMO intent-coverage ontology (public, built on the COSMO paper spirit)",
+    "note": "COSMO (Amazon's commonsense knowledge graph, WWW 2024) has no official audit weights. This is a community concept-coverage check, NOT an official COSMO score. It measures whether a listing speaks to user intent across 4 commonsense dimensions, so sellers can spot listings that only stack product-attribute words and ignore why/for-whom/how users actually buy.",
+    "dimensions": {
+      "use_case": "where / what the product is used for (scenario + utility)",
+      "audience": "who the product is for (persona)",
+      "goal": "why the user buys it / what outcome they want (COSMO's signature dimension — often missing from attribute-stuffed listings)",
+      "constraint": "limits / qualifiers (when/where it does NOT apply)"
+    },
+    "scoring": "score = target-line weighted (like alexa); coverage_ratio = matched/total (honest precision). goal is intentionally hard — low goal coverage flags attribute-stuffed listings.",
+    "matching": "dual-mode: agent_semantic (preferred, reading extraction_guidance) or substring (fallback, reading _common + per-category word lists merged & deduped)",
+    "category_specific": true,
+    "categories": ["Electronics", "Apparel", "Home_Kitchen", "Beauty_Personal_Care", "Tools_Home_Improvement", "Sports_Outdoors", "Toys_Games", "Grocery_Gourmet", "Pet_Supplies", "Baby"]
+  },
+  "extraction_guidance": {
+    "_instruction": "You are analyzing an Amazon product listing to identify COSMO intent concepts. For each of the 4 dimensions below, read the listing text and identify: (1) which concepts are COVERED by the listing (the listing expresses this concept, through any wording), (2) which concepts from this dimension are MISSING (important user-intent concepts that the listing does not address). Do NOT just match keywords — understand what the listing is expressing semantically. A listing that says 'keeps your cat fed while you're at work' covers the work scenario even if the word 'work' doesn't appear. A listing that says 'perfect for your morning jog' covers the running scenario. Do NOT fabricate concepts that are not genuinely relevant to this product's category. Return your analysis as a JSON object with covered_concepts and missing_concepts per dimension.",
+    "use_case": {
+      "definition": "Where / what the product is used for — specific scenarios, environments, activities, and contexts of use. Look for: location nouns (office, gym, kitchen, home), activity descriptions (commuting, hiking, cooking, studying), and time-of-use or occasion signals (night, weekend, summer, party).",
+      "examples": ["travel", "commute", "office", "work", "home", "gym", "workout", "running", "outdoor", "gaming", "sleep", "study", "cooking", "cleaning", "party", "hiking", "camping"]
+    },
+    "audience": {
+      "definition": "Who the product is for — target user groups, demographics, skill levels, and roles. Look for: demographic nouns (men, women, kids, children, seniors, baby), role/identity nouns (professional, student, athlete, beginner, expert), and implicit audiences revealed through wording ('fits small hands' → kids, 'boardroom-ready' → professionals, 'busy multi pet owners' → pet owners).",
+      "examples": ["men", "women", "kids", "children", "senior", "baby", "professional", "student", "athlete", "beginner", "family", "office worker", "traveler", "pet owner", "homeowner", "teen"]
+    },
+    "goal": {
+      "definition": "Why the user buys it / what outcome or benefit they want — user goals, desired feelings, results, and pain-point resolutions. This is COSMO's signature dimension: most listings only describe product attributes, not user goals. Look for: benefit verbs (protect, organize, relax, focus, relieve), result adjectives (comfortable, clean, bright, safe, warm, cool), and outcomes described through phrases ('no more tangled cords' → convenience, 'wake up refreshed' → restfulness, 'never miss a meal' → reliability). A single listing passage can express multiple goals — extract them all.",
+      "examples": ["comfort", "quiet", "safe", "health", "organize", "easy", "secure", "fresh", "soft", "smooth", "bright", "clear", "strong", "warm", "cool", "protect", "relax", "energy", "focus", "calm", "enjoy", "relieve"]
+    },
+    "constraint": {
+      "definition": "Limits, qualifiers, conditions, and requirements — what the product can/cannot do, where/how it applies, and trust/durability signals. Look for: capability qualifiers (waterproof, cordless, rechargeable, portable), use boundaries (indoor-only, up to 200 lbs, for dry hair only), material/design constraints (BPA-free, machine-washable, heavy-duty), and usage requirements (needs WiFi, requires batteries). Also capture trust signals that affect purchase decisions (non-toxic, eco-friendly, easy to install).",
+      "examples": ["waterproof", "leakproof", "portable", "washable", "rechargeable", "cordless", "lightweight", "durable", "breathable", "budget", "premium", "eco", "compact", "heavy duty", "travel size", "easy to use", "low maintenance", "non toxic", "splashproof", "sweatproof"]
+    }
+  },
+  "_common": {
+    "use_case": [
+      "travel", "commute", "office", "work", "home", "gym", "workout",
+      "running", "outdoor", "sport", "gaming", "sleep", "study", "cooking",
+      "cleaning", "party", "hiking", "camping", "jogging", "driving", "fitness"
+    ],
+    "audience": [
+      "men", "women", "kids", "children", "senior", "baby", "professional",
+      "student", "athlete", "beginner", "family", "office worker", "traveler",
+      "pet owner", "homeowner", "teen"
+    ],
+    "goal": [
+      "comfort", "quiet", "safe", "health", "organize", "easy", "secure",
+      "fresh", "soft", "smooth", "bright", "clear", "strong", "warm", "cool",
+      "protect", "relax", "energ", "focus", "calm", "enjoy", "relieve"
+    ],
+    "constraint": [
+      "waterproof", "leakproof", "portable", "washable", "rechargeable",
+      "cordless", "lightweight", "durable", "breathable", "budget", "premium",
+      "eco", "compact", "heavy duty", "travel size", "easy to use",
+      "low maintenance", "non toxic", "splashproof", "sweatproof"
+    ]
+  },
+  "Electronics": {
+    "use_case": ["commute", "workout", "office", "gaming", "travel"],
+    "audience": ["men", "women", "kids", "professional", "gamer"],
+    "goal": [],
+    "constraint": ["waterproof", "noise cancelling", "long battery", "fast charge", "wireless"]
+  },
+  "Apparel": {
+    "use_case": ["casual", "work", "party", "workout", "travel", "outdoor", "beach", "office", "lounging", "date"],
+    "audience": ["men", "women", "kids", "teens", "toddler", "plus size", "maternity"],
+    "goal": [],
+    "constraint": ["machine washable", "wrinkle resistant", "breathable", "quick dry", "stretch", "uv protection", "lightweight"]
+  },
+  "Home_Kitchen": {
+    "use_case": ["kitchen", "dining", "cooking", "baking", "bedroom", "bathroom", "living room", "entertaining", "party", "storage"],
+    "audience": ["family", "home chef", "household", "kids", "apartment", "dorm"],
+    "goal": [],
+    "constraint": ["dishwasher safe", "microwave safe", "bpa free", "non stick", "stackable", "rust proof", "heat resistant"]
+  },
+  "Beauty_Personal_Care": {
+    "use_case": ["daily skincare", "makeup", "travel", "gym", "office", "bedtime", "morning routine", "spa", "shower"],
+    "audience": ["men", "women", "teens", "sensitive skin", "mature skin", "oily skin", "dry skin"],
+    "goal": [],
+    "constraint": ["cruelty free", "vegan", "paraben free", "sulfate free", "fragrance free", "non comedogenic", "hypoallergenic", "waterproof"]
+  },
+  "Tools_Home_Improvement": {
+    "use_case": ["diy", "renovation", "construction", "repair", "garage", "workshop", "outdoor", "plumbing", "electrical", "gardening"],
+    "audience": ["diyer", "professional contractor", "handyman", "homeowner", "electrician", "plumber", "carpenter"],
+    "goal": [],
+    "constraint": ["cordless", "rechargeable", "heavy duty", "rust resistant", "impact resistant", "waterproof", "lightweight", "ergonomic"]
+  },
+  "Sports_Outdoors": {
+    "use_case": ["hiking", "camping", "cycling", "running", "fishing", "hunting", "climbing", "skiing", "swimming", "backpacking"],
+    "audience": ["athlete", "hiker", "camper", "runner", "cyclist", "hunter", "men", "women", "kids"],
+    "goal": [],
+    "constraint": ["waterproof", "windproof", "lightweight", "breathable", "uv protection", "durable", "ripstop", "insulated"]
+  },
+  "Toys_Games": {
+    "use_case": ["indoor", "outdoor", "birthday party", "playdate", "classroom", "travel", "bath time", "beach", "backyard", "family game night"],
+    "audience": ["kids", "toddlers", "preschool", "teens", "boys", "girls", "family"],
+    "goal": [],
+    "constraint": ["non toxic", "bpa free", "washable", "durable", "age appropriate", "lead free", "phthalate free"]
+  },
+  "Grocery_Gourmet": {
+    "use_case": ["breakfast", "snack", "baking", "cooking", "gifting", "holiday", "party", "everyday", "on the go", "meal prep"],
+    "audience": ["family", "kids", "adults", "vegan", "vegetarian", "gluten free", "keto", "foodies"],
+    "goal": [],
+    "constraint": ["organic", "non gmo", "gluten free", "sugar free", "kosher", "halal", "preservative free", "shelf stable"]
+  },
+  "Pet_Supplies": {
+    "use_case": ["indoor", "outdoor", "training", "travel", "walking", "feeding", "grooming", "playtime", "crate", "vet visits"],
+    "audience": ["dogs", "cats", "puppies", "kittens", "small animals", "birds", "fish", "pet owners"],
+    "goal": [],
+    "constraint": ["machine washable", "waterproof", "leakproof", "chew resistant", "non toxic", "odor free", "durable", "portable"]
+  },
+  "Baby": {
+    "use_case": ["feeding", "bedtime", "bath time", "travel", "playtime", "nursery", "stroller", "daycare", "diaper change", "on the go"],
+    "audience": ["newborn", "infant", "toddler", "baby", "parents", "moms", "dads", "caregivers"],
+    "goal": [],
+    "constraint": ["bpa free", "phthalate free", "non toxic", "machine washable", "hypoallergenic", "lead free", "food grade", "waterproof"]
+  }
+}

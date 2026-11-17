@@ -1,0 +1,14 @@
+{
+  "Electronics": {"title_max_strict": 75, "attr_file": "electronics.json"},
+  "Apparel": {"title_max_strict": 75, "attr_file": "apparel.json"},
+  "Home_Kitchen": {"title_max_strict": 75, "attr_file": "home_kitchen.json"},
+  "Beauty_Personal_Care": {"title_max_strict": 75, "attr_file": "beauty.json"},
+  "Tools_Home_Improvement": {"title_max_strict": 75, "attr_file": "tools.json"},
+  "Sports_Outdoors": {"title_max_strict": 75, "attr_file": "sports.json"},
+  "Toys_Games": {"title_max_strict": 75, "attr_file": "toys.json"},
+  "Grocery_Gourmet": {"title_max_strict": 75, "attr_file": "grocery.json"},
+  "Pet_Supplies": {"title_max_strict": 75, "attr_file": "pet.json"},
+  "Baby": {"title_max_strict": 75, "attr_file": "baby.json"},
+  "Media": {"exempt_75_rule": true, "title_max": 200},
+  "_default": {"title_max_strict": 75}
+}

@@ -1,0 +1,151 @@
+{
+  "skill_name": "amazon-listing-doctor",
+  "version": "0.4.2",
+  "notes": "验收基线：每个 eval 的 listing.json 喂给 scripts/compliance_report.py，须 overall_compliant=true 且 CDQ>=Good；反例须被脚本抓到对应 FAIL。",
+  "evals": [
+    {
+      "id": 1,
+      "name": "3c-earbuds-create",
+      "mode": "strict_75",
+      "prompt": "我要在亚马逊美国站上架一款蓝牙降噪耳机。品牌 Anker，产品类型无线降噪耳机，核心卖点：主动降噪 45dB、蓝牙 5.3、50 小时续航、IPX5 防水、佩戴舒适。有 6 张主图，没有 A+ 内容。帮我生成完整 listing（标题、商品亮点、五点、描述、backend search terms），并给出 CDQ 评分和合规体检。",
+      "expected_output": "标题 ≤75 字符且核心词前置；商品亮点 ≤125 字符含场景词；五点 5 条覆盖五问；backend ≤250 字节不重复标题五点；compliance_report overall_compliant=true；CDQ≥Good（属性 10/10、图片 6 张拉满）；Alexa 可发现性含 men/women/commute/workout 等词。",
+      "assertions": [
+        {"name": "title_le_75", "check": "标题字符数 ≤ 75"},
+        {"name": "title_compliant", "check": "lint_title overall compliant=true"},
+        {"name": "backend_distinct", "check": "backend 不重复标题与五点的词"},
+        {"name": "cdq_good_or_above", "check": "CDQ total ≥ 70 且 grade ∈ {Good,Great,Optimized}"},
+        {"name": "indexability_pass", "check": "收录健康度 ≥ 80"}
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "apparel-tshirt-create",
+      "mode": "strict_75",
+      "prompt": "帮我的服装品牌 Levi's 生成一款男款纯棉 T 恤的亚马逊 listing。产品：Levi's Men's Crew Neck Cotton T-Shirt，有黑/白/灰三色，S-XXL 尺码，纯棉透气，适合日常通勤和运动。美国站，英文。要父标题和子标题策略。",
+      "expected_output": "父标题不含颜色/尺码（如 Levi's Men's Crew Neck Cotton T-Shirt），子标题模板含颜色和尺码；标题 ≤75；五点含材质/尺码适配/场景/限制；CDQ 属性项填满 apparel 的 top10（color/size/material/fit_type 等）；variation_strategy 正确。",
+      "assertions": [
+        {"name": "parent_no_attrs", "check": "父标题不含 color/size 等变体属性"},
+        {"name": "child_template_has_attrs", "check": "子标题模板含 {Color}/{Size} 占位"},
+        {"name": "title_le_75", "check": "标题 ≤ 75 字符"},
+        {"name": "cdq_good_or_above", "check": "CDQ ≥ Good"}
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "optimize-old-listing",
+      "mode": "strict_75",
+      "prompt": "我有个老 listing 标题担心 7-27 新规被改写，帮我审计并优化。老标题：'Wireless Earbuds Bluetooth Headphones, Noise Cancelling True Wireless Earphones in-Ear Bluetooth 5.3 Sport Headphones with Mic for iPhone Android, 40H Playtime, Free Shipping, Best Seller, Black'。产品同上款 Anker 降噪耳机。",
+      "expected_output": "脚本必须先抓出老标题的违规：标题超长、Bluetooth/Wireless/Headphones 重复 >2、含 free shipping/best seller 促销词；然后输出一个 ≤75 字符、合规、CDQ≥Good 的新标题，并说明改动点。",
+      "assertions": [
+        {"name": "old_title_violations_detected", "check": "对老标题跑 lint_title，至少抓到 char_limit/repeated_word/promo_word 三类 FAIL"},
+        {"name": "new_title_compliant", "check": "优化后标题 compliant=true 且 ≤75 字符"},
+        {"name": "no_repeated_words", "check": "优化后标题无词重复 >2 次"},
+        {"name": "no_promo_words", "check": "优化后标题无促销词"}
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "minimal-input-graceful-degrade",
+      "mode": "strict_75",
+      "prompt": "我只贴了 listing 的标题和品牌，缺图、缺后台搜索词、缺属性、缺亮点。skill 应当给出合规体检 + 部分评分（COSMO/Alexa/CDQ 子分/CDQ 总分标记降级），不报错，并明确告诉我补哪些字段能解锁剩余维度。",
+      "expected_output": "compliance_report summary 含 'data N% (minimal|partial)'；COSMO/Alexa 的 score=null + reason；CDQ components 中 structured_attribute/image/bullet_point 至少有一项 score=null；action_items 头部出现降级说明；data_coverage.unlock_dimensions 非空。",
+      "assertions": [
+        {"name": "no_crash_on_minimal", "check": "compliance_report 退出码 0/1 之一，不抛异常"},
+        {"name": "data_coverage_present", "check": "compliance_report.data_coverage.overall ∈ {minimal,partial}"},
+        {"name": "cosmo_degraded", "check": "cosmo_report.score=null 或 input_available=false"},
+        {"name": "alexa_degraded", "check": "alexa_discoverability.score=null 或 input_available=false"},
+        {"name": "cdq_components_marked", "check": "cdq_score.components 中至少 1 个子项 available=false"},
+        {"name": "unlock_dimensions_listed", "check": "data_coverage.unlock_dimensions 非空列表"},
+        {"name": "degraded_action_in_list", "check": "action_items 头部含 source∈{cdq,alexa,cosmo} 的降级说明"}
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "german-listing-casing-false-positive-fix",
+      "mode": "strict_75",
+      "prompt": "德语站 listing，标题含 DJI（用户未填 brand 字段）和德语五点高频 mit/für/aus 介词。修过之前会被误判大小写违规 + 关键词堆砌。",
+      "expected_output": "lint_title casing PASS（DJI 走白名单不报违规）；lint_bullets 每条 bullet 的 keyword_stuffing=PASS；标题字符数合规。",
+      "assertions": [
+        {"name": "dji_casing_pass", "check": "对标题含 DJI 的德语 listing，lint_title.checks.casing.status=PASS"},
+        {"name": "de_prepositions_not_stuffed", "check": "对五点含 mit/für/aus 高频的德语 bullets，lint_bullets 各条 keyword_stuffing.status=PASS"},
+        {"name": "language_param_honored", "check": "language='de' 时 promo/subjective 走 de 黑名单兜底（即使 de 词表为空，promo 仍按 language 取词）"}
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "german-promo-blacklist-active",
+      "mode": "strict_75",
+      "prompt": "德语站 listing 标题里写 'kostenloser versand'（免运费），属于违规促销词必须被抓到。",
+      "expected_output": "lint_title.checks.promo_word.status=FAIL，details=['kostenloser versand']；fix_suggestions 含删除促销词建议。",
+      "assertions": [
+        {"name": "de_promo_caught", "check": "标题含 'kostenloser versand' 时 lint_title.checks.promo_word.status=FAIL"},
+        {"name": "de_promo_in_details", "check": "'kostenloser versand' 出现在 promo_word.details 列表"},
+        {"name": "fix_suggestion_emitted", "check": "fix_suggestions 至少含 1 条删除促销/营销词的建议"}
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "sellersprite-fetch-mock",
+      "mode": "strict_75",
+      "prompt": "用户输入 B0 开头的 ASIN + 站点，skill 调 SellerSprite MCP（sellersprite_fetch.py）拉取详情页数据，自动填充前台字段（title/brand/features/bullets/zoomImageUrl/images/description/has_a_plus/category），后台字段（item_highlights/backend_search_terms/attributes）保留为空 + meta.unfetched_backend 明确列出。",
+      "expected_output": "fetch() 返回 dict 含 market/language/category/brand/title/bullets/images/has_a_plus 已填；item_highlights/backend_search_terms/attributes_filled 等为空；meta.source='sellersprite' + meta.unfetched_backend 非空。无 secret-key 时返回 error 字段而非崩溃。",
+      "assertions": [
+        {"name": "fetch_returns_listing", "check": "sellersprite_fetch.fetch(market, asin, secret_key=None) 缺 key 时返回 {'error': ...}；有 key 时返回含 title/brand/bullets/images 的 listing"},
+        {"name": "backend_unfetched_listed", "check": "返回结果 meta.unfetched_backend 包含 item_highlights + backend_search_terms + attributes_filled"},
+        {"name": "front_field_filled_when_available", "check": "成功返回时 title/brand/bullets/images 不为空"},
+        {"name": "fetch_exit_codes", "check": "CLI 模式：缺 key 退出码 1；JSON 解析失败 退出码 1；正常 退出码 0"}
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "aeo-mode-buyer-question-coverage",
+      "mode": "strict_75",
+      "prompt": "用户贴了带 _alexa_aeo_result 字段的 listing（Agent 已按规范针对该产品生成 buyer_questions，并做了 covered/partial/missing 三态判断）。验证 ALEXA AEO 模式正确算 buyer_alignment 分、输出 buyer_questions（报告可见）/ product / top_missing_questions，并与 COSMO 概念覆盖本质差异化。",
+      "expected_output": "alexa_discoverability._extraction_method=aeo_agent；score=round((covered×1.0+partial×0.5)/total×100)；buyer_alignment 三态 + buyer_questions 列表（Agent 针对该产品生成）+ product；top_missing_questions 是 missing 前 5 个；action_items 里 alexa 来源是'补买家问题回答'。",
+      "assertions": [
+        {"name": "aeo_method", "check": "alexa_discoverability._extraction_method=aeo_agent"},
+        {"name": "aeo_score_formula", "check": "score = round((covered_count*1.0 + partial_count*0.5)/total_questions*100)"},
+        {"name": "buyer_alignment_three_buckets", "check": "buyer_alignment 含 covered/partial/missing 三个 key"},
+        {"name": "buyer_questions_shown", "check": "AEO 输出含 buyer_questions 列表（Agent 针对该具体产品生成，报告可见）+ product（产品理解）"},
+        {"name": "top_missing_emitted", "check": "top_missing_questions 是 missing 列表的前 5 个"},
+        {"name": "differentiated_from_cosmo", "check": "同一 listing COSMO 报概念覆盖（covered_concepts/missing_concepts）、ALEXA 报问题回答（buyer_alignment/buyer_questions），两者字段结构不重叠"}
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "alexa-substring-fallback",
+      "mode": "strict_75",
+      "prompt": "用户贴了 Electronics listing 但没有 _alexa_aeo_result 字段（未跑 Agent AEO 提取）。验证 ALEXA 自动回退 substring 词匹配，输出 scene_coverage/audience_coverage/limit_coverage 向后兼容字段，零依赖可用。",
+      "expected_output": "alexa_discoverability._extraction_method=substring；score 按 scene/audience/limitation 达标线加权；输出 scene_coverage/audience_coverage/limit_coverage/missing_* 字段；无 buyer_alignment。",
+      "assertions": [
+        {"name": "substring_method", "check": "无 _alexa_aeo_result 时 _extraction_method=substring"},
+        {"name": "legacy_fields_present", "check": "输出含 scene_coverage/audience_coverage/limit_coverage/missing_scene 字段"},
+        {"name": "category_lexicon_hit", "check": "Electronics listing 命中类目分词（noise cancelling/wireless 等），lexicon_source=Electronics"},
+        {"name": "no_buyer_alignment", "check": "substring 模式不输出 buyer_alignment 字段"}
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "name": "cosmo-absorbed-lexicon-no-regression",
+      "mode": "strict_75",
+      "prompt": "COSMO 吸收 ALEXA 10 类目词库后，验证 substring fallback 模式下 Electronics 类目命中 use_case/constraint（类目词+_common 合并去重），goal 维度未被破坏（_common.goal 兜底），score 不下降。",
+      "expected_output": "cosmo_report._extraction_method=substring；Electronics use_case 命中含类目词（commute/gaming/travel）+_common 词（running/workout）；constraint 命中类目词（noise cancelling/long battery/wireless）；ontology_source=Electronics；goal 维度 total>0（_common.goal 兜底未破坏）。",
+      "assertions": [
+        {"name": "category_words_merged", "check": "Electronics substring 模式 use_case+constraint 命中含类目分词"},
+        {"name": "goal_dim_intact", "check": "goal 维度 per_dimension.total > 0（_common.goal 兜底未破坏）"},
+        {"name": "no_score_regression", "check": "吸收词库后 cosmo score 不下降（达标线公式，命中数持平或上升）"},
+        {"name": "deduped", "check": "合并后各类目 use_case 列表无重复词"}
+      ],
+      "files": []
+    }
+  ]
+}

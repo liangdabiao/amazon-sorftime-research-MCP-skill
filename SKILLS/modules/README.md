@@ -16,10 +16,20 @@ _common           跨模块共用：输出规范、口径声明
 脚本不放在各模块里，统一在 `skills/scripts/`（全库共用一份）：
 
 ```
-scripts/config.yaml   所有阈值、权重、词表——唯一真相源
-scripts/merge.py      合并 → 打分 → 分层 → 优先级 → 四象限
-scripts/check.py      交付前自检，不过就不许交（7 项，退出码非 0 即失败）
+scripts/config.yaml            10-keyword 的阈值、权重、词表——唯一真相源
+scripts/merge.py               合并 → 打分 → 分层 → 优先级 → 四象限
+scripts/check.py               关键词交付自检（7 项）
+scripts/sp_config.yaml         40-selling-point 的阈值、卖点定义、等级规则
+scripts/build_selling_points.py 卖点库 → 七张表 + xlsx
+scripts/check_sp.py            卖点库交付自检（7 项）
+scripts/fact_schema.yaml       00-input 事实卡字段定义与必填分级
+scripts/check_facts.py         事实卡自检（C1-C8）
+scripts/copy_config.yaml       50-copy 的字段边界、词表、判定阈值
+scripts/build_copy.py          正文 → CP-02 / 粘贴稿 / CP-05 / CP-06 / 文案.xlsx / _summary.json
+scripts/check_copy.py          文案交付自检（15 项，C0-C12）
 ```
+
+一个模块一套 `配置 + build + check`，三个模块同一套结构：阈值全在配置里，`build` 出表，`check` 定生死，退出码非 0 不许交。
 
 **为什么脚本要单独一层**：同一套打分逻辑会被多个模块调用，散在各模块里迟早出现"两份不一样的实现"。更关键的是——词表和阈值必须待在一个运营能改的文件里，而不是藏在代码中间。历史教训：早期四份脚本并存（`score.py` → `score_v2` → `score_v3` → `build_library.py`），阈值散落，最后谁也不知道该跑哪个，而且词库和五路产出根本没接上。
 
@@ -78,5 +88,5 @@ scripts/check.py      交付前自检，不过就不许交（7 项，退出码�
 | `20-competitor` | ⬜ 骨架 |
 | `30-insight` | ⬜ 骨架 |
 | `40-selling-point` | ✅ v1，可运行（`scripts/build_selling_points.py` + `check_sp.py`，7 项自检全过；图片维度待图包） |
-| `50-copy` | ⬜ 骨架（排序规则草稿在 `vendor/amazon-listing-builder/reference/ranking-rules.md`） |
+| `50-copy` | ✅ v2，可运行（`SKILL.md` + 8 份 references + `copy_config.yaml` + `build_copy.py` + `check_copy.py` 15 项自检）；sponge-holder 成稿已出，四字段全绿 |
 | `90-main-image` | ⬜ 骨架 |

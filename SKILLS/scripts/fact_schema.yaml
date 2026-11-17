@@ -1,0 +1,543 @@
+# 50-copy 前置 · 事实卡配置
+# 唯一真相源：字段定义、必填项、22 条卖点的依赖字段与判定规则、D 分档、自检项。
+# 改这里，不要改 check_facts.py 里的常量。
+#
+# 配套输入：调研/sponge-holder/00-事实卡.json（由 00-事实卡输入卡.html 导出）
+# 表单与本文必须同步：字段 path 一一对应，required 一一对应。
+
+version: 1
+
+meta:
+  module: 50-copy/fact-card
+  category: sponge-holder
+  marketplace: US
+  owner_brand: nieifi
+  fact_card: 调研/sponge-holder/00-事实卡.json
+  library_v1: 调研/sponge-holder/selling-point/SP-01-卖点库.csv
+  sp_config: skills/scripts/sp_config.yaml
+
+outputs:
+  judge: 调研/sponge-holder/selling-point/SP-08-事实核对.csv
+  library_v2: 调研/sponge-holder/selling-point/SP-01-卖点库_v2.csv
+  selfcheck: 调研/sponge-holder/selling-point/09-事实核对自检.txt
+
+# ---------------------------------------------------------------- 证据等级
+# 用户只有「领星数据 + 口头信息」，故不设 measured / documented 两级。
+sources:
+  allowed: [lingxing, verbal]
+  default: verbal
+
+# ---------------------------------------------------------------- 中文取值 → 英文措辞
+# 事实卡是中文填的，claim 是英文写的。没有这张表，claim 里会直接出现「透明 finish」
+# 这种中英混排。查不到的取值原样输出，不会报错（所以要靠 C8 兜底扫描）。
+enums:
+  # 材质 / 表面
+  PC: PC
+  PP: PP
+  ABS: ABS
+  TPE: TPE
+  硅胶: silicone
+  亚克力胶: acrylic adhesive
+  透明: clear
+  白色: white
+  黑色: black
+  本色无处理: uncoated
+  抛光: polished
+  磨砂: matte
+  # 贴合面
+  玻璃: glass
+  不锈钢: stainless steel
+  瓷砖: tile
+  釉面陶瓷: glazed ceramic
+  金属: metal
+  石英石: quartz
+  木质: wood
+  磨砂面: frosted surfaces
+  纹理面: textured surfaces
+  大理石: marble
+  # 结构
+  方形: square
+  笑脸: smiley
+  圆角: rounded edges
+  有毛刺: burrs
+  底部沥水孔: drain holes in the base
+  海绵位: sponge slot
+  刷位: brush slot
+  皂位: soap slot
+  # 位置 / 场景
+  水槽内壁: inside the sink
+  台面后墙: backsplash
+  厨房水槽: kitchen sink
+  浴室: bathroom
+  房车: RV
+  洗衣房: laundry room
+  # 信任
+  12 个月: 12 months
+  24 个月: 24 months
+
+# ---------------------------------------------------------------- 必填项（两级）
+# 设计原则（2026-11-17 用户裁决）：
+#   事实卡是用来【推动】项目的，不是用来【卡】项目的。
+#   hard：文案骨架必需，缺了整篇写不成 → FAIL
+#   soft：有用但不致命，缺了只是某个卖点不能写 → WARN，不拦路
+#
+# 分界依据：缺了它是否导致「整篇无法下笔」。
+#   长宽高缺 → 标题规格槽空、SP23 锁，但更重要的是买家看不到尺寸会退货 → hard
+#   贴装凸出缺 → 只是「省台面空间」这一句不能量化，换个写法就行 → soft
+#   吸盘材质缺 → 就写 "suction cup"，不写 "silicone suction cup" → soft
+#   卡扣材质缺 → SP07 那个卖点不能写，不影响其他四点 → 本就不在必填，靠卖点层锁
+required_hard:
+  - {path: meta.brand,                    label: 品牌,             missing_effect: 标题品牌位无法写}
+  - {path: meta.positioning,              label: 一句话定位,        missing_effect: 整库 R1 相关性无法判，直接停}
+  - {path: install.methods,               label: 安装方式,          missing_effect: SP03 / SP04 / SP21 全锁}
+  - {path: install.positions,             label: 可装位置,          missing_effect: SP21 作废}
+  - {path: dims.outer_in.l,               label: 整体长,            missing_effect: SP23 锁、适配类句子无据、退货风险（尺寸不进标题：规格槽指变体规格，非尺寸）}
+  - {path: dims.outer_in.w,               label: 整体宽,            missing_effect: 同上}
+  - {path: dims.outer_in.h,               label: 整体高,            missing_effect: 同上}
+  - {path: load.tested,                   label: 是否有实测承重,    missing_effect: 承重口径无法定，全篇禁写 lbs}
+  - {path: material.body,                 label: 主体材质,          missing_effect: 第 5 点材质段无法写}
+  - {path: surfaces.ok,                   label: 适用面,            missing_effect: SP05 锁}
+  - {path: surfaces.not_ok,               label: 禁用面,            missing_effect: 退货预防文案无法写}
+  - {path: structure.open_frame,          label: 是否镂空,          missing_effect: SP17 锁}
+  - {path: structure.zones,               label: 分区数,            missing_effect: SP13 锁}
+  - {path: limits.top_complaint_risk,     label: 最可能被差评的点,  missing_effect: 五点第 2 位无语料}
+
+# 软必填：空了只 WARN。拿不到就别硬凑，文案里绕开即可。
+required_soft:
+  - {path: dims.protrusion_in,            label: 贴装后凸出,        missing_effect: SP15「省台面空间」不能量化，改定性写}
+  - {path: material.suction.material,     label: 吸盘材质,          missing_effect: 只写 suction cup，不写材质}
+  - {path: material.suction.qty,          label: 吸盘数量,          missing_effect: 不能写 dual / two cups}
+  - {path: structure.shape,               label: 造型,              missing_effect: SP19 锁，不能提 smiley}
+  - {path: package.spare_suction,         label: 备用吸盘数量,      missing_effect: SP22 已 DEPRECATE，无影响}
+
+# ---------------------------------------------------------------- D 分档
+# 冲突 6 裁决：全项目统一 vendor 四档。按 min 降序匹配，命中即取。
+# cov == 0 → 1.00；0 < cov < 0.30 → 0.70；0.30 ≤ cov < 0.60 → 0.40；cov ≥ 0.60 → 0.10
+d_tiers:
+  - {min: 0.60, d: 0.10, note: 人手一份，等于没有}
+  - {min: 0.30, d: 0.40, note: 3-6 成竞品在写}
+  - {min: 0.0001, d: 0.70, note: 不到 3 成，算真差异}
+  - {min: 0.00, d: 1.00, note: 只有本品有}
+
+# ---------------------------------------------------------------- 等级重算
+# BLOCKED / CONFLICT / DEPRECATE 一律降 D：事实不支持，写了就是虚标。
+# REWRITE 说明主张要改，原 A 级主攻资格作废，降到 C 待复核。
+grade_rules:
+  hard_drop: [BLOCKED, CONFLICT, DEPRECATE]
+  downgrade:
+    REWRITE: C
+
+# ---------------------------------------------------------------- 卖点判定规则
+# cases 自上而下匹配，第一条 where 为真的胜出；最后一条兜底必须为 "True"。
+# vars 里可用：任意 facts 字段（点路径）、以及脚本计算的 *_join 与派生量。
+# claims 按最终 status 取模板，{var} 用 vars 替换，取不到就保留 "—"。
+sp_rules:
+
+  - id: SP01
+    name: 强吸附不滑落
+    v1_claim: "Holds tight, no slipping"
+    deps: [material.suction.qty, material.suction.material, material.suction.dia_in]
+    vars:
+      suction_qty: material.suction.qty
+      suction_mat: material.suction.material
+      suction_dia: material.suction.dia_in
+    cases:
+      - {status: BLOCKED,   where: "suction_qty is None", reason: "缺吸盘数量"}
+      - {status: DOWNGRADE, where: "suction_dia is None", reason: "有吸盘但缺直径，不能写吸附力，只能写 dual suction cup"}
+      - {status: CONFIRMED, where: "True",                reason: "{suction_qty} 个 {suction_mat} 吸盘，Ø{suction_dia} in"}
+    claims:
+      CONFIRMED: "Dual suction cups grip smooth sink walls"
+      DOWNGRADE: "Dual suction cup mounting"
+      BLOCKED: "—"
+
+  - id: SP02
+    name: 长期稳固不衰减
+    v1_claim: "Still holding after months"
+    deps: [trust.warranty]
+    vars:
+      warranty: trust.warranty
+    cases:
+      - {status: DOWNGRADE, where: "warranty", reason: "无老化测试数据，只能改写成保修背书，不能写 after months"}
+      - {status: BLOCKED,   where: "True",     reason: "无长期测试也无保修口径"}
+    claims:
+      DOWNGRADE: "Covered by {warranty} warranty"
+      BLOCKED: "—"
+
+  - id: SP03
+    name: 吸盘+胶条双安装
+    v1_claim: "Two ways to mount"
+    deps: [install.methods, material.adhesive.material]
+    vars:
+      has_absorb: "'吸盘' in (install.methods or [])"
+      has_adhesive: "'背胶 / 胶条' in (install.methods or [])"
+      # material.adhesive 在“没有背胶”时是 null，必须短路，否则属性访问会炸
+      adh_mat: "material.adhesive.material if material.adhesive else None"
+    cases:
+      - {status: BLOCKED,   where: "not (install.methods or [])",     reason: "安装方式未填"}
+      - {status: CONFIRMED, where: "has_absorb and has_adhesive",     reason: "吸盘 + 背胶都在"}
+      - {status: REWRITE,   where: "has_adhesive and not has_absorb", reason: "只有背胶没有吸盘，双安装不成立"}
+      - {status: CONFLICT,  where: "True",                            reason: "没有背胶，双安装不存在 —— 原 A 级卖点归零"}
+    claims:
+      CONFIRMED: "Suction cup or adhesive strip"
+      REWRITE: "Peel-and-stick adhesive mounting"
+      CONFLICT: "—"
+      BLOCKED: "—"
+
+  - id: SP04
+    name: 免打孔免工具
+    v1_claim: "No drilling, no tools"
+    deps: [install.tools_required]
+    vars:
+      tools_required: install.tools_required
+    cases:
+      - {status: CONFIRMED, where: "tools_required is False", reason: "不需要工具"}
+      - {status: CONFLICT,  where: "tools_required is True",  reason: "需要工具，免工具不成立"}
+      - {status: BLOCKED,   where: "True",                    reason: "是否需工具未填"}
+    claims:
+      CONFIRMED: "No drilling, no tools"
+      CONFLICT: "—"
+      BLOCKED: "—"
+
+  - id: SP05
+    name: 光滑面基材适配
+    v1_claim: "Works on tile, glass, steel"
+    deps: [surfaces.ok, surfaces.not_ok]
+    vars:
+      surfaces_ok: surfaces.ok
+      surfaces_not: surfaces.not_ok
+    cases:
+      - {status: BLOCKED,   where: "not surfaces_ok or not surfaces_not", reason: "适用面 / 禁用面没填全"}
+      - {status: CONFIRMED, where: "True", reason: "{surfaces_ok_join} 可用"}
+    claims:
+      CONFIRMED: "Holds on {surfaces_ok_join}"
+      BLOCKED: "—"
+
+  - id: SP06
+    name: 承重强
+    v1_claim: "Holds up to 11 lbs"
+    deps: [load.tested, load.lbs, load.test_condition]
+    vars:
+      tested: load.tested
+      load_lbs: load.lbs
+      test_condition: load.test_condition
+    cases:
+      - {status: CONFIRMED, where: "tested is True and load_lbs is not None", reason: "实测 {load_lbs} lbs"}
+      - {status: BLOCKED,   where: "tested is True",                          reason: "标了有实测但没填数值"}
+      - {status: DOWNGRADE, where: "tested is False",                         reason: "无实测 → 禁写任何 lbs，不单独成点，降级为结构描述"}
+      - {status: BLOCKED,   where: "True",                                    reason: "是否实测未填"}
+    claims:
+      CONFIRMED: "Rated up to {load_lbs} lbs"
+      DOWNGRADE: "—"
+      BLOCKED: "—"
+
+  - id: SP07
+    name: 结构与连接件耐用
+    v1_claim: "Reinforced frame, no snap"
+    deps: [material.clip.material, material.clip.metal_reinforced]
+    vars:
+      clip_mat: material.clip.material
+      clip_reinforced: material.clip.metal_reinforced
+    cases:
+      - {status: BLOCKED,   where: "not clip_mat",                    reason: "卡扣材质未填"}
+      - {status: CONFIRMED, where: "clip_reinforced is True",         reason: "{clip_mat} + 增强结构"}
+      - {status: REWRITE,   where: "True",                            reason: "无增强结构，禁喊 reinforced —— 原 A 级降 C"}
+    claims:
+      CONFIRMED: "Reinforced clips, no snap"
+      REWRITE: "Snap-fit clips seat fully before loading"
+      BLOCKED: "—"
+
+  - id: SP08
+    name: 安全做工无利边
+    v1_claim: "Rounded edges, safe to handle"
+    deps: [structure.edge]
+    vars:
+      edge: structure.edge
+    cases:
+      - {status: CONFLICT,  where: "edge == '有毛刺'", reason: "有毛刺，无利边不成立"}
+      - {status: CONFIRMED, where: "edge",             reason: "{edge}"}
+      - {status: BLOCKED,   where: "True",             reason: "边缘处理未填"}
+    claims:
+      CONFIRMED: "Rounded edges, safe to handle"
+      CONFLICT: "—"
+      BLOCKED: "—"
+
+  - id: SP09
+    name: SUS304 不锈钢材质
+    v1_claim: "SUS 304 stainless steel"
+    deps: [material.stainless.has, material.stainless.grade]
+    vars:
+      ss_has: material.stainless.has
+      ss_grade: material.stainless.grade
+      ss_parts: material.stainless.parts
+    cases:
+      - {status: CONFIRMED, where: "ss_has is True",  reason: "含不锈钢 / 牌号 {ss_grade}"}
+      - {status: DEPRECATE, where: "ss_has is False", reason: "本品无不锈钢，与 v1 备注一致"}
+      - {status: BLOCKED,   where: "True",            reason: "是否含不锈钢未填"}
+    claims:
+      CONFIRMED: "SUS 304 stainless steel"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP10
+    name: 防锈不掉漆
+    v1_claim: "Rustproof coating that lasts"
+    deps: [material.body, material.finish, material.salt_spray_hours]
+    vars:
+      body: material.body
+      finish: material.finish
+      salt_hours: material.salt_spray_hours
+      body_is_plastic: "str(material.body).upper() in ('PC','PP','ABS','PS','PVC','ACRYLIC','亚克力')"
+    cases:
+      - {status: CONFIRMED, where: "salt_hours is not None", reason: "盐雾 {salt_hours} 小时"}
+      # 塑料主体本身不存在锈蚀，原「防锈涂层」主张是竞品金属件的说法，必须换措辞
+      - {status: REWRITE,   where: "body_is_plastic",       reason: "主体是 {body}，没有金属可锈 —— 原「防锈涂层」作废，改为材质不锈"}
+      - {status: DOWNGRADE, where: "finish",               reason: "无盐雾数据，只能写表面处理"}
+      - {status: BLOCKED,   where: "True",                 reason: "主体材质未填"}
+    claims:
+      CONFIRMED: "Salt-spray tested {salt_hours} hours"
+      REWRITE: "{body} body won't rust"
+      DOWNGRADE: "{finish} finish, easy to wipe clean"
+      BLOCKED: "—"
+
+  - id: SP11
+    name: 多工具一体收纳
+    v1_claim: "Sponge, brush and soap in one"
+    deps: [structure.zone_use, structure.zones]
+    vars:
+      zone_use: structure.zone_use
+      zones: structure.zones
+      has_soap: "'皂位' in (structure.zone_use or [])"
+    cases:
+      # 只有海绵位 + 刷位时不能声称 soap —— 皂没地方放
+      - {status: CONFIRMED, where: "zone_use and has_soap",           reason: "{zone_use_join}"}
+      - {status: REWRITE,   where: "zone_use",                        reason: "分区只有 {zone_use_join}，没有皂位，禁写 soap"}
+      - {status: REWRITE,   where: "zones is not None and zones > 0", reason: "有分区但用途没填，要按实际分区改写"}
+      - {status: BLOCKED,   where: "True",                            reason: "分区与用途未填"}
+    claims:
+      CONFIRMED: "Sponge, brush and soap in one"
+      REWRITE: "Sponge and brush in one"
+      BLOCKED: "—"
+
+  - id: SP12
+    name: 大容量放厚海绵
+    v1_claim: "Fits thick Scrub Daddy sponges"
+    deps: [dims.inner_in.w, dims.inner_in.d]
+    vars:
+      inner_w: dims.inner_in.w
+      inner_d: dims.inner_in.d
+    cases:
+      - {status: BLOCKED,   where: "inner_w is None or inner_d is None", reason: "内腔尺寸未填"}
+      - {status: CONFIRMED, where: "inner_w >= 3.2 and inner_d >= 1.5",  reason: "内腔 {inner_w}×{inner_d} in，容得下厚海绵"}
+      - {status: REWRITE,   where: "True",                               reason: "内腔 {inner_w}×{inner_d} in，放不下厚海绵，主张要改"}
+    claims:
+      CONFIRMED: "Fits thick sponges up to {inner_w} in wide"
+      REWRITE: "Fits standard sponges"
+      BLOCKED: "—"
+
+  - id: SP13
+    name: 分区不混放
+    v1_claim: "Divided zones, nothing mixes"
+    deps: [structure.zones]
+    vars:
+      zones: structure.zones
+    cases:
+      - {status: CONFIRMED, where: "zones is not None and zones > 0",  reason: "{zones} 个分区"}
+      - {status: DEPRECATE, where: "zones == 0",                       reason: "0 分区，不存在"}
+      - {status: BLOCKED,   where: "True",                             reason: "分区数未填"}
+    claims:
+      CONFIRMED: "{zones} divided zones, nothing mixes"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP14
+    name: 可取放可移动
+    v1_claim: "Lift out when washing pots"
+    deps: [structure.lift_out]
+    vars:
+      lift_out: structure.lift_out
+    cases:
+      - {status: CONFIRMED, where: "lift_out is True",  reason: "可整体取出"}
+      - {status: DEPRECATE, where: "lift_out is False", reason: "不能取出"}
+      - {status: BLOCKED,   where: "True",              reason: "可否取出未填"}
+    claims:
+      CONFIRMED: "Lifts out when washing pots"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP15
+    name: 离台面省空间
+    v1_claim: "Clears your countertop"
+    deps: [dims.protrusion_in]
+    vars:
+      protrusion_in: dims.protrusion_in
+    cases:
+      - {status: CONFIRMED, where: "protrusion_in is not None", reason: "凸出 {protrusion_in} in"}
+      - {status: BLOCKED,   where: "True",                      reason: "贴装后凸出未填"}
+    claims:
+      CONFIRMED: "Off the counter, {protrusion_in} in deep"
+      BLOCKED: "—"
+
+  - id: SP17
+    name: 镂空快干不易霉
+    v1_claim: "Open frame, dries fast"
+    deps: [structure.open_frame, structure.drain]
+    vars:
+      open_frame: structure.open_frame
+      drain: structure.drain
+    cases:
+      - {status: CONFIRMED, where: "open_frame is True",  reason: "{drain}"}
+      - {status: DEPRECATE, where: "open_frame is False", reason: "非镂空，快干不成立"}
+      - {status: BLOCKED,   where: "True",                reason: "是否镂空未填"}
+    claims:
+      CONFIRMED: "Open frame, dries fast"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP18
+    name: 颜值融入水槽
+    v1_claim: "Sleek finish, matches decor"
+    deps: [material.color, material.finish]
+    vars:
+      color: material.color
+      finish: material.finish
+    cases:
+      - {status: CONFIRMED, where: "color and finish", reason: "{color} / {finish}"}
+      - {status: BLOCKED,   where: "True",             reason: "颜色或表面处理未填"}
+    claims:
+      CONFIRMED: "{color} finish, blends with the sink"
+      BLOCKED: "—"
+
+  - id: SP19
+    name: 笑脸/造型记忆点
+    v1_claim: "Smiley shape, easy to remember"
+    deps: [structure.shape, package.hardware]
+    vars:
+      shape: structure.shape
+      has_smiley_hook: "'笑脸' in (package.hardware or '')"
+    cases:
+      - {status: CONFIRMED, where: "shape == '笑脸'", reason: "笑脸造型"}
+      # 架体是方形但配件里有笑脸挂钩：不能声称「笑脸造型」，只能改成「含笑脸挂钩」
+      - {status: REWRITE,   where: "has_smiley_hook", reason: "架体是「{shape}」，笑脸只在配件上 —— 不能声称整体笑脸"}
+      - {status: DEPRECATE, where: "shape",           reason: "造型是「{shape}」，且无笑脸元素"}
+      - {status: BLOCKED,   where: "True",            reason: "造型未填"}
+    claims:
+      CONFIRMED: "Smiley shape, easy to remember"
+      REWRITE: "Smiley hook included"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP20
+    name: 多场景通用
+    v1_claim: "Kitchen, bathroom, RV"
+    deps: [surfaces.scenes]
+    vars:
+      scenes: surfaces.scenes
+    cases:
+      - {status: CONFIRMED, where: "len(scenes or []) >= 2", reason: "{scenes_join}"}
+      - {status: REWRITE,   where: "len(scenes or []) == 1",  reason: "只勾了 1 个场景，多场景不成立"}
+      - {status: BLOCKED,   where: "True",                    reason: "适用场景未填"}
+    claims:
+      CONFIRMED: "Kitchen, bathroom, RV"
+      REWRITE: "Fits {scenes_join}"
+      BLOCKED: "—"
+
+  - id: SP21
+    name: 水槽内外两用
+    v1_claim: "In-sink or on the wall"
+    deps: [install.positions]
+    vars:
+      positions: install.positions
+      in_sink: "'水槽内壁' in (install.positions or [])"
+      out_sink: "any(p != '水槽内壁' for p in (install.positions or []))"
+    cases:
+      - {status: BLOCKED,   where: "not positions",            reason: "可装位置未填"}
+      - {status: CONFIRMED, where: "in_sink and out_sink",     reason: "{positions_join}"}
+      - {status: REWRITE,   where: "True",                     reason: "只有一个安装位，内外两用不成立"}
+    claims:
+      CONFIRMED: "In-sink or on the wall"
+      REWRITE: "Mounts {positions_join}"
+      BLOCKED: "—"
+
+  - id: SP22
+    name: 性价比与备件
+    v1_claim: "Extra suction cups included"
+    deps: [package.spare_suction, package.spare_adhesive]
+    vars:
+      spare_suction: package.spare_suction
+      spare_adhesive: package.spare_adhesive
+    cases:
+      - {status: BLOCKED,   where: "spare_suction is None and spare_adhesive is None", reason: "备用件数量未填"}
+      - {status: CONFIRMED, where: "(spare_suction or 0) + (spare_adhesive or 0) > 0", reason: "备用吸盘 {spare_suction} / 备用胶条 {spare_adhesive}"}
+      - {status: DEPRECATE, where: "True",                                            reason: "无备用件"}
+    claims:
+      CONFIRMED: "{spare_suction} spare suction cups included"
+      DEPRECATE: "—"
+      BLOCKED: "—"
+
+  - id: SP23
+    name: 尺寸与适配告知
+    v1_claim: "Measure before you buy"
+    deps: [dims.outer_in.l, dims.outer_in.w, dims.outer_in.h]
+    vars:
+      outer_l: dims.outer_in.l
+      outer_w: dims.outer_in.w
+      outer_h: dims.outer_in.h
+    cases:
+      - {status: CONFIRMED, where: "None not in (outer_l, outer_w, outer_h)", reason: "{outer_l}×{outer_w}×{outer_h} in"}
+      - {status: BLOCKED,   where: "True",                                    reason: "整体三围没填全"}
+    claims:
+      CONFIRMED: "{outer_l} x {outer_w} x {outer_h} in, measure before you buy"
+      BLOCKED: "—"
+
+# ---------------------------------------------------------------- 自检
+# 7 项。任一项 FAIL，退出码非 0，不许交付。
+selfcheck:
+  - id: C1
+    name: 必填项齐全
+    type: required_complete
+    message: 19 项必填有任何一项为 null
+  - id: C2
+    name: 无实测不得出现重量数值
+    type: forbidden_when
+    when: "load.tested is not True"
+    pattern: '\b(lbs?|pounds?|kgs?)\b'
+    scope: claim_v2
+    message: 事实卡无实测承重，v2 主张里出现重量单位
+  - id: C3
+    name: 无不锈钢不得出现不锈钢
+    type: forbidden_when
+    when: "material.stainless.has is not True"
+    # 只拦「本品由不锈钢制成」这类材质声明；"holds on stainless steel" 属于适用面，合法
+    pattern: '(SUS\s?304|304\s+stainless|stainless[- ]steel\s+(body|frame|build|construction|steel)|all[- ]stainless|made of stainless|stainless steel sink rack)'
+    scope: claim_v2
+    message: 事实卡无不锈钢部件，v2 主张里声称本品是不锈钢
+  - id: C4
+    name: 非笑脸不得出现 smiley
+    type: forbidden_when
+    when: "structure.shape != '笑脸'"
+    # 只拦「整体造型是笑脸」；配件里确实有笑脸挂钩，允许写 smiley hook
+    pattern: '(smiley[- ]?(shape|design|face|outline|rack|holder|caddy)|smiley[- ]shaped)'
+    scope: claim_v2
+    message: 事实卡架体不是笑脸造型，v2 主张里声称整体是笑脸
+  - id: C5
+    name: 无备用件不得出现 spare
+    type: forbidden_when
+    when: "(package.spare_suction or 0) + (package.spare_adhesive or 0) == 0"
+    pattern: '(spare|extra) suction'
+    scope: claim_v2
+    message: 事实卡无备用件，v2 主张里出现 spare / extra suction
+  - id: C6
+    name: 非 CONFIRMED 必须改过措辞
+    type: claim_changed
+    message: fact_status 不是 CONFIRMED，但 claim_v2 与 claim_v1 完全相同
+  - id: C7
+    name: 每条都有事实锚点
+    type: deps_declared
+    message: 有卖点没有声明 deps，无法回溯事实卡字段
+  - id: C8
+    name: 英文主张不得含中文
+    type: forbidden_when
+    when: "True"
+    pattern: '[\u4e00-\u9fa5]'
+    scope: claim_v2
+    message: 事实卡的中文取值没有进 enums 表，claim 里混进了中文

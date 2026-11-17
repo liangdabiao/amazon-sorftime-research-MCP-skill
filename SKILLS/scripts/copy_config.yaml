@@ -1,0 +1,419 @@
+# 50-copy · 文案生成配置
+# 规矩同 sp_config.yaml / fact_schema.yaml：阈值与词表一律在此，check_copy.py 不硬编码任何数字或词。
+# 改阈值只改这里，不要改脚本。
+
+version: 1
+updated: 2026-11-17
+owner: 50-copy
+
+meta:
+  module: 50-copy
+  category: sponge-holder
+  category_name: 吸盘海绵架
+  marketplace: US
+  date: "2026-11-17"
+  owner_brand: nieifi
+  # 写进 文案.xlsx 说明页的口径备注。换类目必须一起改，否则说明页会和数据脱钩。
+  keyword_note: "232 词，全表统一 2026-10 卖家精灵口径"
+  bullet_note: "五点按卖点分 M 降序，2026-11-17 定"
+
+# ---------- 输入（{category} 由命令行 --category 替换） ----------
+inputs:
+  facts:            调研/{category}/00-事实卡.json
+  selected_sp:      调研/{category}/00-选定卖点.json
+  keyword_library:  调研/{category}/keyword_library.csv
+  copy:             调研/{category}/copy/copy.json
+
+# ---------- 输出（文件名带 CP- 前缀，与 10-keyword 的 00~10、40-selling-point 的 SP- 区分） ----------
+outputs:
+  dir:       调研/{category}/copy
+  selfcheck: 08-文案自检.txt
+  coverage:  CP-03-覆盖清单.csv
+  issues:    CP-04-问题清单.csv
+  statement: CP-02-上架稿.csv
+  paste:     上架稿-可直接粘贴.txt
+  sources:   CP-05-口径与来源.csv
+  mult_sku:  CP-06-多SKU汇总.csv
+  xlsx:      文案.xlsx
+  summary:   _summary.json
+  # 体检评分（第三方 amazon-listing-doctor，见 skills/vendor/amazon-listing-doctor/SOURCE.md）
+  score_listing: CP-07a-评分输入.json
+  score_detail:  CP-07-评分明细.csv
+  score_raw:     CP-07b-评分原始.json
+
+# ---------- 体检评分（第三方工具，MIT） ----------
+# 只搬格式、不改规则：score_copy.py 把 copy.json 归一化成 listing.json，
+# 调 vendor 里的 compliance_report.py，输出摊平成 CP-07。工具缺失或报错时评分表标「未执行」，
+# 不影响主流程与 08 自检。
+score:
+  tool: skills/vendor/amazon-listing-doctor/scripts/compliance_report.py
+  ref: https://github.com/buluslan/amazon-listing-doctor
+  version: v0.4.12
+  market: US
+  language: en
+  mode: strict_75
+  # 该工具只认自己的类目词表；Home & Kitchen 对应 references/category_attributes/home_kitchen.json
+  category: Home & Kitchen
+  brand: ""                 # 留空则取 copy.json 的 _meta.brand
+  is_parent: true
+  is_variation: false
+  has_a_plus: false         # A+ 未做，按缺失计 0；做了改成 true
+  attributes_filled: []     # 事实卡没有属性层，留空 → 属性维度降级
+  attributes_top10_expected: []
+
+# ---------- 字段边界 ----------
+# 依据：vendor/amazon-listing-builder/prompts/compliance-check-prompt.md:77-84
+# 五点：官方 G200291790 给 500（注明因类目而异），requirements 页不给数字
+fields:
+  title:
+    max: 75
+    unit: char
+  highlights:
+    max: 125
+    unit: char
+  bullet:
+    target_min: 150       # 目标区间下界
+    target_max: 250       # 目标区间上界
+    recommend_max: 255    # 建议上限，超了 WARN（用户 2026-11-16 定）
+    hard_max: 500         # 官方硬上限，超了 FAIL
+    unit: char
+  description:
+    max: 2000             # 硬上限
+    recommend_max: 1200   # 建议上限
+    unit: char
+  st:
+    max: 250
+    unit: byte            # 字节，非字符
+  bullet_count:
+    min: 5
+    max: 5                # 官方至少 3 条、最多 5 条
+
+# ---------- 结构 ----------
+# 依据：官方 GX5L8BF8GLMML6CX（冒号 + 分号 + 句末不加标点）；描述零 HTML 为亚马逊 2021 起政策
+structure:
+  bullet_requires_colon: true
+  bullet_requires_semicolon: true
+  bullet_forbid_end_punct: true
+  description_allow_html: false
+  highlights_forbid_sentence: true
+
+  # ---- 2026-11-17 补：对齐官方标题指南 GYTR6SYGFA5E3EQC ----
+  # 官方要求：不得全大写、不得含特殊字符、须为名词短语（非完整句子）、
+  #           不得含价格与促销信息、尺寸与颜色不得进标题（除非是变体）
+  title_forbid_all_caps: true
+  title_all_caps_min_len: 4        # 全大写单词长度达此值才判（RV / PC 这类缩写放过）
+  title_forbid_special_chars: ["!", "$", "?", "_", "^", "{", "}", "¬", "¦", "©", "®", "™", "|", "~", "<", ">"]
+  title_forbid_end_punct: true
+  title_measure_warn: true         # 标题出现尺寸/重量数值 → WARN，提示确认是否为变体
+  title_color_warn: true           # 标题出现颜色词 → WARN，非变体不应写
+  title_ascii_only: true           # 标题出现非拉丁字符 → WARN（美国站英文）
+  # ---- 2026-11-17 补：五点同样零 HTML，且不得含促销语 ----
+  bullet_allow_html: false
+  bullet_forbid_promo: true
+
+  # ---- 2026-11-17 补：对齐官方 2025 标题政策与要点 requirements 页 ----
+  title_same_word_max: 2           # 标题内同一单词最多出现的次数（冠词/介词/连词/品牌不计）
+  title_exempt_words:              # 上述限制的豁免词：语法虚词 + 品牌
+    - a
+    - an
+    - the
+    - for
+    - with
+    - and
+    - or
+    - of
+    - in
+    - "on"
+    - to
+  unit_space_required: true        # 数字与单位之间须留空格（8.5 in，不写 8.5in）
+  frontend_forbid_emoji: true      # 全字段禁 emoji（五点 requirements 页明列）
+
+# ---------- 埋词阈值 ----------
+# 用户 2026-11-16 确认的默认值。原则见 modules/50-copy/references/02-埋词原则.md
+embedding:
+  phrase_total_max: 3          # 同一整短语在 全篇（标题+亮点+五点+描述）最多出现次数
+  phrase_max_bullets: 1        # 同一整短语最多出现在几条五点里
+  # 词根分两档（2026-11-17 改）：
+  #   P0 词根 = 品类核心词（sponge / holder / sink / kitchen / caddy），
+  #             一篇讲"水槽海绵架"的文案里 sink 出现 7 次是必然，用 3 次卡它等于每条都 WARN。
+  #   P1 词根 = 长尾修饰词，重复才是堆词，维持 3 次。
+  root_total_max: 3            # P1 词根全篇上限
+  root_max_bullets: 2          # P1 词根跨五点上限
+  root_core_total_max: 8       # P0 词根全篇上限
+  root_core_max_bullets: 4     # P0 词根跨五点上限
+  noun_run_warn: 4             # 连续名词达到 N 个即 WARN（3 个以内正常）
+  sentence_max_words: 20       # 单个子句超过 N 词即 WARN
+  desc_sentence_max_words: 30  # 描述里的单句上限（描述天然比五点长）
+  desc_density_per_100w_max: 3 # 保留字段，C11 已改为只报数，不再据此判 WARN
+  desc_density_min_words: 100  # 描述短于此词数时不评估密度（小样本会让 1 个词算成 4/100）
+
+# ---------- 覆盖判定 ----------
+# 依据：master-prompt.md:122-126（P0 列未覆盖、P1 只列覆盖情况）+ 用户 SOP P7（不追 100%）
+coverage:
+  missing_rule:
+    P0: FAIL            # 必放词未覆盖 = FAIL
+    P1: WARN            # 可放弃，但必须在 copy.json 的 coverage_reasons 里写理由
+    P2: IGNORE
+  ignore_prio: [BRAND, NEG, OBSERVE, NODATA]   # 这些 prio 不参与覆盖检查
+  match: stem           # 词干匹配，允许词序调整与单复数变化（用户 SOP P5）
+
+# ---------- 自动决断（见 references/06-决断规则.md）----------
+# 目的：把小选择变成可计算的判断，不回来问人。只有事实缺失/商业取舍/品牌调性才问。
+decisions:
+  # 一个词位带来的新增搜索量之和（W 加总）达到此值，自动写进去，不问。
+  # 低于此值时，仅当该词同时承担说服或防退价值（作人话）才保留。
+  slot_min_w_gain: 5000
+  # 零覆盖的五点条目：允许留，但必须至少挂一句防退或一个事实规格；两者都无则删。
+  zero_coverage_requires_value: true
+  # 亮点里允许重复标题的词数上限。原设 1，实测会自相矛盾：
+  # "two divided zones keep sponge and brush apart" 里 sponge 与标题重复，但删掉句子就不成立。
+  # 判定用「删除测试」：删掉重复词后句子仍成立 → 是凑索引，删；读不懂/信息缺失 → 表意必需，留。
+  highlight_repeat_max: 2
+  # 亮点第 1 个短语必须是 D 分最高的差异化特性（移动端只露开头一小段）。
+  highlight_first_phrase: differentiation
+  # 亮点短语数（逗号分隔段数）与单段词数。少于 3 段信息不够，多于 5 段读起来像参数表。
+  # 注意：短语内部的列举也会用逗号（fits glass, tile and steel），所以段数按切分数算，区间放宽即可。
+  highlight_phrase_min: 3
+  highlight_phrase_max: 5
+  highlight_phrase_max_words: 8
+  # 第 1 段要能在移动端一次露完，按字符判（用 highlight_mobile_visible_chars，不是按词数）
+  # 移动端亮点约露出多少字符（行业观察，亚马逊未公布确切值，仅用于写作时判断"开头够不够"）
+  highlight_mobile_visible_chars: 40
+  # 五点每条至少含几个事实锚点（数字/材质/结构/边界），0 个即 FAIL
+  bullet_fact_anchor_min: 1
+  # 标题字符上限（官方硬线）。超过即触发「先挪词到亮点，不砍词」。
+  title_char_max: 75
+  # 亮点字符上限。
+  highlight_char_max: 125
+
+# ---------- 禁用表 ----------
+# 真源在此。references/04-禁用表.md 只解释原因与替换写法，不重复维护词表。
+disallowed:
+  # 合规红线，命中即 FAIL。依据：政策边界.md 第一节 + compliance-check-prompt.md:138-152
+  redline:
+    - "100%"
+    - never
+    - always
+    - guaranteed
+    - guarantee
+    - lifetime
+    - forever
+    - cures
+    - treats
+    - heals
+    - eco-friendly
+    - biodegradable
+    - organic
+    - non-toxic
+    - chemical-free
+    - "fda approved"
+    - "best seller"
+    - "#1"
+    - "top rated"
+    - cheapest
+    - "lowest price"
+    - fireproof
+    - waterproof
+    # 抗菌/消毒类：无第三方检测报告不得声称（官方要点 requirements 页明列「未经证实的环保、抗菌宣传」）
+    - antibacterial
+    - antimicrobial
+    - sanitizes
+    - "kills 99"
+    # 无法验证的比较声明（官方要点 requirements 页明列「无法验证的性能、比较、主观宣传性声明」）
+    - "better than"
+    - "more durable than"
+    - "stronger than"
+    - "lasts longer than"
+    - outperforms
+  # 无证据的形容词，命中即 WARN。依据：compliance-check-prompt.md:92-94 + common-mistakes.md:79-85
+  vague:
+    - premium quality
+    - high quality
+    - perfect for any occasion
+    - great gift
+    - easy to use
+    - innovative
+    - multi-functional
+    - "one size fits all"
+  # AI 腔，命中即 FAIL。依据：user SOP P1「自然英语优先」的具体化
+  ai_cliche:
+    - unleash
+    - elevate
+    - seamlessly
+    - seamless
+    - game-changer
+    - game changer
+    - revolutionize
+    - cutting-edge
+    - state-of-the-art
+    - say goodbye to
+    - look no further
+    - the perfect solution
+    - take it to the next level
+    - transform your
+    - upgrade your
+    - hassle-free
+    - effortless
+    - must-have
+    - unrivaled
+    - unparalleled
+    - sleek and modern
+  replacements:
+    "100%": "help / support / designed to"
+    never: "tends to / designed to"
+    always: "designed to"
+    lifetime: "long-term use"
+    guaranteed: "backed by [policy]"
+    "best seller": "popular choice"
+
+  # 促销与卖家信息，命中即 FAIL。依据：官方标题指南 GYTR6SYGFA5E3EQC
+  # 「must not contain promotional phrases / seller information」
+  # 与 redline 不重复（guarantee、best seller、top rated 已在 redline 里）
+  promo:
+    - "free shipping"
+    - "free gift"
+    - "free delivery"
+    - "on sale"
+    - "for sale"
+    - "limited time"
+    - "buy now"
+    - "click here"
+    - "order now"
+    - "money back"
+    - "best price"
+    - "hot deal"
+    - "hot item"
+    - "new arrival"
+    - "bestseller"
+    - "best-selling"
+    - "clearance"
+    - "while supplies last"
+    - "satisfaction guaranteed"
+
+  # 占位内容，命中 FAIL。依据：官方要点 requirements 页明列「NA、TBD 等占位内容」
+  placeholder:
+    - "n/a"
+    - tbd
+    - "to be determined"
+    - "coming soon"
+  # 不必要缩写，命中 WARN。依据：官方要点 requirements 页明列 qty / pkg / w/ / approx.
+  abbrev:
+    - qty
+    - pkg
+    - "w/"
+    - approx.
+    - "incl."
+    - "ea."
+  # 全大写缩写白名单：这些不算「全大写」违规（RV / PC / UV 等是行业通用写法）
+  caps_allow:
+    - RV
+    - PC
+    - UV
+    - BPA
+    - ABS
+
+  # 颜色词，只用于标题判定（非变体不应写进标题）。依据：官方「don't include color unless variation」
+  title_color_words:
+    - black
+    - white
+    - clear
+    - transparent
+    - blue
+    - red
+    - green
+    - yellow
+    - pink
+    - purple
+    - orange
+    - brown
+    - grey
+    - gray
+    - beige
+    - silver
+    - golden
+    - gold
+
+# ---------- 品类级禁写 ----------
+# 由事实卡决定的具体禁写项。命中即 FAIL，理由必须写清，避免下一轮又被写回来。
+categories:
+  sponge-holder:
+    forbidden:
+      - word: soap
+        reason: 事实卡 structure.zone_use 只有海绵位+刷位，无皂位；连带禁 dish soap holder / soap holder kitchen / sink soap holder
+      - word: dishwasher safe
+        reason: 事实卡无耐温与洗碗机测试数据
+      - word: rustproof coating
+        reason: 主体是 PC 塑料，无涂层可掉；原卖点库措辞来自竞品金属件
+
+# ---------- 判定级别 ----------
+# 哪些算 FAIL（不许交）、哪些算 WARN（可交但要解释）。改口径改这里，不改脚本。
+severity:
+  field_limit: FAIL
+  bullet_structure: FAIL
+  redline: FAIL
+  ai_cliche: FAIL
+  category_forbidden: FAIL
+  facts_units: FAIL
+  coverage_p0: FAIL
+  description_html: FAIL
+  vague: WARN
+  phrase_repeat: WARN
+  root_repeat: WARN
+  noun_run: WARN
+  sentence_len: WARN
+  coverage_p1: WARN
+  highlights_overlap: WARN   # 2026-11-17 用户裁决：标题与亮点应尽量不重复，保持 WARN
+  desc_density: INFO         # 作废：C11 已改为只报数，此键不再驱动判定（留档防误用）
+  # 2026-11-17 新增：官方标题/五点边界
+  title_format: FAIL         # 全大写 / 特殊字符 / 句末标点 / 价格符号
+  title_measure: WARN        # 标题含尺寸重量数值
+  title_color: WARN          # 标题含颜色词
+  html_tag: FAIL             # 标题/亮点/五点/描述含 HTML
+  promo: FAIL                # 促销与卖家信息词
+  # 2026-11-17 补：对齐官方 2025 标题政策 + 要点 requirements 页
+  title_word_repeat: FAIL    # 标题内同一单词超 2 次
+  placeholder: FAIL          # N/A、TBD 等占位内容
+  emoji: FAIL                # 全字段含 emoji
+  abbrev: WARN               # qty / pkg / approx. 等不必要缩写
+  unit_space: WARN           # 数字与单位之间缺空格
+
+# ---------- 覆盖检查用的停用词（不算实义词、不参与名词连用判定） ----------
+stopwords:
+  - a
+  - an
+  - the
+  - of
+  - for
+  - with
+  - and
+  - or
+  - in
+  - "on"
+  - at
+  - to
+  - by
+  - from
+  - into
+  - onto
+  - without
+  - than
+  - as
+  - is
+  - are
+  - be
+  - it
+  - its
+  - this
+  - that
+  - your
+  - you
+  - our
+  - we
+  - so
+  - up
+  - out
+  - over
+  - under
+  - all
+  - any
+  - "no"

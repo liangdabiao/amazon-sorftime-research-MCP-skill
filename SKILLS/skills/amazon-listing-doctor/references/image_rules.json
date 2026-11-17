@@ -1,0 +1,9 @@
+{
+  "min_width": 1000,
+  "main_image_background": "white",
+  "aspect_ratio": "1:1",
+  "max_images": 9,
+  "min_images_for_full_score": 4,
+  "watermark_forbidden": true,
+  "defect_types": ["low_resolution", "non_square", "watermark", "main_not_white_bg"]
+}

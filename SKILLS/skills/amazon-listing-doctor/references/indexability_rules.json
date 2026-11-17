@@ -1,0 +1,16 @@
+{
+  "field_weights": {"title": 5, "highlights": 4, "bullets": 4, "backend": 4, "description": 3, "attributes": 3},
+  "core_keyword_within_chars": 50,
+  "title_first_80_chars_weight": "highest",
+  "backend_hygiene_rules": ["space_separated", "no_stopwords", "no_special_chars", "no_dup_with_title_bullets"],
+  "attribute_indexed": true,
+  "index_failure_causes": [
+    "keyword_stuffing",
+    "wrong_category",
+    "backend_stopwords",
+    "dup_front_back",
+    "empty_attributes",
+    "stale_listing"
+  ],
+  "highlights_weight_note": "2026 new field, A9 weight unverified (estimated 4), mark TBD"
+}

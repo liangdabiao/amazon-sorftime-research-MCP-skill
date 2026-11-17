@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "_meta": {
+      "confidence": "low",
+      "granularity": "broad_category",
+      "note": "Public broad-category approximation, not calibrated per sub-category: some attributes may not exist for a specific sub-category, and true facet attributes may be missing. Fallback only - scores using this list are marked as reference values; verify against Seller Central attribute panel or live storefront facet filters."
+    }
+  },
+  "product_types": [
+    "Drill",
+    "Wrench",
+    "Screwdriver Set",
+    "Saw",
+    "Tool Kit"
+  ],
+  "top10_attributes": [
+    "brand",
+    "material",
+    "color",
+    "item_weight",
+    "power_source",
+    "voltage",
+    "blade_length",
+    "grip_type",
+    "item_dimensions",
+    "warranty"
+  ],
+  "band_a_critical_6": [
+    "brand",
+    "material",
+    "color",
+    "item_weight",
+    "power_source",
+    "voltage"
+  ],
+  "title_formula": "[Brand] [Product Type], [Material/Power Source], [Key Spec], [Size/Color]"
+}
