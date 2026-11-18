@@ -179,8 +179,8 @@ python skills/scripts/build_copy.py --category {cat} --sku {sku}   # 写 CP-02 /
 
 ## 已知限制
 
-- ~~事实卡骨架缺三围~~ **已补齐**（2026-11-17，从领星 `products_list` SKU `WP650B-5-V1` 取包装规格 21.60×8.40×8.30 cm → 8.50×3.31×3.27 in）。`check_facts.py` C1 现为 PASS。注意领星**单品尺寸字段是 0.00 未填**，用的是包装外尺寸（略大于裸件，属保守值）。其余拿不到的事实（贴装后凸出、吸盘材质与直径、卡扣材质）为**软必填**：不拦路，只是对应卖点不能写（见 `fact_schema.yaml` 的 `required_soft`）。
-- **无痛点点位**。唯一痛点语料 SP07 被锁在「卡扣材质未填」，第 2 位只能用材质或收纳顶上。
+- **三围缺失，C1 长期 FAIL（2026-11-18 裁定）**。11-17 版曾写「已从领星 `products_list` SKU `WP650B-5-V1` 取包装规格 21.60×8.40×8.30 cm → 8.50×3.31×3.27 in 补齐、C1 PASS」，但用户复核后确认：领星那是**包装**尺寸、单品字段为 0.00，且明确裁定「卖点不需要三维」，故 `调研/sponge-holder/00-事实卡.json` 的 `dims.outer_in` 三项保持 null。后果写死在交付物里：`check_facts.py` C1 报 3 项骨架缺失，SP23 尺寸告知 BLOCKED，标题无规格槽，全篇禁尺寸数值，主图第 5 图位（尺寸图）做不了。要恢复只需填三项后重跑 `check_facts.py`。
+- **SP07 已确认口径（2026-11-18 更新）**。原记载「SP07 被锁在卡扣材质未填」已过时：用户确认本品为**普通塑料卡扣、无金属或纤维增强**，故 SP07 走 REWRITE（`Snap-fit clips seat fully before loading`）、等级 A→C，全库 G 最高（0.467）的主攻卖点不再是可用主张，`reinforced / unbreakable / lifetime` 全禁。第 2 位痛点语料改由 B1 的适用面与禁用面（防退句）承担。
 - **位 3 曾判「零可埋词」，2026-11-17 已推翻**。旧判定用「词库有没有 `divided` 这个词」当标准，问错了问题——该问的是「这条讲的事，买家会用什么词搜」。改为埋 `organizer` 簇后新增覆盖 9 个词，含月搜 92,519 的 `kitchen sink organizer`。判定依据见 `06-决断规则.md` 判定 1。
 - **官方两点位口径不一致**：五点字符上限 500（Feature Bullets 页）vs 不给数字（requirements 页）；数字写法 numerals vs 1-9 英文。本项目按更新更晚的 requirements 页 + 500 硬线执行。
 - **名词连用检测是启发式的**。没有 POS 标注，靠词库 token 构成的词表判断，会漏判或误判，仅作 WARN。
